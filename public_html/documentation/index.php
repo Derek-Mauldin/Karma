@@ -5,6 +5,5 @@
 </head>
 <body>
 	<h1>Executive Summary</h1>
-	<blockquote>"Depolarizing Society"<blockquote>
-		<P>
-</body>
+	<blockquote>"Depolarizing Community"<blockquote>
+		<P>A "pay-it-forward"</p>
