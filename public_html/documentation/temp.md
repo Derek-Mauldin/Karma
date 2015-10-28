@@ -1,8 +1,8 @@
 #Karmify
-Depolarizing Society 
-personal gifts + strangers = karma
+- Depolarizing Society 
+- personal gifts + strangers = karma
 __________________________
-Goals: Simplify and encourage acts of kindness
+- Goals: Simplify and encourage acts of kindness
 
 ____________________
 
@@ -17,12 +17,14 @@ Brandon heard about the Karma website from a fellow University Professor.  He de
 
 ##Use case 1:
 -Accessed karma.com
-
-- Saw listed user profiles and their attributes (giving/in need of).  
+-saw he must join to view profiles
 - Clicked on “join”, and filled out the small form to sign up.  He clicked the check box to receive email notifications from karma.com.   Received confirmation email, clicked on “confirm”, and came back to karma.com
-- Filled out his user profile, listing math tutoring as his offered gift for karma.  He was not their to receive gifts, but filled out the “need” space with “A ride to his eye operation on Monday, December 27th…”.
+-
+ Filled out his user profile, listing math tutoring as his offered gift for karma.  He was not their to receive gifts, but filled out the “need” space with “A ride to his eye operation on Monday, December 27th…”.
 - Input “math” into the  ‘search” bar with the filter “need” and “closest to location” to find people on the site affiliated with math. He figured he could tutor in person.  Though, if no one was close enough, could offer help over the phone or through Skype. 
 - Found mother Rebecca of  14-year-old John struggling with math.  (The word “math” had been tagged on her profile”). 
+- 
+Saw listed user profiles and their attributes (giving/in need of).  
 
 - Clicked on “gift” by her profile
 - Filled out a “gift” note offering a 1-hour-math tutoring lesson and clicked the “Gift $user” button.
@@ -47,19 +49,17 @@ Education: Bachelor’s in English
 Hobby: Crafting
 Heard about karma.com from her grandchild Bob. She has a lot of time on her hands, enjoys crafting, would like more interaction in life.
 
-- Bob helped Pearl create a profile for herself.  They input “clothing alterations jewelry, crafts” for “gift”.  For need , they input “a friend/ a conversation/a moment of your life:”
+- Pearl input “clothing alterations jewelry, crafts” for “gift”.  For need , they input “a friend/ a conversation/a moment of your life:”
 - Pearl got tired and took a nap.  
-- A week later, Bob came to visit and told Pearl that her email box was overflowing with messages of people that liked her profile and wanted to offer her a conversation.  The messages contained the contact information of the hopeful givers.
-- Bob  suggested that she look over their profiles and contact them via Skype (which he would help with).  
-- Pearl didn’t care to look at the profiles and just had Bob write down the phone numbers on tissue she pulled out of her pocket.  
-- Bob hit accept on the offers he approved of (everyone) and arranged times for Pearl to call them.  He told the nursing assistant, who would remind her.  
+- A week later,her email box was overflowing with messages of people that liked her profile and wanted to offer her a conversation.  The messages contained the contact information of the hopeful givers.
+- Pearl looked at the profiles and  wrote down the phone numbers  
+- Pearl hit accept on the offers she approved of (everyone) and arranged times to call them.   
 - She decided to call one every evening before bedtime.  
-- She enjoyed the interaction and decided to keep using karma.com with Bob’s help.
-- Bob sent an email to the people she talked to , thanking them
+- She enjoyed the interaction and decided to keep using karma.com.
+- After the conversations, Pearl sent an email to the people she talked to, thanking them.
 - Bamm!  They were Karma-fied!
 - Some even showed up to Pearl’s next birthday.
 - And Bammm!  Karma-fied  AGAIN!!!
-- Other residents of the retirement home saw what Pearl was up to and started using karma.com as well.  The nursing staff enjoyed and helped.
 - Bammm!  Karma-fied yet AGAIN! 
 - And AGAIN!!
 
