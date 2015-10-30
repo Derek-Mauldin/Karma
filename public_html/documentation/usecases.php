@@ -35,15 +35,13 @@
 					<dd>Story: I would like to issue warnings to members that attempt to abuse the site</dd>
 					<dt>User Story 4</dt>
 					<dd>Role: Average Registered Member</dd>
-					-Story: I would like to interact with like-minded, charitable people easily and quickly.
-
-					#User Story 5
-					-Role:Administrator
-					-Story: I would like to be able to thank prolific givers.
-
-					#User Story 6
-					-Role:Administrator
-					-Story:  I would like to get feedback from members
+					<dd>Story: I would like to interact with like-minded, charitable people easily and quickly.</dd>
+					<dt>User Story 5</dt>
+					<dd>Role:Administrator</dd>
+					<dd>Story: I would like to be able to thank prolific givers.</dd>
+					<dt>User Story 6</dt>
+					<dd>Role:Administrator</dd>
+					<dd>Story:  I would like to get feedback from members</dd>
 			</article>
 		</main>
 
