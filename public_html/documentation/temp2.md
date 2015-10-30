@@ -80,29 +80,25 @@ Background: Attending college in Albuquerque, NM.  New in town. Found out about 
 ##User Stories
 
 #User Story 1
--Role:  Average Registered Member
--Story: As a registered member, I want to volunteer my time and any talents I have to benefit others
-
-#User Story 2
 -Role: Average Registered Member
 -Story: As a member, I would like to find a member that can give me ride to the dentist.
 
-#User Story 3
+#User Story 2
 -Role: Administrator 
 -Story: As an administrator, I would like to deactivate accounts of members with ill-intentions.
 
-#User Story 4
+#User Story 3
 -Role: Administrator
 -Story: I would like to issue warnings to members that attempt to abuse the site 
 
-#User Story 5
+#User Story 4
 -Role: Average Registered Member
 -Story: I would like to interact with like-minded, charitable people easily and quickly.
 
-#User Story 6
+#User Story 5
 -Role:Administrator 
 -Story: I would like to be able to thank prolific givers.
 
-#User Story 7
+#User Story 6
 -Role:Administrator
 -Story:  I would like to get feedback from members
