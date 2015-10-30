@@ -25,28 +25,40 @@
 				<tr>
 					<th>Entity</th>
 					<th>Relationship</th>
-					<th>Key</th>
+					<th>Key Type</th>
+					<th>Key Name</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>Members</td>
 					<td>One-to-many relationship with other members</td>
-					<td>Primary key - memberId</td>
+					<td>Primary</td>
+					<td>memberId</td>
 				</tr>
 				<tr>
 					<td>Administration</td>
 					<td>One-to-many relationship with members<br>
 					    One-to-many relationship with admin</td>
-
-					<td>Primary key - adminId</td>
+					<td>Primary</td>
+					<td>adminId</td>
 				</tr
 				<tr>
 					<td>Messages</td>
 					<td>Many-to-many relationship between members/admins</td>
-					<td>Primary key- messageId<br>
-						Foreign key- memberId<br>
-						Foreign key - adminId</td>
+					<td>Primary</td>
+					<td>messageId</td>
+				<tr>
+					<td>&nbsp</td>
+					<td>&nbsp</td>
+					<td>Foreign</td>
+					<td>memberId</td>
+				</tr>
+				<tr>
+					<td>&nbsp</td>
+					<td>&nbsp</td>
+					<td>Foreign</td>
+					<td>adminId</td>
 				</tr>
 			</tbody>
 		</table>
