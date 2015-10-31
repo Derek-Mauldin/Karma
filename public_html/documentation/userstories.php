@@ -19,32 +19,38 @@
 		</head>
 		<body>
 			<header>
-			<h1>User Stories</h1>
+			<h1>Karma</h1>
 			</header>
 			<main>
 			<article>
+				<p>User Stories</p>
 				<dl>
-					<dt>User Story 1</dt>
+					<dt># 1</dt>
 					<dd>Role: Average Registered Member</dd>
 					<dd>Story: As a member, I would like to find a member that can give me ride to the dentist.</dd>
-					<dt>User Story 2</dt>
+					<dt><br></dt>
+					<dt># 2</dt>
 					<dd>Role: Administrator</dd>
 					<dd>Story: As an administrator, I would like to deactivate accounts of members with ill-intentions.</dd>
-					<dt>User Story 3</dt>
+					<dt><br></dt>
+					<dt># 3</dt>
 					<dd>Role: Administrator</dd>
 					<dd>Story: I would like to issue warnings to members that attempt to abuse the site</dd>
-					<dt>User Story 4</dt>
+					<dt><br></dt>
+					<dt># 4</dt>
 					<dd>Role: Average Registered Member</dd>
 					<dd>Story: I would like to interact with like-minded, charitable people easily and quickly.</dd>
-					<dt>User Story 5</dt>
+					<dt><br></dt>
+					<dt># 5</dt>
 					<dd>Role:Administrator</dd>
 					<dd>Story: I would like to be able to thank prolific givers.</dd>
-					<dt>User Story 6</dt>
+					<dt><br></dt>
+					<dt># 6</dt>
 					<dd>Role:Administrator</dd>
 					<dd>Story:  I would like to get feedback from members</dd>
+				</dl>
 			</article>
 		</main>
-
 	</body>
 </html>
 

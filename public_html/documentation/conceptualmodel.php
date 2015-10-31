@@ -14,51 +14,99 @@
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js"></script>
-		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>k
+		<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 		<title>Conceptual Model </title>
 	</head>
 	<body>
 		<main>
-		<h1>Conceptual Model</h1>
+			<h1>Karma</h1>
 		<table class="table">
+			<caption>Conceptual Model</caption>
 			<thead>
 				<tr>
 					<th>Entity</th>
 					<th>Relationship</th>
+					<th>Description</th>
 					<th>Key Type</th>
 					<th>Key Name</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>Members</td>
-					<td>One-to-many relationship with other members</td>
+					<td>MEMBERS</td>
+					<td>One-to-many</td>
+					<td>One member can contact many members</td>
 					<td>Primary</td>
 					<td>memberId</td>
 				</tr>
 				<tr>
-					<td>Administration</td>
-					<td>One-to-many relationship with members<br>
-					    One-to-many relationship with admin</td>
+					<td>PROFILE</td>
+					<td>One-to-one</td>
+					<td>Each member has one profile.</td>
+					<td>Primary</td>
+					<td>profileId</td>
+				</tr>
+				<tr>
+					<td>ADMINISTRATORS</td>
+					<td>One-to-many</td>
+					<td>One admin can contact many members</td>
 					<td>Primary</td>
 					<td>adminId</td>
 				</tr
 				<tr>
-					<td>Messages</td>
-					<td>Many-to-many relationship between members/admins</td>
+					<td>&nbsp</td>
+					<td>One-to-Many</td>
+					<td>Each admin can contact many admin</td>
+					<td>Foreign</td>
+					<td>messageId</td>
+				</tr>
+				<tr>
+					<td>MESSAGES</td>
+					<td>One-to-many</td>
+					<td>Each member has many messages.</td>
 					<td>Primary</td>
 					<td>messageId</td>
 				<tr>
 					<td>&nbsp</td>
 					<td>&nbsp</td>
+					<td>&nbsp</td>
 					<td>Foreign</td>
 					<td>memberId</td>
 				</tr>
 				<tr>
 					<td>&nbsp</td>
 					<td>&nbsp</td>
+					<td>&nbsp</td>
 					<td>Foreign</td>
 					<td>adminId</td>
+				</tr>
+				<tr>
+					<td>NEED</td>
+					<td>One-to-many</td>
+					<td>One member can have many needs</td>
+					<td>Primary</td>
+					<td>needId</td>
+				</tr>
+				<tr>
+					<td>&nbsp</td>
+					<td>Many-to-many</td>
+					<td>Many members can fulfill many needs</td>
+					<td>Foreign</td>
+					<td>memberId</td>
+				</tr>
+				<tr>
+					<td>KARMA(weak-entity)</td>
+					<td>Many-to-many</td>
+					<td>Many members can fulfill many needs</td>
+					<td>Foreign</td>
+					<td>memberId</td>
+				</tr>
+				<tr>
+					<td>&nbsp</td>
+					<td>&nbsp</td>
+					<td>&nbsp</td>
+					<td>Foreign</td>
+					<td>needId</td>
 				</tr>
 			</tbody>
 		</table>
