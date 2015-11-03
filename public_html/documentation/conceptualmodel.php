@@ -46,13 +46,7 @@
 					<td>Primary</td>
 					<td>profileId</td>
 				</tr>
-				<tr>
-					<td>ADMINISTRATORS</td>
-					<td>One-to-many</td>
-					<td>One admin can contact many members</td>
-					<td>Primary</td>
-					<td>adminId</td>
-				</tr
+
 				<tr>
 					<td>&nbsp</td>
 					<td>One-to-Many</td>
@@ -67,18 +61,18 @@
 					<td>Primary</td>
 					<td>messageId</td>
 				<tr>
-					<td>&nbsp</td>
-					<td>&nbsp</td>
-					<td>&nbsp</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 					<td>Foreign</td>
 					<td>memberId</td>
 				</tr>
 				<tr>
-					<td>&nbsp</td>
-					<td>&nbsp</td>
-					<td>&nbsp</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
 					<td>Foreign</td>
-					<td>adminId</td>
+					<td>memberId</td>
 				</tr>
 				<tr>
 					<td>NEED</td>
