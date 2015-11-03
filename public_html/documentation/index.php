@@ -1,13 +1,10 @@
 <!DOCTYPE html>
-	<html lang="en">
-		<head>
-			<meta charset="UTF-8" />
-			<title>Executive Summary</title>
-		</head>
+<html lang="en">
+<head>
+	<title>Index</title>
+</head>
+<body>
+	<p>Index</p>
+</body>
+</html>
 
-		<body>
-			<h1>Executive Summary</h1>
-			<blockquote>"Depolarizing Society"<blockquote>
-		</body>
-
-	</html>
