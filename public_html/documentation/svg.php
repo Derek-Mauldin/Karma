@@ -4,6 +4,6 @@
 		<title>svg</title>
 	</head>
 	<body>
-		<img src="../img/karma.svg">
+		<img src="../img/karma2.svg">
 	</body>
 </html>
