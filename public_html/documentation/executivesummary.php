@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8" />
-	<meta
+	<metghba
 	<title>Karma</title>
 </head>
 	<body>
