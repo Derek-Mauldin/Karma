@@ -1,17 +1,33 @@
 <!DOCTYPE html>
-	<html lang="en">
+<html lang="en">
+	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="IE=edge"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Acme">
+
+	<style>.adsbygoogle { display: block; margin:auto }</style>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<script src="//malsup.github.io/jquery.cycle2.js"></script>
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+	<script>if (screen.width < 640)  document.write('<style>.adsbygoogle { display: none }</style>');</script>
+
 
 	<!-- Latest compiled and minified CSS -->
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
 
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
 	<!--Link to custom CSS files here-->
-	<link type="text/css" href="/php/css/stylesheet.css" rel="stylesheet"/>
+	<link rel=stylesheet href="../css/demo-slideshow.css">
+	<link type="text/css" href="../css/home.css" rel="stylesheet">
+	<link type="text/css" href="../../php/css/stylesheet.css" rel="stylesheet">
+	<link type="text/css" href="../../php/css/footer.css" rel="stylesheet">
 
 	<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 	<!--WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -32,11 +48,13 @@
 	<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/jquery-validate/1.14.0.additional-methods.min.js"></script>
 
 	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 	<head>
 		<title>Home Page Template</title>
 	</head>
-	<body>
+	<body class="sfooter">
+		<div class="sfooter-content">
+
 		<header>
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
@@ -76,9 +94,56 @@
 							</ul>
 						</li>
 					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
+				</div>
 		</nav>
 		</header>
+			<div class="container" id="sidepanel">
+				<div class="row">
+					<!--side panel here-->
+					<div class="col-md-4">
+						<ul>
+							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
+							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
+							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
+							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
+							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
+						</ul>
+					</div>
+					<!--main content area-->
+					<div class="col-md-8">
+						<main>
+			<!-- slideshow -->
+			<div class="cycle-slideshow"
+				  data-cycle-fx=scrollHorz
+				  data-cycle-timeout=0
+				>
+			<div id=outside>
+				<div class=center>
+					<span id=prev>&lt;&lt;Prev </span>
+					<span id=next> Next&gt;&gt;</span>
+						</div>
+						<div class="cycle-slideshow"
+					  		data-cycle-fx=scrollHorz
+					  		data-cycle-timeout=0
+					  		data-cycle-prev="#prev"
+					  		data-cycle-next="#next"
+							>
+							<img src="http://placekitten.com/450/300.">
+							<img src="http://malsup.github.io/images/p2.jpg">
+							<img src="http://malsup.github.io/images/p3.jpg">
+							<img src="http://malsup.github.io/images/p4.jpg">
+						</div>
+					</main>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<footer class="footer">
+				<a href="#">lorem ipsum></a>&nbsp;&nbsp;&nbsp;
+				<a href="#">"lorem ipsum"></a>&nbsp;&nbsp;&nbsp;
+				<a href="#">"lorem ipsum"></a>
+		</footer>
+
 	</body>
 </html>

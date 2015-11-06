@@ -1,0 +1,11 @@
+#outside .cycle-slideshow {
+	width: 300px
+}
+#prev, #next, .prevControl, .nextControl {
+	cursor: pointer;
+	font-size: 16px;
+	color: #08C
+}
+.sidepanel {
+
+}
