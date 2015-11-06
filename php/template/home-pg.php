@@ -17,16 +17,13 @@
 
 
 	<!-- Latest compiled and minified CSS -->
-
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
 	<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
 	<!--Link to custom CSS files here-->
-		<link type="text/css" href="../css/sidepanel.css" rel="stylesheet">
+	<link type="text/css" href="../css/sidepanel.css" rel="stylesheet">
 
-		<link rel=stylesheet href="../css/slideshow.css">
+	<link rel=stylesheet href="../css/slideshow.css">
 	<link type="text/css" href="../css/home.css" rel="stylesheet">
 	<link type="text/css" href="../../php/css/stylesheet.css" rel="stylesheet">
 	<link type="text/css" href="../../php/css/footer.css" rel="stylesheet">
@@ -34,8 +31,8 @@
 	<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 	<!--WARNING: Respond.js doesn't work if you view the page via file://-->
 	<!--[if lt IE 9]>
-		<script type="text/javascript" src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script type="text/javascript" src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<script type="text/javascript" src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	<script type="text/javascript" src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
 
 	<!--js-cookie (for capstone) -->
@@ -51,6 +48,8 @@
 
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../../js/home.js"></script>
+
 	<head>
 		<title>Home Page Template</title>
 	</head>
@@ -133,23 +132,29 @@
 									<span id=prev>&lt;&lt;Prev </span>
 									<span id=next> Next&gt;&gt;</span>
 								</div>
+								<div class="center">
 								<div class="cycle-slideshow"
 									  data-cycle-fx=scrollHorz
 									  data-cycle-timeout=0
 									  data-cycle-prev="#prev"
 									  data-cycle-next="#next"
 									>
-									<img src="http://malsup.github.io/images/p1.jpg">
-									<img src="http://malsup.github.io/images/p2.jpg">
-									<img src="http://malsup.github.io/images/p3.jpg">
-									<img src="http://malsup.github.io/images/p4.jpg">
+									<img class="slideshow" src="http://placehold.it/400x400">
+									<img class="slideshow" src="http://placehold.it/400x400">
+									<img class="slideshow" src="http://placehold.it/400x400">
+									<img class="slideshow" src="http://placehold.it/400x400">
+								</div>
+									<div class="inner" id="blurb">
+										Blurb
+									</div>
 								</div>
 							</div>
+						</div>
 					</div>
 				</div>
-			</div>
-		</div>
 
+
+		</div>
 		<footer class="footer">
 			<a href="#">lorem ipsum></a>&nbsp;&nbsp;&nbsp;
 			<a href="#">"lorem ipsum"></a>&nbsp;&nbsp;&nbsp;
