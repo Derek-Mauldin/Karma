@@ -72,7 +72,7 @@
 					</div>
 
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
+				<!-- Collect the nav links, forms, and other content fortoggling -->
 
 					<form class="navbar-form navbar-left" role="search">
 						<div class="form-group">
