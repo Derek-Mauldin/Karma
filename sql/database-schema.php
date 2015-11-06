@@ -8,6 +8,14 @@
 		<body>
 			<h1>Karma Database Schema</h1>
 
+			<p>
+				DROP TABLE IF EXISTS karma<br />
+				DROP TABLE IF EXISTS need<br />
+				DROP TABLE IF EXISTS message<br />
+				DROP TABLE IF EXISTS profile<br />
+				DROP TABLE IF EXISTS member<br />
+			</p>
+
 			<div>
 				<h2>member</h2>
 				<p>
@@ -15,9 +23,10 @@
 					&emsp;memberId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br />
 					&emsp;memberAccessLevel CHAR(1) NOT NULL,<br />
 					&emsp;memberEmail VARCHAR(255) NOT NULL,<br />
-					&emsp;<b>memberEmailActivation ????,</b><br />
-					&emsp;<b>memberHash CHAR(?) NOT NULL,</b><br />
-					&emsp;<b>memberSalt CHAR(?) NOT NULL,</b><br />
+					&emsp;memberEmailActivation CHAR32,<br />
+					&emsp;memberHash CHAR(128) NOT NULL,<br />
+					&emsp;memberSalt CHAR(164) NOT NULL,<br />
+					&emsp;UNIQUE(memeberEmail),<br />
 					&emsp;PRIMARY KEY(memberId)<br />
 					);<br />
 				</p>
@@ -32,7 +41,7 @@
 					&emsp;profileHandle VARCHAR(15) NOT NULL,<br />
 					&emsp;profileFirstName VARCHAR(50) NOT NULL,<br />
 					&emsp;profileLastName VARCHAR(50) NOT NULL,<br />
-					&emsp;<b>profilePhoto ?????</b>,<br />
+					&emsp;profilePhoto VARCHAR(255),<br />
 					&emsp;UNIQUE(profileHandle),<br />
 					&emsp;INDEX(memberId),<br />
 					&emsp;FOREIGN KEY(memberId) REFERENCES member(memberId),<br />
@@ -46,8 +55,8 @@
 				&emsp;messageId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br />
 				&emsp;messageSenderId INT UNSIGNED NOT NULL,<br />
 				&emsp;messageReceiverId INT UNSIGNED NOT NULL,<br />
-				&emsp;<b>messageContent VARCHAR(20000) NOT NULL,</b></b><br />
-				&emsp;messageDateTime DATETIME NOT NULL,<br />
+				&emsp;messageContent VARCHAR(8192) NOT NULL,<br />
+				&emsp;messageDateTime TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br />
 				&emsp;INDEX(messageSenderId),<br />
 				&emsp;INDEX(messageReceiverId),<br />
 				&emsp;FOREIGN KEY(messageSenderId) REFERENCES profile(profileId),<br />
@@ -74,8 +83,8 @@
 					&emsp;CREATE TABLE karma (<br />
 					&emsp;profileId INT UNSIGNED NOT NULL,<br />
 					&emsp;needId INT UNSIGNED NOT NULL,<br />
-					&emsp;karmaAccepted TINYINT,<br />
-					&emsp;karmaActionDate DATETIME,<br />
+					&emsp;karmaAccepted TINYINT UNSIGNED,<br />
+					&emsp;karmaActionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br />
 					&emsp;INDEX(profileId),<br />
 					&emsp;INDEX(needId),<br />
 					&emsp;FOREIGN KEY(profileId) REFERENCES profile(profileId),<br />
