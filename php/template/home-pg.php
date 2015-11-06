@@ -165,7 +165,7 @@
 										  data-cycle-desc="lorem ipsum"
 
 									<!-- Button to trigger modal -->
-									<a href="#myModal" role="button" class="btn btn-custom" data-toggle="modal">Lorem Ipsum/a>
+									<a href="#myModal" role="button" class="btn btn-custom" data-toggle="modal">Lorem Ipsum
 									<!-- Modal -->
 									<div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 										<div class="modal-dialog">
