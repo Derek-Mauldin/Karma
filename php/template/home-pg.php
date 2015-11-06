@@ -7,11 +7,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Acme">
-
-		<style>.adsbygoogle {
-				display: block;
-				margin: auto
-			}</style>
 		<script src="http://malsup.github.com/jquery.cycle2.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 		<script src="//malsup.github.io/jquery.cycle2.js"></script>
@@ -159,8 +154,6 @@
 										  data-cycle-title="lorem ipsum  1"
 										  data-cycle-desc="lorem ipsum">
 
-
-
 									<img src="http://malsup.github.io/images/p2.jpg"
 										  data-cycle-title="lorem ipsum 2"
 										  data-cycle-desc="lorem ipsum">
@@ -179,38 +172,19 @@
 											<div class="modal-content">
 												<div class="modal-header">
 													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-													<h4 class="modal-title">Contact Form</h4>
+													<h4 class="modal-title">lorem ipsum</h4>
 												</div>
 												<div class="modal-body">
-													<form class="form-horizontal" name="commentform" method="post" action="send_form_email_sleep_re.php">
+													<form class="form-horizontal" name="offerform" method="post" action="#">
 														<div class="form-group">
-															<label class="control-label col-md-4" for="first_name">First Name</label>
+															<label class="control-label col-md-4" for="lorem ipsum">lorem ipsum</label>
 															<div class="col-md-6">
-																<input type="text" class="form-control" id="first_name" name="first_name" placeholder="First Name"/>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label col-md-4" for="last_name">Last Name</label>
-															<div class="col-md-6">
-																<input type="text" class="form-control" id="last_name" name="last_name" placeholder="Last Name"/>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label col-md-4" for="email">Email Address</label>
-															<div class="col-md-6 input-group">
-																<span class="input-group-addon">@</span>
-																<input type="email" class="form-control" id="email" name="email" placeholder="Email Address"/>
-															</div>
-														</div>
-														<div class="form-group">
-															<label class="control-label col-md-4" for="comment">Offer</label>
-															<div class="col-md-6">
-																<textarea rows="6" class="form-control" id="comments" name="comments" placeholder="lorem ipsum"></textarea>
+																<textarea rows="6" class="form-control" id="lorem ipsum" name="lorem ipsum" placeholder="lorem ipsum"></textarea>
 															</div>
 														</div>
 														<div class="form-group">
 															<div class="col-md-6">
-																<button type="submit" value="Submit" class="btn btn-custom pull-right" id="send_btn">Send Offer</button>
+																<button type="submit" value="Submit" class="btn btn-custom pull-right" id="send_btn">lorem ipsum</button>
 															</div>
 														</div>
 													</form>
