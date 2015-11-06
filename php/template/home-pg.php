@@ -24,7 +24,9 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
 	<!--Link to custom CSS files here-->
-	<link rel=stylesheet href="../css/demo-slideshow.css">
+		<link type="text/css" href="../css/sidepanel.css" rel="stylesheet">
+
+		<link rel=stylesheet href="../css/slideshow.css">
 	<link type="text/css" href="../css/home.css" rel="stylesheet">
 	<link type="text/css" href="../../php/css/stylesheet.css" rel="stylesheet">
 	<link type="text/css" href="../../php/css/footer.css" rel="stylesheet">
@@ -79,12 +81,14 @@
 						<button type="submit" class="btn btn-default">Submit</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#"><img class="navIconLink" src="..."></a></li>
-						<li><a href="#"><img class="navIconLink" src="..."></a></li>
-						<li><a href="#"><img class="navIconLink" src="..."></a></li>
-						<li><a href="#"><img class="navIconLink" src="..."></a></li>
+						<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
+						<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
+						<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
+						<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
+						<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
+
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img class="navIconLink" src="http://placehold.it/35x35"><span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<li><a href="#">Action</a></li>
 								<li><a href="#">Another action</a></li>
@@ -101,49 +105,59 @@
 				<div class="row">
 					<!--side panel here-->
 					<div class="col-md-4">
-						<ul>
-							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
-							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
-							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
-							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
-							<li><a href="#"><img src="lorem ipsum" alt="lorem ipsum"></a></li>
+
+						<ul class="sidepanel">
+							<li><br></li>
+							<li><br></li>
+							<li><br></li>
+							<li><br></li>
+							<li><br></li>
+
+							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
+							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
+							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
+							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
+							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
 						</ul>
 					</div>
+
 					<!--main content area-->
 					<div class="col-md-8">
 						<main>
-			<!-- slideshow -->
-			<div class="cycle-slideshow"
-				  data-cycle-fx=scrollHorz
-				  data-cycle-timeout=0
-				>
-			<div id=outside>
-				<div class=center>
-					<span id=prev>&lt;&lt;Prev </span>
-					<span id=next> Next&gt;&gt;</span>
-						</div>
-						<div class="cycle-slideshow"
-					  		data-cycle-fx=scrollHorz
-					  		data-cycle-timeout=0
-					  		data-cycle-prev="#prev"
-					  		data-cycle-next="#next"
-							>
-							<img src="http://placekitten.com/450/300.">
-							<img src="http://malsup.github.io/images/p2.jpg">
-							<img src="http://malsup.github.io/images/p3.jpg">
-							<img src="http://malsup.github.io/images/p4.jpg">
-						</div>
-					</main>
+							<!-- slideshow -->
+							<div class="cycle-slideshow"
+								  data-cycle-fx=scrollHorz
+								  data-cycle-timeout=0
+								>
+								<div class=center>
+									<span id=prev>&lt;&lt;Prev </span>
+									<span id=next> Next&gt;&gt;</span>
+								</div>
+								<div class="cycle-slideshow"
+									  data-cycle-fx=scrollHorz
+									  data-cycle-timeout=0
+									  data-cycle-prev="#prev"
+									  data-cycle-next="#next"
+									>
+									<img src="http://malsup.github.io/images/p1.jpg">
+									<img src="http://malsup.github.io/images/p2.jpg">
+									<img src="http://malsup.github.io/images/p3.jpg">
+									<img src="http://malsup.github.io/images/p4.jpg">
+								</div>
+							</div>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 
 		<footer class="footer">
-				<a href="#">lorem ipsum></a>&nbsp;&nbsp;&nbsp;
-				<a href="#">"lorem ipsum"></a>&nbsp;&nbsp;&nbsp;
-				<a href="#">"lorem ipsum"></a>
+			<a href="#">lorem ipsum></a>&nbsp;&nbsp;&nbsp;
+			<a href="#">"lorem ipsum"></a>&nbsp;&nbsp;&nbsp;
+			<a href="#">"lorem ipsum"></a>&nbsp;&nbsp;&nbsp;
+			<a href="#">"lorem ipsum"></a>&nbsp;&nbsp;&nbsp;
+			<a href="#">"lorem ipsum"></a>
 		</footer>
+
 
 	</body>
 </html>
