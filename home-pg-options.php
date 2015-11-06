@@ -16,10 +16,6 @@
 	<body>
 
 		<div id="main">
-			<style>
-				#outside .cycle-slideshow { width: 300px }
-				#prev, #next, .prevControl, .nextControl { cursor: pointer; font-size: 16px; color: #08C }
-			</style>
 
 			<!-- slideshow -->
 			<div class="cycle-slideshow"

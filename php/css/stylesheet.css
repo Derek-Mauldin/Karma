@@ -6,6 +6,35 @@
 	font-size: 16px;
 	color: #08C
 }
-.sidepanel {
 
+
+.modal-header,
+.btn-custom {
+	background: #1ABC9C;
+	color: #FFF;
+	/* margin-right: 10px; */
+}
+.modal-body {
+	background: #73BFC1;
+}
+.popover   {
+	background-color: #e74c3c;
+	color: #ecf0f1;
+	width: 120px;
+}
+.popover.right .arrow:after {
+	border-right-color: #e74c3c;
+}
+.input-group[class*="col-"] {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+.popover   {
+	background-color: #e74c3c;
+	color: #ecf0f1;
+	width: 120px;
+}
+.popover.right .arrow:after {
+	border-right-color: #e74c3c;
 }
