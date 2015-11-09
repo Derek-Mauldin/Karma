@@ -1,28 +1,14 @@
 /********************************************
-* Custom CSS Styles for Bootstrap Sandbox
-* A troubleshooting Project
-*
-* https://bootcamp-coders.cnm.edu/~rlewis37/bootstrap-sandbox
-* @author rlewis37@cnm.edu
-*
-********************************************/
 
-/********************************************
-* Sample Styles
-********************************************/
+*
+*@author jhung@cnm.edu
+*
+***************************************/
 header,
 footer {
 	background-color: #dddddd;
 }
 
-header {
-	padding: 20px 0;
-	margin-bottom: 20px;
-}
-
-.navbar {
-	margin-bottom: 0;
-}
 
 footer {
 	padding: 20px 0;

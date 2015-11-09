@@ -71,6 +71,7 @@
 					&emsp;needId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br />
 					&emsp;profileId INT UNSIGNED NOT NULL,<br />
 					&emsp;need VARCHAR(5000),<br />
+					&emsp;fulfilled BOOLEAN ,<br>/>
 					&emsp;INDEX(profileId),<br />
 					&emsp;FOREIGN KEY(profileId) REFERENCES profile(profileId),<br />
 					&emsp;PRIMARY KEY(needId)<br />
@@ -83,7 +84,7 @@
 					&emsp;CREATE TABLE karma (<br />
 					&emsp;profileId INT UNSIGNED NOT NULL,<br />
 					&emsp;needId INT UNSIGNED NOT NULL,<br />
-					&emsp;karmaAccepted TINYINT UNSIGNED,<br />
+					&emsp;karmaAccepted BOOLEAN ,<br />
 					&emsp;karmaActionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,<br />
 					&emsp;INDEX(profileId),<br />
 					&emsp;INDEX(needId),<br />

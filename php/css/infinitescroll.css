@@ -1,0 +1,20 @@
+* {
+	margin: auto;
+}
+body {
+	background: #cee;
+	font-family: Helvetica, Arial, Verdana, 'Lucida Grande', sans-serif;
+}
+h1 {
+	text-align: center;
+	margin:20px;
+}
+ul#list {
+	width: 50px;
+	height: 200px;
+	overflow-y: scroll;
+}
+ul#images {
+	text-align: center;
+	list-style: none;
+}

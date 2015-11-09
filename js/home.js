@@ -12,3 +12,7 @@ $( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
 });
 
 $('#send_btn').popover({content: 'Thank You'},'click');
+
+
+
+

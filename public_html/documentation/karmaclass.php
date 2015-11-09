@@ -9,14 +9,7 @@
  * @author Jennifer Hung<jhung505@cnm.edu>
  **/
 class Karma {
-	/**
-	 * karmaAccepted comes from a user clicking ACCEPT on an offer within a message from another user.
-	 **/
-	private $karmaAccepted;
-	/**
-	 * date and time the offer was accepted
-	 **/
-	private $karmaActionDate;
+
 	/**
 	 * profileId is a foreign key.  It is the id for the profile who made the accepted offer.
 	 **/
@@ -25,6 +18,35 @@ class Karma {
 	 * needId is a foreign key.  It is the need of the member who accepted the offer.
 	 **/
 	private $needId;
+	/**
+	 * karmaAccepted comes from a user clicking ACCEPT on an offer within a message from another user.
+	 **/
+	private $karmaAccepted;
+	/**
+	 * date and time the offer was accepted
+	 **/
+	private $karmaActionDate;
+
+
+
+	public function __construct($newProfileId, $newNeedId, $newKarmaAccepted, $newKarmaActionDate) {
+		try {
+			$this->setProfileId($newProfileId);
+			$this->setNeedId($newNeedId);
+			$this->setKarmaAccepted($newKarmaAccepted);
+			$this->setKarmaActionDate($newKarmaActionDate);
+		} catch(InvalidArgumentException $invalidArgument) {
+			// rethrow the exception to the caller
+			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch(RangeException $range) {
+			// rethrow the exception to the caller
+			throw(new RangeException($range->getMessage(), 0, $range));
+		} catch(Exception $exception) {
+			// rethrow generic exception
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+	}
+
 
 	/**
 	 * accessor method for karma accepted
@@ -41,10 +63,15 @@ class Karma {
 	 * @param boolean $newKarmaAccepted new value of karma accepted.
 	 **/
 	public function setKarmaAccepted($newKarmaAccepted) {
+
+		$newKarmaAccepted = filter_var($newKarmaAccepted, FILTER_VALIDATE_BOOLEAN);
+
 		// verify the karmaAccepted is valid
 		if($newKarmaAccepted === false) {
 			throw(new UnexpectedValueException("karmaAccepted is not a valid boolean value"));
 		}
+
+		$this->karmaAccepted = $newKarmaAccepted;
 	}
 
 
@@ -65,7 +92,7 @@ class Karma {
 	 **/
 	public function setKarmaActionDate($newKarmaActionDate) {
 		// verify the user id is valid
-		$newKarmaActionDate = filter_var($newKarmaActionDate, FILTER_VALIDATE_INT);
+		$newKarmaActionDate = filter_var($newKarmaActionDate, FILTER_SANITIZE_STRING);
 		if($newUserId === false) {
 			throw(new UnexpectedValueException("karma action date is not a valid integer"));
 		}
@@ -86,43 +113,43 @@ class Karma {
 	/**
 	 * mutator method for need id
 	 *
-	 * @param string $newNeedId new value of need id
+	 * @param int $newNeedId new value of need id
 	 * @throws UnexpectedValueException if $newNeedId is not valid
 	 **/
 	public function setNeedId($newNeedId) {
-		// verify the first name is valid
-		$newFirstName = filter_var($newFirstName, FILTER_SANITIZE_STRING);
+		// verify the profile id is valid
+		$newFirstName = filter_var($newNeedId, FILTER_VALIDATE_INT);
 		if($newFirstName === false) {
-			throw(new UnexpectedValueException("first name is not a valid string"));
+			throw(new UnexpectedValueException("need id is not a valid int"));
 		}
 
-		// store the first name
-		$this->firstName = $newFirstName;
+		// store the need id
+		$this->needId = $newNeedId;
 	}
 
 	/**
-	 * accessor method for last name
+	 * accessor method for profile id
 	 *
-	 * @return string value of last name
+	 * @return int value of profile id
 	 **/
-	public function getLastName() {
-		return($this->lastName);
+	public function getProfileId() {
+		return($this->profileId);
 	}
 
 	/**
-	 * mutator method for last name
+	 * mutator method for profile id
 	 *
-	 * @param string $newLastName new value of last name
-	 * @throws UnexpectedValueException if $newLastName is not valid
+	 * @param int $newProfileId new value of profile id
+	 * @throws UnexpectedValueException if $newLastName is not valid int
 	 **/
-	public function setLastName($newLastName) {
+	public function setProfileId($newProfileId) {
 		// verify the last name is valid
-		$newLastName = filter_var($newLastName, FILTER_SANITIZE_STRING);
+		$newLastName = filter_var($newProfileId, FILTER_VALIDATE_INT);
 		if($newLastName === false) {
-			throw(new UnexpectedValueException("last name is not a valid string"));
+			throw(new UnexpectedValueException("profile id is not a valid int"));
 		}
 
-		// store the last name
-		$this->lastName = $newLastName;
+		// store the profile id
+		$this->lastName = $newProfileId;
 	}
 }
