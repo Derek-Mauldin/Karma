@@ -23,7 +23,7 @@ class Message {
 	 * id of the MessageReceiver that Received this Message; this is a foreign key
 	 * @var int $MessageReceiverId
 	 **/
-	private $messageReceiver;
+	private $messageReceiverId;
 	/**
 	 * actual textual content of this Message
 	 * @var string $messageContent
@@ -49,7 +49,7 @@ class Message {
 	 * @throws Exception if some other exception is thrown
 	 **/
 	public function __construct($newMessageId, $newMessageSenderId, $newMessageReceiverId, $newMessageContent,
-	 $newMessageDate = null) {
+										 $newMessageDate = null) {
 		try {
 			$this->setMessageId($newMessageId);
 			$this->setMesaageSenderId($newMessageSenderId);
@@ -242,6 +242,126 @@ class Message {
 		} catch(Exception $exception) {
 			throw(new Exception($exception->getMessage(), 0, $exception));
 		}
-		$this->tweetDate = $newMessageDate;
+		$this->messageDate = $newMessageDate;
+	}
+
+
+	/**
+	 * inserts this Message into mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function insert(PDO $pdo) {
+		// enforce the messageId is null (i.e., don't insert a message that already exists)
+		if($this->MessageId !== null) {
+			throw(new PDOException("not a new message"));
+		}
+
+		// create query template
+		$query = "INSERT INTO message(messageId, messageSenderId, messageReceiverId, messageContent, messsageDate)
+	VALUES(:messageId, :messageSenderId, :messageReceiverId, :messageContent, :messageDate)";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holders in the template
+		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
+		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->messageSenderId,
+				"messageReceiverId" => $this->messagereceiverId, "messageContent" => $this->messageContent, "messageDate" => $formattedDate);
+		$statement->execute($parameters);
+
+		// update the null messageId with what mySQL just gave us
+		$this->messageId = intval($pdo->lastInsertId());
+	}
+
+
+	/**
+	 * deletes this Message from mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function delete(PDO $pdo) {
+		// enforce the messageId is not null (i.e., don't delete a message that hasn't been inserted)
+		if($this->messageId === null) {
+			throw(new PDOException("unable to delete a message that does not exist"));
+		}
+
+		// create query template
+		$query = "DELETE FROM message WHERE messageId = :messageId";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holder in the template
+		$parameters = array("messageId" => $this->messageId);
+		$statement->execute($parameters);
+	}
+
+
+	/**
+	 * updates this Message in mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function update(PDO $pdo) {
+		// enforce the messageId is not null (i.e., don't update a message that hasn't been inserted)
+		if($this->messageId === null) {
+			throw(new PDOException("unable to update a tweet that does not exist"));
+		}
+
+		// create query template
+		$query = "UPDATE message  SET messageId = :messageId, messageSenderId = :messageSenderId,
+	messagrreceiverId = :messageReceiverId,
+	messageContent = :messageContent, messageDate = :messageDate WHERE messageId = :messageId";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holders in the template
+		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
+		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->messageSenderId,
+				messageReceiverId => $this->messageReceiverId, "messageContent" => $this->messageContent, "messageDate" => $formattedDate);
+		$statement->execute($parameters);
+	}
+
+
+	/**
+	 * gets the message by content
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @param string $messageContent message content to search for
+	 * @return SplFixedArray all messages found for this content
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public static function getMessageByTweetContent(PDO $pdo, $messageContent) {
+		// sanitize the description before searching
+		$messageContent = trim($messageContent);
+		$messageContent = filter_var($messageContent, FILTER_SANITIZE_STRING);
+		if(empty($messageContent) === true) {
+			throw(new PDOException("message content is invalid"));
+		}
+
+		// create query template
+		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDate
+ 	FROM message WHERE messageContent LIKE :messageContent";
+		$statement = $pdo->prepare($query);
+
+		// bind the message content to the place holder in the template
+		$messageContent = "%$messageContent%";
+		$parameters = array("messageContent" => $messageContent);
+		$statement->execute($parameters);
+
+		// build an array of messages
+		$messages = new SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
+		while(($row = $statement->fetch()) !== false) {
+			try {
+				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
+						$row["mesageContent"], $row["messageDate"]);
+				$messages[$messages->key()] = $message;
+				$messages->next();
+			} catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+		return ($messages);
 	}
 }
