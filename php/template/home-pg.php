@@ -88,7 +88,7 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/ff33cc/fff.png"></a></li>
 							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/ff00ff/fff.png"></a></li>
 							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/cc00ff/fff.png"></a></li>
-							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/787878/fff.png"></a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/ffd7ff/fff.png"></a></li>
 
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
