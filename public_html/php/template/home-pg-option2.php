@@ -46,7 +46,7 @@
 		  crossorigin="anonymous"></script>
 	<script type="text/javascript" src="keypress_nav.js"></script>
 
-	<script type="text/javascript" src="/js/jscroll.js"></script>
+	<script type="text/javascript" src="/public_html/js/jscroll.js"></script>
 
 
 </head>

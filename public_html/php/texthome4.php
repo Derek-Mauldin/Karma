@@ -6,16 +6,16 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>Horizontal examples - Sly</title>
 		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" href="/php/css/normalize.css">
-		<link rel="stylesheet" href="/php/css/font-awesome.css">
-		<link rel="stylesheet" href="/php/css/ospb.css">
-		<link rel="stylesheet" href="/php/css/horizontal.css">
+		<link rel="stylesheet" href="/public_html/php/css/normalize.css">
+		<link rel="stylesheet" href="/public_html/php/css/font-awesome.css">
+		<link rel="stylesheet" href="/public_html/php/css/ospb.css">
+		<link rel="stylesheet" href="/public_html/php/css/horizontal.css">
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
 				  integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
 				  crossorigin="anonymous"></script>
 
-		<script src="/js/vendor/modernizr.js"></script>
+		<script src="/public_html/js/vendor/modernizr.js"></script>
 	</head>
 	<body>
 		<header class="pagespan">
@@ -259,7 +259,7 @@
 		<!-- Scripts -->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 		<script src="js/vendor/plugins.js"></script>
-		<script src="/js/sly.min.js"></script>
+		<script src="/public_html/js/sly.min.js"></script>
 		<script src="js/horizontal.js"></script>
 
 		<!-- Google Analytics -->

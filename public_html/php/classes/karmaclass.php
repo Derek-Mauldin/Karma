@@ -1,6 +1,6 @@
 <?php
 /**
- * Profile karma
+ *  karma class
  *
  *  Karma is a byproduct of a many-to-many relationship between users and needs.
  *  Karma is a weak entity created from a user fulfilling a need (clicking ACCEPT on an offer within a message.   This
@@ -8,7 +8,7 @@
  *
  * @author Jennifer Hung<jhung505@cnm.edu>
  **/
-class Karma {
+class karma {
 
 	/**
 	 * profileId is a foreign key.  It is the id for the profile who made the accepted offer.
