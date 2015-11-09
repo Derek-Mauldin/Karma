@@ -3,7 +3,8 @@
 /**
  * A cross section of what a message sent using Karma would like
  *
- * This Message can be considered a small example of what services like Karma would store when messages are sent and
+ * This Message can be considered a small example of what services like Karma would store when messages
+ * are sent and
  * received using Karma.
  *
  * @author Gerald Fongwe <gfongwe@cnm.edu>
@@ -259,14 +260,16 @@ class Message {
 		}
 
 		// create query template
-		$query = "INSERT INTO message(messageId, messageSenderId, messageReceiverId, messageContent, messsageDate)
-	VALUES(:messageId, :messageSenderId, :messageReceiverId, :messageContent, :messageDate)";
+		$query = "INSERT INTO message(messageId, messageSenderId, messageReceiverId, messageContent,
+		messsageDate) VALUES(:messageId, :messageSenderId, :messageReceiverId, :messageContent,
+		:messageDate)";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
 		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->messageSenderId,
-				"messageReceiverId" => $this->messagereceiverId, "messageContent" => $this->messageContent, "messageDate" => $formattedDate);
+				"messageReceiverId" => $this->messagereceiverId, "messageContent" => $this->messageContent,
+				"messageDate" => $formattedDate);
 		$statement->execute($parameters);
 
 		// update the null messageId with what mySQL just gave us
@@ -295,32 +298,24 @@ class Message {
 		$statement->execute($parameters);
 	}
 
-
-	/**
-	 * updates this Message in mySQL
-	 *
-	 * @param PDO $pdo PDO connection object
-	 * @throws PDOException when mySQL related errors occur
-	 **/
+	/*
 	public function update(PDO $pdo) {
-		// enforce the messageId is not null (i.e., don't update a message that hasn't been inserted)
 		if($this->messageId === null) {
-			throw(new PDOException("unable to update a tweet that does not exist"));
+		throw(new PDOException("unable to update a message that does not exist"));
 		}
 
-		// create query template
-		$query = "UPDATE message  SET messageId = :messageId, messageSenderId = :messageSenderId,
+		$query = "UPDATE message  SET messageSenderId = : messageSenderId = :messageSenderId,
 	messagrreceiverId = :messageReceiverId,
 	messageContent = :messageContent, messageDate = :messageDate WHERE messageId = :messageId";
 		$statement = $pdo->prepare($query);
 
-		// bind the member variables to the place holders in the template
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
 		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->messageSenderId,
-				messageReceiverId => $this->messageReceiverId, "messageContent" => $this->messageContent, "messageDate" => $formattedDate);
+				messageReceiverId => $this->messageReceiverId, "messageContent" => $this->messageContent,
+				"messageDate" => $formattedDate);
 		$statement->execute($parameters);
 	}
-
+*/
 
 	/**
 	 * gets the message by content
@@ -364,4 +359,48 @@ class Message {
 		}
 		return ($messages);
 	}
+
+
+	/**
+	 * gets the Message by messageId
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @param int $messageId message id to search for
+	 * @return mixed Message found or null if not found
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public static function getByMessageId(PDO $pdo, $messageId) {
+		// sanitize the messageId before searching
+		$messageId = filter_var($messageId, FILTER_VALIDATE_INT);
+		if($messageId === false) {
+			throw(new PDOException("message id is not an integer"));
+		}
+		if($messageId <= 0) {
+			throw(new PDOException("message id is not positive"));
+		}
+
+		// create query template
+		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDate
+		FROM message WHERE messageId = :messageId"; $statement = $pdo->prepare($query);
+
+		// bind the message id to the place holder in the template
+		$parameters = array("messageId" => $messageId);
+		$statement->execute($parameters);
+
+		// grab the message from mySQL
+		try {
+			$message = null;
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$row = $statement->fetch();
+			if($row !== false) {
+				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
+				$row["messageContent"], $row["messageDate"]);
+			}
+		} catch(Exception $exception) {
+			// if the row couldn't be converted, rethrow it
+			throw(new PDOException($exception->getMessage(), 0, $exception));
+		}
+		return ($message);
+	}
 }
+
