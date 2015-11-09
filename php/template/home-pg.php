@@ -57,7 +57,7 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 	</head>
 
 	<body class="sfooter">
-		< class="sfooter-content">
+		<div class="sfooter-content">
 
 			<header>
 				<nav class="navbar navbar-default">
@@ -71,7 +71,7 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<a href="#"><img class="navbar-Brand" src="http://placehold.it/35x35"></a>
+							<a href="#"><img class="navbar-Brand" src="http://dummyimage.com/35/cc99ff/fff.png"></a>
 						</div>
 
 
@@ -85,10 +85,10 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 						</form>
 						<ul class="nav navbar-nav navbar-right">
 							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/cc99ff/fff.png"></a></li>
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35"></a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/ff33cc/fff.png"></a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/ff00ff/fff.png"></a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/cc00ff/fff.png"></a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/787878/fff.png"></a></li>
 
 							<li class="dropdown">
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -118,11 +118,11 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 							<li><br></li>
 							<li><br></li>
 
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
-							<li><a href="#"><img class="navIconLink" src="http://placehold.it/35x35">lorem ipsum</a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/cc99ff/fff.png">link</a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/ff33cc/fff.png">link</a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/ff00ff/fff.png">link</a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/cc00ff/fff.png">link</a></li>
+							<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
 						</ul>
 					</div>
 
@@ -195,6 +195,7 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 						</div>
 					</div>
 				</div>
+			</div>
 			<footer class="footer">
 				<a href="#">lorem ipsum</a>&nbsp;&nbsp;&nbsp;
 				<a href="#">lorem ipsum</a>&nbsp;&nbsp;&nbsp;
@@ -202,7 +203,7 @@ integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+
 				<a href="#">lorem ipsum</a>&nbsp;&nbsp;&nbsp;
 				<a href="#">lorem ipsum</a>
 			</footer>
-
+</div>
 
 	</body>
 </html>
