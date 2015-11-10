@@ -34,7 +34,7 @@
 			<div>
 				<h2>profile</h2>
 				<p>
-					CREATE TABLE profile (
+					CREATE TABLE profile (<br />
 					&emsp;profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br />
 					&emsp;memberId INT UNSIGNED NOT NULL,<br />
 					&emsp;profileBlurb VARCHAR(5000),<br />
@@ -71,7 +71,7 @@
 					&emsp;needId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br />
 					&emsp;profileId INT UNSIGNED NOT NULL,<br />
 					&emsp;need VARCHAR(5000),<br />
-					&emsp;fulfilled BOOLEAN ,<br>/>
+					&emsp;fulfilled BOOLEAN ,<br />
 					&emsp;INDEX(profileId),<br />
 					&emsp;FOREIGN KEY(profileId) REFERENCES profile(profileId),<br />
 					&emsp;PRIMARY KEY(needId)<br />
