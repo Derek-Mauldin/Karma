@@ -332,25 +332,28 @@ class profile {
 	 * @param $newProfilePhoto -- string with the directory path for the photo
 	 * @throws InvalidArgumentException if $newProfilePhoto is empty or insecure
 	 * @throws OutOfRangeException if $newProfilePhoto is to long
-	 * @returns if the pathname already exists
 	 *
 	 */
 	public function setProfilePhoto($newProfilePhoto) {
 
+		// make sure $newProfilePhoto is secure
 		$newProfilePhoto = trim($newProfilePhoto);
 		$newProfilePhoto = filter_var($newProfilePhoto, FILTER_SANITIZE_STRING);
 		if(empty($newProfilePhoto) === true) {
 			throw(new InvalidArgumentException("Profile Photo is empty or insecure."));
 		}
 
+		// make sure the length of $newProfilePhoto is correct
 		if(strlen($newProfilePhoto) > 255) {
 			throw(new OutOfRangeException("Profile Photo path is to long."));
 		}
 
+		// if the file already exists, return
 		if(file_exists($newProfilePhoto) === true) {
 			return;
 		}
 
+		// store the path
 		$this->profilePhoto = $newProfilePhoto;
 
 	}
