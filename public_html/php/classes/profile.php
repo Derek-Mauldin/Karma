@@ -60,6 +60,13 @@ class profile {
 	 **/
 	private $profilePhoto;
 
+	/**
+	 * photo type for this profile
+	 *
+	 * @var $profilePhoto
+	 **/
+	private $profilePhoteType;
+
 
 	/**
 	 * accessor method for profileId
@@ -68,7 +75,7 @@ class profile {
 	 **/
 	public function getProfileId() {
 
-		return ($this->profileId);
+		return($this->profileId);
 
 	}
 
@@ -80,7 +87,7 @@ class profile {
 	 **/
 	public function getMemberId() {
 
-		return ($this->memberId);
+		return($this->memberId);
 
 	}
 
@@ -91,7 +98,7 @@ class profile {
 	 **/
 	public function getProfileBlurb() {
 
-		return ($this->profileBlurb);
+		return($this->profileBlurb);
 
 	}
 
@@ -112,7 +119,7 @@ class profile {
 	 **/
 	public function getProfileFirstName() {
 
-		return ($this->profileFirstName);
+		return($this->profileFirstName);
 
 	}
 
@@ -124,18 +131,29 @@ class profile {
 	 **/
 	public function  getProfLastName() {
 
-		return ($this->profileLastName);
+		return($this->profileLastName);
 
 	}
 
 	/**
 	 * accessor method for profile photo
 	 *
-	 * @return mixed -- path to profile photo
+	 * @return string -- path to profile photo
 	 **/
 	public function getProfilePhoto() {
 
-		// code goes here
+		return($this->profilePhoto);
+	}
+
+	/**
+	 * accessor method for profile photo type
+	 *
+	 * @return string -- value of profile photo type
+	 **/
+	public function getProfilePhotoType() {
+
+		return($this->profilePhoteType);
+
 	}
 
 
@@ -305,6 +323,8 @@ class profile {
 		$this->profileFirstName = $newProfileLastName;
 
 	}
+
+
 
 
 

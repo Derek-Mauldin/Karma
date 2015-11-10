@@ -42,6 +42,7 @@
 					&emsp;profileFirstName VARCHAR(50) NOT NULL,<br />
 					&emsp;profileLastName VARCHAR(50) NOT NULL,<br />
 					&emsp;profilePhoto VARCHAR(255),<br />
+					&emsp;profilePhotoType VARCHAR(20),<br />
 					&emsp;UNIQUE(profileHandle),<br />
 					&emsp;INDEX(memberId),<br />
 					&emsp;FOREIGN KEY(memberId) REFERENCES member(memberId),<br />
