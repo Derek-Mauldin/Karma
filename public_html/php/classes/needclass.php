@@ -138,7 +138,7 @@ class Need {
 	 *
 	 * @param string $newNeed new value of need
 	 * @throws InvalidArgumentException if $newNeed is not a string or insecure
-	 * @throws RangeException if $newNeed is > 140 characters
+	 * @throws RangeException if $newNeed is > 5000 characters
 	 **/
 	public function setNeed($newNeed) {
 		// verify the need content is secure
@@ -149,11 +149,147 @@ class Need {
 		}
 
 		// verify the need content will fit in the database
-		if(strlen($newNeed) > 140) {
+		if(strlen($newNeed) > 5000) {
 			throw(new RangeException("need too large"));
 		}
 
 		// store the tweet content
 		$this->need = $newNeed;
+	}
+
+	/**
+	 * inserts this Need into mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function insert(PDO $pdo) {
+		// enforce the needId is null (i.e., don't insert a need that already exists)
+		if($this->needId !== null) {
+			throw(new PDOException("not a new need"));
+		}
+
+		// create query template
+		$query = "INSERT INTO need(needId, profileId, need) VALUES(:needId, :profileId, :need)";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holders in the template
+		$formattedDate = $this->needDate->format("Y-m-d H:i:s");
+		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "need" => $this->need);
+		$statement->execute($parameters);
+
+		// update the null needId with what mySQL just gave us
+		$this->needId = intval($pdo->lastInsertId());
+	}
+
+	/**
+	 * deletes this Need from mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function delete(PDO $pdo) {
+		// enforce the needId is not null (i.e., don't delete a need that hasn't been inserted)
+		if($this->needId === null) {
+			throw(new PDOException("unable to delete a need that does not exist"));
+		}
+
+		// create query template
+		$query = "DELETE FROM need WHERE needId = :needId";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holder in the template
+		$parameters = array("needId" => $this->needId);
+		$statement->execute($parameters);
+	}
+
+	/**
+	 * updates this Need in mySQL
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public function update(PDO $pdo) {
+		// enforce the needId is not null (i.e., don't update a need that hasn't been inserted)
+		if($this->needId === null) {
+			throw(new PDOException("unable to update a need that does not exist"));
+		}
+
+		// create query template
+		$query = "UPDATE need SET need = :need WHERE need = :need";
+		$statement = $pdo->prepare($query);
+
+		// bind the member variables to the place holders in the template
+		$formattedDate = $this->tweetDate->format("Y-m-d H:i:s");
+		$parameters = array("profileId" => $this->profileId, "need" => $this->need, "needId" => $this->needId);
+		$statement->execute($parameters);
+	}
+
+	/**
+	 * gets the Need by content
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @param string $needContent need content to search for
+	 * @return SplFixedArray all Needs found for this content
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public static function getNeedByNeedContent(PDO $pdo, $need) {
+		// sanitize the description before searching
+		$need = trim($need);
+		$need = filter_var($need, FILTER_SANITIZE_STRING);
+		if(empty($need) === true) {
+			throw(new PDOException("need is invalid"));
+		}
+		// create query template
+		$query = "SELECT needId, profileId, need FROM need WHERE need LIKE :need";
+		$statement = $pdo->prepare($query);
+
+		// bind the need to the place holder in the template
+		$need = "%need%";
+		$parameters = array("tweetContent" => $need);
+		$statement->execute($parameters);
+
+		// build an array of needs
+		$needs = new SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
+		while(($row = $statement->fetch()) !== false) {
+			try {
+				$need = new Need($row["needId"], $row["profileId"], $row["need"]);
+				$needs[$needs->key()] = $need;
+				$needs->next();
+			} catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+		return ($needs);
+	}
+	/**
+	 * gets all Needs
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @return SplFixedArray all Needs found
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public static function getAllTweets(PDO $pdo) {
+		// create query template
+		$query = "SELECT needId, profileId, need FROM tweet";
+		$statement = $pdo->prepare($query);
+		$statement->execute();
+
+		// build an array of needs
+		$needs = new SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
+		while(($row = $statement->fetch()) !== false) {
+			try {
+				$need = new Need($row["needId"], $row["profileId"], $row["need"]);
+				$needs[$needs->key()] = $need;
+				$need->next();
+			} catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+		return($need);
 	}
 }
