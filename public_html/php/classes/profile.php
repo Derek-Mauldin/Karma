@@ -265,6 +265,8 @@ class profile {
 			throw(new RangeException("Profile Handle is too Large."));
 		}
 
+
+
 		// store the new handle
 		$this->profileHandle = $newProfileHandle;
 
@@ -307,7 +309,7 @@ class profile {
 	 **/
 	public function setProfileLastName($newProfileLastName) {
 
-		// make sure $newProfileLastNameis secure
+		// make sure $newProfileLastName is secure
 		$newProfileLastName = trim($newProfileLastName);
 		$newProfileLastName = filter_var($newProfileLastName, FILTER_SANITIZE_STRING);
 		if(empty($newProfileLastName) === true) {
@@ -324,7 +326,34 @@ class profile {
 
 	}
 
+	/**
+	 * mutator method for Profile Photo (path to photo)
+	 *
+	 * @param $newProfilePhoto -- string with the directory path for the photo
+	 * @throws InvalidArgumentException if $newProfilePhoto is empty or insecure
+	 * @throws OutOfRangeException if $newProfilePhoto is to long
+	 * @returns if the pathname already exists
+	 *
+	 */
+	public function setProfilePhoto($newProfilePhoto) {
 
+		$newProfilePhoto = trim($newProfilePhoto);
+		$newProfilePhoto = filter_var($newProfilePhoto, FILTER_SANITIZE_STRING);
+		if(empty($newProfilePhoto) === true) {
+			throw(new InvalidArgumentException("Profile Photo is empty or insecure."));
+		}
+
+		if(strlen($newProfilePhoto) > 255) {
+			throw(new OutOfRangeException("Profile Photo path is to long."));
+		}
+
+		if(file_exists($newProfilePhoto) === true) {
+			return;
+		}
+
+		$this->profilePhoto = $newProfilePhoto;
+
+	}
 
 
 
