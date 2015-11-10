@@ -6,7 +6,7 @@
  *
  ****************************************************************************************************************/
 
-/******************************************************************************************************************
+/**
  * custom filter for mySQL style dates
  *
  * Converts a string to a DateTime object or false if invalid. This is designed to be used within a mutator method.
@@ -16,12 +16,11 @@
  * @see http://php.net/manual/en/class.datetime.php PHP's DateTime class
  * @throws InvalidArgumentException if the date is in an invalid format
  * @throws RangeException if the date is not a Gregorian date
- ******************************************************************************************************************/
-
+ **/
 function validateDate($newDate) {
 	// base case: if the date is a DateTime object, there's no work to be done
 	if(is_object($newDate) === true && get_class($newDate) === "DateTime") {
-		return ($newDate);
+		return($newDate);
 	}
 
 	// treat the date as a mySQL date string: Y-m-d H:i:s
@@ -31,10 +30,10 @@ function validateDate($newDate) {
 	}
 
 	// verify the date is really a valid calendar date
-	$year = intval($matches[1]);
-	$month = intval($matches[2]);
-	$day = intval($matches[3]);
-	$hour = intval($matches[4]);
+	$year   = intval($matches[1]);
+	$month  = intval($matches[2]);
+	$day	= intval($matches[3]);
+	$hour   = intval($matches[4]);
 	$minute = intval($matches[5]);
 	$second = intval($matches[6]);
 	if(checkdate($month, $day, $year) === false) {
@@ -42,52 +41,13 @@ function validateDate($newDate) {
 	}
 
 	// verify the time is really a valid wall clock time
-	if($hour < 0 || $hour >= 24 || $minute < 0 || $minute >= 60 || $second < 0 || $second >= 60) {
+	if($hour < 0 || $hour >= 24 || $minute < 0 || $minute >= 60 || $second < 0  || $second >= 60) {
 		throw(new RangeException("date $newDate is not a valid time"));
 	}
 
 	// if we got here, the date is clean
 	$newDate = DateTime::createFromFormat("Y-m-d H:i:s", $newDate);
-	return ($newDate);
-
-
-	/**********************************************************************************************************************
-	 *
-	 * mutator method for karmaActionDate function validateDate($newDate) {
-	 *
-	 *base case: if the date is a DateTime object, there's no work to be done
-	 *
-	 **********************************************************************************************************************/
-
-	if(is_object($newDate) === true && get_class($newDate) === "DateTime") {
-		return ($newDate);
-	}
-
-// treat the date as a mySQL date string: Y-m-d H:i:s
-	$newDate = trim($newDate);
-	if((preg_match("/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/", $newDate, $matches)) !== 1) {
-		throw(new InvalidArgumentException("date is not a valid date"));
-	}
-
-// verify the date is really a valid calendar date
-	$year = intval($matches[1]);
-	$month = intval($matches[2]);
-	$day = intval($matches[3]);
-	$hour = intval($matches[4]);
-	$minute = intval($matches[5]);
-	$second = intval($matches[6]);
-	if(checkdate($month, $day, $year) === false) {
-		throw(new RangeException("date $newDate is not a Gregorian date"));
-	}
-
-// verify the time is really a valid wall clock time
-	if($hour < 0 || $hour >= 24 || $minute < 0 || $minute >= 60 || $second < 0 || $second >= 60) {
-		throw(new RangeException("date $newDate is not a valid time"));
-	}
-
-// if we got here, the date is clean
-	$newDate = DateTime::createFromFormat("Y-m-d H:i:s", $newDate);
-	return ($newDate);
+	return($newDate);
 }
 
 /*****************************************************************************************************************
@@ -123,13 +83,11 @@ class karma {
 	 *
 	 ******************************************************************************************************************/
 	private $karmaActionDate;
-
-	/******************************************************************************************************************
-	 *constructor for this Karma
+	/**
 	 *
 	 * @param string $newKarmaActionDate string containing date the offer was accepted
 	 * @param int $newNeedId id new value of the need id
-	 * @param int $newMemberId id new value of the member id
+	 * @param int $newProfileId id new value of the profile id
 	 * @param boolean $newKarmaAccepted of this Karma
 	 * @param mixed $newKarmaActionDate and time Karma was accepted or null if set to current date and time
 	 *
@@ -138,7 +96,7 @@ class karma {
 	 * @throws RangeException if data values are out of bounds (e.g., strings too long, negative integers)
 	 * @throws Exception if some other exception is thrown
 	 *
-	 *****************************************************************************************************************/
+	 **/
 	public function __construct($newNeedId, $newProfileId, $newKarmaAccepted, $newKarmaActionDate = null) {
 		try {
 			$this->setNeedId($newNeedId);
@@ -209,8 +167,7 @@ class karma {
 	 *
 	 * @return boolean value of karma accepted
 	 ******************************************************************************************************************/
-	public
-	function getKarmaAccepted() {
+	public function getKarmaAccepted() {
 		return ($this->karmaAccepted);
 	}
 
@@ -221,8 +178,7 @@ class karma {
 	 * @param boolean $newKarmaAccepted new value of karma accepted
 	 *
 	 *******************************************************************************************************************/
-	public
-	function setKarmaAccepted($newKarmaAccepted) {
+	public function setKarmaAccepted($newKarmaAccepted) {
 
 		$newKarmaAccepted = filter_var($newKarmaAccepted, FILTER_VALIDATE_BOOLEAN);
 
@@ -241,8 +197,7 @@ class karma {
 	 * @return string value of karma action date
 	 *
 	 ******************************************************************************************************************/
-	public
-	function karmaActionDate() {
+	public function karmaActionDate() {
 		return ($this->karmaActionDate);
 	}
 
@@ -253,8 +208,7 @@ class karma {
 	 * @throws UnexpectedValueException if $newKarmaActionDate is not an integer
 	 *
 	 *****************************************************************************************************************/
-	public
-	function setKarmaActionDate($newKarmaActionDate) {
+	public function setKarmaActionDate($newKarmaActionDate) {
 		// verify the user id is valid
 		$newKarmaActionDate = filter_var($newKarmaActionDate, FILTER_SANITIZE_STRING);
 		if($newKarmaActionDate === false) {
@@ -271,8 +225,7 @@ class karma {
 	 * @param PDO $pdo PDO connection object
 	 * @throws PDOException when mySQL related errors occur
 	 **********************************************************************************************************************/
-	public
-	function insert(PDO $pdo) {
+	public function insert(PDO $pdo) {
 		// enforce the profileId and needId are null (i.e., don't insert a karma that already exists)
 		if($this->needId !== null && $this->profileId !== null) {
 			throw(new PDOException("not a new karma"));
@@ -298,8 +251,7 @@ class karma {
 	 * @param PDO $pdo PDO connection object
 	 * @throws PDOException when mySQL related errors occur
 	 **********************************************************************************************************************/
-	public
-	function delete(PDO $pdo) {
+	public function delete(PDO $pdo) {
 		// enforce the karmaAccepted is not null (i.e., don't delete a karma accepted that hasn't been inserted)
 		if($this->needId && $this->profileId === null) {
 			throw(new PDOException("unable to delete a karma accepted that does not exist"));
@@ -320,8 +272,7 @@ class karma {
 	 * @param PDO $pdo PDO connection object
 	 * @throws PDOException when mySQL related errors occur
 	 **********************************************************************************************************************/
-	public
-	function update(PDO $pdo) {
+	public function update(PDO $pdo) {
 		// enforce the needId and profileId are not null (i.e., don't update a karma that hasn't been inserted)
 		if($this->needId === null && $this->profileId === null) {
 			throw(new PDOException("unable to update a karma that does not exist"));
@@ -342,12 +293,11 @@ class karma {
 	 * gets the karma by boolean
 	 *
 	 * @param PDO $pdo PDO connection object
-	 * @param boolean $karma boolean to search for
+	 * @param boolean $karmaAccepted boolean to search for
 	 * @return SplFixedArray all Karmas found for this content
 	 * @throws PDOException when mySQL related errors occur
 	 **********************************************************************************************************************/
-	public
-	static function getKarmaByKarmaAccepted(PDO $pdo, $karmaAccepted) {
+	public static function getKarmaByKarmaAccepted(PDO $pdo, $karmaAccepted) {
 		// sanitize the description before searching
 		$karmaAccepted = trim($karmaAccepted);
 		$karmaAccepted = filter_var($karmaAccepted, FILTER_VALIDATE_BOOLEAN);
@@ -380,18 +330,16 @@ class karma {
 		return ($karmas);
 	}
 
-	/**********************************************************************************************************************
+	/**
 	 *
-	 * gets the Karma by need id
+	 * gets the Karma by need id and profile id
 	 * @param PDO $pdo PDO connection object
-	 * @param int $needId karma id to search for
+	 * @param int  $needId and $profileID to search for
 	 * @return mixed karma found or null if not found
 	 * @throws PDOException when mySQL related errors occur
 	 *
-	 **********************************************************************************************************************/
-
-	public
-	static function getKarmaByNeedIdAndProfileId(PDO $pdo, $needId, $profileId) {
+	 **/
+	public static function getKarmaByNeedIdAndProfileId(PDO $pdo, $needId, $profileId) {
 		// sanitize the needId and profileId before searching
 		$needId = filter_var($needId, FILTER_VALIDATE_INT);
 		if($needId === false) {
@@ -441,8 +389,7 @@ class karma {
 	 *
 	 **********************************************************************************************************************/
 
-	public
-	static function getAllKarmas(PDO $pdo) {
+	public static function getAllKarmas(PDO $pdo) {
 		// create query template
 		$query = "SELECT needId, profileId, karmaAccepted, karmaActionDate FROM karma";
 		$statement = $pdo->prepare($query);
@@ -464,5 +411,3 @@ class karma {
 		return ($karmas);
 	}
 }
-
-?>
