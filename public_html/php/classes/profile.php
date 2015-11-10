@@ -20,7 +20,7 @@ class profile {
 	 *
 	 * @var $profileId
 	 **/
-	private $profilId;
+	private $profileId;
 
 	/**
 	 * FOREIGN KEY - memberId that this profile references
@@ -73,7 +73,7 @@ class profile {
 	 **/
 	public function getProfileId() {
 
-		return($this->profilId);
+		return($this->profileId);
 
 	}
 
@@ -144,6 +144,37 @@ class profile {
 }
 
 
+	/**
+	 * mutator method for profileId
+	 *
+	 * @param $newProfileId -- ID value of new Profile ID
+	 * @throws InvalidArgumentException if newProfileId is not an integer
+	 * @throws RangeException if newProfileId is not positive
+	 *
+	 **/
+	public function setProfileId($newProfileId) {
+
+		// base case: if the newProfileId is null, this is a new profile without a mySQL assigned ID
+		if($newProfileId === null) {
+			$this->profileId = null;
+			return;
+		}
+
+		// validate that the new Profile ID is an integer
+		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
+		if($newProfileId === false) {
+			throw(new InvalidArgumentException("Profile ID is not a valid integer"))
+		}
+
+		// validate that the new Profile ID is positive
+		if($newProfileId <= 0) {
+			throw(new RangeException("Profile ID is not positive"));
+		}
+
+		// final check and store
+		$this->profileId = intval($newProfileId);
+
+	}
 
 
 
