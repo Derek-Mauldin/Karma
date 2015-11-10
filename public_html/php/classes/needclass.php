@@ -61,4 +61,99 @@ class Need {
 	public function getNeedId() {
 		return ($this->needId);
 	}
+
+
+	/**
+	 * mutator method for need id
+	 *
+	 * @param mixed $newNeedId new value of need id
+	 * @throws InvalidArgumentException if $newNeedId is not an integer
+	 * @throws RangeException if $newNeedId is not positive
+	 **/
+	public function setNeedId($newNeedId) {
+		// base case: if the need id is null, this a new need without a mySQL assigned id (yet)
+		if($newNeedId === null) {
+			$this->needId = null;
+			return;
+		}
+
+		// verify the need id is valid
+		$newNeedId = filter_var($newNeedId, FILTER_VALIDATE_INT);
+		if($newNeedId === false) {
+			throw(new InvalidArgumentException("need id is not a valid integer"));
+		}
+
+		// verify the need id is positive
+		if($newNeedId <= 0) {
+			throw(new RangeException("need id is not positive"));
+		}
+
+		// convert and store the need id
+		$this->needId = intval($newNeedId);
+	}
+
+	/**
+	 * accessor method for profile id
+	 *
+	 * @return int value of profile id
+	 **/
+	public function getProfileId() {
+		return ($this->profileId);
+	}
+
+	/**
+	 * mutator method for profile id
+	 *
+	 * @param int $newProfileId new value of profile id
+	 * @throws InvalidArgumentException if $newProfileId is not an integer or not positive
+	 * @throws RangeException if $newProfileId is not positive
+	 **/
+	public function setProfileId($newProfileId) {
+		// verify the profile id is valid
+		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
+		if($newProfileId === false) {
+			throw(new InvalidArgumentException("profile id is not a valid integer"));
+		}
+
+		// verify the profile id is positive
+		if($newProfileId <= 0) {
+			throw(new RangeException("profile id is not positive"));
+		}
+
+		// convert and store the profile id
+		$this->profileId = intval($newProfileId);
+	}
+
+	/**
+	 * accessor method for need content
+	 *
+	 * @return string value of need
+	 **/
+	public function getNeed() {
+		return ($this->need);
+	}
+
+	/**
+	 * mutator method for need content
+	 *
+	 * @param string $newNeed new value of need
+	 * @throws InvalidArgumentException if $newNeed is not a string or insecure
+	 * @throws RangeException if $newNeed is > 140 characters
+	 **/
+	public function setNeed($newNeed) {
+		// verify the need content is secure
+		$newNeed = trim($newNeed);
+		$newNeed = filter_var($newNeed, FILTER_SANITIZE_STRING);
+		if(empty($newNeed) === true) {
+			throw(new InvalidArgumentException("tweet content is empty or insecure"));
+		}
+
+		// verify the need content will fit in the database
+		if(strlen($newNeed) > 140) {
+			throw(new RangeException("need too large"));
+		}
+
+		// store the tweet content
+		$this->need = $newNeed;
+	}
 }
