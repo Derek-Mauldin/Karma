@@ -163,7 +163,7 @@ class profile {
 		// validate that the new Profile ID is an integer
 		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
 		if($newProfileId === false) {
-			throw(new InvalidArgumentException("Profile ID is not a valid integer"))
+			throw(new InvalidArgumentException("Profile ID is not a valid integer"));
 		}
 
 		// validate that the new Profile ID is positive
@@ -175,6 +175,33 @@ class profile {
 		$this->profileId = intval($newProfileId);
 
 	}
+
+	/**
+	 * mutator method for memberId
+	 *
+	 * @param $newMemberId -- ID value of new Profile ID
+	 * @throws InvalidArgumentException if newProfileId is not an integer
+	 * @throws RangeException if newProfileId is not positive
+	 *
+	 **/
+	public function($newMemberId) {
+
+		// validate the new Member ID is an integer
+		$newMemberId = filter_var($newMemberId, FILTER_VALIDATE_INT);
+		if($newMemberId === false) {
+			throw(new InvalidArgumentException("Member ID is not a valid integer"));
+		}
+
+		// validate the new Member ID is positive
+		if($newMemberId <= 0) {
+			throw(new RangeException("Member ID is not positive");
+		}
+
+		// final check and store
+		$this->memberId = intval($newMemberId);
+
+	}
+
 
 
 
