@@ -1,10 +1,6 @@
 <?php
 
 
-require_once(dirname(dirname(__DIR__)) . "lib/php/date-utils.php");
-
-
-
 /**
  *	user profile class for karma
  *
@@ -65,7 +61,6 @@ class profile {
 	private $profilePhoto;
 
 
-
 	/**
 	 * accessor method for profileId
 	 *
@@ -73,7 +68,7 @@ class profile {
 	 **/
 	public function getProfileId() {
 
-		return($this->profileId);
+		return ($this->profileId);
 
 	}
 
@@ -85,7 +80,7 @@ class profile {
 	 **/
 	public function getMemberId() {
 
-		return($this->memberId);
+		return ($this->memberId);
 
 	}
 
@@ -96,7 +91,7 @@ class profile {
 	 **/
 	public function getProfileBlurb() {
 
-		return($this->profileBlurb);
+		return ($this->profileBlurb);
 
 	}
 
@@ -107,7 +102,7 @@ class profile {
 	 **/
 	public function getProfileHandle() {
 
-		return($this->profileHandle);
+		return ($this->profileHandle);
 	}
 
 	/**
@@ -117,7 +112,7 @@ class profile {
 	 **/
 	public function getProfileFirstName() {
 
-		return($this->profileFirstName);
+		return ($this->profileFirstName);
 
 	}
 
@@ -129,19 +124,19 @@ class profile {
 	 **/
 	public function  getProfLastName() {
 
-		return($this->profileLastName);
+		return ($this->profileLastName);
 
 	}
 
 	/**
 	 * accessor method for profile photo
 	 *
-	 *@return mixed -- path to profile photo
+	 * @return mixed -- path to profile photo
 	 **/
 	public function getProfilePhoto() {
 
-	// code goes here
-}
+		// code goes here
+	}
 
 
 	/**
@@ -176,6 +171,7 @@ class profile {
 
 	}
 
+
 	/**
 	 * mutator method for memberId
 	 *
@@ -184,7 +180,7 @@ class profile {
 	 * @throws RangeException if newProfileId is not positive
 	 *
 	 **/
-	public function setMemberId ($newMemberId) {
+	public function setMemberId($newMemberId) {
 
 		// validate the new Member ID is an integer
 		$newMemberId = filter_var($newMemberId, FILTER_VALIDATE_INT);
@@ -201,6 +197,7 @@ class profile {
 		$this->memberId = intval($newMemberId);
 
 	}
+
 
 	/**
 	 * mutator method for Profile Blurb
@@ -236,7 +233,7 @@ class profile {
 	 * @throws InvalidArgumentException if $newProfileHandle is empty or insecure
 	 * @throws RangeException if $newProfileHandle is too large
 	 **/
-	public function setProfileHandle ($newProfileHandle) {
+	public function setProfileHandle($newProfileHandle) {
 
 		// make sure $newProfileHandle is secure
 		$newProfileHandle = trim($newProfileHandle);
@@ -253,7 +250,8 @@ class profile {
 		// store the new handle
 		$this->profileHandle = $newProfileHandle;
 
-		}
+	}
+
 
 	/**
 	 * mutator method for Profile First Name
@@ -262,40 +260,53 @@ class profile {
 	 * @throws InvalidArgumentException if $newFirstName is empty or insecure
 	 * @throws RangeException if $newProfileFirstName is too large
 	 **/
-	public function setProfileFirstName ($newProfileFirstName) {
+	public function setProfileFirstName($newProfileFirstName) {
 
-		// make sure $newProfileHandle is secure
+		// make sure $newFirstName is secure
 		$newProfileFirstName = trim($newProfileFirstName);
-		$newProfileFirstName= filter_var($newProfileFirstName, FILTER_SANITIZE_STRING);
+		$newProfileFirstName = filter_var($newProfileFirstName, FILTER_SANITIZE_STRING);
 		if(empty($newProfileFirstName) === true) {
 			throw(new InvalidArgumentException("Profile Handle is empty or insecure."));
 		}
 
-		// validate the length of $newProfileHandle
+		// validate the length of $newProfileFirstName
 		if(strlen($newProfileFirstName) > 15) {
 			throw(new RangeException("Profile Handle is too Large."));
 		}
 
-		// store the new handle
+		// store the new First Name
 		$this->profileFirstName = $newProfileFirstName;
 
+	}
 
+
+	/**
+	 * mutator method for Profile Last Name
+	 *
+	 * @param $newProfileLastName
+	 * @throws InvalidArgumentException if $newLastName is empty or insecure
+	 * @throws RangeException if $newProfileLastName is too large
+	 **/
+	public function setProfileLastName($newProfileLastName) {
+
+		// make sure $newProfileLastNameis secure
+		$newProfileLastName = trim($newProfileLastName);
+		$newProfileLastName = filter_var($newProfileLastName, FILTER_SANITIZE_STRING);
+		if(empty($newProfileLastName) === true) {
+			throw(new InvalidArgumentException("Profile Handle is empty or insecure."));
+		}
+
+		// validate the length of $newProfileLastName
+		if(strlen($newProfileLastName) > 15) {
+			throw(new RangeException("Profile Handle is too Large."));
+		}
+
+		// store the new Last Name
+		$this->profileFirstName = $newProfileLastName;
 
 	}
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-}
+} // end of profile class
