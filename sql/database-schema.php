@@ -72,6 +72,7 @@
 					&emsp;profileId INT UNSIGNED NOT NULL,<br />
 					&emsp;need VARCHAR(5000),<br />
 					&emsp;fulfilled BOOLEAN ,<br />
+					&emsp;INDEX(need),<br />
 					&emsp;INDEX(profileId),<br />
 					&emsp;FOREIGN KEY(profileId) REFERENCES profile(profileId),<br />
 					&emsp;PRIMARY KEY(needId)<br />
@@ -81,7 +82,7 @@
 			<div>
 				<h2>karma</h2>
 				<p>
-					&emsp;CREATE TABLE karma (<br />
+					CREATE TABLE karma (<br />
 					&emsp;profileId INT UNSIGNED NOT NULL,<br />
 					&emsp;needId INT UNSIGNED NOT NULL,<br />
 					&emsp;karmaAccepted BOOLEAN ,<br />

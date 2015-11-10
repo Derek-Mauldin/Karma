@@ -138,7 +138,7 @@ class profile {
 	 *
 	 *@return mixed -- path to profile photo
 	 **/
-	prublic function getProfilePhoto() {
+	public function getProfilePhoto() {
 
 	// code goes here
 }
