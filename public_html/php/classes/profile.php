@@ -163,12 +163,12 @@ class profile {
 		// validate that the new Profile ID is an integer
 		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
 		if($newProfileId === false) {
-			throw(new InvalidArgumentException("Profile ID is not a valid integer"));
+			throw(new InvalidArgumentException("Profile ID is not a valid integer."));
 		}
 
 		// validate that the new Profile ID is positive
 		if($newProfileId <= 0) {
-			throw(new RangeException("Profile ID is not positive"));
+			throw(new RangeException("Profile ID is not positive."));
 		}
 
 		// final check and store
@@ -189,18 +189,110 @@ class profile {
 		// validate the new Member ID is an integer
 		$newMemberId = filter_var($newMemberId, FILTER_VALIDATE_INT);
 		if($newMemberId === false) {
-			throw(new InvalidArgumentException("Member ID is not a valid integer"));
+			throw(new InvalidArgumentException("Member ID is not a valid integer."));
 		}
 
 		// validate the new Member ID is positive
 		if($newMemberId <= 0) {
-			throw(new RangeException("Member ID is not positive"));
+			throw(new RangeException("Member ID is not positive."));
 		}
 
 		// final check and store
 		$this->memberId = intval($newMemberId);
 
 	}
+
+	/**
+	 * mutator method for Profile Blurb
+	 *
+	 * @param $newProfileBlurb
+	 * @throws InvalidArgumentException if $newProfileBlurb is empty or insecure
+	 * @throws RangeException if $newProfileBlurb is too large
+	 **/
+	public function setProfileBlurb($newProfileBlurb) {
+
+		// make sure $newProfileBlurb is secure
+		$newProfileBlurb = trim($newProfileBlurb);
+		$newProfileBlurb = filter_var($newProfileBlurb, FILTER_SANITIZE_STRING);
+		if(empty($newProfileBlurb) === true) {
+			throw(new InvalidArgumentException("Profile Blurb content is empty or insecure."));
+		}
+
+		// validate the length of $newProfileBlurb
+		if(strlen($newProfileBlurb) > 3000) {
+			throw(new RangeException("Blurb content is too large."));
+		}
+
+		// store the new blurb
+		$this->profileBlurb = $newProfileBlurb;
+
+	}
+
+
+	/**
+	 * mutator method for Profile Handle
+	 *
+	 * @param $newProfileHandle
+	 * @throws InvalidArgumentException if $newProfileHandle is empty or insecure
+	 * @throws RangeException if $newProfileHandle is too large
+	 **/
+	public function setProfileHandle ($newProfileHandle) {
+
+		// make sure $newProfileHandle is secure
+		$newProfileHandle = trim($newProfileHandle);
+		$newProfileHandle = filter_var($newProfileHandle, FILTER_SANITIZE_STRING);
+		if(empty($newProfileHandle) === true) {
+			throw(new InvalidArgumentException("Profile Handle is empty or insecure."));
+		}
+
+		// validate the length of $newProfileHandle
+		if(strlen($newProfileHandle) > 15) {
+			throw(new RangeException("Profile Handle is too Large."));
+		}
+
+		// store the new handle
+		$this->profileHandle = $newProfileHandle;
+
+		}
+
+	/**
+	 * mutator method for Profile First Name
+	 *
+	 * @param $newProfileFirstName
+	 * @throws InvalidArgumentException if $newFirstName is empty or insecure
+	 * @throws RangeException if $newProfileFirstName is too large
+	 **/
+	public function setProfileFirstName ($newProfileFirstName) {
+
+		// make sure $newProfileHandle is secure
+		$newProfileFirstName = trim($newProfileFirstName);
+		$newProfileFirstName= filter_var($newProfileFirstName, FILTER_SANITIZE_STRING);
+		if(empty($newProfileFirstName) === true) {
+			throw(new InvalidArgumentException("Profile Handle is empty or insecure."));
+		}
+
+		// validate the length of $newProfileHandle
+		if(strlen($newProfileFirstName) > 15) {
+			throw(new RangeException("Profile Handle is too Large."));
+		}
+
+		// store the new handle
+		$this->profileFirstName = $newProfileFirstName;
+
+
+
+	}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

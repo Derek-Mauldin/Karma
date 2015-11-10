@@ -37,7 +37,7 @@
 					CREATE TABLE profile (<br />
 					&emsp;profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br />
 					&emsp;memberId INT UNSIGNED NOT NULL,<br />
-					&emsp;profileBlurb VARCHAR(5000),<br />
+					&emsp;profileBlurb VARCHAR(3000),<br />
 					&emsp;profileHandle VARCHAR(15) NOT NULL,<br />
 					&emsp;profileFirstName VARCHAR(50) NOT NULL,<br />
 					&emsp;profileLastName VARCHAR(50) NOT NULL,<br />
