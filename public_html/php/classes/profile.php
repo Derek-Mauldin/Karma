@@ -184,7 +184,7 @@ class profile {
 	 * @throws RangeException if newProfileId is not positive
 	 *
 	 **/
-	public function($newMemberId) {
+	public function setMemberId ($newMemberId) {
 
 		// validate the new Member ID is an integer
 		$newMemberId = filter_var($newMemberId, FILTER_VALIDATE_INT);
@@ -194,7 +194,7 @@ class profile {
 
 		// validate the new Member ID is positive
 		if($newMemberId <= 0) {
-			throw(new RangeException("Member ID is not positive");
+			throw(new RangeException("Member ID is not positive"));
 		}
 
 		// final check and store
