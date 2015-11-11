@@ -1,6 +1,9 @@
 <?php
+//grab the test parameters
 require_once("karma-data-design.php");
-require_once("phpunit.xml");
+//grab the class to test
+require_once(dirname(__DIR__) . "/public_html/php/classes/member.php");
+
 /**
 * Full PHPUnit test for the Member class
 *
@@ -10,6 +13,7 @@ require_once("phpunit.xml");
 * @see Member
 * @author Jennifer Hung <jhung@cnm.edu>
 **/
+
 class MemberTest extends KarmaDataDesignTest {
 	/**
 	 * valid at email to use
