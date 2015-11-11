@@ -4,7 +4,7 @@
 /**
  *	user profile class for karma
  *
- *	contains all the attributes that will allow a user to interact with the karma site
+ *	contains all profile attributes that will allow a user to interact with the karma site
  *
  * @author Derek Mauldin <dmauldin2@cnm.edu>
  **/
@@ -76,7 +76,7 @@ class profile {
 	 * @param $newProfileHandle -- string -- this profiles profileHandle
 	 * @param $newProfileFirstName -- string -- this profile first name
 	 * @param $newProfileLastName -- string --  this profile last name
-	 * @param $newInputTagName -- the path to the uploaded photo to be used as an avatar
+	 * @param $newInputTagName -- the id/name of the input tag for the avatar photo
 	 * @throws InvalidArgumentException
 	 * @throws RangeException
 	 * @throws Exception
@@ -363,6 +363,7 @@ class profile {
 
 	}  // setProfileLastName
 
+
 	/**
 	 * mutator method for Profile Photo (path to photo)
 	 *
@@ -418,6 +419,7 @@ class profile {
 		$this->profilePhoteType = $newProfilePhotoType;
 
 	}  // setProfilePhotoType
+
 
 	/**
 	 * function for using an uploaded photo
@@ -505,6 +507,7 @@ class profile {
 
 	}  //  uploadPhoto
 
+
 	/**
 	 * this function inserts this profile from mySQL
 	 *
@@ -520,7 +523,7 @@ class profile {
 
 		// create and prepare query template
 		$query = "INSERT INTO profile(memberId, profileBlurb, profileHandle, profileFirstName, profileLastName, profielePhoto, profilePhotoType)
-					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, profilePhotoType)";
+					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, profilePhotoType");
 		$statement = $pdo->prepare($query);
 
 		// bind profile variables to placeholder in the template

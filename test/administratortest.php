@@ -86,7 +86,7 @@ abstract class KarmaTest extends PHPUnit_Extensions_Database_TestCase {
 		// if the connection hasn't been established, create it
 		if($this->connection === null) {
 			// grab the encrypted mySQL properties file and create the DSN
-			$config = readConfig("/etc/apache2/data-design/gfongwe.ini");
+			$config = readConfig("/etc/apache2/capstone-mysql/karma.ini");
 			$dsn = "mysql:host=" . $config["hostname"] . ";dbname=" . $config["database"];
 			$options = array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8");
 
