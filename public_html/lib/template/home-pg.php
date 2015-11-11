@@ -17,6 +17,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
 				integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
 				crossorigin="anonymous">
+<!--font-awesome-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
 		<!-- Optional theme -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
@@ -89,23 +91,10 @@
 						<button type="submit" class="btn btn-default">Submit</button>
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
-						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
-						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
-						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
-						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
 
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								aria-expanded="false"><img class="navIconLink" src="http://placehold.it/35x35"><span
-										class="caret"></span></a>
-							<ul class="dropdown-menu">
-								<li><a href="#">Action</a></li>
-								<li><a href="#">Another action</a></li>
-								<li><a href="#">Something else here</a></li>
-								<li role="separator" class="divider"></li>
-								<li><a href="#">Separated link</a></li>
-							</ul>
+						<li><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a></li>
+						<li><a href="#"><i class="fa fa-user"></i>&nbsp;</a></li>
+						<li><a href="#"><i class="fa fa-envelope"></i>&nbsp;</a></li>
 						</li>
 					</ul>
 				</div>
@@ -121,15 +110,17 @@
 									<li><br></li>
 									<li><br></li>
 									<li><br></li>
-									<li><br></li>
 
-									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
-									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
-									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
-									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
-									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
+									<li><a href="#"><i class="fa fa-pencil"></i>&nbsp;Edit Profile</a></li>
+								<li><br></li>
 
-									<li><br></li>
+								<li><a href="#"><i class="fa fa-envelope"></i>&nbsp;Messages</a></li>
+								<li><br></li>
+
+								<li><a href="#"><i class="fa fa-heart"></i>&nbsp;Favorites</a></li>
+
+
+								<li><br></li>
 									<li><br></li>
 									<li><br></li>
 									<li><br></li>
@@ -368,8 +359,11 @@
 
 		<footer class="footer navbar-fixed-bottom">
 			<div class="container">
-				Footer Here
-			</div></footer>
+				<a href="#">About </a>&nbsp;
+				<a href="#">FAQ </a>&nbsp;
+				<a href="#">Contact Us</a>
+			</div>
+		</footer>
 
 	</body>
 </html>
