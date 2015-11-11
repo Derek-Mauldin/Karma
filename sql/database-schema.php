@@ -26,7 +26,7 @@
 					&emsp;memberEmailActivation CHAR32,<br />
 					&emsp;memberHash CHAR(128) NOT NULL,<br />
 					&emsp;memberSalt CHAR(164) NOT NULL,<br />
-					&emsp;UNIQUE(memeberEmail),<br />
+					&emsp;UNIQUE(memberEmail),<br />
 					&emsp;PRIMARY KEY(memberId)<br />
 					);<br />
 				</p>
@@ -43,7 +43,7 @@
 					&emsp;profileLastName VARCHAR(50) NOT NULL,<br />
 					&emsp;profilePhoto VARCHAR(255),<br />
 					&emsp;profilePhotoType VARCHAR(20),<br />
-					&emsp;UNIQUE(profilePhoto),
+					&emsp;UNIQUE(profilePhoto),<br />
 					&emsp;UNIQUE(profileHandle),<br />
 					&emsp;INDEX(memberId),<br />
 					&emsp;FOREIGN KEY(memberId) REFERENCES member(memberId),<br />
@@ -73,9 +73,9 @@
 					&emsp;needId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br />
 					&emsp;profileId INT UNSIGNED NOT NULL,<br />
 					&emsp;need VARCHAR(5000),<br />
-					&emsp;title VARCHAR (64)<br />
-					&emsp;fulfilled TINYINT UNSIGNED,<br />
-					&emsp;INDEX(need),<br />
+					&emsp;needTitle VARCHAR (64)<br />
+					&emsp;needFulfilled TINYINT UNSIGNED,<br />
+					&emsp;INDEX(needTitle),<br />
 					&emsp;INDEX(profileId),<br />
 					&emsp;FOREIGN KEY(profileId) REFERENCES profile(profileId),<br />
 					&emsp;PRIMARY KEY(needId)<br />

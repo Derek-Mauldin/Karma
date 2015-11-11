@@ -467,7 +467,89 @@ class profile {
 		imagedestroy($avatar);
 	}
 
+	/**
+	 * this function inserts this profile from mySQL
+	 *
+	 * @param PDO $pdo is a PDO connection object
+	 * @throws PDOException when profileId is null
+	 */
+	public function insertProfile(PDO $pdo) {
 
+		//check if profileId is null if not throw PDOException
+		if($this->profileId !== null) {
+			throw(new PDOException("Profile Already Exists on Database"));
+		}
 
+		// create and prepare query template
+		$query = "INSERT INTO profile(memberId, profileBlurb, profileHandle, profileFirstName, profileLastName, profielePhoto, profilePhotoType)
+					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, profilePhotoType)";
+		$statement = $pdo->prepare($query);
+
+		// bind profile variables to placeholder in the template
+		$parameters = ["memberId" => $this->memberId, "profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
+		               "profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
+		               "profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType];
+
+		$statement->execute($parameters);
+
+		// add mysql created id to this profile
+		$this->profileId = intval($pdo->lastInsertId());
+
+	}
+
+	/**
+	 * this function deletes this profile from mySQL
+	 *
+	 * @param PDO $pdo is a PDO connection object
+	 * @throws PDOException when profileId is null
+	 */
+	public function deleteProfile(PDO $pdo) {
+
+		if($this->profileId === null) {
+			throw (new PDOException("Unable to delete a profile that does not exist"));
+		}
+
+		// create and prepare query template
+		$query = "DELETE FROM profile WHERE profileId = :profileid";
+		$statement = $pdo->prepare($query);
+
+		// bind profile variable to placeholder in the template
+		$parameters = ["profileId" => $this->profileId ];
+
+		$statement->execute($parameters);
+
+	}
+
+	/**
+	 * this function updates this profile in mySQL
+	 *
+	 * @param PDO $pdo is a PDO connection object
+	 * @throws PDOException when profileId is null
+	 */
+	public function updateProfile (PDO $pdo) {
+
+		// profile with profileId set to null cannot be deleted
+		if($this->profileId === null) {
+			throw(new PDOException("Unable to update a profile that does not exist"));
+		}
+
+		// create and prepare query template
+		$query = "UPDATE profile SET profileBlurb = :profileBlurb, profileHandle = :profileHandle,
+		                             profileFirstName = :profileFirstName, proflieLastName = :profileLastName,
+		                             profilePhoto = :profilePhoto, profilePhotoType = :profilePhotoType
+		          WHERE profileId = :profileId";
+		$statement = $pdo->prepare($query);
+
+		// bind profile variables to placeholders in template
+		$parameters = ["profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
+				         "profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
+				         "profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType];
+
+		$statement->execute($parameters);
+
+	}
 
 } // end of profile class
+
+
+
