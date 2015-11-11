@@ -1,47 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 	<head>
-		<meta charset="utf-8"/>
-		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-		<!-- Bootstrap latest complied and minified CSS -->
-		<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"/>
+		<!--font styles-->
+		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Acme">
 
-		<!-- Optional Bootstrap theme -->
-		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous"/>
+		<!--javascript-->
+		<script src="//malsup.github.com/jquery.cycle2.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+		<script src="//malsup.github.io/jquery.cycle2.js"></script>
 
-		<!-- Font Awesome http://fontawesome.github.io/Font-Awesome/ -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+				integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+				crossorigin="anonymous">
 
-		<!-- Custom CSS  -->
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
+				integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
-		<link type="text/css" href="../../../public_html/lib/css/style.css" rel="stylesheet"/>
+		<!--Link to custom CSS files here-->
+		<link type="text/css" href="../css/sidepanel.css" rel="stylesheet">
+\		<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
+		<link type="text/css" href="../css/footer.css" rel="stylesheet">
 
-<!--
-		<link type="text/css" href="../../../public_html/lib/css/form.css" rel="stylesheet"/>
--->
-
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
+		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
 		<!--[if lt IE 9]>
 		<script type="text/javascript" src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script type="text/javascript" src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-		<!-- js-cookie (for capstone) -->
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/js-cookie/2.0.2/js.cookie.min.js"></script>
+		<!--js-cookie (for capstone) -->
+		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/js-cookie/2.0.2/js.cookie.min.js"></script>
 
-		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+		<!--jQuery (necessary for bootstrap's javaScript plugins)-->
 		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 
 		<!-- jQuery form validation and additional methods (for capstone) -->
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
-		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/additional-methods.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudfare/com/ajax/libs/jquery-validate/1.14.0/jquery.valiate.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/jquery-validate/1.14.0.additional-methods.min.js"></script>
 
-		<!-- Latest compiled and minified Bootstrap JavaScript, all compiled plugins included -->
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+				  integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+				  crossorigin="anonymous"></script>
 
 		<!-- jscroll plugin -->
 		<script src="../../lib/plugins/jscroll/jquery.jscroll.min.js" type="text/javascript"></script>
@@ -50,57 +57,97 @@
 		<script src="../js/form.js" type="text/javascript"></script>
 		<script src="../js/form-scripts.js" type="text/javascript"></script>
 
-
 		<!-- Page Title -->
 		<title>Homepage Outline</title>
 	</head>
+
 	<body class="sfooter">
 		<div class="sfooter-content">
 			<!--include the <head> tag-->
-
 			<header>
-				<nav class="navbar navbar-fixed-top">
-					<div class="container">
+				<nav class="navbar navbar-default navbar-fixed-top">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Brand</a>
+					</div>
 
-						<!-- logo and mobile toggle button get grouped together for better mobile display -->
-						<div class="navbar-header">
+					<!-- Collect the nav links, forms, and other content for toggling -->
 
-							<!-- this is the mobile menu button -->
-							<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-menu">
-								<span class="sr-only">main menu</span>
-								<span class="glyphicon glyphicon-menu-hamburger"></span>
-							</button>
-
-							<a class="navbar-brand" href="#">&#2384;&nbsp;Karma</a>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search">
 						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
+						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
+						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
+						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
+						<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png"></a></li>
 
-						<!-- here are your main nav links, grouped for toggling -->
-						<div class="collapse navbar-collapse" id="main-menu">
-							<ul class="nav navbar-nav navbar-right">
-								<li><a href="#">Link</a></li>
-								<li><a href="#">Link</a></li>
-								<li><a href="#">Link</a></li>
-								<li><a href="#">Link</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false"><img class="navIconLink" src="http://placehold.it/35x35"><span
+										class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li role="separator" class="divider"></li>
+								<li><a href="#">Separated link</a></li>
 							</ul>
-						</div>
-
-					</div><!--.container-->
-				</nav><!--.navbar-->	</header>
-
+						</li>
+					</ul>
+				</div>
+			</nav>
+			</header>
+			<!-- side panel here -->
 			<div class="container">
 				<div class="row">
-
-					<!-- side panel here -->
-					<div class="col-md-4 hidden-xs hidden-sm">
+					<div class="col-md-4 hidden-xs hidden-sm" id="sidepanel">
 						<section class="side-panel panel panel-default">
-							<h2>This is the side panel.</h2>
-						</section>			</div>
+							<ul>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+
+									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
+									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
+									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
+									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
+									<li><a href="#"><img class="navIconLink" src=http://dummyimage.com/35/FF99CC/fff.png">link</a></li>
+
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+									<li><br></li>
+
+							</ul>
+						</section>
+					</div>
 
 					<!-- main content area -->
+					<div class="clearfix"</div>
 					<div class="col-md-8 col-xs-12">
 						<main>
-							<h2>This is the Main Content Panel</h2>
-
+							<p><br></p>
+							<p><br></p>
 							<!-- load feed -->
 							<div class="feed-wrapper">
 
@@ -119,20 +166,21 @@
 											<p class="listing-text">
 												Listing text here.
 											</p>
-										</div>
-									</div>
-
-										<div class="panel-offer">
+												<div class="panel-offer">
 											<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
 												Make Offer
 											</button>
+											</div>
 											<!--Modal -->
 											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 												<div class="modal-dialog" role="document">
 															<?php include_once "../../php/form.php" ?>
-															</div>
 												</div>
 											</div>
+										</div>
+									</div>
+								</div>
+
 
 									<div class="listing clearfix panel panel-default">
 										<div class="panel-heading">
@@ -140,181 +188,174 @@
 												Listing title here.
 											</h4>
 										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+									<div class="panel-body">
+										<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
 											<p class="listing-text">
 												Listing text here.
 											</p>
+											<div class="panel-offer">
+												<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+													Make Offer
+												</button>
+												<!--Modal -->
+												<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+													<div class="modal-dialog" role="document">
+														<?php include_once "../../php/form.php" ?>
+													</div>
+												</div>
+											</div>
 										</div>
 									</div>
 
-								<div class="panel-offer">
-									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-										Make Offer
-									</button>
-									<!--Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<?php include_once "../../php/form.php" ?>
+							<div class="listing clearfix panel panel-default">
+								<div class="panel-heading">
+									<h4 class="listing-title">
+										Listing title here.
+									</h4>
+								</div>
+								<div class="panel-body">
+									<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+									<p class="listing-text">
+										Listing text here.
+									</p>
+									<div class="panel-offer">
+										<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+											Make Offer
+										</button>
+										<!--Modal -->
+										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<?php include_once "../../php/form.php" ?>
+											</div>
 										</div>
 									</div>
 								</div>
+							</div>
 
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
-										</div>
-									</div>
-
-								<div class="panel-offer">
-									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-										Make Offer
-									</button>
-									<!--Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<?php include_once "../../php/form.php" ?>
+							<div class="listing clearfix panel panel-default">
+								<div class="panel-heading">
+									<h4 class="listing-title">
+										Listing title here.
+									</h4>
+								</div>
+								<div class="panel-body">
+									<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+									<p class="listing-text">
+										Listing text here.
+									</p>
+									<div class="panel-offer">
+										<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+											Make Offer
+										</button>
+										<!--Modal -->
+										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<?php include_once "../../php/form.php" ?>
+											</div>
 										</div>
 									</div>
 								</div>
+							</div>
 
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
-										</div>
-									</div>
-
-								<div class="panel-offer">
-									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-										Make Offer
-									</button>
-									<!--Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<?php include_once "../../php/form.php" ?>
+							<div class="listing clearfix panel panel-default">
+								<div class="panel-heading">
+									<h4 class="listing-title">
+										Listing title here.
+									</h4>
+								</div>
+								<div class="panel-body">
+									<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+									<p class="listing-text">
+										Listing text here.
+									</p>
+									<div class="panel-offer">
+										<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+											Make Offer
+										</button>
+										<!--Modal -->
+										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<?php include_once "../../php/form.php" ?>
+											</div>
 										</div>
 									</div>
 								</div>
+							</div>
 
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
-										</div>
-									</div>
-
-								<div class="panel-offer">
-									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-										Make Offer
-									</button>
-									<!--Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<?php include_once "../../php/form.php" ?>
+							<div class="listing clearfix panel panel-default">
+								<div class="panel-heading">
+									<h4 class="listing-title">
+										Listing title here.
+									</h4>
+								</div>
+								<div class="panel-body">
+									<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+									<p class="listing-text">
+										Listing text here.
+									</p>
+									<div class="panel-offer">
+										<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+											Make Offer
+										</button>
+										<!--Modal -->
+										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<?php include_once "../../php/form.php" ?>
+											</div>
 										</div>
 									</div>
 								</div>
+							</div>
 
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
-										</div>
-									</div>
-
-								<div class="panel-offer">
-									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-										Make Offer
-									</button>
-									<!--Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<?php include_once "../../php/form.php" ?>
+							<div class="listing clearfix panel panel-default">
+								<div class="panel-heading">
+									<h4 class="listing-title">
+										Listing title here.
+									</h4>
+								</div>
+								<div class="panel-body">
+									<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+									<p class="listing-text">
+										Listing text here.
+									</p>
+									<div class="panel-offer">
+										<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+											Make Offer
+										</button>
+										<!--Modal -->
+										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<?php include_once "../../php/form.php" ?>
+											</div>
 										</div>
 									</div>
 								</div>
+							</div>
 
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
-										</div>
-									</div>
-
-								<div class="panel-offer">
-									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-										Make Offer
-									</button>
-									<!--Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<?php include_once "../../php/form.php" ?>
+							<div class="listing clearfix panel panel-default">
+								<div class="panel-heading">
+									<h4 class="listing-title">
+										Listing title here.
+									</h4>
+								</div>
+								<div class="panel-body">
+									<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+									<p class="listing-text">
+										Listing text here.
+									</p>
+									<div class="panel-offer">
+										<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+											Make Offer
+										</button>
+										<!--Modal -->
+										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											<div class="modal-dialog" role="document">
+												<?php include_once "../../php/form.php" ?>
+											</div>
 										</div>
 									</div>
 								</div>
-
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
-										</div>
-									</div>
-
-								<div class="panel-offer">
-									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
-										Make Offer
-									</button>
-									<!--Modal -->
-									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-										<div class="modal-dialog" role="document">
-											<?php include_once "../../php/form.php" ?>
-										</div>
-									</div>
-								</div>
+							</div>
 
 							</div><!--#karma-feed-->
 

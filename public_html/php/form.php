@@ -72,6 +72,9 @@ crossorigin="anonymous"></script>
 								</div>
 								<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Offer</button>
 								<div id="msgSubmit" class="h3 text-center hidden"></div>
+									<div class="modal-footer">
+										<p id="btn" class= "pull-left" data-dismiss="modal" aria-hidden="true">Cancel</p>
+									</div>
 								<div class="clearfix"></div>
 							</form>
 						</div>

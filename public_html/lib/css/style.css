@@ -37,6 +37,7 @@ footer {
 * Fixed panel Layout Styles
 ********************************************/
 .side-panel {
+	background-color:lightgrey;
 	min-height: 50vh;
 	max-height: 90vh;
 	position: fixed;
