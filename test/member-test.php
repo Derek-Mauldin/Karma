@@ -1,6 +1,6 @@
 <?php
-require_once("administrator-test.php");
-
+require_once("karma-data-design.php");
+require_once("phpunit.xml");
 /**
 * Full PHPUnit test for the Member class
 *
