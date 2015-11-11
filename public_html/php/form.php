@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang=en">
+	<head>
+		<title>Contact form using Bootstrap 3.3.4</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta charset="utf-8">
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+		<!--javascript-->
+		<script src="http://malsup.github.com/jquery.cycle2.js"></script>
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+		<script src="//malsup.github.io/jquery.cycle2.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+				integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+				crossorigin="anonymous">
+
+		<!--animate css-->
+		<link rel="stylesheet" href="animate.min.css">
+
+		<!-- Optional theme -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
+				integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+
+		<!--bootstrap validator css-->
+		<link rel="text/javascript" href="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/css/bootstrapValidator.min.css">
+
+		<!--Link to custom CSS files here-->
+
+
+
+		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
+		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
+		<!--[if lt IE 9]>
+		<script type="text/javascript" src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		<script type="text/javascript" src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+
+		<!--js-cookie (for capstone) -->
+		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/js-cookie/2.0.2/js.cookie.min.js"></script>
+
+		<!--jQuery (necessary for bootstrap's javaScript plugins)-->
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+		<!-- jQuery form validation and additional methods (for capstone) -->
+		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudfare/com/ajax/libs/jquery-validate/1.14.0/jquery.valiate.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/jquery-validate/1.14.0.additional-methods.min.js"></script>
+
+		<!--bootstrap validator-->
+		<script type="//cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.3/js/bootstrapValidator.min.js"></script>
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
+crossorigin="anonymous"></script>
+
+	</head>
+	<body>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<div class="well" style="margin-top: 10%;">
+							<h3>Give $user a hand</h3>
+							<form role="form" id="contactForm" data-toggle="validator" class="shake">
+								<div class="row">
+								<div class="form-group">
+									<textarea id="message" class="form-control" rows="5" placeholder="Hi! I can can give you a Skype algebra tutoring session this Friday or Saturday afternoon." required></textarea>
+									<div class="help-block with-errors"></div>
+								</div>
+								<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-right ">Offer</button>
+								<div id="msgSubmit" class="h3 text-center hidden"></div>
+								<div class="clearfix"></div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+		<script type="text/javascript" src="../lib/js/form-scripts.js"></script>
+			</body>
+
+</html>

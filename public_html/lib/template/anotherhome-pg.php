@@ -25,8 +25,8 @@ integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUh
 		<!--Link to custom CSS files here-->
 <link type="text/css" href="../css/sidepanel.css" rel="stylesheet">
 <link rel=stylesheet href="../css/slideshow.css">
-<link type="text/css" href="..//css/stylesheet.css" rel="stylesheet">
-<link type="text/css" href="..//css/footer.css" rel="stylesheet">
+<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
+<link type="text/css" href="../css/footer.css" rel="stylesheet">
 
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 		<!--WARNING: Respond.js doesn't work if you view the page via file://-->

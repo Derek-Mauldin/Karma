@@ -14,8 +14,13 @@
 		<!-- Font Awesome http://fontawesome.github.io/Font-Awesome/ -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"/>
 
-		<!-- Custom CSS @author:rlewis37@cnm.edu -->
+		<!-- Custom CSS  -->
+
 		<link type="text/css" href="../../../public_html/lib/css/style.css" rel="stylesheet"/>
+
+<!--
+		<link type="text/css" href="../../../public_html/lib/css/form.css" rel="stylesheet"/>
+-->
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,8 +46,10 @@
 		<!-- jscroll plugin -->
 		<script src="../../lib/plugins/jscroll/jquery.jscroll.min.js" type="text/javascript"></script>
 
-		<!-- Custom JavaScript @author:rlewis37@cnm.edu -->
-		<script src="../../lib/js/scripts.js" type="text/javascript"></script>
+		<!-- Custom JavaScript -->
+		<script src="../js/form.js" type="text/javascript"></script>
+		<script src="../js/form-scripts.js" type="text/javascript"></script>
+
 
 		<!-- Page Title -->
 		<title>Homepage Outline</title>
@@ -105,6 +112,8 @@
 												Listing title here.
 											</h4>
 										</div>
+										</div>
+
 										<div class="panel-body">
 											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
 											<p class="listing-text">
@@ -112,6 +121,18 @@
 											</p>
 										</div>
 									</div>
+
+										<div class="panel-offer">
+											<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+												Make Offer
+											</button>
+											<!--Modal -->
+											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+												<div class="modal-dialog" role="document">
+															<?php include_once "../../php/form.php" ?>
+															</div>
+												</div>
+											</div>
 
 									<div class="listing clearfix panel panel-default">
 										<div class="panel-heading">
@@ -127,33 +148,17 @@
 										</div>
 									</div>
 
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
+								<div class="panel-offer">
+									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+										Make Offer
+									</button>
+									<!--Modal -->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<?php include_once "../../php/form.php" ?>
 										</div>
 									</div>
-
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
-										</div>
-									</div>
+								</div>
 
 									<div class="listing clearfix panel panel-default">
 										<div class="panel-heading">
@@ -169,33 +174,17 @@
 										</div>
 									</div>
 
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
+								<div class="panel-offer">
+									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+										Make Offer
+									</button>
+									<!--Modal -->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<?php include_once "../../php/form.php" ?>
 										</div>
 									</div>
-
-									<div class="listing clearfix panel panel-default">
-										<div class="panel-heading">
-											<h4 class="listing-title">
-												Listing title here.
-											</h4>
-										</div>
-										<div class="panel-body">
-											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
-											<p class="listing-text">
-												Listing text here.
-											</p>
-										</div>
-									</div>
+								</div>
 
 									<div class="listing clearfix panel panel-default">
 										<div class="panel-heading">
@@ -211,15 +200,128 @@
 										</div>
 									</div>
 
-								</div><!--#karma-feed-->
+								<div class="panel-offer">
+									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+										Make Offer
+									</button>
+									<!--Modal -->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<?php include_once "../../php/form.php" ?>
+										</div>
+									</div>
+								</div>
 
-							</div><!--.feed-wrapper-->				</main>
-					</div>
+									<div class="listing clearfix panel panel-default">
+										<div class="panel-heading">
+											<h4 class="listing-title">
+												Listing title here.
+											</h4>
+										</div>
+										<div class="panel-body">
+											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+											<p class="listing-text">
+												Listing text here.
+											</p>
+										</div>
+									</div>
 
-				</div>
-			</div>
+								<div class="panel-offer">
+									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+										Make Offer
+									</button>
+									<!--Modal -->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<?php include_once "../../php/form.php" ?>
+										</div>
+									</div>
+								</div>
 
-		</div><!--.sfooter-content-->
+									<div class="listing clearfix panel panel-default">
+										<div class="panel-heading">
+											<h4 class="listing-title">
+												Listing title here.
+											</h4>
+										</div>
+										<div class="panel-body">
+											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+											<p class="listing-text">
+												Listing text here.
+											</p>
+										</div>
+									</div>
+
+								<div class="panel-offer">
+									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+										Make Offer
+									</button>
+									<!--Modal -->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<?php include_once "../../php/form.php" ?>
+										</div>
+									</div>
+								</div>
+
+									<div class="listing clearfix panel panel-default">
+										<div class="panel-heading">
+											<h4 class="listing-title">
+												Listing title here.
+											</h4>
+										</div>
+										<div class="panel-body">
+											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+											<p class="listing-text">
+												Listing text here.
+											</p>
+										</div>
+									</div>
+
+								<div class="panel-offer">
+									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+										Make Offer
+									</button>
+									<!--Modal -->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<?php include_once "../../php/form.php" ?>
+										</div>
+									</div>
+								</div>
+
+									<div class="listing clearfix panel panel-default">
+										<div class="panel-heading">
+											<h4 class="listing-title">
+												Listing title here.
+											</h4>
+										</div>
+										<div class="panel-body">
+											<img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left">
+											<p class="listing-text">
+												Listing text here.
+											</p>
+										</div>
+									</div>
+
+								<div class="panel-offer">
+									<button class="listing-button" type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal">
+										Make Offer
+									</button>
+									<!--Modal -->
+									<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<?php include_once "../../php/form.php" ?>
+										</div>
+									</div>
+								</div>
+
+							</div><!--#karma-feed-->
+
+							</div><!--.feed-wrapper-->
+
+
+		<!--.sfooter-content-->
 
 		<footer class="footer navbar-fixed-bottom">
 			<div class="container">
