@@ -448,10 +448,10 @@ class profile {
 		// save image depending on type
 		if($type === "image/png") {
 			$path = $path . ".png";
-			$save = imagepng($avatar, $path);
+			$save = @imagepng($avatar, $path);
 		} else {
 			$path = $path . ".jpeg";
-			$save = imagejpeg($avatar, $path);
+			$save = @imagejpeg($avatar, $path);
 		}
 
 		// if save fails throw exception
