@@ -14,7 +14,7 @@ require_once(dirname(__DIR__) . "/php/classes/message.php");
  * @see Message
  * @author Gerald Fongwe <gfongwe@cnm.edu>
  **/
-class MessageTest extends karmabaseTest {
+class MessageTest extends karmaTest {
 	/**
 	 * valid messagesender to use
 	 * @var string $VALID_MESSAGESENDER
