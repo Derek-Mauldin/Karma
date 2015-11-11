@@ -20,11 +20,20 @@ class Need {
 	 **/
 	private $profileId;
 	/**
-	 * actual textual content of this Need
-	 * @var string $need
+	 * actual textual description of this Need
+	 * @var string $needDescription
 	 **/
-	private $need;
-
+	private $needDescription;
+	/**
+	 * actual fulfilment of the need
+	 * @var  int  $needFulfilled
+	 **/
+	private $needFulfilled;
+	/**
+	 * actual textual title of this Need
+	 * @var string needTitle
+	 * **/
+	private $needTitle;
 
 	/**
 	 * constructor for this Need
@@ -125,38 +134,96 @@ class Need {
 	}
 
 	/**
-	 * accessor method for need
+	 * accessor method for need description
 	 *
-	 * @return string value of need
+	 * @return string value of need description
 	 **/
-	public function getNeed() {
-		return ($this->need);
+	public function getNeedDescription() {
+		return ($this->needDescription);
 	}
 
 	/**
-	 * mutator method for need
+	 * mutator method for need Description
 	 *
-	 * @param string $newNeed new value of need
-	 * @throws InvalidArgumentException if $newNeed is not a string or insecure
-	 * @throws RangeException if $newNeed is > 5000 characters
+	 * @param string $newNeedDescription new value of need
+	 * @throws InvalidArgumentException if $newNeedDescription is not a string or insecure
+	 * @throws RangeException if $newNeedDescription is > 5000 characters
 	 **/
-	public function setNeed($newNeed) {
-		// verify the need is secure
-		$newNeed = trim($newNeed);
-		$newNeed = filter_var($newNeed, FILTER_SANITIZE_STRING);
-		if(empty($newNeed) === true) {
-			throw(new InvalidArgumentException("need is empty or insecure"));
+	public function setNeedDescription($newNeedDescription) {
+		// verify the needDescription is secure
+		$newNeedDescription = trim($newNeedDescription);
+		$newNeedDescription = filter_var($newNeedDescription, FILTER_SANITIZE_STRING);
+		if(empty($newNeedDescription) === true) {
+			throw(new InvalidArgumentException("needDescription is empty or insecure"));
 		}
 
-		// verify the need will fit in the database
-		if(strlen($newNeed) > 5000) {
+		// verify the need description will fit in the database
+		if(strlen($newNeedDescription) > 5000) {
 			throw(new RangeException("need too large"));
 		}
 
 		// store the need
-		$this->need = $newNeed;
+		$this->needDescription = $newNeedDescription;
 	}
+	/**
+		 * accessor method for need fulfilled
+		 *
+		 * @return string value of need fulfilled
+		 **/
+		public function getNeedFulfilled() {
+			return ($this->needFulfilled);
+	}	/**
+ * mutator method for need Fulfilled
+ *
+ * @param int $newNeedFulfilled new value of need fulfilled
+ * @throws InvalidArgumentException if $newNeedFulfilled is not an integer or not positive
+ * @throws RangeException if $newNeedFulfilled is not positive
+ **/
+	public function setNeedFulfilled($newNeedFulfilled) {
+		// verify the need fulfilled is valid
+		$newNeedFulfilled = filter_var($newNeedFulfilled, FILTER_VALIDATE_INT);
+		if($newNeedFulfilled === false) {
+			throw(new InvalidArgumentException("needFulfilled is not a valid integer"));
+		}
+		// verify the Need Fulfilled is positive
+		if($newNeedFulfilled <= 0) {
+			throw(new RangeException("needFulfilled is not positive"));
+		}
 
+		// convert and store the need fulfilled
+		$this->needFulfilled = intval($newNeedFulfilled);
+	}
+	/**
+	 * accessor method for need title
+	 *
+	 * @return string value of need title
+	 **/
+	public function getNeedTitle() {
+		return ($this->needTitle);
+	}
+	/**
+	 * mutator method for need Title
+	 *
+	 * @param string $newNeedTitle new value of need
+	 * @throws InvalidArgumentException if $newNeedTitle is not a string or insecure
+	 * @throws RangeException if $newNeedTitle is > 5000 characters
+	 **/
+	public function setNeedTitle($newNeedTitle) {
+		// verify the needTitle is secure
+		$newNeedTitle = trim($newNeedTitle);
+		$newNeedTitle = filter_var($newNeedTitle, FILTER_SANITIZE_STRING);
+		if(empty($newNeedTitle) === true) {
+			throw(new InvalidArgumentException("needTitle is empty or insecure"));
+		}
+
+		// verify the need title will fit in the database
+		if(strlen($newNeedTitle) > 64) {
+			throw(new RangeException("need title too large"));
+		}
+
+		// store the need title
+		$this->needTitle = $newNeedTitle;
+	}
 	/**
 	 * inserts this Need into mySQL
 	 *
@@ -221,7 +288,8 @@ class Need {
 
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->needDate->format("Y-m-d H:i:s");
-		$parameters = array("profileId" => $this->profileId, "need" => $this->need, "needId" => $this->needId);
+		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "needDescription" => $this->needDescription,
+				 "needFulfilled"=> $this->needFulfilled, "needTitle" => $this->needTitle);
 		$statement->execute($parameters);
 	}
 
@@ -241,7 +309,7 @@ class Need {
 			throw(new PDOException("need is invalid"));
 		}
 		// create query template
-		$query = "SELECT needId, profileId, need FROM need WHERE need LIKE :need";
+		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM need WHERE need LIKE :need";
 		$statement = $pdo->prepare($query);
 
 		// bind the need to the place holder in the template
@@ -254,7 +322,8 @@ class Need {
 		$statement->setFetchMode(PDO::FETCH_ASSOC);
 		while(($row = $statement->fetch()) !== false) {
 			try {
-				$need = new Need($row["needId"], $row["profileId"], $row["need"]);
+				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
+						$row["needTitle"]);
 				$needs[$needs->key()] = $need;
 				$needs->next();
 			} catch(Exception $exception) {
@@ -273,7 +342,7 @@ class Need {
 	 **/
 	public static function getAllNeeds(PDO $pdo) {
 		// create query template
-		$query = "SELECT needId, profileId, need FROM needs";
+		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM needs";
 		$statement = $pdo->prepare($query);
 		$statement->execute();
 
@@ -282,7 +351,8 @@ class Need {
 		$statement->setFetchMode(PDO::FETCH_ASSOC);
 		while(($row = $statement->fetch()) !== false) {
 			try {
-				$need = new Need($row["needId"], $row["profileId"], $row["need"]);
+				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
+						$row["needTitle"]);
 				$needs[$needs->key()] = $need;
 				$need->next();
 			} catch(Exception $exception) {
