@@ -125,7 +125,7 @@ class Need {
 	}
 
 	/**
-	 * accessor method for need content
+	 * accessor method for need
 	 *
 	 * @return string value of need
 	 **/
@@ -134,26 +134,26 @@ class Need {
 	}
 
 	/**
-	 * mutator method for need content
+	 * mutator method for need
 	 *
 	 * @param string $newNeed new value of need
 	 * @throws InvalidArgumentException if $newNeed is not a string or insecure
 	 * @throws RangeException if $newNeed is > 5000 characters
 	 **/
 	public function setNeed($newNeed) {
-		// verify the need content is secure
+		// verify the need is secure
 		$newNeed = trim($newNeed);
 		$newNeed = filter_var($newNeed, FILTER_SANITIZE_STRING);
 		if(empty($newNeed) === true) {
-			throw(new InvalidArgumentException("tweet content is empty or insecure"));
+			throw(new InvalidArgumentException("need is empty or insecure"));
 		}
 
-		// verify the need content will fit in the database
+		// verify the need will fit in the database
 		if(strlen($newNeed) > 5000) {
 			throw(new RangeException("need too large"));
 		}
 
-		// store the tweet content
+		// store the need
 		$this->need = $newNeed;
 	}
 
@@ -220,17 +220,17 @@ class Need {
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
-		$formattedDate = $this->tweetDate->format("Y-m-d H:i:s");
+		$formattedDate = $this->needDate->format("Y-m-d H:i:s");
 		$parameters = array("profileId" => $this->profileId, "need" => $this->need, "needId" => $this->needId);
 		$statement->execute($parameters);
 	}
 
 	/**
-	 * gets the Need by content
+	 * gets the Need by needContent
 	 *
 	 * @param PDO $pdo PDO connection object
-	 * @param string $needContent need content to search for
-	 * @return SplFixedArray all Needs found for this content
+	 * @param string $need to search for
+	 * @return SplFixedArray all Needs found for this need
 	 * @throws PDOException when mySQL related errors occur
 	 **/
 	public static function getNeedByNeedContent(PDO $pdo, $need) {
@@ -246,7 +246,7 @@ class Need {
 
 		// bind the need to the place holder in the template
 		$need = "%need%";
-		$parameters = array("tweetContent" => $need);
+		$parameters = array("need" => $need);
 		$statement->execute($parameters);
 
 		// build an array of needs
@@ -271,9 +271,9 @@ class Need {
 	 * @return SplFixedArray all Needs found
 	 * @throws PDOException when mySQL related errors occur
 	 **/
-	public static function getAllTweets(PDO $pdo) {
+	public static function getAllNeeds(PDO $pdo) {
 		// create query template
-		$query = "SELECT needId, profileId, need FROM tweet";
+		$query = "SELECT needId, profileId, need FROM needs";
 		$statement = $pdo->prepare($query);
 		$statement->execute();
 

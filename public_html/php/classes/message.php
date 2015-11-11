@@ -111,9 +111,9 @@ class Message {
 
 
 	/**
-	 * accessor method for messagesender id
+	 * accessor method for messageSender id
 	 *
-	 * @return int value of messagesender id
+	 * @return int value of messageSender id
 	 **/
 	public function getMessageSenderId() {
 		return ($this->MessageSenderId);
@@ -122,24 +122,24 @@ class Message {
 	/**
 	 * mutator method for messageSender id
 	 *
-	 * @param int $newMessageSenderId new value of messagesender id
+	 * @param int $newMessageSenderId new value of messageSender id
 	 * @throws InvalidArgumentException if $newMessageSenderId is not an integer or not positive
 	 * @throws RangeException if $newMessageSenderId is not positive
 	 **/
 	public function setMessageSenderId($newMessageSenderId) {
-		// verify the messagesender id is valid
+		// verify the messageSender id is valid
 		$newMessageSenderId = filter_var($newMessageSenderId, FILTER_VALIDATE_INT);
 		if($newMessageSenderId === false) {
-			throw(new InvalidArgumentException("messagesender id is not a valid integer"));
+			throw(new InvalidArgumentException("messageSender id is not a valid integer"));
 		}
 
-		// verify the messagesender id is positive
+		// verify the messageSender id is positive
 		if($newMessageSenderId <= 0) {
-			throw(new RangeException("messagesender id is not positive"));
+			throw(new RangeException("messageSender id is not positive"));
 		}
 
-		// convert and store the messagesender id
-		$this->messagesenderId = intval($newMessageSenderId);
+		// convert and store the messageSender id
+		$this->messageSenderId = intval($newMessageSenderId);
 	}
 
 
@@ -158,7 +158,7 @@ class Message {
 	 *
 	 * @param int $newMessageReceiverId new value of messageReceiver id
 	 * @throws InvalidArgumentException if $newMessageReceiverId is not an integer or not positive
-	 * @throws RangeException if $newMessagereceiverId is not positive
+	 * @throws RangeException if $newMessageReceiverId is not positive
 	 **/
 	public function setMessageReceiverId($newMessageReceiverId) {
 		// verify the messageReceiver id is valid
@@ -167,12 +167,12 @@ class Message {
 			throw(new InvalidArgumentException("messagereceiver id is not a valid integer"));
 		}
 
-		// verify the messagereceiver id is positive
+		// verify the messageReceiver id is positive
 		if($newMessageReceiverId <= 0) {
-			throw(new RangeException("messagereceiver id is not positive"));
+			throw(new RangeException("messageReceiver id is not positive"));
 		}
 
-		// convert and store the messagereceiver id
+		// convert and store the messageReceiver id
 		$this->messageReceiverId = intval($newMessageReceiverId);
 	}
 
@@ -311,8 +311,8 @@ class Message {
 
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
 		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->messageSenderId,
-				messageReceiverId => $this->messageReceiverId, "messageContent" => $this->messageContent,
-				"messageDate" => $formattedDate);
+		messageReceiverId => $this->messageReceiverId, "messageContent" => $this->messageContent,
+		"messageDate" => $formattedDate);
 		$statement->execute($parameters);
 	}
 */
@@ -401,6 +401,35 @@ class Message {
 			throw(new PDOException($exception->getMessage(), 0, $exception));
 		}
 		return ($message);
+	}
+	/**
+	 * gets all Messages
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @return SplFixedArray all Messages found
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public static function getAllMessages(PDO $pdo) {
+		// create query template
+		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messagetDate FROM message";
+		$statement = $pdo->prepare($query);
+		$statement->execute();
+
+		// build an array of messages
+		$messages = new SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
+		while(($row = $statement->fetch()) !== false) {
+			try {
+				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
+				$row["messageContent"], $row["messageDate"]);
+				$messages[$messages->key()] = $message;
+				$message->next();
+			} catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+		return($messages);
 	}
 }
 
