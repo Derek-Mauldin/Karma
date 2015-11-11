@@ -385,28 +385,29 @@ class profile {
 	/**
 	 * function for using an uploaded photo
 	 *
-	 * @throws ErrorException if there was an upload erroer
+	 * @param string $inputTagName
+	 * @throws ErrorException if there was an upload error
 	 * @throws InvalidArgumentException for invalid image type - should be jpeg or png
 	 * @throws InvalidArgumentException for invalid file extension
 	 * @throws Error exception if createimage fails
 	 * @throws Error exception if image save fails
 	 *
 	 */
-	public function uploadPhoto()  {
+	public function uploadPhoto($inputTagName)  {
 
 		// if upload had an error throw exception
-		if($_FILES["imgFile"]["error"] !== UPLOAD_ERR_OK) {
+		if($_FILES[$inputTagName]["error"] !== UPLOAD_ERR_OK) {
 			throw(new ErrorException("Image Upload Error"));
 		}
 
 		// setup image type arrays
-		$goodTypes = array("image/jpeg", "image/png" );
-		$goodExt   = array(".jpg", ".jpeg", ".png");
+		$goodTypes = ["image/jpeg", "image/png"];
+		$goodExt   = ["jpg", "jpeg", "png"];
 
 		// grab data from $_Files
-		$imgType     = $_FILES["imgFile"]["type"];
-		$imgName     = $_FILES["imgFile"]["name"];
-		$imgFileName = $_FILES["imgFile"]["tmp-name"];
+		$imgType     = $_FILES[$inputTagName]["type"];
+		$imgName     = $_FILES[$inputTagName]["name"];
+		$imgFileName = $_FILES[$inputTagName]["tmp_name"];
 
 		// setup extensions for processing
 		$extension = end(explode(".", $imgName));
@@ -425,10 +426,10 @@ class profile {
 
 		// create image depending on type
 		if($extension === "png" ) {
-			$img = imagecreatefrompng($imgFileName);
+			$img = @imagecreatefrompng($imgFileName);
 			$type = "image/png";
 		} else {
-			$img = imagecreatefromjpeg($imgFileName);
+			$img = @imagecreatefromjpeg($imgFileName);
 			$type = "image/jpeg";
 		}
 
@@ -438,13 +439,13 @@ class profile {
 		}
 
 		// crop image
-		$cropArray = array("0","0","256","256");
+		$cropArray = [0, 0, 256, 256];
 		$avatar = imagecrop($img, $cropArray);
 
 		// setup path name to store image
-		$path = "somePathName";                     // need to add a pathname
+		$path = "/var/www/html/public_html/karma/avatars/avatar-" . $this->profileId;
 
-		// save image depding on type
+		// save image depending on type
 		if($type === "image/png") {
 			$path = $path . ".png";
 			$save = imagepng($avatar, $path);
@@ -462,10 +463,8 @@ class profile {
 		$this->setProfilePhotoType($type);
 		$this->setProfilePhoto($path);
 
-		// freee up resources
+		// free up resources
 		imagedestroy($avatar);
-
-
 	}
 
 
