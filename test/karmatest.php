@@ -8,8 +8,8 @@ require_once("/etc/apache2/data-design/encrypted-config.php");
  * This class is designed to lay the foundation of the unit tests per project. It loads the all the database
  * parameters about the project so that table specific tests can share the parameters in on place. To use it:
  *
- * 1. Rename the class from Karma-Base-Test to a project specific name (e.g., ProjectNameTest)
- * 2. Modify Karma-Base-Test::getDataSet() to include all the tables in your project.
+ * 1. Rename the class from KarmaTest to a project specific name (e.g., ProjectNameTest)
+ * 2. Modify KarmaTest::getDataSet() to include all the tables in your project.
  * 3. Modify Karma-Base-Test::getConnection() to include the correct mySQL properties file.
  * 4. Have all table specific tests include this class.
  *
@@ -17,7 +17,7 @@ require_once("/etc/apache2/data-design/encrypted-config.php");
  *
  * @author Gerald <gfongwe@cnm.edu>
  **/
-abstract class KarmaBaseTest extends PHPUnit_Extensions_Database_TestCase {
+abstract class karmaTest extends PHPUnit_Extensions_Database_TestCase {
 	/**
 	 * invalid id to use for an INT UNSIGNED field (maximum allowed INT UNSIGTNED in mySQL) + 1
 	 * @see https://dev.mysql.com/doc/refman/5.6/en/integer-types.html mySQL Integer Types
