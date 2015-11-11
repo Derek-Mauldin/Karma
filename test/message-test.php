@@ -1,6 +1,4 @@
 <?php
-// grab the project test parameters
-require_once("karma.php");
 
 // grab the class under scrutiny
 require_once(dirname(__DIR__) . "/php/classes/message.php");
@@ -43,7 +41,7 @@ class MessageTest extends karmaTest {
 		$message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoMessage = Profile::getMessageByMessageId($this->getPDO(), $message->getMessageId());
+		$pdoMessage = Message::getMessageByMessageId($this->getPDO(), $message->getMessageId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
 		$this->assertSame($pdoMessage->getMessageSender(), $this->VALID_MESSAGESENDER);
 		$this->assertSame($pdoMessage->getMessageReceiver(), $this->VALID_MESSAGERECEIVER);
@@ -57,7 +55,7 @@ class MessageTest extends karmaTest {
 	 **/
 	public function testInsertInvalidMessage() {
 		// create a profile with a non null messageId and watch it fail
-		$message = new Message(karmabaseTest::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(karmaTest::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
 		$message->insert($this->getPDO());
 	}
 
