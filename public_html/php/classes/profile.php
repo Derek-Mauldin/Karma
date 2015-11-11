@@ -359,6 +359,93 @@ class profile {
 	}
 
 
+	/**
+	 * mutator function for ProfilePhotType
+	 *
+	 * @param $newProfilePhotoType -- mime type for photo jpeg or png
+	 * @throws InvalidArgumentException if the photo
+	 */
+	public function setProfilePhotoType($newProfilePhotoType) {
+
+		// setup array with image types
+		$goodMimeType = array("image/jpeg", "image/png");
+
+		// check to see if $newProfilePhotoType is correct type
+		if(in_array($goodMimeType, $newProfilePhotoType) === false) {
+
+			throw(new InvalidArgumentException("Profile Photo is an unrecognized type.  Should be .JPEG or .PNG"));
+
+		}
+
+		// store image type
+		$this->profilePhoteType = $newProfilePhotoType;
+
+	}
+
+
+	public function uploadPhoto()  {
+
+		if($_FILES["imgFile"]["error"] !== UPLOAD_ERR_OK) {
+			throw(new ErrorException("Image Upload Error"));
+		}
+
+		$goodTypes = array("image/jpeg", "image/png" );
+		$goodExt   = array(".jpg", ".jpeg", ".png");
+
+		$imgType     = $_FILES["imgFile"]["type"];
+		$imgName     = $_FILES["imgFile"]["name"];
+		$imgFileName = $_FILES["imgFile"]["tmp-name"];
+
+		$extension = end(explode(".", $imgName));
+		$extension = strtolower($extension);
+
+
+		if(in_array($imgType, $goodTypes) === false) {
+			throw(new InvalidArgumentException("Invalid Image Type"));
+		}
+
+		if(in_array($extension, $goodExt) === false) {
+			throw(new InvalidArgumentException("Invalid File Extension"));
+		}
+
+
+		if($extension === "png" ) {
+			$img = imagecreatefrompng($imgFileName);
+			$type = "image/png";
+		} else {
+			$img = imagecreatefromjpeg($imgFileName);
+			$type = "image/jpeg";
+		}
+
+		if($img === false){
+			throw(new ErrorException("Create Image Failed"));
+		}
+
+		$cropArray = array("0","0","256","256");
+		$avatar = imagecrop($img, $cropArray);
+		$path = "somePathName";                     // need to add a pathname
+
+		if($type === "image/png") {
+			$path = $path . ".png";
+			$save = imagepng($avatar, $path);
+		} else {
+			$path = $path . ".jpeg";
+			$save = imagejpeg($avatar, $path);
+		}
+
+		if($save === false) {
+			throw(new ErrorException("Image Save Failed"));
+		}
+
+		$this->setProfilePhotoType($type);
+		$this->setProfilePhoto($path);
+
+		imagedestroy($avatar);
+
+
+	}
+
+
 
 
 } // end of profile class
