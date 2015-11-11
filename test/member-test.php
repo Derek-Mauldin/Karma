@@ -1,4 +1,6 @@
 <?php
+require_once("karma.php");
+
 /**
 * Full PHPUnit test for the Member class
 *
@@ -8,7 +10,6 @@
 * @see Member
 * @author Jennifer Hung <jhung@cnm.edu>
 **/
-
 class MemberTest extends KarmaTest {
 	/**
 	 * valid at email to use
