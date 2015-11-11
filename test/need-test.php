@@ -1,9 +1,11 @@
 <?php
-
-require_once("karma.php");
+// grab the test parameters
+require_once("karma-data-design.php");
+// grab the class to test
+require_once(dirname(__DIR__) . "/public_html/php/classes/need.php");
 
 /**
- * Full PHPUnit test for the Message class
+ * Full PHPUnit test for the Need class
  *
  * This is a complete PHPUnit test of the Need class. It is complete because *ALL* mySQL/PDO enabled methods
  * are tested for both invalid and valid inputs.
@@ -11,7 +13,7 @@ require_once("karma.php");
  * @see Need
  * @author Gerald Fongwe <gfongwe@cnm.edu>
  **/
-class NeedTest extends karmaDataDesignTest {
+class NeedTest extends KarmaDataDesignTest {
 	/**
 	 * valid NeedDescription to use
 	 * @var string $VALID_NEEDDESCRIPTION

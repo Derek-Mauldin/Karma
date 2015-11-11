@@ -1,7 +1,8 @@
 <?php
-
-// grab the class under scrutiny
-require_once("message.php");
+// grab the test parameters
+require_once("karma-data-design.php");
+// grab the class to test
+require_once(dirname(__DIR__) . "/public_html/php/classes/message.php");
 
 /**
  * Full PHPUnit test for the Message class
@@ -12,7 +13,7 @@ require_once("message.php");
  * @see Message
  * @author Gerald Fongwe <gfongwe@cnm.edu>
  **/
-class MessageTest extends karmaDataDesignTest {
+class MessageTest extends KarmaDataDesignTest {
 	/**
 	 * valid messagesender to use
 	 * @var string $VALID_MESSAGESENDER
@@ -55,7 +56,7 @@ class MessageTest extends karmaDataDesignTest {
 	 **/
 	public function testInsertInvalidMessage() {
 		// create a profile with a non null messageId and watch it fail
-		$message = new Message(karmaDataDesignTest::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(administratorTest::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
 		$message->insert($this->getPDO());
 	}
 
