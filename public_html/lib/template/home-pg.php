@@ -9,9 +9,7 @@
 		<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Acme">
 
 		<!--javascript-->
-		<script src="//malsup.github.com/jquery.cycle2.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-		<script src="//malsup.github.io/jquery.cycle2.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -26,9 +24,9 @@
 
 		<!--Link to custom CSS files here-->
 		<link type="text/css" href="../css/sidepanel.css" rel="stylesheet">
-\		<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
+		<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
 		<link type="text/css" href="../css/footer.css" rel="stylesheet">
-		\		<link type="text/css" href="../css/style.css" rel="stylesheet">
+		<link type="text/css" href="../css/style.css" rel="stylesheet">
 
 
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
