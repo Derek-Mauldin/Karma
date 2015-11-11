@@ -1,7 +1,7 @@
 <?php
 
 // grab the class under scrutiny
-require_once(dirname(__DIR__) . "/php/classes/message.php");
+require_once("message.php");
 
 /**
  * Full PHPUnit test for the Message class
@@ -12,7 +12,7 @@ require_once(dirname(__DIR__) . "/php/classes/message.php");
  * @see Message
  * @author Gerald Fongwe <gfongwe@cnm.edu>
  **/
-class MessageTest extends karmaTest {
+class MessageTest extends karmaDataDesignTest {
 	/**
 	 * valid messagesender to use
 	 * @var string $VALID_MESSAGESENDER
@@ -55,7 +55,7 @@ class MessageTest extends karmaTest {
 	 **/
 	public function testInsertInvalidMessage() {
 		// create a profile with a non null messageId and watch it fail
-		$message = new Message(karmaTest::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(karmaDataDesignTest::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
 		$message->insert($this->getPDO());
 	}
 
@@ -120,7 +120,7 @@ class MessageTest extends karmaTest {
 	 * @expectedException PDOException
 	 **/
 	public function testDeleteInvalidMessage() {
-		// create a Mesage and try to delete it without actually inserting it
+		// create a Message and try to delete it without actually inserting it
 		$message = new Message(null, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
 		$message->delete($this->getPDO());
 	}
