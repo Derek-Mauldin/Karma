@@ -25,7 +25,7 @@ class MemberTest extends KarmaTest {
 		$numRows = $this->getConnection()->getRowCount("member");
 
 // create a new Member and insert to into mySQL
-		$member = new Member(null, $this->VALID_ATEMAIL);
+		$member=new Member(null, $this->VALID_ATEMAIL);
 		$member->insert($this->getPDO());
 
 // grab the data from mySQL and enforce the fields match our expectations
