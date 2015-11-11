@@ -68,6 +68,30 @@ class profile {
 	private $profilePhoteType;
 
 
+	public function __construct($newProfileId, $newMemberId, $newProfileBlurb, $newProfileHandle,
+										 $newProfileFirstName, $newProfileLastName, $newInputTagName) {
+		try {
+			$this->setProfileId($newProfileId);
+			$this->setMemberId($newMemberId);
+			$this->setProfileBlurb($newProfileBlurb);
+			$this->setProfileHandle($newProfileHandle);
+			$this->setProfileFirstName($newProfileFirstName);
+			$this->setProfileLastName($newProfileLastName);
+
+			if($newInputTagName !== null) {
+				$this->uploadPhoto($newInputTagName);
+			}
+
+		}  catch(InvalidArgumentException $invalidArgument) {
+				throw(new InvalidArgumentException($invalidArgument->getmessage(), 0, $invalidArgument));
+		}  catch(RangeException $range) {
+				throw(new RangeException($range->getMessage(), 0, $range));
+		}  catch(Exception $exception) {
+				throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+
+	}  // construct
+
 	/**
 	 * accessor method for profileId
 	 *
@@ -77,7 +101,7 @@ class profile {
 
 		return($this->profileId);
 
-	}
+	}  // getProfileId
 
 
 	/**
@@ -89,7 +113,7 @@ class profile {
 
 		return($this->memberId);
 
-	}
+	}  // getMemberId
 
 	/**
 	 * accessor method for profileBlurb
@@ -100,7 +124,7 @@ class profile {
 
 		return($this->profileBlurb);
 
-	}
+	}  // getProfileBlurb
 
 	/**
 	 * acessor method for profileHandle
@@ -110,7 +134,8 @@ class profile {
 	public function getProfileHandle() {
 
 		return ($this->profileHandle);
-	}
+
+	}  // getProfileHandle
 
 	/**
 	 * accessor method for profile first name
@@ -121,7 +146,7 @@ class profile {
 
 		return($this->profileFirstName);
 
-	}
+	}  // getProfileFirstName
 
 
 	/**
@@ -129,11 +154,11 @@ class profile {
 	 *
 	 * @return string -- this profile last name
 	 **/
-	public function  getProfLastName() {
+	public function  getProfileLastName() {
 
 		return($this->profileLastName);
 
-	}
+	}  // getProfile
 
 	/**
 	 * accessor method for profile photo
@@ -143,7 +168,8 @@ class profile {
 	public function getProfilePhoto() {
 
 		return($this->profilePhoto);
-	}
+
+	}  // getProfilePhot
 
 	/**
 	 * accessor method for profile photo type
@@ -154,7 +180,7 @@ class profile {
 
 		return($this->profilePhoteType);
 
-	}
+	}  // getProfilePhotoType
 
 
 	/**
@@ -187,7 +213,7 @@ class profile {
 		// final check and store
 		$this->profileId = intval($newProfileId);
 
-	}
+	}  // setProfileId
 
 
 	/**
@@ -214,7 +240,7 @@ class profile {
 		// final check and store
 		$this->memberId = intval($newMemberId);
 
-	}
+	}  //  setMemberId
 
 
 	/**
@@ -241,7 +267,7 @@ class profile {
 		// store the new blurb
 		$this->profileBlurb = $newProfileBlurb;
 
-	}
+	}  // setProfileBlurb
 
 
 	/**
@@ -265,12 +291,10 @@ class profile {
 			throw(new RangeException("Profile Handle is too Large."));
 		}
 
-
-
 		// store the new handle
 		$this->profileHandle = $newProfileHandle;
 
-	}
+	}  // setProfile Handle
 
 
 	/**
@@ -297,7 +321,7 @@ class profile {
 		// store the new First Name
 		$this->profileFirstName = $newProfileFirstName;
 
-	}
+	}  // setProfileFirstName
 
 
 	/**
@@ -324,7 +348,7 @@ class profile {
 		// store the new Last Name
 		$this->profileFirstName = $newProfileLastName;
 
-	}
+	}  // setProfileLastName
 
 	/**
 	 * mutator method for Profile Photo (path to photo)
@@ -356,7 +380,7 @@ class profile {
 		// store the path
 		$this->profilePhoto = $newProfilePhoto;
 
-	}
+	}  // setProfilePhoto
 
 
 	/**
@@ -380,7 +404,7 @@ class profile {
 		// store image type
 		$this->profilePhoteType = $newProfilePhotoType;
 
-	}
+	}  // setProfilePhotoType
 
 	/**
 	 * function for using an uploaded photo
@@ -465,7 +489,8 @@ class profile {
 
 		// free up resources
 		imagedestroy($avatar);
-	}
+
+	}  //  uploadPhoto
 
 	/**
 	 * this function inserts this profile from mySQL
@@ -495,7 +520,8 @@ class profile {
 		// add mysql created id to this profile
 		$this->profileId = intval($pdo->lastInsertId());
 
-	}
+	}  // insertProfile
+
 
 	/**
 	 * this function deletes this profile from mySQL
@@ -518,7 +544,8 @@ class profile {
 
 		$statement->execute($parameters);
 
-	}
+	}  // deleteProfile
+
 
 	/**
 	 * this function updates this profile in mySQL
@@ -547,7 +574,7 @@ class profile {
 
 		$statement->execute($parameters);
 
-	}
+	}  // updateProfile
 
 } // end of profile class
 
