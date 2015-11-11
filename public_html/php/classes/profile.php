@@ -67,7 +67,20 @@ class profile {
 	 **/
 	private $profilePhoteType;
 
+	/**
+	 * Constructor method for class profile
 
+	 * @param $newProfileId -- integer -- this profiles profileId
+	 * @param $newMemberId -- integer -- this profiles memebrId
+	 * @param $newProfileBlurb -- string -- this prfiles profileBlurb
+	 * @param $newProfileHandle -- string -- this profiles profileHandle
+	 * @param $newProfileFirstName -- string -- this profile first name
+	 * @param $newProfileLastName -- string --  this profile last name
+	 * @param $newInputTagName -- the path to the uploaded photo to be used as an avatar
+	 * @throws InvalidArgumentException
+	 * @throws RangeException
+	 * @throws Exception
+	 **/
 	public function __construct($newProfileId, $newMemberId, $newProfileBlurb, $newProfileHandle,
 										 $newProfileFirstName, $newProfileLastName, $newInputTagName) {
 		try {
