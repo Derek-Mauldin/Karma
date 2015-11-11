@@ -79,7 +79,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#">Brand</a>
+						<a class="navbar-icon" href="#"><img src="../../img/karmaicon.png"></a>
 					</div>
 
 					<!-- Collect the nav links, forms, and other content for toggling -->
@@ -93,8 +93,10 @@
 					<ul class="nav navbar-nav navbar-right">
 
 						<li><a href="#"><i class="fa fa-home fa-fw"></i>&nbsp; Home</a></li>
-						<li><a href="#"><i class="fa fa-user"></i>&nbsp;</a></li>
-						<li><a href="#"><i class="fa fa-envelope"></i>&nbsp;</a></li>
+						<li><a href="#"><i class="fa fa-user"></i>&nbsp;Profile</a></li>
+						<li><a href="#"><i class="fa fa-envelope"></i>&nbsp;Messages</a></li>
+						<li><a href="#"><i class="fa fa-question"></i>&nbsp;Help</a></li>
+
 						</li>
 					</ul>
 				</div>
