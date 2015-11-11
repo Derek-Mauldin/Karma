@@ -1,5 +1,5 @@
 <?php
-require_once("administratortest.php");
+require_once("administrator-test.php");
 
 /**
 * Full PHPUnit test for the Member class
