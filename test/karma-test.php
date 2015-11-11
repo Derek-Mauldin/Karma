@@ -1,19 +1,23 @@
 <?php
 /**
- * Full PHPUnit test for the Karma class-undone
+ * Full PHPUnit test for the Karma class
  *
- * This is a complete PHPUnit test of the Profile class. It is complete because *ALL* mySQL/PDO enabled methods
+ * This is a complete PHPUnit test of the Karma class. It is complete because *ALL* mySQL/PDO enabled methods
  * are tested for both invalid and valid inputs.
  *
- * @see Profile
+ * @see Karma
 
  **/
-class ProfileTest extends DataDesignTest {
+
+
+class KarmaTest extends KarmaDataDesignTest {
 	/**
-	 * valid at handle to use
+	 * valid handle to use
 	 * @var string $VALID_ATHANDLE
 	 **/
-	protected $VALID_ATHANDLE = "@phpunit";
+
+
+	protected $offer = "null";
 	/**
 	 * second valid at handle to use
 	 * @var string $VALID_ATHANDLE2

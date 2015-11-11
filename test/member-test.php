@@ -1,5 +1,5 @@
 <?php
-require_once("karma.php");
+require_once("administratortest.php");
 
 /**
 * Full PHPUnit test for the Member class
@@ -10,7 +10,7 @@ require_once("karma.php");
 * @see Member
 * @author Jennifer Hung <jhung@cnm.edu>
 **/
-class MemberTest extends KarmaTest {
+class MemberTest extends KarmaDataDesignTest {
 	/**
 	 * valid at email to use
 	 * @var string $VALID_ATEMAIL
