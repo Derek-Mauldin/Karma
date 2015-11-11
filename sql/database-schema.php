@@ -73,7 +73,8 @@
 					&emsp;needId INT UNSIGNED AUTO_INCREMENT NOT NULL,<br />
 					&emsp;profileId INT UNSIGNED NOT NULL,<br />
 					&emsp;need VARCHAR(5000),<br />
-					&emsp;fulfilled BOOLEAN ,<br />
+					&emsp;title VARCHAR (64)<br />
+					&emsp;fulfilled TINYINT UNSIGNED,<br />
 					&emsp;INDEX(need),<br />
 					&emsp;INDEX(profileId),<br />
 					&emsp;FOREIGN KEY(profileId) REFERENCES profile(profileId),<br />

@@ -382,33 +382,48 @@ class profile {
 
 	}
 
-
+	/**
+	 * function for using an uploaded photo
+	 *
+	 * @throws ErrorException if there was an upload erroer
+	 * @throws InvalidArgumentException for invalid image type - should be jpeg or png
+	 * @throws InvalidArgumentException for invalid file extension
+	 * @throws Error exception if createimage fails
+	 * @throws Error exception if image save fails
+	 *
+	 */
 	public function uploadPhoto()  {
 
+		// if upload had an error throw exception
 		if($_FILES["imgFile"]["error"] !== UPLOAD_ERR_OK) {
 			throw(new ErrorException("Image Upload Error"));
 		}
 
+		// setup image type arrays
 		$goodTypes = array("image/jpeg", "image/png" );
 		$goodExt   = array(".jpg", ".jpeg", ".png");
 
+		// grab data from $_Files
 		$imgType     = $_FILES["imgFile"]["type"];
 		$imgName     = $_FILES["imgFile"]["name"];
 		$imgFileName = $_FILES["imgFile"]["tmp-name"];
 
+		// setup extensions for processing
 		$extension = end(explode(".", $imgName));
 		$extension = strtolower($extension);
 
 
+		// check image type
 		if(in_array($imgType, $goodTypes) === false) {
 			throw(new InvalidArgumentException("Invalid Image Type"));
 		}
 
+		// check extension
 		if(in_array($extension, $goodExt) === false) {
 			throw(new InvalidArgumentException("Invalid File Extension"));
 		}
 
-
+		// create image depending on type
 		if($extension === "png" ) {
 			$img = imagecreatefrompng($imgFileName);
 			$type = "image/png";
@@ -417,14 +432,19 @@ class profile {
 			$type = "image/jpeg";
 		}
 
+		// if image create failed throw exception
 		if($img === false){
 			throw(new ErrorException("Create Image Failed"));
 		}
 
+		// crop image
 		$cropArray = array("0","0","256","256");
 		$avatar = imagecrop($img, $cropArray);
+
+		// setup path name to store image
 		$path = "somePathName";                     // need to add a pathname
 
+		// save image depding on type
 		if($type === "image/png") {
 			$path = $path . ".png";
 			$save = imagepng($avatar, $path);
@@ -433,13 +453,16 @@ class profile {
 			$save = imagejpeg($avatar, $path);
 		}
 
+		// if save fails throw exception
 		if($save === false) {
 			throw(new ErrorException("Image Save Failed"));
 		}
 
+		// store photo data in this profile
 		$this->setProfilePhotoType($type);
 		$this->setProfilePhoto($path);
 
+		// freee up resources
 		imagedestroy($avatar);
 
 
