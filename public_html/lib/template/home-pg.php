@@ -95,7 +95,6 @@
 						<li><a href="#"><i class="fa fa-envelope"></i>&nbsp;Messages</a></li>
 						<li><a href="#"><i class="fa fa-question"></i>&nbsp;Help</a></li>
 
-						</li>
 					</ul>
 				</div>
 			</nav>
@@ -167,7 +166,7 @@
 											<!--Modal -->
 											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 												<div class="modal-dialog" role="document">
-															<?php include_once "../../php/form.php" ?>
+															<?php include_once "../../php/offer-form.html" ?>
 												</div>
 											</div>
 										</div>
@@ -193,7 +192,7 @@
 												<!--Modal -->
 												<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 													<div class="modal-dialog" role="document">
-														<?php include_once "../../php/form.php" ?>
+														<?php include_once "../../php/offer-form.html" ?>
 													</div>
 												</div>
 											</div>
@@ -218,7 +217,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/form.php" ?>
+												<?php include_once "../../php/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -243,7 +242,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/form.php" ?>
+												<?php include_once "../../php/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -268,7 +267,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/form.php" ?>
+												<?php include_once "../../php/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -293,7 +292,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/form.php" ?>
+												<?php include_once "../../php/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -318,7 +317,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/form.php" ?>
+												<?php include_once "../../php/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -343,7 +342,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/form.php" ?>
+												<?php include_once "../../php/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
