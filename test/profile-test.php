@@ -21,7 +21,7 @@ class ProfileTest extends karmaDataDesign {
 	 * valid at handle to use
 	 * @var string $VALID_ATHANDLE
 	 **/
-	protected $VALID_ATHANDLE = "@phpunit"
+	protected $VALID_ATHANDLE = "@phpunit";
 	/**
 	 * second valid at handle to use
 	 * @var string $VALID_ATHANDLE2
