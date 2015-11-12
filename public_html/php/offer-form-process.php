@@ -1,5 +1,6 @@
 <?php
 $errorMSG = "";
+
 // MESSAGE
 if (empty($_POST["message"])) {
 	$errorMSG .= "Message is required ";
@@ -7,14 +8,17 @@ if (empty($_POST["message"])) {
 	$message = $_POST["message"];
 }
 $EmailTo = "ddkarmabear@gmail.com";
-$Subject = "New Offer Received";
+$Subject = "New Message Received";
 // prepare email body text
 $Body = "";
-
-
+$Body .= "Handle: ";
+$Body .= $handle;
+$Body .= "\n";
 $Body .= "Message: ";
+$Body .= $message;
+$Body .= "\n";
 // send email
-$success = mail($EmailTo, $Subject, $Body);
+$success = mail($EmailTo, $Subject, $Body, "From:".$handle);
 // redirect to success page
 if ($success && $errorMSG == ""){
 	echo "success";

@@ -22,6 +22,9 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
 				integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
 
+		<!--Animate.css-->
+		<link rel="stylesheet" href="://cdnjs.cloudflare.com/ajax/libs/animate.css/3.4.0/animate.min.css">
+
 		<!--Link to custom CSS files here-->
 		<link type="text/css" href="../css/sidepanel.css" rel="stylesheet">
 		<link type="text/css" href="../css/stylesheet.css" rel="stylesheet">
@@ -166,7 +169,7 @@
 											<!--Modal -->
 											<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 												<div class="modal-dialog" role="document">
-															<?php include_once "../../php/offer-form.html" ?>
+															<?php include_once "../html/offer-form.html" ?>
 												</div>
 											</div>
 										</div>
