@@ -14,7 +14,7 @@ require_once(dirname(__DIR__) . "/public_html/php/classes/member.php");
 * @author Jennifer Hung <jhung@cnm.edu>
 **/
 
-class MemberTest extends KarmaDataDesignTest {
+class MemberTest extends karmaDataDesign{
 	/**
 	 * valid at email to use
 	 * @var string $VALID_ATEMAIL
