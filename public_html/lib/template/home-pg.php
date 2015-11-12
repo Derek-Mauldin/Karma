@@ -58,10 +58,6 @@
 		<!-- jscroll plugin -->
 		<script src="../../lib/plugins/jscroll/jquery.jscroll.min.js" type="text/javascript"></script>
 
-		<!-- Custom JavaScript -->
-		<script src="../js/form.js" type="text/javascript"></script>
-		<script src="../js/form-scripts.js" type="text/javascript"></script>
-
 		<!-- Page Title -->
 		<title>Homepage Outline</title>
 	</head>
@@ -195,7 +191,7 @@
 												<!--Modal -->
 												<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 													<div class="modal-dialog" role="document">
-														<?php include_once "../../php/offer-form.html" ?>
+														<?php include_once "../html/offer-form.html" ?>
 													</div>
 												</div>
 											</div>
@@ -220,7 +216,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/offer-form.html" ?>
+												<?php include_once "../html/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -245,7 +241,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/offer-form.html" ?>
+												<?php include_once "../html/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -270,7 +266,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/offer-form.html" ?>
+												<?php include_once "../html/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -295,7 +291,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/offer-form.html" ?>
+												<?php include_once "../html/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -320,7 +316,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/offer-form.html" ?>
+												<?php include_once "../html/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -345,7 +341,7 @@
 										<!--Modal -->
 										<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 											<div class="modal-dialog" role="document">
-												<?php include_once "../../php/offer-form.html" ?>
+												<?php include_once "../html/offer-form.html" ?>
 											</div>
 										</div>
 									</div>
@@ -366,6 +362,6 @@
 				<a href="#">Contact Us</a>
 			</div>
 		</footer>
-
 	</body>
+	<script type="text/javascript" src="../js/form-scripts.js"></script>
 </html>
