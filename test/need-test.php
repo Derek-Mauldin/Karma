@@ -13,7 +13,7 @@ require_once(dirname(__DIR__) . "/public_html/php/classes/need.php");
  * @see Need
  * @author Gerald Fongwe <gfongwe@cnm.edu>
  **/
-class NeedTest extends KarmaDataDesignTest {
+class NeedTest extends KarmaDataDesign {
 	/**
 	 * valid NeedDescription to use
 	 * @var string $VALID_NEEDDESCRIPTION
@@ -56,7 +56,7 @@ class NeedTest extends KarmaDataDesignTest {
 	 **/
 	public function testInsertInvalidNeed() {
 		// create a need with a non null needId and watch it fail
-		$need = new Need(karmaDataDesignTest::INVALID_KEY, $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
+		$need = new Need(karmaDataDesign::INVALID_KEY, $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 		$need->insert($this->getPDO());
 	}
 

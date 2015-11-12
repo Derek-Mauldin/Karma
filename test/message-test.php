@@ -13,7 +13,7 @@ require_once(dirname(__DIR__) . "/public_html/php/classes/message.php");
  * @see Message
  * @author Gerald Fongwe <gfongwe@cnm.edu>
  **/
-class MessageTest extends KarmaDataDesignTest {
+class MessageTest extends KarmaDataDesign {
 	/**
 	 * valid messagesender to use
 	 * @var string $VALID_MESSAGESENDER
@@ -56,7 +56,7 @@ class MessageTest extends KarmaDataDesignTest {
 	 **/
 	public function testInsertInvalidMessage() {
 		// create a profile with a non null messageId and watch it fail
-		$message = new Message(administratorTest::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(KarmaDataDesign::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
 		$message->insert($this->getPDO());
 	}
 
