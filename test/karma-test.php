@@ -10,7 +10,7 @@
  **/
 
 
-class KarmaTest extends KarmaDataDesignTest {
+class KarmaTest extends KarmaDataDesign {
 	/**
 	 * valid handle to use
 	 * @var string $VALID_ATHANDLE
