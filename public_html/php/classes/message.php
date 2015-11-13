@@ -325,7 +325,7 @@ class Message {
 	 * @return SplFixedArray all messages found for this content
 	 * @throws PDOException when mySQL related errors occur
 	 **/
-	public static function getMessageByTweetContent(PDO $pdo, $messageContent) {
+	public static function getMessageByMessageContent(PDO $pdo, $messageContent) {
 		// sanitize the description before searching
 		$messageContent = trim($messageContent);
 		$messageContent = filter_var($messageContent, FILTER_SANITIZE_STRING);

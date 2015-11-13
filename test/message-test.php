@@ -18,17 +18,71 @@ class MessageTest extends KarmaDataDesign {
 	 * valid messagesender to use
 	 * @var string $VALID_MESSAGESENDER
 	 **/
-	protected $VALID_MESSSAGESENDER = "@phpunit";
+	protected $VALID_MESSSAGESENDER = null;
 	/**
 	 * valid messagereceiver to use
 	 * @var string $VALID_MESSAGERECEIVER
 	 **/
-	protected $VALID_MESSAGERECEIVER = "@passingtests";
+	protected $VALID_MESSAGERECEIVER = null;
 	/**
 	 * valid messagecontent to use
 	 * @var string $VALID_MESSAGECONTENT
 	 **/
-	protected $VALID_MESSAGECONTENT = "test@phpunit.de";
+	protected $VALID_MESSAGECONTENT = null;
+
+	/**
+	 * Profile that created the message sent; this is for foreign key relations
+	 * @var Profile $profile
+	 **/
+	protected $profile1 = null;
+
+	/**
+	 * Profile that created the message received; this is for foreign key relations
+	 * @var Profile $profile
+	 **/
+	protected $profile2 = null;
+
+	/**
+	 * Message that created the message sender id; this is for foreign key relations
+	 * @var Profile $profile
+	 **/
+	protected $member1 = null;
+
+	/**
+	 * Message that created the message receiver id; this is for foreign key relations
+	 * @var Profile $profile
+	 **/
+	protected $member2 =null;
+
+	protected $salt = null;
+
+	protected $hash = null;
+
+	/**
+	 * create dependent objects before running each test
+	 **/
+	public final function setUp() {
+		// run the default setup() method first
+		parent::setUp();
+
+		$this->salt =bin2hex(openssl_random_pseudo_bytes(32));
+		$this->hash = hash_pbkdf2("sha512","bootcamp-coders", $this->salt, 4096, 128);
+
+
+		//create and insert a Message to own the test
+		$this->member1 = new Member(null, "u", "blurb1@gail.com", "takeItEasy", $this->hash, $this->salt, "salt1");
+		$this->member1->insert($this->getPDO());
+
+		$this->member2 = new Member(null, "v", "blurb2@gail.com", "whatIsEasy", "hash2", "salt2");
+		$this->member2->insert($this->getPDO());
+
+		//create and insert a Profile to own the test
+		$this->profile1 = new Profile(null, $this->member1->getMemberId(), "itsOk", "whatIsGoingOn", "john", "paul", "null");
+		$this->profile1->insertProfile($this->getPDO());
+
+		$this->profile2 = new Profile(null, $this->member2->getMemberId(), "knock", "happiest","jake", "Norris", "null");
+		$this->profile2->insertProfile($this->getPDO());
+	}
 
 	/**
 	 * test inserting a valid Message and verify that the actual mySQL data matches
@@ -169,6 +223,7 @@ class MessageTest extends KarmaDataDesign {
 		$this->assertSame($pdoMessage->getMessageReceiver(), $this->VALID_MESSAGERECEIVER);
 		$this->assertSame($pdoMessage->getMessageContent(), $this->VALID_MESSAGECONTENT);
 	}
+
 	/**
 	 * test grabbing a Message by sender that does not exist
 	 **/
