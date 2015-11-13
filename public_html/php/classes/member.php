@@ -231,7 +231,7 @@ class Member{
 		if(empty($email) === true) {
 			throw (new InvalidArgumentException("email is empty or insecure"));
 		}
-		$query = "SELECT memberId, accessLevel, email, emailActivation,passwordHash, salt FROM member WHERE email = :email ";
+		$query = "SELECT memberId,accessLevel, email, emailActivation,passwordHash, salt FROM member WHERE email = :email ";
 		$statement = $pdo->prepare($query);
 		$parameters = array("email" => $email);
 		$statement->execute($parameters);

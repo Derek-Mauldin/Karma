@@ -523,7 +523,7 @@ class profile {
 
 		// create and prepare query template
 		$query = "INSERT INTO profile(memberId, profileBlurb, profileHandle, profileFirstName, profileLastName, profielePhoto, profilePhotoType)
-					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, profilePhotoType");
+					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, profilePhotoType)";
 		$statement = $pdo->prepare($query);
 
 		// bind profile variables to placeholder in the template
@@ -591,6 +591,46 @@ class profile {
 		$statement->execute($parameters);
 
 	}  // updateProfile
+
+	/**
+	 * @param PDO $pdo
+	 * @param $profileId
+	 * @return null|profile
+	 */
+
+	public static function getProfileByProfileId(PDO $pdo, $profileId) {
+		$profileId = filter_var($profileId, FILTER_VALIDATE_INT);
+		if($profileId === false) {
+			throw(new InvalidArgumentException("member id is not an integer"));
+		}
+		if($profileId <= 0) {
+			throw(new RangeException("MEMBER id is not positive"));
+		}
+		$query = $query = "SELECT profileId, memberId, profileBlurb,
+                                profileHandle, profileFirstName, pofileLastName,
+                                profilePhoto, profilePhotoType
+							    FROM profile WHERE profileId = :profileId";
+
+		$statement = $pdo->prepare($query);
+		$parameters = array("profileId" => $profileId);
+		$statement->execute($parameters);
+
+		try {
+			$profile = null;
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$row = $statement->fetch();
+			if($row !== false) {
+
+			$profile = new profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
+										  $row["profileFirstName"], $row["profileLastName"], $row["profileLastName"],
+										  $row["profilePhoto"], $row["profilePhotoType"]);
+			}
+		} catch(Exception $exception) {
+			throw(new PDOException($exception->getMessage(), 0, $exception));
+		}
+		return ($profile);
+
+	}  // getProfileByProfileId
 
 } // end of profile class
 

@@ -4,50 +4,88 @@
 require_once("karma-data-design.php");
 
 // grab the class under scrutiny
-require_once(dirname(__DIR__) . "/php/classes/profile.php");
+require_once(dirname(__DIR__)) . "/public_html/php/classes/profile.php";
+
+// grab parent class
+require_once(dirname(__DIR__)) ."/public_html/php/classes/member.php";
 
 
 /**
- * Full PHPUnit test for the Profile class
+ * Full PHPUnit test for the Profile class  Karma Project
  *
  * This is a complete PHPUnit test of the Profile class. It is complete because *ALL* mySQL/PDO enabled methods
  * are tested for both invalid and valid inputs.
  *
- * @see Profile
- * @author Dylan McDonald <dmcdonald21@cnm.edu>
+ * @see profile
+ * @author Derek Mauldin <dmauldin2@cnm.edu>  Dylan McDonald <dmcdonald21@cnm.edu>
  **/
-class ProfileTest extends karmaDataDesign {
+class profileTest extends karmaDataDesign {
 	/**
-	 * valid at handle to use
-	 * @var string $VALID_ATHANDLE
+	 * valid member (parent class) to use
+	 * @var mixed $aMember;
 	 **/
-	protected $VALID_ATHANDLE = "@phpunit";
+	protected $aMember = null;
 	/**
-	 * second valid at handle to use
-	 * @var string $VALID_ATHANDLE2
+	 * valid profileBlurb to ues
+	 * @var string $VALID_PROFILE_BLURB
 	 **/
-	protected $VALID_ATHANDLE2 = "@passingtests";
+	protected $VALID_PROFILE_BLURB = "This is a profile blurb";
 	/**
-	 * valid email to use
-	 * @var string $VALID_EMAIL
+	 * valid profileHandle to use
+	 * @var string $VALID_PROFILE_HANDLE
 	 **/
-	protected $VALID_EMAIL = "test@phpunit.de";
+	protected $VALID_PROFILE_HANDLE = "@karmaHandleTest";
 	/**
-	 * valid phone number to use
-	 * @var string $VALID_PHONE
+	 * valid 2nd profileHandle to use
+	 * @var string $VALID_PROFILE_HANDLE_2
 	 **/
-	protected $VALID_PHONE = "+12125551212";
+	protected $VALID_PROFILE_HANDLE_2 = "@karmaHandleTest 2";
+	/**
+	 * valid first name to use
+	 * @var string $VALID_PROFILE_FIRST_NAME
+	 **/
+	protected $VALID_PROFILE_FIRST_NAME = "Derek";
+	/**
+	 * valid last name to use
+	 * @var string $VALID_PROFILE_LAST_NAME
+	 **/
+	protected $VALID_PROFILE_LAST_NAME = "Mauldin";
+	/**
+	 * valid profile photo path to use
+	 * @var string $VALID_PROFILE_PHOTO
+	 **/
+	protected $VALID_PROFILE_PHOTO = "/var/www/html/public_html/karma/avatars/avatar-test.png";
+	/**
+	 * valid profile photo type to use
+	 * @var string $VALID_PROFILE_PHOTO_TYPE
+	 **/
+	protected $VALID_PROFILE_PHOTO_TYPE = "image/png";
 
 	/**
-	 * test inserting a valid Profile and verify that the actual mySQL data matches
+	 * set up for dependent objects before running each test
+	 */
+	public final function setUp() {
+		//run default setUp() method first
+		parent::setUp();
+
+
+		//create a valid member to reference in test
+		$this->aMember = new Member(null, "s", "somebody@mymail.com", "emailActivate", "fakeHash", "fakeSalt");
+		$this->aMember->insert($this->getPDO());
+	}
+
+
+
+	/**
+	 * test inserting a valid profile and verify that the actual mySQL data matches
 	 **/
 	public function testInsertValidProfile() {
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("profile");
 
 		// create a new Profile and insert to into mySQL
-		$profile = new Profile(null, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
-		$profile->insert($this->getPDO());
+		$profile = new profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE, $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, $this->VALID_PROFILE_PHOTO, $this->VALID_PROFILE_PHOTO_TYPE);
+		$profile->insertProfile($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
 		$pdoProfile = Profile::getProfileByProfileId($this->getPDO(), $profile->getProfileId());
