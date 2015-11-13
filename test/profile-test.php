@@ -22,7 +22,7 @@ require_once(dirname(__DIR__)) ."/public_html/php/classes/member.php";
 class profileTest extends KarmaDataDesign {
 	/**
 	 * valid member (parent class) to use
-	 * @var mixed $aMember;
+	 * @var Member $aMember;
 	 **/
 	protected $aMember = null;
 	/**
@@ -54,12 +54,31 @@ class profileTest extends KarmaDataDesign {
 	 * valid profile photo path to use
 	 * @var string $VALID_PROFILE_PHOTO
 	 **/
-	protected $VALID_PROFILE_PHOTO = "/var/www/html/public_html/karma/avatars/avatar-test.png";
+	protected $VALID_PROFILE_PHOTO = null;
 	/**
 	 * valid profile photo type to use
 	 * @var string $VALID_PROFILE_PHOTO_TYPE
 	 **/
-	protected $VALID_PROFILE_PHOTO_TYPE = "image/png";
+	protected $VALID_PROFILE_PHOTO_TYPE = null;
+
+	/*
+	 * salt to use for member entity creation
+	 * @var string $salt
+	 */
+	protected $salt = null;
+
+	/*
+	 * hash to use for member class creation
+	 * @var string $hash
+	 */
+	protected $hash = null;
+
+	/*
+	 * fake email activation to use for member class creation
+	 * @var string $fEmailActivate
+	 */
+	protected $fEmailActivate = "23456789abcedf01234567891bcdef01";
+
 
 	/**
 	 * set up for dependent objects before running each test
@@ -68,9 +87,12 @@ class profileTest extends KarmaDataDesign {
 		//run default setUp() method first
 		parent::setUp();
 
+		$this->salt = bin2hex(openssl_random_pseudo_bytes(32));
+		$this->hash = hash_pbkdf2("sha512", "dmauldin" ,$this->salt, 4096, 128);
+
 
 		//create a valid member to reference in test
-		$this->aMember = new Member(null, "s", "somebody@mymail.com", "emailActivate", "fakeHash", "fakeSalt");
+		$this->aMember = new Member(null, "s", "somebody@mymail.com", $this->fEmailActivate, $this->hash, $this->salt);
 		$this->aMember->insert($this->getPDO());
 	}
 
@@ -84,26 +106,51 @@ class profileTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("profile");
 
 		// create a new Profile and insert to into mySQL
-		$profile = new profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE, $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, $this->VALID_PROFILE_PHOTO, $this->VALID_PROFILE_PHOTO_TYPE);
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+
 		$profile->insertProfile($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
 		$pdoProfile = Profile::getProfileByProfileId($this->getPDO(), $profile->getProfileId());
+
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("profile"));
-		$this->assertSame($pdoProfile->getAtHandle(), $this->VALID_ATHANDLE);
-		$this->assertSame($pdoProfile->getEmail(), $this->VALID_EMAIL);
-		$this->assertSame($pdoProfile->getPhone(), $this->VALID_PHONE);
+		$this->assertSame($pdoProfile->getProfileId(), $profile->getProfileId());
+		$this->assertSame($pdoProfile->getMemberId(), $this->aMember->getMemberId());
+		$this->assertSame($pdoProfile->getProfileBlurb(), $this->VALID_PROFILE_BLURB);
+		$this->assertSame($pdoProfile->getProfileHandle(), $this->VALID_PROFILE_HANDLE);
+		$this->assertSame($pdoProfile->getProfileFirstName(), $this->VALID_PROFILE_FIRST_NAME);
+		$this->assertSame($pdoProfile->getProfileLastName(), $this->VALID_PROFILE_LAST_NAME);
+		$this->assertSame($pdoProfile->getProfilePhoto(), $this->VALID_PROFILE_PHOTO);
+		$this->assertSame($pdoProfile->getProfilePhotoType(), $this->VALID_PROFILE_PHOTO_TYPE);
+
 	}
 
 	/**
-	 * test inserting a Profile that already exists
+	 *  test inserting a profile that already exists
+	 */
+	public function testInsertExistingProfile() {
+		// create a new prifle and insert into mySQL
+		$profile = new Profile(KarmaDataDesign::INVALID_KEY, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+		$profile->insertProfile($this->getPDO());
+
+		// try inserting the profile again
+		$profile->insertProfile($this->getPDO());
+	}
+
+
+
+	/**
+	 * test inserting an invalid profileId
 	 *
 	 * @expectedException PDOException
 	 **/
 	public function testInsertInvalidProfile() {
 		// create a profile with a non null profileId and watch it fail
-		$profile = new Profile(DataDesignTest::INVALID_KEY, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
-		$profile->insert($this->getPDO());
+		$profile = new Profile(KarmaDataDesign::INVALID_KEY, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+		$profile->insertProfile($this->getPDO());
 	}
 
 	/**
@@ -114,19 +161,26 @@ class profileTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("profile");
 
 		// create a new Profile and insert to into mySQL
-		$profile = new Profile(null, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
-		$profile->insert($this->getPDO());
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+		$profile->insertProfile($this->getPDO());
 
 		// edit the Profile and update it in mySQL
-		$profile->setAtHandle($this->VALID_ATHANDLE2);
-		$profile->update($this->getPDO());
+		$profile->setProfileHandle($this->VALID_PROFILE_HANDLE_2);
+		$profile->updateProfile($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
 		$pdoProfile = Profile::getProfileByProfileId($this->getPDO(), $profile->getProfileId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("profile"));
-		$this->assertSame($pdoProfile->getAtHandle(), $this->VALID_ATHANDLE2);
-		$this->assertSame($pdoProfile->getEmail(), $this->VALID_EMAIL);
-		$this->assertSame($pdoProfile->getPhone(), $this->VALID_PHONE);
+		$this->assertSame($pdoProfile->getProfileId(), $profile->getProfileId());
+		$this->assertSame($pdoProfile->getMemberId(), $this->aMember->getMemberId());
+		$this->assertSame($pdoProfile->getProfileBlurb(), $this->VALID_PROFILE_BLURB);
+		$this->assertSame($pdoProfile->getProfileHandle(), $this->VALID_PROFILE_HANDLE_2);
+		$this->assertSame($pdoProfile->getProfileFirstName(), $this->VALID_PROFILE_FIRST_NAME);
+		$this->assertSame($pdoProfile->getProfileLastName(), $this->VALID_PROFILE_LAST_NAME);
+		$this->assertSame($pdoProfile->getProfilePhoto(), $this->VALID_PROFILE_PHOTO);
+		$this->assertSame($pdoProfile->getProfilePhotoType(), $this->VALID_PROFILE_PHOTO_TYPE);
+
 	}
 
 	/**
@@ -136,8 +190,9 @@ class profileTest extends KarmaDataDesign {
 	 **/
 	public function testUpdateInvalidProfile() {
 		// create a Profile and try to update it without actually inserting it
-		$profile = new Profile(null, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
-		$profile->update($this->getPDO());
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+		$profile->updateProfile($this->getPDO());
 	}
 
 	/**
@@ -148,12 +203,13 @@ class profileTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("profile");
 
 		// create a new Profile and insert to into mySQL
-		$profile = new Profile(null, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
-		$profile->insert($this->getPDO());
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+		$profile->insertProfile($this->getPDO());
 
 		// delete the Profile from mySQL
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("profile"));
-		$profile->delete($this->getPDO());
+		$profile->deleteProfile($this->getPDO());
 
 		// grab the data from mySQL and enforce the Profile does not exist
 		$pdoProfile = Profile::getProfileByProfileId($this->getPDO(), $profile->getProfileId());
@@ -168,28 +224,11 @@ class profileTest extends KarmaDataDesign {
 	 **/
 	public function testDeleteInvalidProfile() {
 		// create a Profile and try to delete it without actually inserting it
-		$profile = new Profile(null, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
-		$profile->delete($this->getPDO());
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+		$profile->deleteProfile($this->getPDO());
 	}
 
-	/**
-	 * test inserting a Profile and regrabbing it from mySQL
-	 **/
-	public function testGetValidProfileByProfileId() {
-		// count the number of rows and save it for later
-		$numRows = $this->getConnection()->getRowCount("profile");
-
-		// create a new Profile and insert to into mySQL
-		$profile = new Profile(null, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
-		$profile->insert($this->getPDO());
-
-		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoProfile = Profile::getProfileByProfileId($this->getPDO(), $profile->getProfileId());
-		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("profile"));
-		$this->assertSame($pdoProfile->getAtHandle(), $this->VALID_ATHANDLE);
-		$this->assertSame($pdoProfile->getEmail(), $this->VALID_EMAIL);
-		$this->assertSame($pdoProfile->getPhone(), $this->VALID_PHONE);
-	}
 
 	/**
 	 * test grabbing a Profile that does not exist
@@ -200,28 +239,38 @@ class profileTest extends KarmaDataDesign {
 		$this->assertNull($profile);
 	}
 
+	/**
+	 * test grabbing a profile by profileHandle
+	 */
 	public function testGetValidProfileByAtHandle() {
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("profile");
 
 		// create a new Profile and insert to into mySQL
-		$profile = new Profile(null, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
 		$profile->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoProfile = Profile::getProfileByAtHandle($this->getPDO(), $this->VALID_ATHANDLE);
+		$pdoProfile = Profile::getProfileByProfileHandle($this->getPDO(), $this->VALID_PROFILE_HANDLE);
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("profile"));
-		$this->assertSame($pdoProfile->getAtHandle(), $this->VALID_ATHANDLE);
-		$this->assertSame($pdoProfile->getEmail(), $this->VALID_EMAIL);
-		$this->assertSame($pdoProfile->getPhone(), $this->VALID_PHONE);
+		$this->assertSame($pdoProfile->getProfileId(), $profile->getProfileId());
+		$this->assertSame($pdoProfile->getMemberId(), $this->aMember->getMemberId());
+		$this->assertSame($pdoProfile->getProfileBlurb(), $this->VALID_PROFILE_BLURB);
+		$this->assertSame($pdoProfile->getProfileHandle(), $this->VALID_PROFILE_HANDLE);
+		$this->assertSame($pdoProfile->getProfileFirstName(), $this->VALID_PROFILE_FIRST_NAME);
+		$this->assertSame($pdoProfile->getProfileLastName(), $this->VALID_PROFILE_LAST_NAME);
+		$this->assertSame($pdoProfile->getProfilePhoto(), $this->VALID_PROFILE_PHOTO);
+		$this->assertSame($pdoProfile->getProfilePhotoType(), $this->VALID_PROFILE_PHOTO_TYPE);
+
 	}
 
 	/**
-	 * test grabbing a Profile by at handle that does not exist
+	 * test grabbing a Profile by A profileHandle that does not exist
 	 **/
 	public function testGetInvalidProfileByAtHandle() {
-		// grab an at handle that does not exist
-		$profile = Profile::getProfileByAtHandle($this->getPDO(), "@doesnotexist");
+		// grab an a profileHandle that does not exist
+		$profile = Profile::getProfileByProfileHandle($this->getPDO(), "doesnotexist");
 		$this->assertNull($profile);
 	}
 
