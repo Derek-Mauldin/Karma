@@ -348,9 +348,7 @@
 								</div>
 							</div>
 
-							</div><!--#karma-feed-->
-
-							</div><!--.feed-wrapper-->
+						kl
 
 
 		<!--.sfooter-content-->

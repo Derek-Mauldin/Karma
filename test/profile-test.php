@@ -1,7 +1,7 @@
 <?php
 
 // grab the project test parameters
-require_once("karma-data-design.php");
+require_once("karmadatadesign.php");
 
 // grab the class under scrutiny
 require_once(dirname(__DIR__)) . "/public_html/php/classes/profile.php";

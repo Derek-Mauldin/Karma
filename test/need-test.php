@@ -1,6 +1,6 @@
 <?php
 // grab the test parameters
-require_once("karma-data-design.php");
+require_once("karmadatadesign.php");
 // grab the class to test
 require_once(dirname(__DIR__) . "/public_html/php/classes/need.php");
 
