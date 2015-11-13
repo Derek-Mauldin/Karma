@@ -15,7 +15,7 @@ require_once(dirname(__DIR__) . "/public_html/php/classes/need.php");
  * @auther Jennifer Hung <jhung@cnm.edu>
  *
  */
-class KarmaTest extends karmadatadesign {
+class KarmaTest extends KarmaDataDesign {
 	protected $VALID_KARMAACCEPTED = "1";
 	/**
 	 * timestamp of the Karma; this starts as null and is assigned later
@@ -38,9 +38,11 @@ class KarmaTest extends karmadatadesign {
 	public final function setUp() {
 		//run default setUp() method first
 		parent::setUp();
+
 		//create a karmaAccepted and karmaActionDate for test
 		$this->VALID_KARMAACTIONDATE = new DateTime();
-		//Generate string for karma actiond date
+
+		//Generate string for karma action date
 		$str = "Hello";
 		echo md5($str);
 
@@ -86,7 +88,7 @@ class KarmaTest extends karmadatadesign {
 	 **/
 	public function testInsertInvalidKarma() {
 		// create a profile with a non null profileId and watch it fail
-		$karma = new Karma(DataDesignTest::INVALID_KEY, $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
+		$karma = new Karma(KarmaDataDesign::INVALID_KEY, $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
 		$karma->insert($this->getPDO());
 	}
 

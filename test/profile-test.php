@@ -19,7 +19,7 @@ require_once(dirname(__DIR__)) ."/public_html/php/classes/member.php";
  * @see profile
  * @author Derek Mauldin <dmauldin2@cnm.edu>  Dylan McDonald <dmcdonald21@cnm.edu>
  **/
-class profileTest extends karmaDataDesign {
+class profileTest extends KarmaDataDesign {
 	/**
 	 * valid member (parent class) to use
 	 * @var mixed $aMember;

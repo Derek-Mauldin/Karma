@@ -56,7 +56,7 @@ class NeedTest extends KarmaDataDesign {
 	 **/
 	public function testInsertInvalidNeed() {
 		// create a need with a non null needId and watch it fail
-		$need = new Need(karmaDataDesign::INVALID_KEY, $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
+		$need = new Need(KarmaDataDesign::INVALID_KEY, $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 		$need->insert($this->getPDO());
 	}
 
