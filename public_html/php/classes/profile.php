@@ -6,7 +6,7 @@
  *
  * @author Derek Mauldin <dmauldin2@cnm.edu>
  **/
-class profile {
+class Profile {
 	/**
 	 * PRIMARY KEY - ID for this profile
 	 *
@@ -48,13 +48,13 @@ class profile {
 	 *
 	 * @var $profilePhoto
 	 **/
-	private $profilePhoto;
+	private $profilePhoto = null;
 	/**
 	 * photo type for this profile
 	 *
 	 * @var $profilePhoto
 	 **/
-	private $profilePhoteType;
+	private $profilePhoteType = null;
 
 
 	/**
@@ -445,11 +445,13 @@ class profile {
 		$query = "INSERT INTO profile(memberId, profileBlurb, profileHandle, profileFirstName, profileLastName, profielePhoto, profilePhotoType)
 					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, profilePhotoType)";
 		$statement = $pdo->prepare($query);
+
 		// bind profile variables to placeholder in the template
 		$parameters = ["memberId" => $this->memberId, "profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
 			"profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
 			"profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType];
 		$statement->execute($parameters);
+
 		// add mysql created id to this profile
 		$this->profileId = intval($pdo->lastInsertId());
 	}  // insertProfile
@@ -468,6 +470,7 @@ class profile {
 		// create and prepare query template
 		$query = "DELETE FROM profile WHERE profileId = :profileid";
 		$statement = $pdo->prepare($query);
+
 		// bind profile variable to placeholder in the template
 		$parameters = ["profileId" => $this->profileId ];
 		$statement->execute($parameters);
@@ -507,7 +510,7 @@ class profile {
 	 * @throws InvalidArgumentException when $profileId is not an integer
 	 * @throws RangeException when $profileId is not positive
 	 * @throws PDOException
-	 * @return null|profile
+	 * @return null|Profile
 	 */
 	public static function getProfileByProfileId(PDO $pdo, $profileId) {
 
@@ -536,9 +539,9 @@ class profile {
 			$statement->setFetchMode(PDO::FETCH_ASSOC);
 			$row = $statement->fetch();
 			if($row !== false) {
-				$profile = new profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
-					$row["profileFirstName"], $row["profileLastName"], $row["profileLastName"],
-					$row["profilePhoto"], $row["profilePhotoType"]);
+				$profile = new Profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
+											  $row["profileFirstName"], $row["profileLastName"], $row["profileLastName"],
+						                 $row["profilePhoto"], $row["profilePhotoType"]);
 			}
 		} catch(Exception $exception) {
 			throw(new PDOException($exception->getMessage(), 0, $exception));
@@ -584,7 +587,7 @@ class profile {
 			$row = $statement->fetch();
 
 			if($row !== false) {
-				$profile = new profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
+				$profile = new Profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
 					                    $row["profileFirstName"], $row["profileLastName"], $row["profileLastName"],
 					                    $row["profilePhoto"], $row["profilePhotoType"]);
 			}
@@ -604,7 +607,7 @@ class profile {
 	 * @throws InvalidArgumentException when $memberId is not an integer
 	 * @throws RangeException when $memberId is not positive
 	 * @throws PDOException
-	 * @return null|profile
+	 * @return null|Profile
 	 */
 	public static function getProfileByMemberId(PDO $pdo, $memberId) {
 		$memberId = filter_var($memberId, FILTER_VALIDATE_INT);
@@ -617,7 +620,7 @@ class profile {
 
 		// prepare query
 		$query = "SELECT profileId, memberId, profileBlurb,
-                       profileHandle, profileFirstName, pofileLastName,
+                       profileHandle, profileFirstName, profileLastName,
                        profilePhoto, profilePhotoType
 					 FROM profile WHERE memberId = :memberId";
 		$statement = $pdo->prepare($query);
@@ -630,7 +633,7 @@ class profile {
 			$statement->setFetchMode(PDO::FETCH_ASSOC);
 			$row = $statement->fetch();
 			if($row !== false) {
-				$profile = new profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
+				$profile = new Profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
 											  $row["profileFirstName"], $row["profileLastName"], $row["profileLastName"],
 											  $row["profilePhoto"], $row["profilePhotoType"]);
 			}

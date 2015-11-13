@@ -128,18 +128,27 @@ class profileTest extends KarmaDataDesign {
 
 	/**
 	 *  test inserting a profile that already exists
+	 *
+	 * @expectedException PDOException
 	 */
 	public function testInsertExistingProfile() {
-		// create a new prifle and insert into mySQL
-		$profile = new Profile(KarmaDataDesign::INVALID_KEY, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+		// create a new profile and insert into mySQL
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
 				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
 		$profile->insertProfile($this->getPDO());
 
-		// try inserting the profile again
+		// try inserting the profile again and watch it fail
 		$profile->insertProfile($this->getPDO());
 	}
 
-
+	/**
+	 * test grabbing a Profile that does not exist
+	 **/
+	public function testGetInvalidProfileByProfileId() {
+		// grab a profile id that exceeds the maximum allowable profile id
+		$profile = Profile::getProfileByProfileId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+		$this->assertNull($profile);
+	}
 
 	/**
 	 * test inserting an invalid profileId
@@ -231,15 +240,6 @@ class profileTest extends KarmaDataDesign {
 
 
 	/**
-	 * test grabbing a Profile that does not exist
-	 **/
-	public function testGetInvalidProfileByProfileId() {
-		// grab a profile id that exceeds the maximum allowable profile id
-		$profile = Profile::getProfileByProfileId($this->getPDO(), DataDesignTest::INVALID_KEY);
-		$this->assertNull($profile);
-	}
-
-	/**
 	 * test grabbing a profile by profileHandle
 	 */
 	public function testGetValidProfileByAtHandle() {
@@ -275,30 +275,38 @@ class profileTest extends KarmaDataDesign {
 	}
 
 	/**
-	 * test grabbing a Profile by email
+	 * test grabbing a Profile by member ID
 	 **/
-	public function testGetValidProfileByEmail() {
+	public function testGetValidProfileByMemberId() {
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("profile");
 
 		// create a new Profile and insert to into mySQL
-		$profile = new Profile(null, $this->VALID_ATHANDLE, $this->VALID_EMAIL, $this->VALID_PHONE);
-		$profile->insert($this->getPDO());
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+		$profile->insertProfile($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoProfile = Profile::getProfileByEmail($this->getPDO(), $this->VALID_EMAIL);
+		$pdoProfile = Profile::getProfileByMemberId($this->getPDO(), $this->aMember->getMemberId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("profile"));
-		$this->assertSame($pdoProfile->getAtHandle(), $this->VALID_ATHANDLE);
-		$this->assertSame($pdoProfile->getEmail(), $this->VALID_EMAIL);
-		$this->assertSame($pdoProfile->getPhone(), $this->VALID_PHONE);
+		$this->assertSame($pdoProfile->getProfileId(), $profile->getProfileId());
+		$this->assertSame($pdoProfile->getMemberId(), $this->aMember->getMemberId());
+		$this->assertSame($pdoProfile->getProfileBlurb(), $this->VALID_PROFILE_BLURB);
+		$this->assertSame($pdoProfile->getProfileHandle(), $this->VALID_PROFILE_HANDLE);
+		$this->assertSame($pdoProfile->getProfileFirstName(), $this->VALID_PROFILE_FIRST_NAME);
+		$this->assertSame($pdoProfile->getProfileLastName(), $this->VALID_PROFILE_LAST_NAME);
+		$this->assertSame($pdoProfile->getProfilePhoto(), $this->VALID_PROFILE_PHOTO);
+		$this->assertSame($pdoProfile->getProfilePhotoType(), $this->VALID_PROFILE_PHOTO_TYPE);
+
 	}
 
 	/**
-	 * test grabbing a Profile by an email that does not exists
+	 * test grabbing a Profile by a member ID that does not exist
 	 **/
-	public function testGetInvalidProfileByEmail() {
+	public function testGetInvalidProfileByMemberId() {
 		// grab an email that does not exist
-		$profile = Profile::getProfileByEmail($this->getPDO(), "does@not.exist");
+		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
 		$this->assertNull($profile);
 	}
 }
