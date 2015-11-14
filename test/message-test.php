@@ -54,9 +54,15 @@ class MessageTest extends KarmaDataDesign {
 	 **/
 	protected $member2 =null;
 
+	/**
+	 *
+	 **/
 
 	protected $salt = null;
 
+	/**
+	 *
+	 **/
 	protected $hash = null;
 
 	/**
@@ -131,7 +137,7 @@ class MessageTest extends KarmaDataDesign {
 		$message->update($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoMessage = Message::getMessageByMessageId($this->getPDO(), $message->getMessageId());
+		$pdoMessage = Message::getMessageByProfileId($this->getPDO(), $message->getProfileId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("Message"));
 		$this->assertSame($pdoMessage->getProfile1(), $this->VALID_PROFILE1);
 		$this->assertSame($pdoMessage->getProfile2(), $this->VALID_PROFILE2);
@@ -165,7 +171,7 @@ class MessageTest extends KarmaDataDesign {
 		$message->delete($this->getPDO());
 
 		// grab the data from mySQL and enforce the Message does not exist
-		$pdoMessage = Message::getMessageByMessageId($this->getPDO(), $message->getMessageId());
+		$pdoMessage = Message::getMessageByProfileId($this->getPDO(), $this->profile1->getProfileId());
 		$this->assertNull($pdoMessage);
 		$this->assertSame($numRows, $this->getConnection()->getRowCount("message"));
 	}
@@ -228,16 +234,16 @@ class MessageTest extends KarmaDataDesign {
 	/**
 	 * test grabbing a Message by sender that does not exist
 	 **/
-	public function testGetInvalidMessageByMessageSender() {
+	public function testGetInvalidMessageByProfile1() {
 		// grab a message sender that does not exist
-		$message = Message::getMessageByMessageSender($this->getPDO(), "@doesnotexist");
+		$message = Message::getMessageByProfile1($this->getPDO(), "@doesnotexist");
 		$this->assertNull($message);
 	}
 
 	/**
 	 * test grabbing a Message by message receiver
 	 **/
-	public function testGetValidMessageByMessageReceiver() {
+	public function testGetValidMessageByProfile2() {
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("message");
 
@@ -246,7 +252,7 @@ class MessageTest extends KarmaDataDesign {
 		$Message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoMessage = Message::getMessageByMessageReceiver($this->getPDO(), $this->profile2->getProfileId());
+		$pdoMessage = Message::getMessageByProfileId($this->getPDO(), $this->profile2->getProfileId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
 		$this->assertSame($pdoMessage->getProfile1(), $this->profile1->getProfileId());
 		$this->assertSame($pdoMessage->getProfile2(), $this->profile2->getProfileId());
@@ -256,9 +262,9 @@ class MessageTest extends KarmaDataDesign {
 	/**
 	 * test grabbing a Message by a message receiver that does not exists
 	 **/
-	public function testGetInvalidMessageByMessageReceiver() {
+	public function testGetInvalidMessageByProfileId() {
 		// grab an message receiver that does not exist
-		$message = Message::getMessageByMessageReceiver($this->getPDO(), "does@not.exist");
+		$message = Message::getMessageByProfileId($this->getPDO(), "does@not.exist");
 		$this->assertNull($message);
 	}
 }
