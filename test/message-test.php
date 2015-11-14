@@ -28,7 +28,7 @@ class MessageTest extends KarmaDataDesign {
 	 * valid messagecontent to use
 	 * @var string $VALID_MESSAGECONTENT
 	 **/
-	protected $VALID_MESSAGECONTENT = null;
+	protected $VALID_MESSAGECONTENT = "Its Easy to learn computer languages";
 
 	/**
 	 * Profile that created the message sent; this is for foreign key relations
@@ -54,6 +54,7 @@ class MessageTest extends KarmaDataDesign {
 	 **/
 	protected $member2 =null;
 
+
 	protected $salt = null;
 
 	protected $hash = null;
@@ -77,10 +78,10 @@ class MessageTest extends KarmaDataDesign {
 		$this->member2->insert($this->getPDO());
 
 		//create and insert a Profile to own the test
-		$this->profile1 = new Profile(null, $this->member1->getMemberId(), "itsOk", "whatIsGoingOn", "john", "paul", "null");
+		$this->profile1 = new Profile(null, $this->member1->getMemberId(), "itsOk", "whatIsGoingOn", "john", "paul", null);
 		$this->profile1->insertProfile($this->getPDO());
 
-		$this->profile2 = new Profile(null, $this->member2->getMemberId(), "knock", "happiest","jake", "Norris", "null");
+		$this->profile2 = new Profile(null, $this->member2->getMemberId(), "knock", "happiest","jake", "Norris", null);
 		$this->profile2->insertProfile($this->getPDO());
 	}
 
@@ -92,14 +93,14 @@ class MessageTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("message");
 
 		// create a new Message and insert to into mySQL
-		$message = new Message(null, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(null, $this->profile1->getProfileId(), $this->profile2->getProfileId(), $this->VALID_MESSAGECONTENT);
 		$message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
 		$pdoMessage = Message::getMessageByMessageId($this->getPDO(), $message->getMessageId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
-		$this->assertSame($pdoMessage->getMessageSender(), $this->VALID_MESSAGESENDER);
-		$this->assertSame($pdoMessage->getMessageReceiver(), $this->VALID_MESSAGERECEIVER);
+		$this->assertSame($pdoMessage->getProfile1(), $this->VALID_PROFILE1);
+		$this->assertSame($pdoMessage->getProfile2(), $this->VALID_PROFILE2);
 		$this->assertSame($pdoMessage->getMessageContent(), $this->VALID_MESSAGECONTENT);
 	}
 
@@ -110,7 +111,7 @@ class MessageTest extends KarmaDataDesign {
 	 **/
 	public function testInsertInvalidMessage() {
 		// create a profile with a non null messageId and watch it fail
-		$message = new Message(KarmaDataDesign::INVALID_KEY, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(KarmaDataDesign::INVALID_KEY, $this->VALID_PROFILE1, $this->VALID_PROFILE2, $this->VALID_MESSAGECONTENT);
 		$message->insert($this->getPDO());
 	}
 
@@ -122,18 +123,18 @@ class MessageTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("message");
 
 		// create a new Message and insert to into mySQL
-		$message = new Message(null, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(null, $this->VALID_PROFILE1, $this->VALID_PROFILE2, $this->VALID_MESSAGECONTENT);
 		$message->insert($this->getPDO());
 
 		// edit the Message and update it in mySQL
-		$message->setMessageSender($this->VALID_MESSAGESENDER);
+		$message->setProfile1($this->VALID_PROFILE1);
 		$message->update($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
 		$pdoMessage = Message::getMessageByMessageId($this->getPDO(), $message->getMessageId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("Message"));
-		$this->assertSame($pdoMessage->getMessageSender(), $this->VALID_MESSAGESENDER);
-		$this->assertSame($pdoMessage->getMessageReceiver(), $this->VALID_MESSAGERECEIVER);
+		$this->assertSame($pdoMessage->getProfile1(), $this->VALID_PROFILE1);
+		$this->assertSame($pdoMessage->getProfile2(), $this->VALID_PROFILE2);
 		$this->assertSame($pdoMessage->getMessageContent(), $this->VALID_MESSAGECONTENT);
 	}
 
@@ -144,7 +145,7 @@ class MessageTest extends KarmaDataDesign {
 	 **/
 	public function testUpdateInvalidMessage() {
 		// create a Message and try to update it without actually inserting it
-		$message = new Message(null, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(null, $this->profile1->getProfileId(), $this->profile2->getProfileId(), $this->VALID_MESSAGECONTENT);
 		$message->update($this->getPDO());
 	}
 
@@ -176,7 +177,7 @@ class MessageTest extends KarmaDataDesign {
 	 **/
 	public function testDeleteInvalidMessage() {
 		// create a Message and try to delete it without actually inserting it
-		$message = new Message(null, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(null, $this->profile1->getProfileId(), $this->profile2->getProfileId(), $this->VALID_MESSAGECONTENT);
 		$message->delete($this->getPDO());
 	}
 
@@ -188,14 +189,14 @@ class MessageTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("message");
 
 		// create a new Message and insert to into mySQL
-		$message = new Message(null, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$message = new Message(null, $this->profile1->getProfileId(), $this->profile2->getProfileId(), $this->VALID_MESSAGECONTENT);
 		$message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
 		$pdoMessage = Message::getMessageByMessageId($this->getPDO(), $message->getMessageId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
-		$this->assertSame($pdoMessage->getMessageSender(), $this->VALID_MESSAGESENDER);
-		$this->assertSame($pdoMessage->getMessageReceiver(), $this->VALID_MESSAGERECEIVER);
+		$this->assertSame($pdoMessage->getProfile1(), $this->VALID_PROFILE1);
+		$this->assertSame($pdoMessage->getProfile2(), $this->VALID_PROFILE2);
 		$this->assertSame($pdoMessage->getMessageContent(), $this->VALID_MESSAGECONTENT);
 	}
 
@@ -204,7 +205,7 @@ class MessageTest extends KarmaDataDesign {
 	 **/
 	public function testGetInvalidMessageByMesageId() {
 		// grab a Message id that exceeds the maximum allowable message id
-		$message = Message::getMessageByMessageId($this->getPDO(), karmabaseTest::INVALID_KEY);
+		$message = Message::getMessageByMessageId($this->getPDO(), karmaDataDesignTest::INVALID_KEY);
 		$this->assertNull($message);
 	}
 
@@ -213,14 +214,14 @@ class MessageTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("message");
 
 		// create a new Message and insert to into mySQL
-		$Message = new Message(null, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$Message = new Message(null, $this->profile1->getProfileId(), $this->profile2->getProfileId(), $this->VALID_MESSAGECONTENT);
 		$Message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
 		$pdoMessage = Message::getMessageeByMessagesender($this->getPDO(), $this->VALID_MESSAGESENDER);
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
-		$this->assertSame($pdoMessage->getMessageSender(), $this->VALID_MESSAGESENDER);
-		$this->assertSame($pdoMessage->getMessageReceiver(), $this->VALID_MESSAGERECEIVER);
+		$this->assertSame($pdoMessage->getProfile1(), $this->VALID_PROFILE1);
+		$this->assertSame($pdoMessage->getPROFILE2(), $this->VALID_PROFILE2);
 		$this->assertSame($pdoMessage->getMessageContent(), $this->VALID_MESSAGECONTENT);
 	}
 
@@ -241,7 +242,7 @@ class MessageTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("message");
 
 		// create a new Message and insert to into mySQL
-		$Message = new Message(null, $this->VALID_MESSAGESENDER, $this->VALID_MESSAGERECEIVER, $this->VALID_MESSAGECONTENT);
+		$Message = new Message(null, $this->profile1->getProfileId(), $this->profile2	->getProfileId(), $this->VALID_MESSAGECONTENT);
 		$Message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
