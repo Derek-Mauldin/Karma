@@ -55,7 +55,7 @@ class Member{
 	 * @param string $newSalt string containing the salt for the member password
 	 * @throws Exception if some other exception is thrown
 	 * @throws RangeException if data values are out of bounds
-	 * @throws InvalidAgrumentException if data types are invalid or insecure
+	 * @throws InvalidAgruementException if data types are invalid or insecure
 	 */
 
 	public function __construct($newMemberId, $newAccessLevel, $newEmail, $newEmailActivation, $newPasswordHash, $newSalt){
@@ -67,9 +67,9 @@ class Member{
 			$this->setPasswordHash($newPasswordHash);
 			$this->setSalt($newSalt);
 
-		} catch(InvalidArgumentException $invalidArgument) {
+		} catch(InvalidArguementException $invalidArgument) {
 				//rethrow the exception to the caller
-			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+			throw(new InvalidArguementException($invalidArgument->getMessage(), 0, $invalidArgument));
 
 		} catch(RangeException $range){
 				//rethrow the exception to the caller
@@ -94,7 +94,7 @@ class Member{
 	/**
 	 *mutator method for member id
 	 * @param int $newMemberId new value of member id
-	 * @throws InvalidAgrumentException if $memberId id not an integer
+	 * @throws InvalidAgruementException if $memberId id not an integer
 	 * @throws RangeException if $memberId is not positive
 	 */
 
@@ -107,7 +107,7 @@ class Member{
 		// verify the member id is valid
 		$newMemberId = filter_var($newMemberId, FILTER_VALIDATE_INT);
 		if ($newMemberId === false){
-			throw(new InvalidAgrumentException("Member Id is not a valid integer"));
+			throw(new InvalidAgruementException("Member Id is not a valid integer"));
 		}
 		// verify the member id is positive
 		if($newMemberId <= 0){
@@ -128,7 +128,7 @@ class Member{
 	 * mutator method for access level
 	 *
 	 * @param int $newAccessLevel grants users admin, suspended or user level
-	 * @throws InvalidArgumentException if $newAccessLevel is not a,s,u
+	 * @throws InvalidArguementException if $newAccessLevel is not a,s,u
 	 * @throws RangeException if $newAccessLevel is not a,s,u
 	 **/
 
@@ -141,7 +141,7 @@ class Member{
 
 		$newAccessLevel = filter_var($newAccessLevel, FILTER_VALIDATE_INT);
 		if($newAccessLevel === false) {
-			throw(new InvalidAgrumentException("Access Level is not a valid integer"));
+			throw(new InvalidAgruementException("Access Level is not a valid integer"));
 		}
 
 		if($newAccessLevel < 0 || $newAccessLevel > 2) {
@@ -164,7 +164,7 @@ class Member{
 	 *mutator method for member email
 	 *
 	 * @param string $newEmail new member email
-	 * @throws InvalidArgumentException if $newEmail is not a string or insecure
+	 * @throws InvalidArguementException if $newEmail is not a string or insecure
 	 * @throws RangeException if $newEmail is >255 characters
 	 */
 
@@ -175,13 +175,13 @@ class Member{
 		//verify the email is secure
 
 		if($newEmail === null){
-			throw(new InvalidArgumentException("email can't be null"));
+			throw(new InvalidArguementException("email can't be null"));
 		}
 
 		$newEmail = filter_var($newEmail, FILTER_SANITIZE_EMAIL);
 
 		if(empty($newEmail) === true) {
-			throw(new InvalidArgumentException("email content is empty or insecure"));
+			throw(new InvalidArguementException("email content is empty or insecure"));
 		}
 		//verify the email is not > 255 characters
 
@@ -208,7 +208,7 @@ class Member{
 	 * mutator for email activation
 	 *
 	 *@param string $newEmailActivation
-	 *@throws InvalidArgumentException if activation is not secure or invalid
+	 *@throws InvalidArguementException if activation is not secure or invalid
 	*/
 
 	public function setEmailActivation($newEmailActivation) {
@@ -217,13 +217,13 @@ class Member{
 		$newEmailActivation = trim($newEmailActivation);
 
 		if($newEmailActivation === null) {
-			throw(new InvalidArgumentException("email can't be null"));
+			throw(new InvalidArguementException("email can't be null"));
 		}
 
 		$newEmailActivation = filter_var($newEmailActivation, FILTER_SANITIZE_STRING);
 
 		if(empty($newEmailActivation) === true) {
-			throw(new InvalidArgumentException("email content is empty or insecure"));
+			throw(new InvalidArguementException("email content is empty or insecure"));
 		}
 		//verify the activation code is not too long
 
@@ -245,7 +245,7 @@ class Member{
 	 * mutator method for password hash
 	 *@return string value of hash
 	 * @param string $newPasswordHash with ctype xdigit with a string of 128
-	 * @throws InvalidArgumentException if the hash is empty or insecure
+	 * @throws InvalidArguementException if the hash is empty or insecure
 	 * @throws RangeException if $newPasswordHash is not 128
 	*/
 
@@ -253,7 +253,7 @@ class Member{
 		//verify hash is a string of 128 characters
 
 		if((ctype_xdigit($newPasswordHash)) === false) {
-			throw(new InvalidArgumentException ("password hash is empty or insecure"));
+			throw(new InvalidArguementException ("password hash is empty or insecure"));
 		}
 
 		if(strlen($newPasswordHash) !== 128) {
@@ -276,7 +276,7 @@ class Member{
 	 * mutator method for salt
 	 *
 	 * @param string $newSalt
-	 * @throws InvalidArgumentException if salt is empty or insecure
+	 * @throws InvalidArguementException if salt is empty or insecure
 	 * @throws RangeException if salt is not 64 characters
 	 */
 
@@ -284,7 +284,7 @@ class Member{
 	public function setSalt($newSalt) {
 		//verify salt is hex
 		if((ctype_xdigit($newSalt)) === false) {
-			throw(new InvalidArgumentException ("salt is empty or insecure"));
+			throw(new InvalidArguementException ("salt is empty or insecure"));
 		}
 		//verify salt is exactly 64 characters
 		if(strlen($newSalt) !== 64) {
@@ -374,7 +374,7 @@ class Member{
 		//sanatize the memberId before searching
 		$memberId = filter_var($memberId, FILTER_VALIDATE_INT);
 		if($memberId === false) {
-			throw(new InvalidArgumentException("member id is not an integer"));
+			throw(new InvalidArguementException("member id is not an integer"));
 		}
 		if($memberId <= 0) {
 			throw(new RangeException("MEMBER id is not positive"));
@@ -404,7 +404,7 @@ class Member{
 		$email = trim($email);
 		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 		if(empty($email) === true) {
-			throw (new InvalidArgumentException("email is empty or insecure"));
+			throw (new InvalidArguementException("email is empty or insecure"));
 		}
 		$query = "SELECT memberId,accessLevel, email, emailActivation,passwordHash, salt FROM member WHERE email = :email ";
 		$statement = $pdo->prepare($query);
