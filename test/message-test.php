@@ -1,6 +1,6 @@
 <?php
 // grab the test parameters
-require_once("karmadatadesign.php");
+require_once("karmaDataDesign.php");
 // grab the class to test
 require_once(dirname(__DIR__) . "/public_html/php/classes/message.php");
 
@@ -55,19 +55,19 @@ class MessageTest extends KarmaDataDesign {
 	protected $member2 =null;
 
 	/**
-	 *
+	 ** valid salt
+	 * @var string $VALID_SALT
 	 **/
-
 	protected $salt = null;
-
 	/**
-	 *
+	 ** valid hash
+	 * @var string $VALID_HASH
 	 **/
 	protected $hash = null;
 
 	/**
-	 * create dependent objects before running each test
-	 **/
+ * create dependent objects before running each test
+ **/
 	public final function setUp() {
 		// run the default setup() method first
 		parent::setUp();
@@ -77,7 +77,7 @@ class MessageTest extends KarmaDataDesign {
 
 
 		//create and insert a Message to own the test
-		$this->member1 = new Member(null, "u", "blurb1@gail.com", "takeItEasy", $this->hash, $this->salt, "salt1");
+		$this->member1 = new Member(null, "w", "blurb1@gail.com", "takeItEasy", $this->hash, $this->salt, "salt1");
 		$this->member1->insert($this->getPDO());
 
 		$this->member2 = new Member(null, "v", "blurb2@gail.com", "whatIsEasy", "hash2", "salt2");

@@ -1,6 +1,6 @@
 <?php
 // grab the test parameters
-require_once("karmadatadesign.php");
+require_once("karmaDataDesign.php");
 // grab the class to test
 require_once(dirname(__DIR__) . "/public_html/php/classes/need.php");
 
@@ -30,6 +30,18 @@ class NeedTest extends KarmaDataDesign {
 	 **/
 	protected $VALID_NEEDTITLE = "test@phpunit.de";
 
+	/**
+	 * create dependent objects before running each test
+	 **/
+	public final function setUp() {
+		// run the default setUp() method first
+		parent::setUp();
+		// create and insert a Profile to own the test need
+		$this->profile = new Profile(null, $this->member1->getMemberId(), "bringIt", "learning", "jack", "sandia", null );
+		$this->profile->insert($this->getPDO());
+		$this->profile = new Profile(null, $this->member2->getMemberId(), "lookup", "deepdive", "nick", "savage", null );
+		$this->profile->insert($this->getPDO());
+	}
 	/**
 	 * test inserting a valid Need and verify that the actual mySQL data matches
 	 **/

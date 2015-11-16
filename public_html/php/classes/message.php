@@ -386,6 +386,7 @@ class Message {
 	 * @return mixed Message found or null if not found
 	 * @throws PDOException when mySQL related errors occur
 	 **/
+	/**
 	public static function getByMessageId(PDO $pdo, $messageId) {
 
 		// sanitize the messageId before searching
@@ -421,6 +422,7 @@ class Message {
 		}
 		return ($message);
 	}
+	**/
 
 	/**
 	 * gets all Messages
@@ -429,6 +431,8 @@ class Message {
 	 * @return SplFixedArray all Messages found
 	 * @throws PDOException when mySQL related errors occur
 	 **/
+
+	/**
 	public static function getAllMessages(PDO $pdo) {
 		// create query template
 		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messagetDate FROM message";
@@ -451,18 +455,19 @@ class Message {
 		}
 		return ($messages);
 	}
-
+**/
 	/**
 	 * function to retrieve a messages by senderId
 	 *
 	 * @param PDO $pdo is a PDO connection object
 	 * @param int $senderId - senderId for messages to be retrieved
-	 * @retrun SplFixedArray with all messages found
+	 * @return SplFixedArray with all messages found
 	 * @throws PDOException with mySQL related errors
-	 */
+	 **/
+
 	public function getMessagesBuySenderID(PDO $pdo, $senderId) {
 
-		// check validity of $senderid
+		// check validity of $senderId
 		$senderId = filter_var($senderId, FILTER_VALIDATE_INT);
 		if($senderId === false) {
 			throw(new InvalidArgumentException("Message ID is not an integer."));
@@ -485,7 +490,7 @@ class Message {
 		while(($row = $statement->fetch()) !== false)
 			try {
 				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-						                 $row["messageContent"], $row["messageDate"]);
+						$row["messageContent"], $row["messageDate"]);
 				$messages[$messages->key()] = $message;
 				$messages->next();
 			} catch(Exception $exception) {
@@ -494,6 +499,46 @@ class Message {
 			}
 	}
 
+/**
+	*function to retrieve message by  receiverId
+	*
+	* @param PDO $pdo PDO is a connection object
+	* @param int $receiverId - receiverId for message to be sent
+ 	* @return SplFixedArray with all messages found
+ 	* @throw  PDOException with mysql related errors
+ **/
 
-}  // message
+public function getMessagesByReceiverId(PDO $pdo, $receiverId) {
 
+	// check that the message receiverId is valid
+
+	$receiverId = filter_var($receiverId, FILTER_VALIDATE_INT);
+	if ($receiverId === false)
+		throw(new InvalidArgumentException("Message ID is not an integer."));
+	if($receiverId <= 0) {
+		throw(new RangeException("Message Id is not positive."));
+}
+	// prepare and execute query
+	$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDate
+		          FROM message WHERE messageSenderId = :messageSenderId";
+	$statement = $pdo->prepare($query);
+	$parameters = array("messageReceiverId" => $receiverId);
+	$statement->execute($parameters);
+
+	// build an array of message
+	$messages = new SplFixedArray($statement->rowCount());
+	$statement->setFetchMode(PDO::FETCH_ASSOC);
+
+	while(($row = $statement->fetch()) !== false)
+		try {
+			$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
+					$row["messageContent"], $row["messageDate"]);
+			$messages[$messages->key()] = $message;
+			$messages->next();
+		} catch(Exception $exception) {
+			// if the row couldn't be converted, rethrow it
+			throw(new PDOException($exception->getMessage(), 0, $exception));
+		}
+}
+
+}
