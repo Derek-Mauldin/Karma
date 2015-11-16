@@ -15,50 +15,75 @@ require_once(dirname(__DIR__) . "/public_html/php/classes/need.php");
  * @auther Jennifer Hung <jhung@cnm.edu>
  *
  */
+
 class KarmaTest extends KarmaDataDesign {
-	protected $VALID_KARMAACCEPTED = "1";
+
+	/**
+	 * Member that owns the profile that recieved karma, the foreign key to profile
+	 * @var Member $member
+	 */
+
+	protected $member = null;
+
+	/**
+	 * need that was fulfilled, this is for foreign key relations
+	 * @var  Need $need
+	 **/
+	protected $need = null;
+	/**
+	 * @var string $salt
+	 */
+
+	protected $VALID_SALT;
+	/**
+	 * @var string $hash
+	 */
+
+	protected $VALID_HASH;
+	/**
+	 * Profile that sent recieved karma; this is for foreign key relations
+	 * @var Profile $profile
+	 **/
+	protected $profile = null;
+
+	/**
+	 * @var boolean of the karma
+	 */
+
+	protected $VALID_KARMAACCEPTED = null;
+
 	/**
 	 * timestamp of the Karma; this starts as null and is assigned later
 	 * @var DateTime $VALID_KARMAACTIONDATE
 	 **/
-	protected $VALID_KARMAACTIONDATE = null;
-	/**
-	 * Profile that sent recieved karma; this is for foreign key relations
-	 * @var int $VALID_PROFILE_ID
-	 *
-	 **/
-	protected $profile = null;
-	/**
-	 * need that was fulfilled, this is for foreign key relations
-	 * @var int $VALID_NEED_ID
-	 **/
-	protected $need = null;
 
-/** set up dependant objects before running each test */
+	protected $VALID_KARMAACTIONDATE = null;
+
+
+	/** set up dependant objects before running each test */
 	public final function setUp() {
 		//run default setUp() method first
 		parent::setUp();
+		//create salt and hash for test
+		$this->salt = bin2hex(openssl_random_pseudo_bytes(32));
+		$this->hash = hash_pbkdf2("sha512", "testpassword", $this->salt, 4096, 128);
 
-		//create a karmaAccepted and karmaActionDate for test
-		$this->VALID_KARMAACTIONDATE = new DateTime();
 
-		//Generate string for karma action date
-		$str = "Hello";
-		echo md5($str);
-
-		// Create a member
-		$this->member=new Member(null, "s", "ddkarmabear@gmail.com"  );
+		// Create a member to reference in test
+		$this->member = new Member(null, "s", "ddkarmabear@gmail.com", "e1f6a14cd07069692017b53a8ae881f6", $this->VALID_HASH, $this->VALID_SALT);
 		// insert it into the database
+		$this->member->insert($this->getPDO());
+
 
 		//create a valid profile to own the test Karma
-		// $newProfileId, $newMemberId, $newProfileBlurb, $newProfileHandle, $newProfileFirstName, $newProfileLastName, $newInputTagName
-		$this->profile = new Profile(null, "Ralph", "I like cats", "CoolRalph, Smith", "img/kitten.jpg");
-		$this->profile->insert($this->getPDO());
+		$this->profile = new Profile(null, $this->member->getMemberId(), "I like cats", "CoolRalph", "Ralph", "Smith", null);
+		$this->profile->insertProfile($this->getPDO());
 
 		//create a valid need to reference in test
 
-		$this->need = new Need(null, $this->profile->getProfileId(), "A ride to school Monday");
+		$this->need = new Need($this->member->getMemberId(), $this->profile->getProfileId(), "A ride to school Monday");
 		$this->need->insert($this->getPDO());
+
 	}
 
 	/**
@@ -68,17 +93,20 @@ class KarmaTest extends KarmaDataDesign {
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("karma");
 
-		// create a new Profile and insert to into mySQL
-		$karma = new Karma(null, $this->profile->getProfileId(), $this->need->getNeedId(), $this->VALID_KARMAACCEPTED(),
-			$this->VALID_KARMAACTIONDATE());
+		// create a new Karma and insert to into mySQL
+		$karma = new Karma($this->member->getMemberId(), $this->profile->getProfileId(), $this->need->getNeedId(), $this->VALID_KARMAACCEPTED,
+				$this->VALID_KARMAACTIONDATE);
+
+		//grab the data from mySQL and enforce the fields match our expectations
+		Karma::getKarmaByNeedIdAndProfileId($this->getPDO(), $this->need->getNeedId(), $this->profile->getProfileId());
+
 		$karma->insert($this->getPDO());
 
-		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoKarma = Karma::getKarmaByProfileIdAndNeedId($this->getPDO(), ($this->getProfileId() && $this->getNeedId()));
+		$pdoKarma=Karma::getKarmaByNeedIdAndProfileId($this->getPDO(), $this->need->getNeedId(), $this->profile->getProfileId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("karma"));
-		$this->assertSame($pdoKarma->getProfileIdAndNeedId(), $this->profile->getProfileId() && $this->need->getNeedId());
-		$this->assertSame($pdoKarma->getAtKarmaAccepted(), $this->VALID_ATKARMAACCEPTED);
-		$this->assertSame($pdoKarma->getKarmaActionDatel(), $this->VALID_KARMAACTIONDATE);
+		$this->assertSame($pdoKarma->getProfileId(), $this->profile->getProfileId() && $this->need->getNeedId());
+		$this->assertSame($pdoKarma->getatKarmaAccepted(), $this->VALID_KARMAACCEPTED);
+		$this->assertSame($pdoKarma->getKarmaActionDate(), $this->VALID_KARMAACTIONDATE);
 	}
 
 	/**
@@ -86,9 +114,11 @@ class KarmaTest extends KarmaDataDesign {
 	 *
 	 * @expectedException PDOException
 	 **/
+
 	public function testInsertInvalidKarma() {
-		// create a profile with a non null profileId and watch it fail
+		// create karma with a non null karmaAccepted and watch it fail
 		$karma = new Karma(KarmaDataDesign::INVALID_KEY, $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
+		$karma->insert($this->getPDO());
 		$karma->insert($this->getPDO());
 	}
 
@@ -104,10 +134,11 @@ class KarmaTest extends KarmaDataDesign {
 		$karma->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoKarma = Karma::getKarmaByProfileIdAndNeedId($this->getPDO(), ($this->getProfileId() && $this->getNeedId()));
+		$pdoKarma=Karma::getKarmaByNeedIdAndProfileId($this->getPDO(), $this->need->getNeedId(), $this->profile->getProfileId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("karma"));
-		$this->assertSame($pdoKarma->getProfileId(), $this->member->getProfileId());
-		$this->assertSame($pdoKarma->getNeedId(), $this->need > getNeedId());
+		$this->assertSame($pdoKarma->getProfileId(), $this->profile->getProfileId());
+		$this->assertSame($pdoKarma->getNeedId(), $this->need->getNeedId());
+
 		$this->assertSame($pdoKarma->getKarmaAccepted(), $this->VALID_KARMAACCEPTED);
 		$this->assertSame($pdoKarma->getKarmaActionDate(), $this->VALID_KARMAACTIONDATE);
 	}
@@ -118,97 +149,60 @@ class KarmaTest extends KarmaDataDesign {
 	public function testDeleteValidKarma() {
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("karma");
-		// create a new Volunteer and insert to into mySQL
-		$karma = new Karma(null, $this->profileId->getProfileId(), $this->needId->getNeedId(), $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
+		// create a new Karma and insert to into mySQL
+		$karma = new Karma(null, $this->profile->getProfileId(), $this->need->getNeedId(), $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
 		$karma->insert($this->getPDO());
-		//delete the Volunteer from mySQL
+		//delete the Karma from mySQL
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("karma"));
 		$karma->delete($this->getPDO());
-		//grab the data from mySQL and enforce the Volunteer does not exist
-		$pdoKarma = Karma::getKarmaByProfileIdAndNeedId($this->getPDO(), ($this->getProfileId() && $this->getNeedId()));
-		$this->assertNull($pdoKarma);
+
+		//grab the data from mySQL and enforce the Karma does not exist
+		$karma = Karma::getKarmaByNeedIdAndProfileId($this->getPDO(), $this->need->getNeedId(), $this->profile->getProfileId());
+		$karma->$this->getPDO();
+		$this->assertNull($karma);
 		$this->assertSame($numRows, $this->getConnection()->getRowCount("karma"));
 	}
 
 	/**
-	 * test grabbing a karma by a profile id that does not exist
+	 * test grabbing a karma by invalid need id
+	 * @expectedException PDOException
 	 */
-	public function testGetInvalidVolunteerByProfileId() {
-		//grab an organization that does not exists
-		$karma = Karma::getKarmaByProfileId($this->getPDO(), "10000000000000000");
-		$this->assertSame($karma > getSize(), 0);
+	public function testGetInvalidByNeedId() {
+		//create a new karma
+		$karma = new Karma(null, $this->profile->getProfileId(), $this->need->getNeedId(), $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
+		$karma->insert($this->getPDO());
+
+		//test to retrieve karma with an invalid need id
+		Karma::getKarmaByNeedIdAndProfileId($this->getPDO(), KarmaDataDesign::INVALID_KEY, $karma->getProfileId());
 	}
 
-
 	/**
-	 * test grabbing a karma by an need id  that does not exist
+	 * test grabbing a karma by invalid profile id
+	 * @expectedException PDOException
 	 */
-	public function testGetInvalidKarmaByNeedIdl() {
-		//grab an email that does not exist
-		$karma = Karma::getKarmaByNeedId($this->getPDO(), "200000000000000");
-		$this->assertSame($karma->getSize(), 0);
+	public function testGetInvalidByProfileId() {
+		//create a new karma
+		$karma = new Karma(null, $this->profile->getProfileId(), $this->need->getNeedId(), $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
+		$karma->insert($this->getPDO());
+
+		//test to retrieve karma with an invalid need id
+		Karma::getKarmaByNeedIdAndProfileId($this->getPDO(), $karma->getNeedId(), KarmaDataDesign::INVALID_KEY);
 	}
 
 	/**
 	 * test grabbing a karma by a invalid boolean
+	 * @expectedException PDOException
 	 */
 	public function testGetInvalidKarmaByKarmaAccepted() {
-		//grab an email that does not exist
-		$karma = Karma::getKarmaByNKarmaAccepted($this->getPDO(), "3");
-		$this->assertSame($karma->getSize(), 0);
-	}
-
-	/**
-	 * test grabbing a karma by a invalid action date
-	 */
-
-	public function testGetInvalidKarmaByKarmaActionDate() {
-		//grab a karma by a karma action date that does not exist
-		$karma = Karma::getKarmaByKarmaActionDate($this->getPDO(), "November 14, 2020");
-		$this->assertSame($karma->getSize(), 0);
-	}
-
-	/**
-	 * test grabbing a valid karma by a karma accepted boolean
-	 */
-
-	public function testGetValidKarmaByKarmaAccepted() {
-		// count the number of rows and save it for later
-		$numRows = $this->getConnection()->getRowCount("karma");
-		// create a new Karma and insert to into mySQL
+		//create a new karma
 		$karma = new Karma(null, $this->profile->getProfileId(), $this->need->getNeedId(), $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
 		$karma->insert($this->getPDO());
-
-		/**
-		 * test grabbing a valid karma by a karma accepted boolean
-		 */
-		$pdoKarma = Karma::getKarmaByKarmaAccepted($this->getPDO(), $karma->getKarmaAccepted());
-		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("karma"));
-		$this->assertSame($pdoKarma[0]->getProfileId(), $this->profile > getProfileId());
-		$this->assertSame($pdoKarma[0]->getNeedIdl(), $this->need->getNeedId());
-		$this->assertSame($pdoKarma[0]->getKarmaAccepted(), $this->VALID_KARMAACCEPTED);
-		$this->assertSame($pdoKarma[0]->getKarmaActionDate(), $this->VALID_KARMAACTIONDATE);
-	}
-
-	/**
-	 * test grabbing a karma by karma action date
-	 */
-	public function testGetValidKarmaByKarmaActionDate() {
-		// count the number of rows and save it for later
-		$numRows = $this->getConnection()->getRowCount("karma");
-		// create a new Karma and insert to into mySQL
-		$karma = new Karma(null, $this->profile->getProfileId(), $this->need->getNeedId(), $this->VALID_KARMAACCEPTED, $this->VALID_KARMAACTIONDATE);
-		$karma->insert($this->getPDO());
-
-		/**
-		 * grab the data from mySQL and enforce the fields match our expectations
-		 */
-
-		$pdoKarma = Karma::getKarmaByKarmaAccepted($this->getPDO(), $karma->getKarmaAccepted());
-		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("karma"));
-		$this->assertSame($pdoKarma[0]->getProfileId(), $this->profile > getProfileId());
-		$this->assertSame($pdoKarma[0]->getNeedIdl(), $this->need->getNeedId());
-		$this->assertSame($pdoKarma[0]->getKarmaAccepted(), $this->VALID_KARMAACCEPTED);
-		$this->assertSame($pdoKarma[0]->getKarmaActionDate(), $this->VALID_KARMAACTIONDATE);
+		//grab an karma with a invalid karma accepted boolean
+		Karma::getKarmaByKarmaAccepted($this->getPDO(), "3");
 	}
 }
+
+
+
+
+
