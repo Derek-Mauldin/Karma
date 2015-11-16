@@ -138,7 +138,6 @@ class Member{
 			return;
 		}
 		//verify the access level is a,s,u
-
 		$newAccessLevel = filter_var($newAccessLevel, FILTER_SANITIZE_STRING);
 		if($newAccessLevel === false) {
 			throw(new InvalidArgumentException("Access Level is corrupt"));
@@ -154,8 +153,8 @@ class Member{
 			$this->accessLevel = $newAccessLevel;
 		} else {
 			throw(new OutOfRangeException("Access Level needs to be A or S or U"));
-
 		}
+
 	}
 
 	/**
@@ -236,7 +235,7 @@ class Member{
 		//verify the activation code is not too long
 
 		if(strlen($newEmailActivation) !== 16) {
-			throw(new RangeException("activation code is too long"));
+			throw(new RangeException("activation code should be 16 hex digits"));
 		}
 		//store activation code
 
@@ -315,14 +314,14 @@ class Member{
 		}
 
 		//creates the query template
-		$query = "INSERT INTO member(accessLevel, email, emailActivation, passwordHash,salt) VALUES (:accessLevel, :email, :emailActivation, :passwordHash, :salt)";
+		$query = "INSERT INTO member(accessLevel, email, emailActivation, passwordHash,salt) VALUES (:memberAccessLevel, :email, :emailActivation, :passwordHash, :salt)";
 
 		$statement = $pdo->prepare($query);
 
 		//attaches the atributes to the right places in the template
 
 		$parameters = array(
-			"accessLevel" => $this->accessLevel,
+			"memberAccessLevel" => $this->accessLevel,
 			"email" => $this->email,
 			"emailActivation" => $this->emailActivation,
 			"passwordHash" => $this->passwordHash,

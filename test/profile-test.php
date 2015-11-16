@@ -89,7 +89,7 @@ class profileTest extends KarmaDataDesign {
 	 *
 	 * @var string $fEmailActivate
 	 */
-	protected $fEmailActivate = "23456789abcedf01234567891bcdef01";
+	protected $fEmailActivate = "23456789abcedf01";
 
 
 	/**
