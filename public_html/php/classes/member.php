@@ -17,7 +17,7 @@ class Member{
 	private $memberId;
 	/**
 	 * Sets Access Level of the User, Admin, Suspended, User
-	 * @var int $accessLevel
+	 * @var string $accessLevel
 	 */
 
 	private $accessLevel;
@@ -127,27 +127,27 @@ class Member{
 	/**
 	 * mutator method for access level
 	 *
-	 * @param int $newAccessLevel grants users admin, suspended or user level
+	 * @param string $newAccessLevel grants users admin, suspended or user level
 	 * @throws InvalidArgumentException if $newAccessLevel is not a,s,u
 	 * @throws RangeException if $newAccessLevel is not a,s,u
 	 **/
 
 	public function setAccessLevel($newAccessLevel) {
 		if($newAccessLevel === null) {
-			$this->accessLevel = 2;
+			$this->accessLevel = "s";
 			return;
 		}
 		//verify the access level is a,s,u
 
-		$newAccessLevel = filter_var($newAccessLevel, FILTER_VALIDATE_INT);
+		$newAccessLevel = filter_var($newAccessLevel, FILTER_SANITIZE_STRING);
 		if($newAccessLevel === false) {
-			throw(new InvalidArgumentException("Access Level is not a valid integer"));
+			throw(new InvalidArgumentException("Access Level is corrupt"));
 		}
 
-		if($newAccessLevel < 0 || $newAccessLevel > 2) {
+		if($newAccessLevel !== "a" || $newAccessLevel !== "s" || $newAccessLevel !== "u" ) {
 			throw(new RangeException ("Access Level  is out of range"));
 		}
-		$this->accessLevel = intval($newAccessLevel);
+		$this->accessLevel = $newAccessLevel;
 	}
 
 	/**
