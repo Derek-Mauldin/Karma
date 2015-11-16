@@ -28,6 +28,9 @@ class profileTest extends KarmaDataDesign {
 	/**
 	 * valid profileBlurb to ues
 	 * @var string $VALID_PROFILE_BLURB
+	 *
+	 *
+	 *
 	 **/
 	protected $VALID_PROFILE_BLURB = "This is a profile blurb";
 	/**
@@ -84,6 +87,7 @@ class profileTest extends KarmaDataDesign {
 	 * set up for dependent objects before running each test
 	 */
 	public final function setUp() {
+
 		//run default setUp() method first
 		parent::setUp();
 
@@ -102,6 +106,7 @@ class profileTest extends KarmaDataDesign {
 	 * test inserting a valid profile and verify that the actual mySQL data matches
 	 **/
 	public function testInsertValidProfile() {
+
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("profile");
 
@@ -132,6 +137,7 @@ class profileTest extends KarmaDataDesign {
 	 * @expectedException PDOException
 	 */
 	public function testInsertExistingProfile() {
+
 		// create a new profile and insert into mySQL
 		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
 				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
@@ -139,15 +145,19 @@ class profileTest extends KarmaDataDesign {
 
 		// try inserting the profile again and watch it fail
 		$profile->insertProfile($this->getPDO());
+
 	}
 
 	/**
 	 * test grabbing a Profile that does not exist
 	 **/
 	public function testGetInvalidProfileByProfileId() {
+
 		// grab a profile id that exceeds the maximum allowable profile id
 		$profile = Profile::getProfileByProfileId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+
 		$this->assertNull($profile);
+
 	}
 
 	/**
@@ -156,16 +166,19 @@ class profileTest extends KarmaDataDesign {
 	 * @expectedException PDOException
 	 **/
 	public function testInsertInvalidProfile() {
+
 		// create a profile with a non null profileId and watch it fail
 		$profile = new Profile(KarmaDataDesign::INVALID_KEY, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
 				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
 		$profile->insertProfile($this->getPDO());
+
 	}
 
 	/**
 	 * test inserting a Profile, editing it, and then updating it
 	 **/
 	public function testUpdateValidProfile() {
+
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("profile");
 
@@ -198,16 +211,20 @@ class profileTest extends KarmaDataDesign {
 	 * @expectedException PDOException
 	 **/
 	public function testUpdateInvalidProfile() {
+
 		// create a Profile and try to update it without actually inserting it
 		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
 				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+
 		$profile->updateProfile($this->getPDO());
+
 	}
 
 	/**
 	 * test creating a Profile and then deleting it
 	 **/
 	public function testDeleteValidProfile() {
+
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("profile");
 
@@ -224,6 +241,7 @@ class profileTest extends KarmaDataDesign {
 		$pdoProfile = Profile::getProfileByProfileId($this->getPDO(), $profile->getProfileId());
 		$this->assertNull($pdoProfile);
 		$this->assertSame($numRows, $this->getConnection()->getRowCount("profile"));
+
 	}
 
 	/**
@@ -232,10 +250,13 @@ class profileTest extends KarmaDataDesign {
 	 * @expectedException PDOException
 	 **/
 	public function testDeleteInvalidProfile() {
+
 		// create a Profile and try to delete it without actually inserting it
 		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
 				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+
 		$profile->deleteProfile($this->getPDO());
+
 	}
 
 
@@ -269,9 +290,12 @@ class profileTest extends KarmaDataDesign {
 	 * test grabbing a Profile by A profileHandle that does not exist
 	 **/
 	public function testGetInvalidProfileByAtHandle() {
+
 		// grab an a profileHandle that does not exist
 		$profile = Profile::getProfileByProfileHandle($this->getPDO(), "doesnotexist");
+
 		$this->assertNull($profile);
+
 	}
 
 	/**
@@ -304,9 +328,14 @@ class profileTest extends KarmaDataDesign {
 	 * test grabbing a Profile by a member ID that does not exist
 	 **/
 	public function testGetInvalidProfileByMemberId() {
-		// grab an email that does not exist
+
+		// create a new profile and try retrieving it without inserting
 		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
 				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+
+		$profile->getProfileByMemberId($this->getPDO(), $this->aMember->getMemberId());
+
 		$this->assertNull($profile);
+
 	}
 }

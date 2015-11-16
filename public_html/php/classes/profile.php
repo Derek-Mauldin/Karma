@@ -443,13 +443,13 @@ class Profile {
 		}
 		// create and prepare query template
 		$query = "INSERT INTO profile(memberId, profileBlurb, profileHandle, profileFirstName, profileLastName, profielePhoto, profilePhotoType)
-					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, profilePhotoType)";
+					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, :profilePhotoType)";
 		$statement = $pdo->prepare($query);
 
 		// bind profile variables to placeholder in the template
 		$parameters = ["memberId" => $this->memberId, "profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
-			"profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
-			"profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType];
+			            "profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
+			            "profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType];
 		$statement->execute($parameters);
 
 		// add mysql created id to this profile
@@ -494,11 +494,13 @@ class Profile {
 		                             profilePhoto = :profilePhoto, profilePhotoType = :profilePhotoType
 		          WHERE profileId = :profileId";
 		$statement = $pdo->prepare($query);
+
 		// bind profile variables to placeholders in template
 		$parameters = ["profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
 							"profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
 							"profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType];
 		$statement->execute($parameters);
+
 	}  // updateProfile
 
 
