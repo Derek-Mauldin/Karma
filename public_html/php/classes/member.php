@@ -378,7 +378,7 @@ class Member{
 	 */
 
 	public static function getMemberByMemberId(PDO $pdo, $memberId) {
-		//sanatize the memberId before searching
+		//sanitize the memberId before searching
 		$memberId = filter_var($memberId, FILTER_VALIDATE_INT);
 		if($memberId === false) {
 			throw(new InvalidArgumentException("member id is not an integer"));
@@ -401,22 +401,36 @@ class Member{
 				$member = new Member($row["memberId"], $row["accessLevel"], $row["email"], $row["emailActivation"], $row["passwordHash"],$row["salt"]);
 			}
 		} catch(Exception $exception) {
+			//if the row cannot be created rethrow exception
 			throw(new PDOException($exception->getMessage(), 0, $exception));
 		}
 		return ($member);
 
 	}
 
+	/**
+	 * get member by member email
+	 *
+	 * @param PDO $pdo pdo connection object
+	 * @param int $memberEmail members email account
+	 * @return SplFixedArray all members with this email
+	 * @throws PDOException if mySQL related errors occur
+	 **/
+
 	public static function getMemberByEmail(PDO $pdo, $email) {
+		//sanatize the input
 		$email = trim($email);
 		$email = filter_var($email, FILTER_SANITIZE_EMAIL);
 		if(empty($email) === true) {
 			throw (new InvalidArgumentException("email is empty or insecure"));
 		}
+		//create the query template
 		$query = "SELECT memberId,accessLevel, email, emailActivation,passwordHash, salt FROM member WHERE email = :email ";
 		$statement = $pdo->prepare($query);
+		//attached atributes to the right place in the template
 		$parameters = array("email" => $email);
 		$statement->execute($parameters);
+		//call the function to build an array of the values
 		try {
 			$retrievedMember = new Member();
 		} catch(Exception $exception) {
