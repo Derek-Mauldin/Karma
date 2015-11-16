@@ -314,7 +314,7 @@ class Member{
 		}
 
 		//creates the query template
-		$query = "INSERT INTO member(accessLevel, email, emailActivation, passwordHash,salt) VALUES (:memberAccessLevel, :email, :emailActivation, :passwordHash, :salt)";
+		$query = "INSERT INTO member(memberAccessLevel, email, emailActivation, passwordHash,salt) VALUES (:memberAccessLevel, :email, :emailActivation, :passwordHash, :salt)";
 
 		$statement = $pdo->prepare($query);
 
