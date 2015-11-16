@@ -67,9 +67,9 @@ class Member{
 			$this->setPasswordHash($newPasswordHash);
 			$this->setSalt($newSalt);
 
-		} catch(InvalidArgumentException $invalidArguement) {
+		} catch(InvalidArgumentException $invalidArgument) {
 				//rethrow the exception to the caller
-			throw(new InvalidArgumentException($invalidArguement->getMessage(), 0, $invalidArguement));
+			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
 
 		} catch(RangeException $range){
 				//rethrow the exception to the caller
