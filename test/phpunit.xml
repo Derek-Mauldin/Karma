@@ -1,7 +1,8 @@
 <phpunit>
 	<testsuites>
-		<testsuite name="Data Design Test">
-			<directory suffix="-test.php">.</directory>
+		<testsuite name="Karma Test">
+			<file>foo-test.php</file>
+			<!--<directory suffix="-test.php">.</directory>-->
 		</testsuite>
 	</testsuites>
 	<filter>

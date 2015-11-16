@@ -612,6 +612,8 @@ class Profile {
 	 * @return null|Profile
 	 */
 	public static function getProfileByMemberId(PDO $pdo, $memberId) {
+
+		// check validity of $memberId
 		$memberId = filter_var($memberId, FILTER_VALIDATE_INT);
 		if($memberId === false) {
 			throw(new InvalidArgumentException("Member id is not an integer."));
@@ -620,13 +622,13 @@ class Profile {
 			throw(new RangeException("Member id is not positive."));
 		}
 
-		// prepare query
+		// prepare and execute query
 		$query = "SELECT profileId, memberId, profileBlurb,
                        profileHandle, profileFirstName, profileLastName,
                        profilePhoto, profilePhotoType
 					 FROM profile WHERE memberId = :memberId";
 		$statement = $pdo->prepare($query);
-		$parameters = array("profileId" => $memberId);
+		$parameters = array("memberId" => $memberId);
 		$statement->execute($parameters);
 
 		try {

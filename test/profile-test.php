@@ -22,62 +22,71 @@ require_once(dirname(__DIR__)) ."/public_html/php/classes/member.php";
 class profileTest extends KarmaDataDesign {
 	/**
 	 * valid member (parent class) to use
+	 *
 	 * @var Member $aMember;
 	 **/
 	protected $aMember = null;
 	/**
 	 * valid profileBlurb to ues
+	 *
 	 * @var string $VALID_PROFILE_BLURB
-	 *
-	 *
 	 *
 	 **/
 	protected $VALID_PROFILE_BLURB = "This is a profile blurb";
 	/**
 	 * valid profileHandle to use
+	 *
 	 * @var string $VALID_PROFILE_HANDLE
 	 **/
 	protected $VALID_PROFILE_HANDLE = "@karmaHandleTest";
 	/**
 	 * valid 2nd profileHandle to use
+	 *
 	 * @var string $VALID_PROFILE_HANDLE_2
 	 **/
 	protected $VALID_PROFILE_HANDLE_2 = "@karmaHandleTest 2";
 	/**
 	 * valid first name to use
+	 *
 	 * @var string $VALID_PROFILE_FIRST_NAME
 	 **/
 	protected $VALID_PROFILE_FIRST_NAME = "Derek";
 	/**
 	 * valid last name to use
+	 *
 	 * @var string $VALID_PROFILE_LAST_NAME
 	 **/
 	protected $VALID_PROFILE_LAST_NAME = "Mauldin";
 	/**
 	 * valid profile photo path to use
+	 *
 	 * @var string $VALID_PROFILE_PHOTO
 	 **/
 	protected $VALID_PROFILE_PHOTO = null;
 	/**
 	 * valid profile photo type to use
+	 *
 	 * @var string $VALID_PROFILE_PHOTO_TYPE
 	 **/
 	protected $VALID_PROFILE_PHOTO_TYPE = null;
 
 	/*
 	 * salt to use for member entity creation
+	 *
 	 * @var string $salt
 	 */
 	protected $salt = null;
 
 	/*
 	 * hash to use for member class creation
+	 *
 	 * @var string $hash
 	 */
 	protected $hash = null;
 
 	/*
 	 * fake email activation to use for member class creation
+	 *
 	 * @var string $fEmailActivate
 	 */
 	protected $fEmailActivate = "23456789abcedf01234567891bcdef01";

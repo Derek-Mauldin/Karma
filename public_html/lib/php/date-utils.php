@@ -14,6 +14,7 @@
  **/
 
 function validateDate($newDate) {
+
 	// base case: if the date is a DateTime object, there's no work to be done
 	if(is_object($newDate) === true && get_class($newDate) === "DateTime") {
 		return($newDate);
