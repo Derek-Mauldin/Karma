@@ -207,7 +207,7 @@ class NeedTest extends KarmaDataDesign {
 	}
 
 	/**
-	 * test grabbing a Need by a profile that doesn't exist
+	 * test grabbing a Need by a profile that does not exist
 	 **/
 	public function testGetInvalidNeedByProfileId() {
 
@@ -224,7 +224,31 @@ class NeedTest extends KarmaDataDesign {
 public function testGetNeedByNeedTitle() {
 
 		// count the number of rows and save it for later
+	$numRows = $this->getConnection()->getRowCount("need");
+
+	// create a new Need and insert into mySQL
+	$need = new Need(null, $this->needTitle->getNeedTitle(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+	$need->insert($this->getPDO());
+
+	// grab the data from mySQL and enforce the fields match our expectations
+	$pdoNeed = Need::getNeedByNeedTitle($this->getPDO(), $need->getNeedTitle());
+	$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("need"));
+	$this->assertSame($pdoNeed->getProfileId(), $need->getProfileId());
+	$this->assertSame($pdoNeed->getNeedDescription(), $this->VALID_NEEDDESCRIPTION);
+	$this->assertSame($pdoNeed->getNeedFulfilled(), $this->VALID_NEEDFULFILLED);
+	$this->assertSame($pdoNeed->getNeedTitle(), $this->VALID_NEEDTITLE);
+}
+
+	/**
+	 * test grabbing a Need by a Title that does not exist
+	 **/
+	public function testGetInvalidNeedByNeedTitle() {
+
+		// grab a Need that exceeds the maximum allowable need
+		$need = Need::getNeedByNeedTitle($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+		$this->assertNull($need);
 		}
+
 }
 
 
