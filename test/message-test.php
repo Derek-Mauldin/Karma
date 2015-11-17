@@ -1,8 +1,14 @@
 <?php
 // grab the test parameters
-require_once("karmaDataDesign.php");
+require_once("karmadatadesign.php");
 // grab the class to test
 require_once(dirname(__DIR__) . "/public_html/php/classes/message.php");
+
+// grab parent class
+require_once(dirname(__DIR__)) ."/public_html/php/classes/member.php";
+
+// grab parent class
+require_once(dirname(__DIR__)) ."/public_html/php/classes/profile.php";
 
 /**
  * Full PHPUnit test for the Message class
