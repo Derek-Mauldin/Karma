@@ -532,7 +532,7 @@ public function getMessagesByReceiverId(PDO $pdo, $receiverId) {
 	while(($row = $statement->fetch()) !== false)
 		try {
 			$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-					$row["messageContent"], $row["messageDate"]);
+					                 $row["messageContent"], $row["messageDate"]);
 			$messages[$messages->key()] = $message;
 			$messages->next();
 		} catch(Exception $exception) {

@@ -1,13 +1,18 @@
 <?php
 
 // grab the project test parameters
+
 require_once("karmadatadesign.php");
 
+require_once(dirname(__DIR__) . "/public_html/php/classes/autoload.php");
+
+/*
 // grab the class under scrutiny
 require_once((dirname(__DIR__)) . "/public_html/php/classes/profile.php");
 
 // grab parent class
 require_once((dirname(__DIR__)) ."/public_html/php/classes/member.php");
+*/
 
 
 /**
@@ -16,10 +21,11 @@ require_once((dirname(__DIR__)) ."/public_html/php/classes/member.php");
  * This is a complete PHPUnit test of the Profile class. It is complete because *ALL* mySQL/PDO enabled methods
  * are tested for both invalid and valid inputs.
  *
- * @see profile
- * @author Derek Mauldin <dmauldin2@cnm.edu>  Dylan McDonald <dmcdonald21@cnm.edu>
+ * @see Profile
+ * @author Derek Mauldin <dmauldin2@cnm.edu>
+ * @author Dylan McDonald <dmcdonald21@cnm.edu>
  **/
-class profileTest extends KarmaDataDesign {
+class ProfileTest extends KarmaDataDesign {
 	/**
 	 * valid member (parent class) to use
 	 *

@@ -6,7 +6,7 @@
  * Time: 5:29 PM
  */
 /**
- * this will create a member class used to create a profile id
+ * this will create a member class
  */
 class Member{
 	/**

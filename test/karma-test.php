@@ -4,9 +4,7 @@
 require_once("karmadatadesign.php");
 
 //grab the class under scutiny
-require_once(dirname(__DIR__) . "/public_html/php/classes/karma.php");
-require_once(dirname(__DIR__) . "/public_html/php/classes/profile.php");
-require_once(dirname(__DIR__) . "/public_html/php/classes/need.php");
+require_once(dirname(__DIR__) . "/public_html/php/classes/autoload.php");
 
 /**
  * full php unit test for the karma class

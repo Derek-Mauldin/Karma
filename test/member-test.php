@@ -45,7 +45,7 @@ class MemberTest extends KarmaDataDesign{
 **/
 public function testInsertInvalidMember() {
 // create a member with a non null memberId and watch it fail
-$member = new Member(DataDesignTest::INVALID_KEY, $this->VALID_ATEMAIL);
+$member = new Member(KarmaDataDesign::INVALID_KEY, $this->VALID_ATEMAIL);
 $member->insert($this->getPDO());
 }
 
@@ -135,7 +135,7 @@ $this->assertSame($pdoProfile->getAtHandle(), $this->VALID_ATEMAIL);
 **/
 public function testGetInvalidMemberByMemberId() {
 // grab a member id that exceeds the maximum allowable member id
-$member = Member::getMemberByMemberId($this->getPDO(), DataDesignTest::INVALID_KEY);
+$member = Member::getMemberByMemberId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
 $this->assertNull($member);
 }
 
@@ -158,7 +158,7 @@ $this->assertSame($pdoMember->getAtEmail(), $this->VALID_ATEMAIL);
 **/
 public function testGetInvalidMemberByAtEmail() {
 // grab an at email that does not exist
-$member = Member::getmemberByAtHandle($this->getPDO(), "@doesnotexist");
+$member = Member::getMemberByEmail($this->getPDO(), "@doesnotexist");
 $this->assertNull($member);
 }
 

@@ -1,12 +1,12 @@
 <phpunit>
 	<testsuites>
 		<testsuite name="Karma Test">
-			<file>profile-test.php</file>
+			<file>member-test.php</file>
 			<!--<directory suffix="-test.php">.</directory>-->
 		</testsuite>
 	</testsuites>
 	<filter>
-		<whitelist processUncoveredFilesFromWhitelist="true">
+		<whitelist processUncoveredFilesFromWhitelist="false">
 			<directory suffix=".php">../public_html/php/classes</directory>
 		</whitelist>
 	</filter>

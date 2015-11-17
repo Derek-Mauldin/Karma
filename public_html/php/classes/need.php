@@ -69,7 +69,7 @@ class Need {
 	 **/
 	public function getNeedId() {
 		return ($this->needId);
-	}
+	} // getNeedId
 
 
 	/**
@@ -82,24 +82,26 @@ class Need {
 	public function setNeedId($newNeedId) {
 		// base case: if the need id is null, this a new need without a mySQL assigned id (yet)
 		if($newNeedId === null) {
-			$this->needId = null;
-			return;
+				$this->needId = null;
+				return;
 		}
 
 		// verify the need id is valid
 		$newNeedId = filter_var($newNeedId, FILTER_VALIDATE_INT);
 		if($newNeedId === false) {
-			throw(new InvalidArgumentException("need id is not a valid integer"));
+				throw(new InvalidArgumentException("need id is not a valid integer"));
 		}
 
 		// verify the need id is positive
 		if($newNeedId <= 0) {
-			throw(new RangeException("need id is not positive"));
+				throw(new RangeException("need id is not positive"));
 		}
 
 		// convert and store the need id
 		$this->needId = intval($newNeedId);
-	}
+
+	}  // setNeedId
+
 
 	/**
 	 * accessor method for profile id
@@ -108,7 +110,8 @@ class Need {
 	 **/
 	public function getProfileId() {
 		return ($this->profileId);
-	}
+	} // getProfielId
+
 
 	/**
 	 * mutator method for profile id
@@ -118,6 +121,7 @@ class Need {
 	 * @throws RangeException if $newProfileId is not positive
 	 **/
 	public function setProfileId($newProfileId) {
+
 		// verify the profile id is valid
 		$newProfileId = filter_var($newProfileId, FILTER_VALIDATE_INT);
 		if($newProfileId === false) {
@@ -131,7 +135,9 @@ class Need {
 
 		// convert and store the profile id
 		$this->profileId = intval($newProfileId);
-	}
+
+	} // setProfileId
+
 
 	/**
 	 * accessor method for need description
@@ -140,7 +146,8 @@ class Need {
 	 **/
 	public function getNeedDescription() {
 		return ($this->needDescription);
-	}
+	}  // getNeedDescription
+
 
 	/**
 	 * mutator method for need Description
@@ -150,6 +157,7 @@ class Need {
 	 * @throws RangeException if $newNeedDescription is > 5000 characters
 	 **/
 	public function setNeedDescription($newNeedDescription) {
+
 		// verify the needDescription is secure
 		$newNeedDescription = trim($newNeedDescription);
 		$newNeedDescription = filter_var($newNeedDescription, FILTER_SANITIZE_STRING);
@@ -159,12 +167,15 @@ class Need {
 
 		// verify the need description will fit in the database
 		if(strlen($newNeedDescription) > 5000) {
-			throw(new RangeException("need too large"));
+			throw(new RangeException("need text too large"));
 		}
 
 		// store the need
 		$this->needDescription = $newNeedDescription;
-	}
+
+	} // setNeedDescription
+
+
 	/**
 		 * accessor method for need fulfilled
 		 *
@@ -172,7 +183,10 @@ class Need {
 		 **/
 		public function getNeedFulfilled() {
 			return ($this->needFulfilled);
-	}	/**
+	}	// getNeedFulfilled
+
+
+	/**
  * mutator method for need Fulfilled
  *
  * @param int $newNeedFulfilled new value of need fulfilled
@@ -180,11 +194,13 @@ class Need {
  * @throws RangeException if $newNeedFulfilled is not positive
  **/
 	public function setNeedFulfilled($newNeedFulfilled) {
+
 		// verify the need fulfilled is valid
 		$newNeedFulfilled = filter_var($newNeedFulfilled, FILTER_VALIDATE_INT);
 		if($newNeedFulfilled === false) {
 			throw(new InvalidArgumentException("needFulfilled is not a valid integer"));
 		}
+
 		// verify the Need Fulfilled is positive
 		if($newNeedFulfilled <= 0) {
 			throw(new RangeException("needFulfilled is not positive"));
@@ -192,7 +208,10 @@ class Need {
 
 		// convert and store the need fulfilled
 		$this->needFulfilled = intval($newNeedFulfilled);
-	}
+
+	} // setNeedFulfilled
+
+
 	/**
 	 * accessor method for need title
 	 *
@@ -200,7 +219,9 @@ class Need {
 	 **/
 	public function getNeedTitle() {
 		return ($this->needTitle);
-	}
+	}	// getNeedTitle
+
+
 	/**
 	 * mutator method for need Title
 	 *
@@ -209,6 +230,7 @@ class Need {
 	 * @throws RangeException if $newNeedTitle is > 5000 characters
 	 **/
 	public function setNeedTitle($newNeedTitle) {
+
 		// verify the needTitle is secure
 		$newNeedTitle = trim($newNeedTitle);
 		$newNeedTitle = filter_var($newNeedTitle, FILTER_SANITIZE_STRING);
@@ -223,7 +245,10 @@ class Need {
 
 		// store the need title
 		$this->needTitle = $newNeedTitle;
-	}
+
+	}  // setNeedTitle
+
+
 	/**
 	 * inserts this Need into mySQL
 	 *
@@ -231,23 +256,26 @@ class Need {
 	 * @throws PDOException when mySQL related errors occur
 	 **/
 	public function insert(PDO $pdo) {
+
 		// enforce the needId is null (i.e., don't insert a need that already exists)
 		if($this->needId !== null) {
 			throw(new PDOException("not a new need"));
 		}
 
 		// create query template
-		$query = "INSERT INTO need(needId, profileId, need) VALUES(:needId, :profileId, :need)";
+		$query = "INSERT INTO need(needId, profileId, needDescription) VALUES(:needId, :profileId, :needDescription)";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->needDate->format("Y-m-d H:i:s");
-		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "need" => $this->need);
+		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "need" => $this->needDescription);
 		$statement->execute($parameters);
 
 		// update the null needId with what mySQL just gave us
 		$this->needId = intval($pdo->lastInsertId());
-	}
+
+	}  // insert
+
 
 	/**
 	 * deletes this Need from mySQL
@@ -256,6 +284,7 @@ class Need {
 	 * @throws PDOException when mySQL related errors occur
 	 **/
 	public function delete(PDO $pdo) {
+
 		// enforce the needId is not null (i.e., don't delete a need that hasn't been inserted)
 		if($this->needId === null) {
 			throw(new PDOException("unable to delete a need that does not exist"));
@@ -268,7 +297,9 @@ class Need {
 		// bind the member variables to the place holder in the template
 		$parameters = array("needId" => $this->needId);
 		$statement->execute($parameters);
-	}
+
+	}  //delete
+
 
 	/**
 	 * updates this Need in mySQL
@@ -277,53 +308,58 @@ class Need {
 	 * @throws PDOException when mySQL related errors occur
 	 **/
 	public function update(PDO $pdo) {
+
 		// enforce the needId is not null (i.e., don't update a need that hasn't been inserted)
 		if($this->needId === null) {
 			throw(new PDOException("unable to update a need that does not exist"));
 		}
 
 		// create query template
-		$query = "UPDATE need SET need = :need WHERE need = :need";
+		$query = "UPDATE need SET needDescription = :needDescription, needFulfilled = :needFulfilled, needTitle = :needTitle
+                WHERE needId = :needId";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
-		$formattedDate = $this->needDate->format("Y-m-d H:i:s");
-		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "needDescription" => $this->needDescription,
-				 "needFulfilled"=> $this->needFulfilled, "needTitle" => $this->needTitle);
+		$parameters = array("needDescription" => $this->needDescription, "needFulfilled" => $this->needFulfilled,
+				              "needTitle" => $this->needTitle, "needId" => $this->getNeedId());
 		$statement->execute($parameters);
-	}
+
+	}  // update
 
 	/**
-	 * gets the Need by needContent
+	 * gets the Need by needTitle
 	 *
 	 * @param PDO $pdo PDO connection object
 	 * @param string $need to search for
 	 * @return SplFixedArray all Needs found for this need
 	 * @throws PDOException when mySQL related errors occur
 	 **/
-	public static function getNeedByNeedContent(PDO $pdo, $need) {
-		// sanitize the description before searching
-		$need = trim($need);
-		$need = filter_var($need, FILTER_SANITIZE_STRING);
-		if(empty($need) === true) {
-			throw(new PDOException("need is invalid"));
+	public static function getNeedByNeedTitle(PDO $pdo, $needTitle) {
+
+		// sanitize $needTitle
+		$needTitle = trim($needTitle);
+		$needTitle = filter_var($needTitle, FILTER_SANITIZE_STRING);
+		if(empty($needTitle) === true) {
+			throw(new PDOException("need title is invalid"));
 		}
+
 		// create query template
-		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM need WHERE need LIKE :need";
+		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM need WHERE needTile LIKE :needTitle";
 		$statement = $pdo->prepare($query);
 
-		// bind the need to the place holder in the template
-		$need = "%need%";
-		$parameters = array("need" => $need);
+		// bind to the place holder in the template
+		$needTitle = "%need%";
+		$parameters = array("needTitle" => $needTitle);
 		$statement->execute($parameters);
 
 		// build an array of needs
 		$needs = new SplFixedArray($statement->rowCount());
 		$statement->setFetchMode(PDO::FETCH_ASSOC);
+
 		while(($row = $statement->fetch()) !== false) {
 			try {
 				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
-						$row["needTitle"]);
+						           $row["needTitle"]);
 				$needs[$needs->key()] = $need;
 				$needs->next();
 			} catch(Exception $exception) {
@@ -331,8 +367,12 @@ class Need {
 				throw(new PDOException($exception->getMessage(), 0, $exception));
 			}
 		}
+
 		return ($needs);
-	}
+
+	}  // getNeedByTitle
+
+
 	/**
 	 * gets all Needs
 	 *
