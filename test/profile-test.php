@@ -4,10 +4,10 @@
 require_once("karmadatadesign.php");
 
 // grab the class under scrutiny
-require_once(dirname(__DIR__)) . "/public_html/php/classes/profile.php";
+require_once((dirname(__DIR__)) . "/public_html/php/classes/profile.php");
 
 // grab parent class
-require_once(dirname(__DIR__)) ."/public_html/php/classes/member.php";
+require_once((dirname(__DIR__)) ."/public_html/php/classes/member.php");
 
 
 /**
@@ -338,10 +338,6 @@ class profileTest extends KarmaDataDesign {
 	 * test grabbing a Profile by a member ID that does not exist
 	 **/
 	public function testGetInvalidProfileByMemberId() {
-
-		// create a new profile and try retrieving it without inserting
-	//	$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
-	//			                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
 
 		$profile = Profile::getProfileByMemberId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
 

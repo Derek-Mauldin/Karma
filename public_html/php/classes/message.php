@@ -1,6 +1,6 @@
 <?php
 
-require_once (dirname(dirname(__DIR__))) . "/lib/php/date-utils.php";
+require_once ((dirname(dirname(__DIR__))) . "/lib/php/date-utils.php");
 
 /**
  * A cross section of what a message sent using Karma would like

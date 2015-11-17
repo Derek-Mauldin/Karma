@@ -662,4 +662,4 @@ class Profile {
 	}  // getProfileByMemberId
 
 
-} // end of profile class
+} // end of Profile class
