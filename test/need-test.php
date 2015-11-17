@@ -244,8 +244,11 @@ public function testGetNeedByNeedTitle() {
 	 **/
 	public function testGetInvalidNeedByNeedTitle() {
 
+		$need = new Need(null, $this->needTitle->getNeedTitle(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need->insert($this->getPDO());
+
 		// grab a Need that exceeds the maximum allowable need
-		$need = Need::getNeedByNeedTitle($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+		$need = Need::getNeedByNeedTitle($this->getPDO(), "does not exist");
 		$this->assertNull($need);
 		}
 
