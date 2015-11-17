@@ -465,7 +465,7 @@ class Message {
 	 * @throws PDOException with mySQL related errors
 	 **/
 
-	public function getMessagesBuySenderID(PDO $pdo, $senderId) {
+	public function getMessagesBuySenderId(PDO $pdo, $senderId) {
 
 		// check validity of $senderId
 		$senderId = filter_var($senderId, FILTER_VALIDATE_INT);

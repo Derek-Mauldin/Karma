@@ -68,7 +68,7 @@ class KarmaTest extends KarmaDataDesign {
 
 
 		// Create a member to reference in test
-		$this->member = new Member(null, "s", "ddkarmabear@gmail.com", "e1f6a14cd07069692017b53a8ae881f6", $this->VALID_HASH, $this->VALID_SALT);
+		$this->member = new Member(null, "s", "ddkarmabear@gmail.com", "e1f6a14cd0706969", $this->VALID_HASH, $this->VALID_SALT);
 		// insert it into the database
 		$this->member->insert($this->getPDO());
 
@@ -79,7 +79,7 @@ class KarmaTest extends KarmaDataDesign {
 
 		//create a valid need to reference in test
 
-		$this->need = new Need($this->member->getMemberId(), $this->profile->getProfileId(), "A ride to school Monday");
+		$this->need = new Need(null, $this->member->getMemberId(), $this->profile->getProfileId(), "A ride to school Monday");
 		$this->need->insert($this->getPDO());
 
 	}
