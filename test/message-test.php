@@ -261,7 +261,7 @@ class MessageTest extends KarmaDataDesign {
 		$this->assertSame($pdoMessage->getMessageSenderId(), $message->getMessageSenderId());
 		$this->assertSame($pdoMessage->getMessageReceiverId(), $message->getMessageReceiverId());
 		$this->assertSame($pdoMessage->getMessageContent(), $this->VALID_MESSAGECONTENT);
-		$this->assertSame($pdoMessage->getMessageDate(), $message->getMessageDate())
+		$this->assertSame($pdoMessage->getMessageDate(), $message->getMessageDate());
 
 	}
 
