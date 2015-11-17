@@ -11,7 +11,7 @@ require_once(dirname(__DIR__) . "/public_html/php/classes/member.php");
 * are tested for both invalid and valid inputs.
 *
 * @see Member
-* @author Jennifer Hung <jhung@cnm.edu>
+* @author Evan Smith <jhung@cnm.edu>
 **/
 
 class MemberTest extends KarmaDataDesign{
