@@ -25,15 +25,16 @@ class Need {
 	 **/
 	private $needDescription;
 	/**
-	 * actual fulfilment of the need
-	 * @var  int  $needFulfilled
-	 **/
-	private $needFulfilled;
-	/**
 	 * actual textual title of this Need
 	 * @var string needTitle
 	 * **/
 	private $needTitle;
+	/**
+	 * actual fulfilment of the need
+	 * @var  int  $needFulfilled
+	 **/
+	private $needFulfilled;
+
 
 	/**
 	 * constructor for this Need
@@ -45,11 +46,14 @@ class Need {
 	 * @throws RangeException if data values are out of bounds (e.g., strings too long, negative integers)
 	 * @throws Exception if some other exception is thrown
 	 **/
-	public function __construct($newNeedId, $newProfileId, $newNeed = null) {
+	public function __construct($newNeedId, $newProfileId, $newNeedDescription, $newNeedTitle, $newNeedFulFilled) {
+
 		try {
 			$this->setNeedId($newNeedId);
 			$this->setProfileId($newProfileId);
-			$this->setNeed($newNeed);
+			$this->setNeedTitle($newNeedTitle);
+			$this->setNeedDescription($newNeedDescription);
+			$this->setNeedFulfilled($newNeedFulFilled);
 		} catch(InvalidArgumentException $invalidArgument) {
 			// rethrow the exception to the caller
 			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
@@ -60,7 +64,8 @@ class Need {
 			// rethrow generic exception
 			throw(new Exception($exception->getMessage(), 0, $exception));
 		}
-	}
+
+	}  // __construct
 
 	/**
 	 * accessor method for need id
@@ -80,11 +85,13 @@ class Need {
 	 * @throws RangeException if $newNeedId is not positive
 	 **/
 	public function setNeedId($newNeedId) {
+
 		// base case: if the need id is null, this a new need without a mySQL assigned id (yet)
 		if($newNeedId === null) {
 				$this->needId = null;
 				return;
-		}
+
+		} // setNeedId
 
 		// verify the need id is valid
 		$newNeedId = filter_var($newNeedId, FILTER_VALIDATE_INT);
@@ -247,6 +254,7 @@ class Need {
 		$this->needTitle = $newNeedTitle;
 
 	}  // setNeedTitle
+
 
 
 	/**
