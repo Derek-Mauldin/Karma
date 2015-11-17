@@ -281,11 +281,11 @@ class Profile {
 		$newProfileFirstName = trim($newProfileFirstName);
 		$newProfileFirstName = filter_var($newProfileFirstName, FILTER_SANITIZE_STRING);
 		if(empty($newProfileFirstName) === true) {
-			throw(new InvalidArgumentException("Profile Handle is empty or insecure."));
+			throw(new InvalidArgumentException("Profile First Name is empty or insecure."));
 		}
 		// validate the length of $newProfileFirstName
-		if(strlen($newProfileFirstName) > 15) {
-			throw(new RangeException("Profile Handle is too Large."));
+		if(strlen($newProfileFirstName) > 50) {
+			throw(new RangeException("Profile First Name is too Large."));
 		}
 		// store the new First Name
 		$this->profileFirstName = $newProfileFirstName;
@@ -304,14 +304,14 @@ class Profile {
 		$newProfileLastName = trim($newProfileLastName);
 		$newProfileLastName = filter_var($newProfileLastName, FILTER_SANITIZE_STRING);
 		if(empty($newProfileLastName) === true) {
-			throw(new InvalidArgumentException("Profile Handle is empty or insecure."));
+			throw(new InvalidArgumentException("Profile Last Name is empty or insecure."));
 		}
 		// validate the length of $newProfileLastName
-		if(strlen($newProfileLastName) > 15) {
-			throw(new RangeException("Profile Handle is too Large."));
+		if(strlen($newProfileLastName) > 50) {
+			throw(new RangeException("Profile Last Name is too Large."));
 		}
 		// store the new Last Name
-		$this->profileFirstName = $newProfileLastName;
+		$this->profileLastName = $newProfileLastName;
 	}  // setProfileLastName
 
 
@@ -378,13 +378,16 @@ class Profile {
 		// setup image type arrays
 		$goodTypes = ["image/jpeg", "image/png"];
 		$goodExt   = ["jpg", "jpeg", "png"];
+
 		// grab data from $_Files
 		$imgType     = $_FILES[$inputTagName]["type"];
 		$imgName     = $_FILES[$inputTagName]["name"];
 		$imgFileName = $_FILES[$inputTagName]["tmp_name"];
+
 		// setup extensions for processing
 		$extension = end(explode(".", $imgName));
 		$extension = strtolower($extension);
+
 		// check image type
 		if(in_array($imgType, $goodTypes) === false) {
 			throw(new InvalidArgumentException("Invalid Image Type"));
@@ -408,8 +411,10 @@ class Profile {
 		// crop image
 		$cropArray = [0, 0, 256, 256];
 		$avatar = imagecrop($img, $cropArray);
+
 		// setup path name to store image
 		$path = "/var/www/html/public_html/karma/avatars/avatar-" . $this->profileId;
+
 		// save image depending on type
 		if($type === "image/png") {
 			$path = $path . ".png";
@@ -418,15 +423,19 @@ class Profile {
 			$path = $path . ".jpeg";
 			$save = @imagejpeg($avatar, $path);
 		}
+
 		// if save fails throw exception
 		if($save === false) {
 			throw(new ErrorException("Image Save Failed"));
 		}
+
 		// store photo data in this profile
 		$this->setProfilePhotoType($type);
 		$this->setProfilePhoto($path);
+
 		// free up resources
 		imagedestroy($avatar);
+
 	}  //  uploadPhoto
 
 
@@ -442,14 +451,14 @@ class Profile {
 			throw(new PDOException("Profile Already Exists on Database"));
 		}
 		// create and prepare query template
-		$query = "INSERT INTO profile(memberId, profileBlurb, profileHandle, profileFirstName, profileLastName, profielePhoto, profilePhotoType)
+		$query = "INSERT INTO profile(memberId, profileBlurb, profileHandle, profileFirstName, profileLastName, profilePhoto, profilePhotoType)
 					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, :profilePhotoType)";
 		$statement = $pdo->prepare($query);
 
 		// bind profile variables to placeholder in the template
-		$parameters = ["memberId" => $this->memberId, "profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
-			            "profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
-			            "profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType];
+		$parameters = array("memberId" => $this->memberId, "profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
+				              "profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
+			                 "profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType);
 		$statement->execute($parameters);
 
 		// add mysql created id to this profile
@@ -468,12 +477,13 @@ class Profile {
 			throw (new PDOException("Unable to delete a profile that does not exist"));
 		}
 		// create and prepare query template
-		$query = "DELETE FROM profile WHERE profileId = :profileid";
+		$query = "DELETE FROM profile WHERE profileId = :profileId";
 		$statement = $pdo->prepare($query);
 
 		// bind profile variable to placeholder in the template
-		$parameters = ["profileId" => $this->profileId ];
+		$parameters = ["profileId" => $this->profileId];
 		$statement->execute($parameters);
+
 	}  // deleteProfile
 
 
@@ -484,21 +494,24 @@ class Profile {
 	 * @throws PDOException when profileId is null
 	 */
 	public function updateProfile (PDO $pdo) {
+
 		// profile with profileId set to null cannot be deleted
 		if($this->profileId === null) {
 			throw(new PDOException("Unable to update a profile that does not exist"));
 		}
+
 		// create and prepare query template
 		$query = "UPDATE profile SET profileBlurb = :profileBlurb, profileHandle = :profileHandle,
-		                             profileFirstName = :profileFirstName, proflieLastName = :profileLastName,
+		                             profileFirstName = :profileFirstName, profileLastName = :profileLastName,
 		                             profilePhoto = :profilePhoto, profilePhotoType = :profilePhotoType
 		          WHERE profileId = :profileId";
 		$statement = $pdo->prepare($query);
 
 		// bind profile variables to placeholders in template
-		$parameters = ["profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
-							"profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
-							"profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType];
+		$parameters = array("profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
+							     "profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
+							     "profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType,
+		                    "profileId" => $this->profileId );
 		$statement->execute($parameters);
 
 	}  // updateProfile
@@ -527,7 +540,7 @@ class Profile {
 
 		// prepare query
 		$query =  "SELECT profileId, memberId, profileBlurb,
-                        profileHandle, profileFirstName, pofileLastName,
+                        profileHandle, profileFirstName, profileLastName,
                         profilePhoto, profilePhotoType
 					  FROM profile WHERE profileId = :profileId";
 
@@ -542,7 +555,7 @@ class Profile {
 			$row = $statement->fetch();
 			if($row !== false) {
 				$profile = new Profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
-											  $row["profileFirstName"], $row["profileLastName"], $row["profileLastName"],
+											  $row["profileFirstName"], $row["profileLastName"],
 						                 $row["profilePhoto"], $row["profilePhotoType"]);
 			}
 		} catch(Exception $exception) {
@@ -573,7 +586,7 @@ class Profile {
 
 		// prepare query
 		$query = "SELECT profileId, memberId, profileBlurb,
-                       profileHandle, profileFirstName, pofileLastName,
+                       profileHandle, profileFirstName, profileLastName,
 							  profilePhoto, profilePhotoType
 					 FROM profile WHERE profileHandle = :profileHandle";
 
@@ -590,8 +603,8 @@ class Profile {
 
 			if($row !== false) {
 				$profile = new Profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
-					                    $row["profileFirstName"], $row["profileLastName"], $row["profileLastName"],
-					                    $row["profilePhoto"], $row["profilePhotoType"]);
+					                    $row["profileFirstName"], $row["profileLastName"], $row["profilePhoto"],
+						                 $row["profilePhotoType"]);
 			}
 		} catch(Exception $exception) {
 			throw(new PDOException($exception->getMessage(), 0, $exception));
@@ -638,8 +651,8 @@ class Profile {
 			$row = $statement->fetch();
 			if($row !== false) {
 				$profile = new Profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
-											  $row["profileFirstName"], $row["profileLastName"], $row["profileLastName"],
-											  $row["profilePhoto"], $row["profilePhotoType"]);
+											  $row["profileFirstName"], $row["profileLastName"], $row["profilePhoto"],
+						                 $row["profilePhotoType"]);
 			}
 		} catch(Exception $exception) {
 			throw(new PDOException($exception->getMessage(), 0, $exception));

@@ -38,13 +38,13 @@ class profileTest extends KarmaDataDesign {
 	 *
 	 * @var string $VALID_PROFILE_HANDLE
 	 **/
-	protected $VALID_PROFILE_HANDLE = "@karmaHandleTest";
+	protected $VALID_PROFILE_HANDLE = "HandleTest";
 	/**
 	 * valid 2nd profileHandle to use
 	 *
 	 * @var string $VALID_PROFILE_HANDLE_2
 	 **/
-	protected $VALID_PROFILE_HANDLE_2 = "@karmaHandleTest 2";
+	protected $VALID_PROFILE_HANDLE_2 = "HandleTest 2";
 	/**
 	 * valid first name to use
 	 *
@@ -272,14 +272,15 @@ class profileTest extends KarmaDataDesign {
 	/**
 	 * test grabbing a profile by profileHandle
 	 */
-	public function testGetValidProfileByAtHandle() {
+	public function testGetValidProfileByHandle() {
+
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("profile");
 
 		// create a new Profile and insert to into mySQL
 		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
 				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
-		$profile->insert($this->getPDO());
+		$profile->insertProfile($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
 		$pdoProfile = Profile::getProfileByProfileHandle($this->getPDO(), $this->VALID_PROFILE_HANDLE);
@@ -298,7 +299,7 @@ class profileTest extends KarmaDataDesign {
 	/**
 	 * test grabbing a Profile by A profileHandle that does not exist
 	 **/
-	public function testGetInvalidProfileByAtHandle() {
+	public function testGetInvalidProfileByHandle() {
 
 		// grab an a profileHandle that does not exist
 		$profile = Profile::getProfileByProfileHandle($this->getPDO(), "doesnotexist");
@@ -339,10 +340,10 @@ class profileTest extends KarmaDataDesign {
 	public function testGetInvalidProfileByMemberId() {
 
 		// create a new profile and try retrieving it without inserting
-		$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
-				                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
+	//	$profile = new Profile(null, $this->aMember->getMemberId(), $this->VALID_PROFILE_BLURB, $this->VALID_PROFILE_HANDLE,
+	//			                 $this->VALID_PROFILE_FIRST_NAME, $this->VALID_PROFILE_LAST_NAME, null);
 
-		$profile->getProfileByMemberId($this->getPDO(), $this->aMember->getMemberId());
+		$profile = Profile::getProfileByMemberId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
 
 		$this->assertNull($profile);
 

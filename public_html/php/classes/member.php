@@ -314,7 +314,7 @@ class Member{
 		}
 
 		//creates the query template
-		$query = "INSERT INTO member(memberAccessLevel, email, emailActivation, passwordHash,salt) VALUES (:memberAccessLevel, :email, :emailActivation, :passwordHash, :salt)";
+		$query = "INSERT INTO member(memberAccessLevel, memberEmail, memberEmailActivation, memberHash, memberSalt) VALUES (:memberAccessLevel, :memberEmail, :memberEmailActivation, :memberHash, :memberSalt)";
 
 		$statement = $pdo->prepare($query);
 
@@ -322,10 +322,10 @@ class Member{
 
 		$parameters = array(
 			"memberAccessLevel" => $this->accessLevel,
-			"email" => $this->email,
-			"emailActivation" => $this->emailActivation,
-			"passwordHash" => $this->passwordHash,
-			"salt" => $this->salt,
+			"memberEmail" => $this->email,
+			"memberEmailActivation" => $this->emailActivation,
+			"memberHash" => $this->passwordHash,
+			"memberSalt" => $this->salt
 		);
 		$statement->execute($parameters);
 		//updates the null return with what the SQL has provided
