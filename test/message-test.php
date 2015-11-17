@@ -21,17 +21,17 @@ require_once(dirname(__DIR__)) ."/public_html/php/classes/profile.php";
  **/
 class MessageTest extends KarmaDataDesign {
 	/**
-	 * valid messagesender to use
+	 * valid messageSender to use
 	 * @var string $VALID_MESSAGESENDER
 	 **/
 	protected $VALID_MESSSAGESENDER = null;
 	/**
-	 * valid messagereceiver to use
+	 * valid messageReceiver to use
 	 * @var string $VALID_MESSAGERECEIVER
 	 **/
 	protected $VALID_MESSAGERECEIVER = null;
 	/**
-	 * valid messagecontent to use
+	 * valid messageContent to use
 	 * @var string $VALID_MESSAGECONTENT
 	 **/
 	protected $VALID_MESSAGECONTENT = "Its Easy to learn computer languages";

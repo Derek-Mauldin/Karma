@@ -325,34 +325,125 @@ class Need {
 		$statement->execute($parameters);
 
 	}  // update
+	/**
+	 * gets the Need by needId
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @param string $needId to search for
+	 * @return SplFixedArray all Needs found for this need id
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public static function getNeedByNeedId(PDO $pdo, $needId) {
+
+		// sanitize $needId
+		$needId = filter_var($needId, FILTER_VALIDATE_INT);
+		if(empty($needId) === true) {
+			throw(new PDOException("need id not an integer"));
+		}
+
+		if($needId <= 0){
+			throw(new RangeException("need Id need to be a positive integer"));
+		}
+
+		// create query template
+		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM need WHERE needId = :needId";
+		$statement = $pdo->prepare($query);
+
+		// bind to the place holder in the template
+		$parameters = array("needId" => $needId);
+		$statement->execute($parameters);
+
+		// build an array of need ids
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
+		$row = $statement->fetch();
+
+			try {
+				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
+						           $row["needTitle"]);
+
+			} catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
+
+
+		return ($need);
+
+	}  // getNeedByNeedId
+
+	/**
+	 * gets the Need by profileId
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @param string $needId to search for profile id
+	 * @return SplFixedArray all ProfileIds found for this need
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public static function getNeedByProfileId(PDO $pdo, $needId) {
+
+		// sanitize $needId
+		$profileId = filter_var($needId, FILTER_VALIDATE_INT);
+		if(empty($profileId) === true) {
+			throw(new PDOException("profile id not an integer"));
+		}
+		if($profileId <= 0) {
+			throw(new PDOException("profile id need to a positive integer" ));
+		}
+
+		// create query template
+		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM need WHERE profileId = :profileId";
+		$statement = $pdo->prepare($query);
+
+		// bind to the place holder in the template
+		$parameters = array("profileId" => $profileId);
+		$statement->execute($parameters);
+
+		// build an array of needs
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
+		$row = $statement->fetch();
+
+			try {
+				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
+						$row["needTitle"]);
+			}
+				catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
+
+
+		return ($need);
+
+	}  // getNeedByProfileId
+
 
 	/**
 	 * gets the Need by needTitle
 	 *
 	 * @param PDO $pdo PDO connection object
 	 * @param string $need to search for
-	 * @return SplFixedArray all Needs found for this need
+	 * @return SplFixedArray all Need ids found for this need
 	 * @throws PDOException when mySQL related errors occur
 	 **/
 	public static function getNeedByNeedTitle(PDO $pdo, $needTitle) {
 
 		// sanitize $needTitle
-		$needTitle = trim($needTitle);
+		$needId = trim($needTitle);
 		$needTitle = filter_var($needTitle, FILTER_SANITIZE_STRING);
 		if(empty($needTitle) === true) {
 			throw(new PDOException("need title is invalid"));
 		}
 
 		// create query template
-		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM need WHERE needTile LIKE :needTitle";
+		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM need WHERE needTitle LIKE :needTitle";
 		$statement = $pdo->prepare($query);
 
 		// bind to the place holder in the template
-		$needTitle = "%need%";
+		$needId = "%need%";
 		$parameters = array("needTitle" => $needTitle);
 		$statement->execute($parameters);
 
-		// build an array of needs
+		// build an array of need
 		$needs = new SplFixedArray($statement->rowCount());
 		$statement->setFetchMode(PDO::FETCH_ASSOC);
 
