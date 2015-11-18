@@ -15,11 +15,43 @@ require_once(dirname(__DIR__) . "/public_html/php/classes/member.php");
 **/
 
 class MemberTest extends KarmaDataDesign{
+
+	/**
+	 * Valid access level for the class
+	 *
+	 * @var string $VALID_ACCESSLEVEL
+	 */
+	protected $VALID_ACCESSLEVEL = "S";
+
 	/**
 	 * valid at email to use
+	 *
 	 * @var string $VALID_ATEMAIL
 	 **/
 	protected $VALID_ATEMAIL = "@phpunit";
+
+	/**
+	 * Valid email activation code for the test
+	 *
+	 * @var int $VALID_EMAILACTIVATION
+	 */
+	protected $VALID_EMAILACTIVATION = 1234567890123456;
+
+	/**
+	 * Valid password hash to use in the test
+	 *
+	 * @var $VALID_HASH
+	 */
+	protected $VALID_HASH;
+
+	/**
+	 * Valid salt to use for the test
+	 *
+	 * @var $VALID_SALT
+	 */
+	protected $VALID_SALT;
+
+	protected $INVALID_
 
 	/**
 	 * test inserting a valid Member and verify that the actual mySQL data matches

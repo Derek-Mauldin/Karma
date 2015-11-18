@@ -3,6 +3,7 @@
 require_once("karmadatadesign.php");
 
 // grab the classes
+require_once(dirname(__DIR__) . "/public_html/php/classes/member.php");
 require_once(dirname(__DIR__) . "/public_html/php/classes/autoload.php");
 
 
