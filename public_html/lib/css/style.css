@@ -12,8 +12,8 @@ footer {
 	background-color: #dddddd;
 }
 
-.navbar {
-	background-color: pink;
+#navbar {
+	padding-right:35px;
 }
 
 footer {
@@ -54,27 +54,101 @@ body { width: 100%;}
 .sfooter-content {
 	flex: 1 0 auto;
 }
+#company {
+	font-size: 2em;
+	font-weight: bold;
+	position: relative;
+	right: 175px;
+}
+#left {
+	float:left;
+	margin:15px;
+	width:100px;
+}
 
 #right {
 	float:right;
-	width:100px;
-	}
-
-#left {
-	float:left;
+	margin:15px;
 	width:100px;
 }
+ul li{
+	font-size:1.25em;
+}
+#request {
+	color:black;
 
-#justify {
 	text-align: justify;
+	margin:15px;
 	width:100px;
 }
-#profileImg {
-	height:60px;
+#container {
+	text-align: center;
 }
-.navIcon {
-	height:30px;
+a, figure {
+	display: inline-block;
+}
+.fa-times {
+	float:right;
+}
+figcaption {
+	margin: 10px 0 0 0;
+	font-variant: small-caps;
+	font-family: Arial;
+	font-weight: bold;
+	color: #bb3333;
+}
+figure {
+	padding: 5px;
+}
+img:hover {
+	transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+img {
+	transition: transform 0.2s;
+	-webkit-transition: -webkit-transform 0.2s;
+	-moz-transition: -moz-transform 0.2s;
+	-o-transition: -o-transform 0.2s;
+}
+
+.profileImage {
+	margin:15px;
+	height:75px;
+}
+#sidebar {
+	padding-top:15px;
 }
 .navLogo {
 	height: 40px;
+}
+
+.container {
+	display: flex;
+	flex-flow: row nowrap; /* Align on the same line */
+	justify-content: space-between; /* Equal margin between the child elements */
+}
+
+.container {
+	display: flex;
+	flex-flow: row nowrap; /* Align on the same line */
+	justify-content: space-between; /* Equal margin between the child elements */
+}
+
+
+.container > div {
+	background: #5F85DB;
+	padding: 5px;
+	color: #fff;
+	font-weight: bold;
+	font-family: Tahoma;
+}
+
+.navbar-right {
+	margin-right:50px;
+}
+.side-panel {
+	height:800px;
 }
