@@ -12,10 +12,6 @@ footer {
 	background-color: #dddddd;
 }
 
-#navbar {
-	padding-right:35px;
-}
-
 footer {
 	padding: 20px 0;
 	margin-top: 20px;
@@ -24,17 +20,18 @@ footer {
 .panel {
 	padding: 20px;
 }
-
+/*******************************************
+*styles
+*******************************************/
+ul li{
+	font-size:1.25em;
+	padding:5px;
+	margin:5px;
+}
 /********************************************
 * Fixed panel Layout Styles
 ********************************************/
-.side-panel {
-	background-color:lightgrey;
-	min-height: 50vh;
-	max-height: 90vh;
-	position: fixed;
-	width: 300px;
-}
+
 
 /***
 * Flexbox Sticky Footer
@@ -45,35 +42,9 @@ footer {
 html { display: flex;}
 body { width: 100%;}
 
-.sfooter {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
 
-.sfooter-content {
-	flex: 1 0 auto;
-}
-#company {
-	font-size: 2em;
-	font-weight: bold;
-	position: relative;
-	right: 175px;
-}
-#left {
-	float:left;
-	margin:15px;
-	width:100px;
-}
+/* main page layout*/
 
-#right {
-	float:right;
-	margin:15px;
-	width:100px;
-}
-ul li{
-	font-size:1.25em;
-}
 #request {
 	color:black;
 
@@ -95,7 +66,7 @@ figcaption {
 	font-variant: small-caps;
 	font-family: Arial;
 	font-weight: bold;
-	color: #bb3333;
+	color: #1e27ff;
 }
 figure {
 	padding: 5px;
@@ -114,41 +85,33 @@ img {
 	-o-transition: -o-transform 0.2s;
 }
 
+p {
+	color:black;
+}
+
 .profileImage {
-	margin:15px;
 	height:75px;
 }
-#sidebar {
-	padding-top:15px;
-}
-.navLogo {
-	height: 40px;
-}
 
+
+
+/********************************************
+*justify container columns
+**********************************************/
 .container {
 	display: flex;
 	flex-flow: row nowrap; /* Align on the same line */
 	justify-content: space-between; /* Equal margin between the child elements */
 }
-
-.container {
-	display: flex;
-	flex-flow: row nowrap; /* Align on the same line */
-	justify-content: space-between; /* Equal margin between the child elements */
-}
-
-
 .container > div {
-	background: #5F85DB;
-	padding: 5px;
-	color: #fff;
-	font-weight: bold;
-	font-family: Tahoma;
+  background: #5F85DB;
+  padding: 5px;
+  color: #fff;
+  font-weight: bold;
+  font-family: Tahoma;
 }
 
-.navbar-right {
-	margin-right:50px;
-}
-.side-panel {
-	height:800px;
-}
+
+
+
+

@@ -15,3 +15,7 @@ $(document).ready(function() {
 $(document).ready(function() {
 	$("<a class='imgCaption'>$handle</a>").appendTo('.profileImg')
 });
+$("#menu-toggle").click(function(e) {
+	e.preventDefault();
+	$("#wrapper").toggleClass("toggled");
+});

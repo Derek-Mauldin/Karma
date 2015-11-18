@@ -10,10 +10,6 @@ footer {
 }
 
 
-footer {
-	padding: 20px 0;
-	margin-top: 20px;
-}
 
 /***
 * Flexbox Sticky Footer
@@ -32,4 +28,20 @@ body { width: 100%;}
 
 .sfooter-content {
 	flex: 1 0 auto;
+}
+
+.sfooter {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.sfooter-content {
+	flex: 1 0 auto;
+}
+
+
+footer {
+	padding: 20px 0;
+	margin-top: 20px;
 }

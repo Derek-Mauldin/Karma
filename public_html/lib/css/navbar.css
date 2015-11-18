@@ -1,0 +1,34 @@
+body {
+	min-height: 2000px;
+	padding-top: 70px;
+	color:black;
+}
+
+#navbar {
+	padding-right:35px;
+	color:black;
+}
+
+.navbar-right {
+	margin-right:50px;
+	color:black;
+}
+
+#brand{
+	font-size: 2em;
+	font-weight: bold;
+	right: 175px;
+}
+
+.navLogo {
+	height: 40px;
+	position:absolute;
+}
+body {
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.navbar {
+	margin-bottom: 20px;
+}

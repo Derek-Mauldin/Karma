@@ -1,3 +1,16 @@
-#sidepanel li {
+#sidePanel li {
+	padding-top:15px;
+	position: fixed;
+	width: 300px;
+}
+
+.side-panel {
+	height:800px;
+}
+
+.sideLink li {
+	color:black;
+	font-size:1.25em;
 	list-style-type: none;
+
 }
