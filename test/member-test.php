@@ -29,7 +29,7 @@ class MemberTest extends KarmaDataDesign{
 	 *
 	 * @var string $VALID_EMAIL
 	 **/
-	protected $VALID_EMAIL = "example@example.com";
+	protected $VALID_EMAIL = "exp@example.com";
 
 	/**
 	 * Valid email activation code for the test
@@ -91,12 +91,20 @@ class MemberTest extends KarmaDataDesign{
 		$member->insert($this->getPDO());
 	}
 
+	/**
+	 * test inserting an invalid access level
+	 *
+	 * @expectedException Exception
+	 */
 	public function testInsertInvalidAccessLevel() {
+
 		// create a member with a non null memberId and watch it fail
 		$member = new Member(null, "z", $this->VALID_EMAIL, $this->VALID_EMAIL_ACTIVATION, $this->VALID_HASH, $this->VALID_SALT);
 		$member->insert($this->getPDO());
 		$this->assertNull($member);
-	}
+
+		}
+
 
 	/**
 	* test inserting a Member, editing it, and then updating it

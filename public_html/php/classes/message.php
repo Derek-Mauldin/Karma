@@ -159,7 +159,7 @@ class Message {
 	 * @return mixed value of messageReceiver id
 	 **/
 	public function getMessageReceiverId() {
-		return ($this->MessageReceiverId);
+		return ($this->messageReceiverId);
 	}
 
 
@@ -267,25 +267,26 @@ class Message {
 	 * @throws PDOException when mySQL related errors occur
 	 **/
 	public function insert(PDO $pdo) {
+
 		// enforce the messageId is null (i.e., don't insert a message that already exists)
 		if($this->MessageId !== null) {
 			throw(new PDOException("not a new message"));
 		}
 
 		// create query template
-		$query = "INSERT INTO message(messageId, messageSenderId, messageReceiverId, messageContent, messsageDate)
-                VALUES(:messageId, :messageSenderId, :messageReceiverId, :messageContent, :messageDate)";
+		$query = "INSERT INTO message(messageId, messageSenderId, messageReceiverId, messageContent, messageDateTime)
+                VALUES(:messageId, :messageSenderId, :messageReceiverId, :messageContent, :messageDateTime)";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
-		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->messageSenderId,
-				"messageReceiverId" => $this->messagereceiverId, "messageContent" => $this->messageContent,
-				"messageDate" => $formattedDate);
+		$parameters = array("messageId" => $this->MessageId, "messageSenderId" => $this->messageSenderId,
+				              "messageReceiverId" => $this->messageReceiverId, "messageContent" => $this->messageContent,
+				              "messageDateTime" => $formattedDate);
 		$statement->execute($parameters);
 
 		// update the null messageId with what mySQL just gave us
-		$this->messageId = intval($pdo->lastInsertId());
+		$this->MessageId = intval($pdo->lastInsertId());
 	}
 
 
@@ -312,33 +313,24 @@ class Message {
 
 	}
 
-	/*
+
 	public function update(PDO $pdo) {
+
 		if($this->messageId === null) {
-		throw(new PDOException("unable to update a message that does not exist"));
+			throw(new PDOException("unable to update a message that does not exist"));
 		}
 
-		$query = "UPDATE message  SET messageSenderId = : messageSenderId = :messageSenderId,
-	messagrreceiverId = :messageReceiverId,
-	messageContent = :messageContent, messageDate = :messageDate WHERE messageId = :messageId";
+		$query = "UPDATE message  SET messageSenderId = : messageSenderId,  messagrreceiverId = :messageReceiverId,
+	                                 messageContent = :messageContent, messageDate = :messageDate WHERE messageId = :messageId";
 		$statement = $pdo->prepare($query);
 
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
-		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->messageSenderId,
-		messageReceiverId => $this->messageReceiverId, "messageContent" => $this->messageContent,
-		"messageDate" => $formattedDate);
+		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->MessageSenderId,
+				              "messageReceiverId" => $this->messageReceiverId, "messageContent" => $this->messageContent,
+				              "messageDate" => $formattedDate);
 		$statement->execute($parameters);
-	}
-*/
+	} // update
 
-	/**
-	 * gets the message by content
-	 *
-	 * @param PDO $pdo PDO connection object
-	 * @param string $messageContent message content to search for
-	 * @return SplFixedArray all messages found for this content
-	 * @throws PDOException when mySQL related errors occur
-	 **/
 
 	/*
 	public static function getMessageByMessageContent(PDO $pdo, $messageContent) {
@@ -378,33 +370,40 @@ class Message {
 	*/
 
 
-	/**
-	 * gets the Message by messageId
+
+	 /**
+    * funtion to retrieve message by message Id
 	 *
 	 * @param PDO $pdo PDO connection object
 	 * @param int $messageId message id to search for
 	 * @return mixed Message found or null if not found
 	 * @throws PDOException when mySQL related errors occur
 	 **/
-	/**
-	public static function getByMessageId(PDO $pdo, $messageId) {
+
+	public function getByMessageId(PDO $pdo, $newMessageId) {
+
+		// base case: if the $messageId is null, this is a new message without a mySQL assigned ID
+		if($newMessageId === null) {
+			$this->MessageId = $newMessageId;
+			return;
+		}
 
 		// sanitize the messageId before searching
-		$messageId = filter_var($messageId, FILTER_VALIDATE_INT);
-		if($messageId === false) {
+		$newMessageId = filter_var($newMessageId, FILTER_VALIDATE_INT);
+		if($newMessageId === false) {
 			throw(new PDOException("message id is not an integer"));
 		}
-		if($messageId <= 0) {
+		if($newMessageId <= 0) {
 			throw(new PDOException("message id is not positive"));
 		}
 
 		// create query template
-		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDate
-		          FROM message WHERE messageId = :messageId";
+		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDateTime
+		          FROM message WHERE messageId = :newMessageId";
 		$statement = $pdo->prepare($query);
 
 		// bind the message id to the place holder in the template
-		$parameters = array("messageId" => $messageId);
+		$parameters = array("newMessageId" => $newMessageId);
 		$statement->execute($parameters);
 
 		// grab the message from mySQL
@@ -414,7 +413,7 @@ class Message {
 			$row = $statement->fetch();
 			if($row !== false) {
 				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-						$row["messageContent"], $row["messageDate"]);
+						$row["messageContent"], $row["messageDateTime"]);
 			}
 		} catch(Exception $exception) {
 			// if the row couldn't be converted, rethrow it
@@ -422,7 +421,6 @@ class Message {
 		}
 		return ($message);
 	}
-	**/
 
 	/**
 	 * gets all Messages
@@ -465,7 +463,7 @@ class Message {
 	 * @throws PDOException with mySQL related errors
 	 **/
 
-	public function getMessagesBuySenderId(PDO $pdo, $senderId) {
+	public function getMessagesBySenderId(PDO $pdo, $senderId) {
 
 		// check validity of $senderId
 		$senderId = filter_var($senderId, FILTER_VALIDATE_INT);

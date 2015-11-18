@@ -45,6 +45,12 @@ class NeedTest extends KarmaDataDesign {
 	protected $profile;
 
 	/**
+	 * email activation string to use for this test
+	 * $var string $VALID_EMAIL_ACTIVATION
+	 */
+	protected $VALID_EMAIL_ACTIVATION = "0123456789abcdef";
+
+	/**
 	 * create dependent objects before running each test
 	 **/
 	public final function setUp() {
@@ -55,7 +61,7 @@ class NeedTest extends KarmaDataDesign {
 		$this->hash = hash_pbkdf2("sha512","bootcamp-coders", $this->salt, 4096, 128);
 
 		//create and insert a Message to own the test
-		$this->member = new Member(null, "s", "blurb1@gail.com", "takeItEasy", $this->hash, $this->salt, "salt1");
+		$this->member = new Member(null, "s", "blurb1@gail.com", $this->VALID_EMAIL_ACTIVATION, $this->hash, $this->salt);
 		$this->member->insert($this->getPDO());
 
 		//create and insert a Profile to own the test

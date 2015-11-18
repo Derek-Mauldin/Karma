@@ -54,11 +54,19 @@ class MessageTest extends KarmaDataDesign {
 	 * @var string $VALID_SALT
 	 **/
 	protected $salt = null;
+	protected $salt2 = null;
 	/**
 	 ** valid hash
 	 * @var string $VALID_HASH
 	 **/
 	protected $hash = null;
+	protected $hash2 = null;
+	/**
+	 * email activation string to use for this test
+	 * $var string $VALID_EMAIL_ACTIVATION
+	 */
+	protected $VALID_EMAIL_ACTIVATION = "23456789abcedf01";
+	protected $VALID_EMAIL_ACTIVATION2 = "33456789abcedf01";
 
 
 
@@ -69,15 +77,20 @@ class MessageTest extends KarmaDataDesign {
 		// run the default setup() method first
 		parent::setUp();
 
-		$this->salt =bin2hex(openssl_random_pseudo_bytes(32));
-		$this->hash = hash_pbkdf2("sha512","bootcamp-coders", $this->salt, 4096, 128);
+		$this->salt = bin2hex(openssl_random_pseudo_bytes(32));
+		$this->hash = hash_pbkdf2("sha512", "dmauldin" ,$this->salt, 4096, 128);
+
+		$this->salt2 = bin2hex(openssl_random_pseudo_bytes(32));
+		$this->hash2 = hash_pbkdf2("sha512", "jennifer" ,$this->salt, 4096, 128);
+
+
 
 
 		//create and insert a Message to own the test
-		$this->member1 = new Member(null, "s", "blurb1@gail.com", "takeItEasy", $this->hash, $this->salt, "salt1");
+		$this->member1 = new Member(null, "s", "anybody@mymail.com", $this->VALID_EMAIL_ACTIVATION, $this->hash, $this->salt);
 		$this->member1->insert($this->getPDO());
 
-		$this->member2 = new Member(null, "s", "blurb2@gail.com", "whatIsEasy", "hash2", "salt2");
+		$this->member2 = new Member(null, "s", "nobody@mymail.com", $this->VALID_EMAIL_ACTIVATION2, $this->hash2, $this->salt2);
 		$this->member2->insert($this->getPDO());
 
 		//create and insert a Profile to own the test
@@ -101,7 +114,7 @@ class MessageTest extends KarmaDataDesign {
 		$message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoMessage = Message::getMessageByMessageId($this->getPDO(), $message->getMessageId());
+		$pdoMessage = Message::getByMessageId($this->getPDO(), $message->getMessageId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
 		$this->assertSame($pdoMessage->getMessageSenderId(), $message->getMessageSenderId());
 		$this->assertSame($pdoMessage->getMessageReceiverId(), $message->getMessageReceiverId());
@@ -208,12 +221,12 @@ class MessageTest extends KarmaDataDesign {
 	public function testGetInvalidMessageByMesageId() {
 
 		// grab a Message id that exceeds the maximum allowable message id
-		$message = Message::getMessageByMessageId($this->getPDO(), karmaDataDesignTest::INVALID_KEY);
+		$message = Message::getByMessageId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
 		$this->assertNull($message);
 
 	}
 
-	public function testGetValidMessageByMessagesender() {
+	public function testGetValidMessageByMessageSender() {
 
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("message");
@@ -223,7 +236,7 @@ class MessageTest extends KarmaDataDesign {
 		$message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoMessage = Message::getMessageeByMessageSender($this->getPDO(), $message->getMessageSenderId());
+		$pdoMessage = Message::getMessagesBySenderId($this->getPDO(), $message->getMessageSenderId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
 		$this->assertSame($pdoMessage->getMessageSenderId(), $message->getMessageSenderId());
 		$this->assertSame($pdoMessage->getMessageReceiverId(), $message->getMessageReceiverId());
@@ -235,10 +248,10 @@ class MessageTest extends KarmaDataDesign {
 	/**
 	 * test grabbing a Message by sender that does not exist
 	 **/
-	public function testGetInvalidMessageByProfile1() {
+	public function testGetInvalidMessageBySender() {
 
 		// grab a message sender that does not exist
-		$message = Message::getMessageBySenderId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+		$message = Message::getMessagesBySenderId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
 		$this->assertNull($message);
 
 	}
@@ -246,7 +259,7 @@ class MessageTest extends KarmaDataDesign {
 	/**
 	 * test grabbing a Message by message receiver
 	 **/
-	public function testGetValidMessageByProfile2() {
+	public function testGetValidMessagesByReceiver() {
 
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("message");
@@ -256,7 +269,7 @@ class MessageTest extends KarmaDataDesign {
 		$message->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoMessage = Message::getMessageByReceiverId($this->getPDO(), $this->profile2->getProfileId());
+		$pdoMessage = Message::getMessagesByReceiverId($this->getPDO(), $this->profile2->getProfileId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
 		$this->assertSame($pdoMessage->getMessageSenderId(), $message->getMessageSenderId());
 		$this->assertSame($pdoMessage->getMessageReceiverId(), $message->getMessageReceiverId());
@@ -268,11 +281,12 @@ class MessageTest extends KarmaDataDesign {
 	/**
 	 * test grabbing a Message by a message receiver that does not exists
 	 **/
-	public function testGetInvalidMessageByProfileId() {
+	public function testGetInvalidMessagesByReceiverId() {
 
 		// grab an message receiver that does not exist
-		$message = Message::getMessageByProfileId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+		$message = Message::getMessagesByReceiverId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
 		$this->assertNull($message);
 
 	}
 }
+

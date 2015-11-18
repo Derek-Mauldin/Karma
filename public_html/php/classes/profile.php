@@ -183,6 +183,7 @@ if(!class_exists("Profile")) {
 	  *
 	  **/
 	 public function setProfileId($newProfileId) {
+
 		 // base case: if the newProfileId is null, this is a new profile without a mySQL assigned ID
 		 if($newProfileId === null) {
 			 $this->profileId = null;

@@ -143,13 +143,13 @@ class Member{
 			throw(new InvalidArgumentException("Access Level is corrupt"));
 		}
 
-		$newAccessLevel = strtolower($newAccessLevel);
+		$newAccessLevel = strtoupper($newAccessLevel);
 
-		if($newAccessLevel === "s") {
+		if($newAccessLevel === "S") {
 			$this->memberAccessLevel = $newAccessLevel;
-		} elseif ($newAccessLevel === "a"){
+		} elseif ($newAccessLevel === "A"){
 			$this->memberAccessLevel = $newAccessLevel;
-		} elseif($newAccessLevel === "u") {
+		} elseif($newAccessLevel === "U") {
 			$this->memberAccessLevel = $newAccessLevel;
 		} else {
 			throw(new OutOfRangeException("Access Level needs to be A or S or U"));
