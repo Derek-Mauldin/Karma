@@ -91,9 +91,18 @@ class MemberTest extends KarmaDataDesign{
 		$member->insert($this->getPDO());
 	}
 
+	public function testInsertInvalidAccessLevel() {
+		// create a member with a non null memberId and watch it fail
+		$member = new Member(null, "z", $this->VALID_EMAIL, $this->VALID_EMAIL_ACTIVATION, $this->VALID_HASH, $this->VALID_SALT);
+		$member->insert($this->getPDO());
+		$this->assertNull($member);
+	}
+
 	/**
 	* test inserting a Member, editing it, and then updating it
 	**/
+
+
 	public function testUpdateValidMember() {
 		// count the number of rows and save it for later
 		$numRows = $this->getConnection()->getRowCount("member");
@@ -115,6 +124,7 @@ class MemberTest extends KarmaDataDesign{
 		$this->assertSame($pdoMember->getPasswordHash(), $this->VALID_HASH);
 		$this->assertSame($pdoMember->getSalt(), $this->VALID_SALT);
 	}
+
 
 	/**
 	* test updating a Member that does not exist
