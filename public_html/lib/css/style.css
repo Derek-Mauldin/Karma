@@ -25,14 +25,6 @@ footer {
 	padding: 20px;
 }
 
-.listing {
-	padding: 0;
-}
-
-.img-thumbnail {
-	margin-right: 10px;
-}
-
 /********************************************
 * Fixed panel Layout Styles
 ********************************************/
@@ -63,6 +55,26 @@ body { width: 100%;}
 	flex: 1 0 auto;
 }
 
-.img-thumbnail {
-	border-right:15px;
+#right {
+	float:right;
+	width:100px;
+	}
+
+#left {
+	float:left;
+	width:100px;
+}
+
+#justify {
+	text-align: justify;
+	width:100px;
+}
+#profileImg {
+	height:60px;
+}
+.navIcon {
+	height:30px;
+}
+.navLogo {
+	height: 40px;
 }

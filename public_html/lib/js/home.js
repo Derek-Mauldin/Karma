@@ -1,19 +1,17 @@
 
-$( document.body ).on( 'click', '.dropdown-menu li', function( event ) {
 
-	var $target = $( event.currentTarget );
+$(document).ready(function() {
+			$("#toggleText").click(function() {
+				$(".allListings").toggle();
+			});
+		});
 
-	$target.closest( '.btn-group' )
-		.find( '[data-bind="label"]' ).text( $target.text() )
-		.end()
-		.children( '.dropdown-toggle' ).dropdown( 'toggle' );
+		$(document).ready(function() {
+			$(".fa-times").click(function() {
+				$("#singlePanel").hide();
+			});
+		});
 
-	return false;
-
+$(document).ready(function() {
+	$("<a class='imgCaption'>$handle</a>").appendTo('.profileImg')
 });
-
-$('#send_btn').popover({content: 'Thank You'},'click');
-
-
-
-
