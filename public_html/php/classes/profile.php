@@ -6,7 +6,7 @@
  *
  * @author Derek Mauldin <dmauldin2@cnm.edu>
  **/
-if(!class_exists("Profile")) {
+
 
  class Profile {
 	 /**
@@ -668,4 +668,3 @@ if(!class_exists("Profile")) {
 
  } // end of Profile class
 
-} //end if

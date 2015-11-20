@@ -17,13 +17,13 @@ class Message {
 	 *
 	 * @var int $messageId
 	 **/
-	private $MessageId;
+	private $messageId;
 	/**
 	 * id of the messageSender that sent this Message; this is a foreign key
 	 *
-	 * @var int $MessageSenderId
+	 * @var int $messageSenderId
 	 **/
-	private $MessageSenderId;
+	private $messageSenderId;
 	/**
 	 * id of the MessageReceiver that Received this Message; this is a foreign key
 	 *
@@ -83,7 +83,7 @@ class Message {
 	 * @return mixed value of message id
 	 **/
 	public function getMessageId() {
-		return ($this->MessageId);
+		return ($this->messageId);
 	}
 
 
@@ -125,7 +125,7 @@ class Message {
 	 * @return int value of messageSender id
 	 **/
 	public function getMessageSenderId() {
-		return ($this->MessageSenderId);
+		return ($this->messageSenderId);
 	}
 
 	/**
@@ -242,7 +242,7 @@ class Message {
 
 		// base case: if the date is null, use the current date and time
 		if($newMessageDate === null) {
-			$this->messageDate = new DateTime();
+			$this->messageDate = new DateTime('now');
 			return;
 		}
 
@@ -269,24 +269,24 @@ class Message {
 	public function insert(PDO $pdo) {
 
 		// enforce the messageId is null (i.e., don't insert a message that already exists)
-		if($this->MessageId !== null) {
+		if($this->messageId !== null) {
 			throw(new PDOException("not a new message"));
 		}
 
 		// create query template
-		$query = "INSERT INTO message(messageId, messageSenderId, messageReceiverId, messageContent, messageDateTime)
-                VALUES(:messageId, :messageSenderId, :messageReceiverId, :messageContent, :messageDateTime)";
+		$query = "INSERT INTO message(messageSenderId, messageReceiverId, messageContent, messageDateTime)
+                VALUES(:messageSenderId, :messageReceiverId, :messageContent, :messageDateTime)";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
-		$parameters = array("messageId" => $this->MessageId, "messageSenderId" => $this->messageSenderId,
-				              "messageReceiverId" => $this->messageReceiverId, "messageContent" => $this->messageContent,
-				              "messageDateTime" => $formattedDate);
+		$parameters = array("messageSenderId" => $this->messageSenderId, "messageReceiverId" => $this->messageReceiverId,
+				              "messageContent" => $this->messageContent, "messageDateTime" => $formattedDate);
+
 		$statement->execute($parameters);
 
 		// update the null messageId with what mySQL just gave us
-		$this->MessageId = intval($pdo->lastInsertId());
+		$this->messageId = intval($pdo->lastInsertId());
 	}
 
 
@@ -317,18 +317,20 @@ class Message {
 	public function update(PDO $pdo) {
 
 		if($this->messageId === null) {
-			throw(new PDOException("unable to update a message that does not exist"));
+			throw(new PDOException("Unable to update a message that does not exist"));
 		}
 
-		$query = "UPDATE message  SET messageSenderId = : messageSenderId,  messagrreceiverId = :messageReceiverId,
-	                                 messageContent = :messageContent, messageDate = :messageDate WHERE messageId = :messageId";
+		$query = "UPDATE message SET messageSenderId = :messageSenderId, messageReceiverId = :messageReceiverId,
+		                             messageContent = :messageContent, messageDateTime = :messageDateTime
+		          WHERE messageId = :messageId";
 		$statement = $pdo->prepare($query);
 
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
-		$parameters = array("messageId" => $this->messageId, "messageSenderId" => $this->MessageSenderId,
-				              "messageReceiverId" => $this->messageReceiverId, "messageContent" => $this->messageContent,
-				              "messageDate" => $formattedDate);
+		$parameters = array("messageSenderId" => $this->messageSenderId, "messageReceiverId" => $this->messageReceiverId,
+				              "messageContent" => $this->messageContent, "messageDateTime" => $formattedDate,
+				              "messageId" => $this->messageId);
 		$statement->execute($parameters);
+
 	} // update
 
 
@@ -384,7 +386,7 @@ class Message {
 
 		// base case: if the $messageId is null, this is a new message without a mySQL assigned ID
 		if($newMessageId === null) {
-			$this->MessageId = $newMessageId;
+			$this->messageId = $newMessageId;
 			return;
 		}
 
@@ -463,7 +465,7 @@ class Message {
 	 * @throws PDOException with mySQL related errors
 	 **/
 
-	public function getMessagesBySenderId(PDO $pdo, $senderId) {
+	public static function getMessagesBySenderId(PDO $pdo, $senderId) {
 
 		// check validity of $senderId
 		$senderId = filter_var($senderId, FILTER_VALIDATE_INT);
@@ -475,7 +477,7 @@ class Message {
 		}
 
 		// prepare and execute query
-		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDate
+		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDateTime
 		          FROM message WHERE messageSenderId = :messageSenderId";
 		$statement = $pdo->prepare($query);
 		$parameters = array("messageSenderId" => $senderId);
@@ -488,13 +490,15 @@ class Message {
 		while(($row = $statement->fetch()) !== false)
 			try {
 				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-						$row["messageContent"], $row["messageDate"]);
+						                 $row["messageContent"], $row["messageDateTime"]);
 				$messages[$messages->key()] = $message;
 				$messages->next();
 			} catch(Exception $exception) {
 				// if the row couldn't be converted, rethrow it
 				throw(new PDOException($exception->getMessage(), 0, $exception));
 			}
+
+		return $messages;
 	}
 
 /**
@@ -517,8 +521,8 @@ public function getMessagesByReceiverId(PDO $pdo, $receiverId) {
 		throw(new RangeException("Message Id is not positive."));
 }
 	// prepare and execute query
-	$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDate
-		          FROM message WHERE messageSenderId = :messageSenderId";
+	$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDateTime
+		          FROM message WHERE messageSenderId = :messageReceiverId";
 	$statement = $pdo->prepare($query);
 	$parameters = array("messageReceiverId" => $receiverId);
 	$statement->execute($parameters);
@@ -530,13 +534,15 @@ public function getMessagesByReceiverId(PDO $pdo, $receiverId) {
 	while(($row = $statement->fetch()) !== false)
 		try {
 			$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-					                 $row["messageContent"], $row["messageDate"]);
+					                 $row["messageContent"], $row["messageDateTime"]);
 			$messages[$messages->key()] = $message;
 			$messages->next();
 		} catch(Exception $exception) {
 			// if the row couldn't be converted, rethrow it
 			throw(new PDOException($exception->getMessage(), 0, $exception));
 		}
+
+	return $messages;
 }
 
 }

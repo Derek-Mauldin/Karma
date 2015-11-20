@@ -134,7 +134,7 @@ class Member{
 
 	public function setAccessLevel($newAccessLevel) {
 		if($newAccessLevel === null) {
-			$this->memberAccessLevel = "s";
+			$this->memberAccessLevel = "S";
 			return;
 		}
 		//verify the access level is a,s,u

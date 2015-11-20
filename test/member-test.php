@@ -22,7 +22,7 @@ class MemberTest extends KarmaDataDesign{
 	 *
 	 * @var string $VALID_ACCESS_LEVEL
 	 */
-	protected $VALID_ACCESS_LEVEL = "s";
+	protected $VALID_ACCESS_LEVEL = "S";
 
 	/**
 	 * valid at email to use
