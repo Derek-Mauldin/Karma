@@ -1,4 +1,9 @@
-
+/******************************************
+ *
+ *jquery for main page
+ *@author Jennifer Hung <jhung@cnm.edu>
+ *
+ ******************************************/
 
 $(document).ready(function() {
 			$("#toggleText").click(function() {

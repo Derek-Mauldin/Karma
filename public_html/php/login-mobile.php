@@ -1,11 +1,9 @@
-
-
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta charset="utf-8">
-		<meta http-equiv="x-ua-compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
-
-		<!--javascript-->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
@@ -13,10 +11,11 @@
 				crossorigin="anonymous">
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
-				integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
+		<link rel="stylesheet" href="../lib/css/login-mobile.css">
 
 		<!--Link to custom CSS files here-->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+		<link rel="stylesheet" href="../lib/css/login-mobile.css"
 
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -40,3 +39,23 @@
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
 				  integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
 				  crossorigin="anonymous"></script>
+		<!--javascript-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+		<title>Login to Kismet</title>
+		<div class="container">
+			<div class="login">
+				<h4>Login to Kismet</h4>
+				<hr>
+				<form class="login-inner">
+					<input type="email" class="form-control email" id="email-input" placeholder="Enter email">
+					<input type="password" class="form-control password" id="password-input" placeholder="Password">
+					<label class="checkbox-inline">
+						<input type="checkbox" id="remember" value="Remember me"> Remember me
+					</label>
+					<input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login">
+				</form>
+				<a href="#" class="btn btn-sm btn-primary register">Register</a>
+				<a href="#" class="btn btn-sm btn-default forgot">Forgot your password?</a>
+			</div>
+		</div>

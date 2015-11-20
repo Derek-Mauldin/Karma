@@ -35,6 +35,8 @@ class karma {
 	/******************************************************************************************************************
 	 *
 	 * date and time the offer was accepted
+	 * @param boolean $newKarmaAccepted of this Karma
+
 	 *
 	 ******************************************************************************************************************/
 	private $karmaActionDate;
@@ -43,7 +45,6 @@ class karma {
 	 * @param string $newKarmaActionDate string containing date the offer was accepted
 	 * @param int $newNeedId id new value of the need id
 	 * @param int $newProfileId id new value of the profile id
-	 * @param boolean $newKarmaAccepted of this Karma
 	 * @param mixed $newKarmaActionDate and time Karma was accepted or null if set to current date and time
 	 *
 	 * @throws UnexpectedValueException if $newProfileId is not valid int
@@ -284,6 +285,7 @@ class karma {
 		}
 		return ($karmas);
 	}
+
 
 	/**
 	 *

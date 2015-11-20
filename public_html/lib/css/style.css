@@ -1,9 +1,21 @@
+/******************************************
+*
+*Template style for karma project
+*
+*@author Jennifer Hung <jhung@cnm.edu>
+*
+******************************************/
+a:hover {
+	color: #29e62f;
+}
+a:active {
+	color: greenyellow;
+}
 
-/********************************************
-* Sample Styles
-********************************************/
+
+
 body {
-	margin-top: 70px;
+	margin-top: 0px;
 	margin-bottom: 70px;
 }
 
@@ -20,9 +32,7 @@ footer {
 .panel {
 	padding: 20px;
 }
-/*******************************************
-*styles
-*******************************************/
+
 ul li{
 	font-size:1.25em;
 	padding:5px;
@@ -31,11 +41,8 @@ ul li{
 /********************************************
 * Fixed panel Layout Styles
 ********************************************/
-
-
 /***
 * Flexbox Sticky Footer
-* http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
 ***/
 
 /*corrects IE min-height bug*/
@@ -103,6 +110,7 @@ p {
 	flex-flow: row nowrap; /* Align on the same line */
 	justify-content: space-between; /* Equal margin between the child elements */
 }
+/*
 .container > div {
   background: #5F85DB;
   padding: 5px;
@@ -110,7 +118,7 @@ p {
   font-weight: bold;
   font-family: Tahoma;
 }
-
+*/
 
 
 
