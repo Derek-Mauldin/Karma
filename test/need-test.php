@@ -1,7 +1,9 @@
 <?php
 // grab the test parameters
-require_once("karmaDataDesign.php");
+require_once("karmadatadesign.php");
 // grab the class to test
+require_once(dirname(__DIR__) . "/public_html/php/classes/member.php");
+require_once(dirname(__DIR__) . "/public_html/php/classes/profile.php");
 require_once(dirname(__DIR__) . "/public_html/php/classes/need.php");
 
 /**
@@ -25,15 +27,15 @@ class NeedTest extends KarmaDataDesign {
 	 * valid needFulfilled to use
 	 * @var int $VALID_NEEDFULFILLED
 	 **/
-	protected $VALID_NEEDFULFILLED = 0;
+	protected $VALID_NEEDFULFILLED = 1;
 	/**
 	 * valid needTitle to use
 	 * @var string $VALID_NEEDTITLE
 	 **/
-	protected $VALID_NEEDTITLE = "Gerald's Need";
+	protected $VALID_NEEDTITLE = "Geralds Need";
 
 	/**
-	 * member to use during test -- foreigh key for Profile
+	 * member to use during test -- foreign key for Profile
 	 * @var Member $member
 	 **/
 	protected $member;
@@ -57,16 +59,19 @@ class NeedTest extends KarmaDataDesign {
 		// run the default setUp() method first
 		parent::setUp();
 
-		$this->salt =bin2hex(openssl_random_pseudo_bytes(32));
-		$this->hash = hash_pbkdf2("sha512","bootcamp-coders", $this->salt, 4096, 128);
+		$salt = bin2hex(openssl_random_pseudo_bytes(32));
+		$hash = hash_pbkdf2("sha512", "bootcamp-coders", $salt, 4096, 128);
 
 		//create and insert a Message to own the test
 		$this->member = new Member(null, "s", "blurb1@gail.com", $this->VALID_EMAIL_ACTIVATION, $this->hash, $this->salt);
-		$this->member->insert($this->getPDO());
+		$this->member = new Member(null, "s", "blurb1@gail.com", "1234567890123456", $hash, $salt);
+	}
+	/**Need test is now passing.
+	$this->member->insert($this->getPDO());
 
-		//create and insert a Profile to own the test
-		$this->profile = new Profile(null, $this->member->getMemberId(), "itsOk", "whatIsGoingOn", "john", "paul", null);
-		$this->profile->insertProfile($this->getPDO());
+	//create and insert a Profile to own the test
+	$this->profile = new Profile(null, $this->member->getMemberId(), "itsOk", "whatIsGoingOn", "john", "paul", null, null);
+	$this->profile->insertProfile($this->getPDO());
 
 
 	}
@@ -78,7 +83,7 @@ class NeedTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("need");
 
 		// create a new Need and insert to into mySQL
-		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 		$need->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
@@ -98,7 +103,7 @@ class NeedTest extends KarmaDataDesign {
 	public function testInsertInvalidNeed() {
 
 		// create a need with a non null needId and watch it fail
-		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 		$need->insert($this->getPDO());
 
 		// insert agian and watch it fail
@@ -114,7 +119,7 @@ class NeedTest extends KarmaDataDesign {
 	public function testUpdateInvalidNeed() {
 
 		// create a Need and try to update it without actually inserting it
-		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 
 		$need->update($this->getPDO());
 
@@ -129,7 +134,7 @@ class NeedTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("need");
 
 		// create a new Need and insert to into mySQL
-		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 		$need->insert($this->getPDO());
 
 		// delete the Message from mySQL
@@ -150,7 +155,7 @@ class NeedTest extends KarmaDataDesign {
 	public function testDeleteInvalidNeed() {
 
 		// create a Need and try to delete it without actually inserting it
-		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 
 		$need->delete($this->getPDO());
 
@@ -165,7 +170,7 @@ class NeedTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("need");
 
 		// create a new Need and insert into mySQL
-		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 		$need->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
@@ -199,17 +204,16 @@ class NeedTest extends KarmaDataDesign {
 		$numRows = $this->getConnection()->getRowCount("need");
 
 		// create a new Need and insert into mySQL
-		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 		$need->insert($this->getPDO());
 
 		// grab the data from mySQL and enforce the fields match our expectations
-		$pdoNeed = Need::getNeedByNeedId($this->getPDO(), $need->getProfileId());
+		$pdoNeed = Need::getNeedByNeedId($this->getPDO(), $need->getNeedId());
 		$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("need"));
-		$this->assertSame($pdoNeed->getProfileId(), $need->getProfileId());
+		$this->assertSame($pdoNeed->getProfileId(), $this->profile->getProfileId());
 		$this->assertSame($pdoNeed->getNeedDescription(), $this->VALID_NEEDDESCRIPTION);
 		$this->assertSame($pdoNeed->getNeedFulfilled(), $this->VALID_NEEDFULFILLED);
 		$this->assertSame($pdoNeed->getNeedTitle(), $this->VALID_NEEDTITLE);
-
 	}
 
 	/**
@@ -218,7 +222,7 @@ class NeedTest extends KarmaDataDesign {
 	public function testGetInvalidNeedByProfileId() {
 
 		// grab a Need that exceeds the maximum allowable need
-		$need = Need::getNeedByProfileId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+		$need = Need::getNeedByProfileId($this->getPDO(), 70);
 		$this->assertNull($need);
 	}
 
@@ -227,37 +231,37 @@ class NeedTest extends KarmaDataDesign {
 	 * test grabbing a need by need title
 	 */
 
-public function testGetNeedByNeedTitle() {
+	public function testGetNeedByNeedTitle() {
 
 		// count the number of rows and save it for later
-	$numRows = $this->getConnection()->getRowCount("need");
+		$numRows = $this->getConnection()->getRowCount("need");
 
-	// create a new Need and insert into mySQL
-	$need = new Need(null, $this->needTitle->getNeedTitle(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
-	$need->insert($this->getPDO());
+		// create a new Need and insert into mySQL
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
+		$need->insert($this->getPDO());
 
-	// grab the data from mySQL and enforce the fields match our expectations
-	$pdoNeed = Need::getNeedByNeedTitle($this->getPDO(), $need->getNeedTitle());
-	$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("need"));
-	$this->assertSame($pdoNeed->getProfileId(), $need->getProfileId());
-	$this->assertSame($pdoNeed->getNeedDescription(), $this->VALID_NEEDDESCRIPTION);
-	$this->assertSame($pdoNeed->getNeedFulfilled(), $this->VALID_NEEDFULFILLED);
-	$this->assertSame($pdoNeed->getNeedTitle(), $this->VALID_NEEDTITLE);
-}
+		// grab the data from mySQL and enforce the fields match our expectations
+		$pdoNeeds = Need::getNeedByNeedTitle($this->getPDO(), $need->getNeedTitle());
+		foreach($pdoNeeds as $pdoNeed) {
+			$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("need"));
+			$this->assertSame($pdoNeed->getProfileId(), $this->profile->getProfileId());
+			$this->assertSame($pdoNeed->getNeedDescription(), $this->VALID_NEEDDESCRIPTION);
+			$this->assertSame($pdoNeed->getNeedFulfilled(), $this->VALID_NEEDFULFILLED);
+			$this->assertSame($pdoNeed->getNeedTitle(), $this->VALID_NEEDTITLE);
+		}
+	}
 
 	/**
 	 * test grabbing a Need by a Title that does not exist
 	 **/
 	public function testGetInvalidNeedByNeedTitle() {
 
-		$need = new Need(null, $this->needTitle->getNeedTitle(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDTITLE, $this->VALID_NEEDFULFILLED);
+		$need = new Need(null, $this->profile->getProfileId(), $this->VALID_NEEDDESCRIPTION, $this->VALID_NEEDFULFILLED, $this->VALID_NEEDTITLE);
 		$need->insert($this->getPDO());
 
 		// grab a Need that exceeds the maximum allowable need
 		$need = Need::getNeedByNeedTitle($this->getPDO(), "does not exist");
 		$this->assertNull($need);
-		}
+	}
 
 }
-
-
