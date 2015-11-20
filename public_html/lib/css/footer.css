@@ -1,40 +1,39 @@
-/********************************************
-
-*Style for sticky footer
-*@author jhung@cnm.edu
-*
-***************************************/
-header,
-footer {
-	background-color: #dddddd;
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+	position: relative;
+	min-height: 100%;
 }
-
-/*corrects IE min-height bug*/
-html { display: flex;}
-body { width: 100%;}
-
-.sfooter {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+body {
+	/* Margin bottom by footer height */
+	margin-bottom: 60px;
 }
-
-.sfooter-content {
-	flex: 1 0 auto;
-}
-
-.sfooter {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-.sfooter-content {
-	flex: 1 0 auto;
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	/* Set the fixed height of the footer here */
+	height: 60px;
+	background-color: #f5f5f5;
 }
 
 
-footer {
-	padding: 20px 0;
-	margin-top: 20px;
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+	padding: 60px 15px 0;
+}
+.container .text-muted {
+	margin: 20px 0;
+}
+
+.footer > .container {
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+code {
+	font-size: 80%;
 }
