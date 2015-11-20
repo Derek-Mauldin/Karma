@@ -145,7 +145,7 @@
 							</div>
 						</li>
 
-						<li><a href="#"><span class="glyphicon glyphicon-question"></span> Support</a></li>
+						<li><a href="#"><span class="glyphicon glyphicon-question-sign"></span> Support</a></li>
 
 					</ul>
 				</div><!-- /.navbar-collapse -->
