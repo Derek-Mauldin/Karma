@@ -1,6 +1,6 @@
 <?php
 
-require_once ((dirname(dirname(__DIR__))) . "/lib/php/date-utils.php");
+require_once((dirname(dirname(__DIR__))) . "/lib/php/date-utils.php");
 
 /**
  * A cross section of what a message sent using Karma would like
@@ -281,7 +281,7 @@ class Message {
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
 		$parameters = array("messageSenderId" => $this->messageSenderId, "messageReceiverId" => $this->messageReceiverId,
-				              "messageContent" => $this->messageContent, "messageDateTime" => $formattedDate);
+			"messageContent" => $this->messageContent, "messageDateTime" => $formattedDate);
 
 		$statement->execute($parameters);
 
@@ -327,8 +327,8 @@ class Message {
 
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
 		$parameters = array("messageSenderId" => $this->messageSenderId, "messageReceiverId" => $this->messageReceiverId,
-				              "messageContent" => $this->messageContent, "messageDateTime" => $formattedDate,
-				              "messageId" => $this->messageId);
+			"messageContent" => $this->messageContent, "messageDateTime" => $formattedDate,
+			"messageId" => $this->messageId);
 		$statement->execute($parameters);
 
 	} // update
@@ -372,9 +372,8 @@ class Message {
 	*/
 
 
-
-	 /**
-    * funtion to retrieve message by message Id
+	/**
+	 * funtion to retrieve message by message Id
 	 *
 	 * @param PDO $pdo PDO connection object
 	 * @param int $messageId message id to search for
@@ -415,7 +414,7 @@ class Message {
 			$row = $statement->fetch();
 			if($row !== false) {
 				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-						$row["messageContent"], $row["messageDateTime"]);
+					$row["messageContent"], $row["messageDateTime"]);
 			}
 		} catch(Exception $exception) {
 			// if the row couldn't be converted, rethrow it
@@ -433,29 +432,29 @@ class Message {
 	 **/
 
 	/**
-	public static function getAllMessages(PDO $pdo) {
-		// create query template
-		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messagetDate FROM message";
-		$statement = $pdo->prepare($query);
-		$statement->execute();
-
-		// build an array of messages
-		$messages = new SplFixedArray($statement->rowCount());
-		$statement->setFetchMode(PDO::FETCH_ASSOC);
-		while(($row = $statement->fetch()) !== false) {
-			try {
-				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-						$row["messageContent"], $row["messageDate"]);
-				$messages[$messages->key()] = $message;
-				$messages->next();
-			} catch(Exception $exception) {
-				// if the row couldn't be converted, rethrow it
-				throw(new PDOException($exception->getMessage(), 0, $exception));
-			}
-		}
-		return ($messages);
-	}
-**/
+	 * public static function getAllMessages(PDO $pdo) {
+	 * // create query template
+	 * $query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messagetDate FROM message";
+	 * $statement = $pdo->prepare($query);
+	 * $statement->execute();
+	 *
+	 * // build an array of messages
+	 * $messages = new SplFixedArray($statement->rowCount());
+	 * $statement->setFetchMode(PDO::FETCH_ASSOC);
+	 * while(($row = $statement->fetch()) !== false) {
+	 * try {
+	 * $message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
+	 * $row["messageContent"], $row["messageDate"]);
+	 * $messages[$messages->key()] = $message;
+	 * $messages->next();
+	 * } catch(Exception $exception) {
+	 * // if the row couldn't be converted, rethrow it
+	 * throw(new PDOException($exception->getMessage(), 0, $exception));
+	 * }
+	 * }
+	 * return ($messages);
+	 * }
+	 **/
 	/**
 	 * function to retrieve a messages by senderId
 	 *
@@ -487,62 +486,64 @@ class Message {
 		$messages = new SplFixedArray($statement->rowCount());
 		$statement->setFetchMode(PDO::FETCH_ASSOC);
 
-		while(($row = $statement->fetch()) !== false)
+		while(($row = $statement->fetch()) !== false) {
 			try {
 				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-						                 $row["messageContent"], $row["messageDateTime"]);
+					                    $row["messageContent"], $row["messageDateTime"]);
 				$messages[$messages->key()] = $message;
 				$messages->next();
 			} catch(Exception $exception) {
 				// if the row couldn't be converted, rethrow it
 				throw(new PDOException($exception->getMessage(), 0, $exception));
 			}
+		}
 
 		return $messages;
 	}
 
-/**
-	*function to retrieve message by  receiverId
-	*
-	* @param PDO $pdo PDO is a connection object
-	* @param int $receiverId - receiverId for message to be sent
- 	* @return SplFixedArray with all messages found
- 	* @throw  PDOException with mysql related errors
- **/
+	/**
+	 *function to retrieve message by  receiverId
+	 *
+	 * @param PDO $pdo PDO is a connection object
+	 * @param int $receiverId - receiverId for message to be sent
+	 * @return SplFixedArray with all messages found
+	 * @throw  PDOException with mysql related errors
+	 **/
 
-public function getMessagesByReceiverId(PDO $pdo, $receiverId) {
+	public static function getMessagesByReceiverId(PDO $pdo, $receiverId) {
 
-	// check that the message receiverId is valid
+		// check that the message receiverId is valid
 
-	$receiverId = filter_var($receiverId, FILTER_VALIDATE_INT);
-	if ($receiverId === false)
-		throw(new InvalidArgumentException("Message ID is not an integer."));
-	if($receiverId <= 0) {
-		throw(new RangeException("Message Id is not positive."));
-}
-	// prepare and execute query
-	$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDateTime
-		          FROM message WHERE messageSenderId = :messageReceiverId";
-	$statement = $pdo->prepare($query);
-	$parameters = array("messageReceiverId" => $receiverId);
-	$statement->execute($parameters);
+		$receiverId = filter_var($receiverId, FILTER_VALIDATE_INT);
+		if($receiverId === false)
+			throw(new InvalidArgumentException("Message ID is not an integer."));
+		if($receiverId <= 0) {
+			throw(new RangeException("Message Id is not positive."));
+		}
+		// prepare and execute query
+		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDateTime
+		          FROM message WHERE messageReceiverId = :messageReceiverId";
+		$statement = $pdo->prepare($query);
+		$parameters = array("messageReceiverId" => $receiverId);
+		$statement->execute($parameters);
 
-	// build an array of message
-	$messages = new SplFixedArray($statement->rowCount());
-	$statement->setFetchMode(PDO::FETCH_ASSOC);
+		// build an array of message
+		$messages = new SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
 
-	while(($row = $statement->fetch()) !== false)
-		try {
-			$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-					                 $row["messageContent"], $row["messageDateTime"]);
-			$messages[$messages->key()] = $message;
-			$messages->next();
-		} catch(Exception $exception) {
-			// if the row couldn't be converted, rethrow it
-			throw(new PDOException($exception->getMessage(), 0, $exception));
+		while(($row = $statement->fetch()) !== false) {
+			try {
+				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
+					$row["messageContent"], $row["messageDateTime"]);
+				$messages[$messages->key()] = $message;
+				$messages->next();
+			} catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
 		}
 
-	return $messages;
-}
+		return $messages;
+	}
 
 }

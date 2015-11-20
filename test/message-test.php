@@ -241,7 +241,7 @@ class MessageTest extends KarmaDataDesign {
 				$this->assertSame($pdoMessage->getMessageSenderId(), $message->getMessageSenderId());
 				$this->assertSame($pdoMessage->getMessageReceiverId(), $message->getMessageReceiverId());
 				$this->assertSame($pdoMessage->getMessageContent(), $message->getMessageContent());
-				$this->assertSame($pdoMessage->getMessageDate()->format('Y-m-d'), $message->getMessageDate()->format('Y-m-d'));
+				$this->assertEquals($pdoMessage->getMessageDate(), $message->getMessageDate());
 			}
 		}
 
@@ -258,12 +258,9 @@ class MessageTest extends KarmaDataDesign {
 
 		// grab by a message sender that does not exist
 		$pdoMessages = Message::getMessagesBySenderId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+		$this->assertTrue($pdoMessages->count() === 0);
 
-		foreach($pdoMessages as $pdoMessage) {
-			if($pdoMessage->getMessageId() !== $message->getMessageId()) {
-				$this->assertNull($pdoMessage);
-			}
-		}
+
 
 	}
 
@@ -280,15 +277,15 @@ class MessageTest extends KarmaDataDesign {
 		$message->insert($this->getPDO());
 
 		$pdoMessages = Message::getMessagesByReceiverId($this->getPDO(), $this->profile2->getProfileId());
+		$this->assertTrue($pdoMessages->count() > 0);
 
-		// grab the data from mySQL and enforce the fields match our expectations
 		foreach($pdoMessages as $pdoMessage) {
 			if($pdoMessage->getMessageId() === $message->getMessageId()) {
 					$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("message"));
 					$this->assertSame($pdoMessage->getMessageSenderId(), $message->getMessageSenderId());
 					$this->assertSame($pdoMessage->getMessageReceiverId(), $message->getMessageReceiverId());
 					$this->assertSame($pdoMessage->getMessageContent(), $message->getMessageContent());
-					$this->assertSame($pdoMessage->getMessageDate(), $message->getMessageDate());
+					$this->assertEquals($pdoMessage->getMessageDate(), $message->getMessageDate());
 			}
 		}
 	}
@@ -304,12 +301,8 @@ class MessageTest extends KarmaDataDesign {
 
 		// grab an message receiver that does not exist
 		$pdoMessages = Message::getMessagesByReceiverId($this->getPDO(), KarmaDataDesign::INVALID_KEY);
+		$this->assertTrue($pdoMessages->count() === 0);
 
-		foreach($pdoMessages as $pdoMessage) {
-			if($pdoMessage->getMessageId() !== $message->getMessageId()) {
-				$this->assertNull($pdoMessage);
-			}
-		}
 	}
 
 }

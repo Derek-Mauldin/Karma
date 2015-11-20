@@ -391,7 +391,7 @@ class Need {
 	 * @return SplFixedArray all ProfileIds found for this need
 	 * @throws PDOException when mySQL related errors occur
 	 **/
-	public static function getNeedByProfileId(PDO $pdo, $profileId) {
+	public static function getNeedsByProfileId(PDO $pdo, $profileId) {
 
 		// sanitize $needId
 		$profileId = filter_var($profileId, FILTER_VALIDATE_INT);
@@ -410,25 +410,28 @@ class Need {
 		$parameters = array("profileId" => $profileId);
 		$statement->execute($parameters);
 
-		// build an array of needs
+		$needs = new SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
 
-		try {
-			$need = null;
-			$statement->setFetchMode(PDO::FETCH_ASSOC);
-			$row = $statement->fetch();
-			if($row !== false) {
-				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
-					$row["needTitle"]);
+		// build an array of needs
+		while(($row = $statement->fetch()) !== false) {
+			try {
+				if($row !== false) {
+					$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
+							           $row["needTitle"]);
+					$needs[$needs->key()] = $need;
+					$needs->next();
+				}
+			} catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
 			}
-		} catch(Exception $exception) {
-			// if the row couldn't be converted, rethrow it
-			throw(new PDOException($exception->getMessage(), 0, $exception));
 		}
 
 
-		return ($need);
+		return ($needs);
 
-	}  // getNeedByProfileId
+	}  // getNeedsByProfileId
 
 
 	/**
@@ -478,13 +481,7 @@ class Need {
 	}  // getNeedByTitle
 
 
-	/**
-	 * gets all Needs
-	 *
-	 * @param PDO $pdo PDO connection object
-	 * @return SplFixedArray all Needs found
-	 * @throws PDOException when mySQL related errors occur
-	 **/
+	/*
 	public static function getAllNeeds(PDO $pdo) {
 		// create query template
 		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM needs";
@@ -507,4 +504,8 @@ class Need {
 		}
 		return($need);
 	}
+	*/
+
+
+
 }
