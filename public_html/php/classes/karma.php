@@ -1,6 +1,6 @@
 /**
  *
- * karma class, constructor, accessor, mutatator, validation, and PDO
+ * karma class
  *
  * Karma is a byproduct of a many-to-many relationship between users and needs.
  * Karma is a weak entity created from a user fulfilling a need (clicking ACCEPT on an offer within a message.   This
@@ -10,8 +10,8 @@
 
 ****************************************************************************************************************/
 <?php
+	require_once(dirname(dirname(__DIR__)) ."/lib/php/date-utils.php");
 	require_once("autoload.php");
-	require_once("../../lib/php/date-utils.php");
 
 class karma {
 	/******************************************************************************************************************
@@ -35,17 +35,15 @@ class karma {
 	/******************************************************************************************************************
 	 *
 	 * date and time the offer was accepted
-	 * @param boolean $newKarmaAccepted of this Karma
-
 	 *
 	 ******************************************************************************************************************/
 	private $karmaActionDate;
 	/**
 	 *
-	 * @param string $newKarmaActionDate string containing date the offer was accepted
+	 * @param DateTime $newKarmaActionDate and time Karma was accepted or null if set to current date and time
 	 * @param int $newNeedId id new value of the need id
 	 * @param int $newProfileId id new value of the profile id
-	 * @param mixed $newKarmaActionDate and time Karma was accepted or null if set to current date and time
+	 * @param int $newKarmaAccepted of this Karma
 	 *
 	 * @throws UnexpectedValueException if $newProfileId is not valid int
 	 * @throws InvalidArgumentException if data types are not valid
@@ -139,8 +137,8 @@ class karma {
 		$newKarmaAccepted = filter_var($newKarmaAccepted, FILTER_VALIDATE_BOOLEAN);
 
 		// verify the karmaAccepted is valid
-		if($newKarmaAccepted === false) {
-			throw(new UnexpectedValueException("karmaAccepted is not a valid boolean value"));
+		if(($newKarmaAccepted < 0) || ($newKarmaAccepted > 1)) {
+			throw(new UnexpectedValueException("karmaAccepted should be 0 or 1 "));
 		}
 
 		$this->karmaAccepted = $newKarmaAccepted;
@@ -153,51 +151,64 @@ class karma {
 	 * @return string value of karma action date
 	 *
 	 ******************************************************************************************************************/
-	public function karmaActionDate() {
+	public function getKarmaActionDate() {
 		return ($this->karmaActionDate);
 	}
 
 	/*******************************************************************************************************************
 	 *
 	 * mutator method for karma action date.
-	 * @param int $newKarmaActionDate new value of karma action da
+	 * @param DateTime $newKarmaActionDate new value of karma action da
 	 * @throws UnexpectedValueException if $newKarmaActionDate is not an integer
 	 *
 	 *****************************************************************************************************************/
 	public function setKarmaActionDate($newKarmaActionDate) {
-		// verify the user id is valid
-		$newKarmaActionDate = filter_var($newKarmaActionDate, FILTER_SANITIZE_STRING);
-		if($newKarmaActionDate === false) {
-			throw(new UnexpectedValueException("karma action date is not a valid integer"));
+
+		// base case: if the date is null, use the current date and time
+		if($newKarmaActionDate === null) {
+			$this->karmaActionDate = new DateTime('now');
+			return;
 		}
 
-		// convert and store the karma action date
-		$this->karmaActionDate = intval($newKarmaActionDate);
+		// store the message date
+		try {
+			$newKarmaActionDate = validateDate($newKarmaActionDate);
+		} catch(InvalidArgumentException $invalidArgument) {
+			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
+		} catch(RangeException $range) {
+			throw(new RangeException($range->getMessage(), 0, $range));
+		} catch(Exception $exception) {
+			throw(new Exception($exception->getMessage(), 0, $exception));
+		}
+		$this->karmaActionDate = $newKarmaActionDate;
 	}
 
 	/**********************************************************************************************************************
 	 * inserts this Karma into mySQL
 	 *
 	 * @param PDO $pdo PDO connection object
-	 * @throws PDOException when mySQL related errors occur
+	 * @throws InvalidArgumentException when either $needId or $profileId is null
 	 **********************************************************************************************************************/
 	public function insert(PDO $pdo) {
-		// enforce the profileId and needId are null (i.e., don't insert a karma that already exists)
-		if($this->needId !== null && $this->profileId !== null) {
-			throw(new PDOException("not a new karma"));
+
+		// check for null in profileId and needId before insertion
+		if($this->needId === null) {
+			throw(new InvalidArgumentException("needId is not null"));
+		} elseif ($this->profileId === null){
+			throw(new InvalidArgumentException("profileId is not null"));
 		}
 
 		// create query template
-		$query = "INSERT INTO karma(needId, profileId, karmaActionDate, karmaAccepted) VALUES(:needId, :profileId, :karmaActionDate, karmaAccepted)";
+		$query = "INSERT INTO karma(needId, profileId, karmaActionDate, karmaAccepted)
+                VALUES(:needId, :profileId, :karmaActionDate, :karmaAccepted)";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->karmaActionDate->format("Y-m-d H:i:s");
-		$parameters = array("needId" => $this->needId, "profileId" => $this->needId, "karmaAccepted" => $this->karmaAccepted, "karmaActionDate" => $formattedDate);
+		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId,
+				              "karmaActionDate" => $formattedDate, "karmaAccepted" => $this->karmaAccepted);
 		$statement->execute($parameters);
 
-		// update the null needId and profileId with what mySQL just gave us
-		$this->needId && $this->profileId = intval($pdo->lastInsertId());
 	}
 
 
@@ -208,18 +219,22 @@ class karma {
 	 * @throws PDOException when mySQL related errors occur
 	 **********************************************************************************************************************/
 	public function delete(PDO $pdo) {
+
 		// enforce the karmaAccepted is not null (i.e., don't delete a karma accepted that hasn't been inserted)
-		if($this->needId && $this->profileId === null) {
-			throw(new PDOException("unable to delete a karma accepted that does not exist"));
+		if($this->needId === null)  {
+			throw(new PDOException("unable to delete a karma that does not exist -- needId is null"));
+		} elseif($this->profileId === null) {
+			throw(new PDOException("unable to delete a karma that does not exist - profileId is null"));
 		}
 
 		// create query template
-		$query = "DELETE FROM karma WHERE needId = :needId && profileId = :profileId";
+		$query = "DELETE FROM karma WHERE needId = :needId AND profileId = :profileId";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holder in the template
-		$parameters = array("needId" => $this->needId && "profileId=>$this->profileId");
+		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId);
 		$statement->execute($parameters);
+
 	}
 
 	/*********************************************************************************************************************
@@ -235,12 +250,12 @@ class karma {
 		}
 
 		// create query template
-		$query = "UPDATE karma SET needId =:needId, profileId = :profileId, karmaAccepted = :karmaAccepted,  = karmaActionDate=:karmaActionDate WHERE needId = :needId &&
+		$query = "UPDATE karma SET needId =:needId, profileId = :profileId, karmaAccepted = :karmaAccepted = karmaActionDate =:karmaActionDate WHERE needId = :needId &&
 	:profileId=profileId";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
-		$formattedDate = $this->karmaActionDate->format("Y-m-d H:i:s");
+		$formattedDate = validateDate($this->karmaActionDate);
 		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "karmaActionDate" => $formattedDate, "karmaAceepted" => $this->karmaAccepted);
 		$statement->execute($parameters);
 	}
@@ -286,7 +301,6 @@ class karma {
 		return ($karmas);
 	}
 
-
 	/**
 	 *
 	 * gets the Karma by need id and profile id
@@ -315,7 +329,8 @@ class karma {
 		}
 
 		// create query template
-		$query = "SELECT needId, profileId, karmaAccepted, karmaActionDate FROM karma  WHERE karmaAccepted = :karmaAccepted";
+		$query = "SELECT needId, profileId, karmaAccepted, karmaActionDate FROM karma
+                WHERE needId = :needId AND profileId = :profileId";
 		$statement = $pdo->prepare($query);
 
 		// bind the need id and profile id to the place holder in the template
@@ -336,6 +351,103 @@ class karma {
 		}
 		return ($karma);
 	}
+
+
+	/**
+	 * gets the Karmas by profileId
+	 *
+	 * @param PDO $pdo PDO connection object
+	 * @param int $profileId to search for profile id
+	 * @return SplFixedArray all Karmas found with this profileId
+	 * @throws PDOException when mySQL related errors occur
+	 **/
+	public static function getKarmasByProfileId(PDO $pdo, $profileId) {
+
+		// sanitize $profileId
+		$profileId = filter_var($profileId, FILTER_VALIDATE_INT);
+		if($profileId === false) {
+			throw(new PDOException("profile id not an integer"));
+		}
+		if($profileId <= 0) {
+			throw(new PDOException("profile id need to a positive integer"));
+		}
+
+		// create query template
+		$query = "SELECT profileId, needId, karmaAccepted, karmaActionDate FROM karma WHERE profileId = :profileId";
+		$statement = $pdo->prepare($query);
+
+		// bind to the place holder in the template
+		$parameters = array("profileId" => $profileId);
+		$statement->execute($parameters);
+
+		$karmas = new SplFixedArray($statement->rowCount());
+		$statement->setFetchMode(PDO::FETCH_ASSOC);
+
+		// build an array of needs
+		while(($row = $statement->fetch()) !== false) {
+			try {
+				if($row !== false) {
+					$karma = new Karma($row["profileId"], $row["needId"], $row["karmaAccepted"], $row["karmaActionDate"]);
+					$karmas[$karmas->key()] = $karma;
+					$karmas->next();
+				}
+			} catch(Exception $exception) {
+				// if the row couldn't be converted, rethrow it
+				throw(new PDOException($exception->getMessage(), 0, $exception));
+			}
+		}
+
+		return $karmas;
+
+	} // getKarmasByProfileId
+
+		/**
+		 * gets the Karmas by needId
+		 *
+		 * @param PDO $pdo PDO connection object
+		 * @param int $needId to search for need id
+		 * @return SplFixedArray all Karmas found for this needId
+		 * @throws PDOException when mySQL related errors occur
+		 **/
+		public static function getKarmasByNeedId(PDO $pdo, $needId) {
+
+			// sanitize $profileId
+			$needId = filter_var($needId, FILTER_VALIDATE_INT);
+			if($needId === false) {
+				throw(new PDOException("profile id not an integer"));
+			}
+			if($needId <= 0) {
+				throw(new PDOException("profile id need to a positive integer" ));
+			}
+
+			// create query template
+			$query = "SELECT profileId, needId, karmaAccepted, karmaActionDate FROM karma WHERE needId = :needId";
+			$statement = $pdo->prepare($query);
+
+			// bind to the place holder in the template
+			$parameters = array("needId" => $needId);
+			$statement->execute($parameters);
+
+			$karmas = new SplFixedArray($statement->rowCount());
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+
+			// build an array of needs
+			while(($row = $statement->fetch()) !== false) {
+				try {
+					if($row !== false) {
+						$karma = new Karma($row["profileId"], $row["needId"], $row["karmaAccepted"], $row["karmaActionDate"]);
+						$karmas[$karmas->key()] = $karma;
+						$karmas->next();
+					}
+				} catch(Exception $exception) {
+					// if the row couldn't be converted, rethrow it
+					throw(new PDOException($exception->getMessage(), 0, $exception));
+				}
+			}
+
+		return $karmas;
+
+	}  // getKarmasByNeedId
 
 	/**********************************************************************************************************************
 	 *

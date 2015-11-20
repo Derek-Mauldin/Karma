@@ -281,7 +281,7 @@ class Message {
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->messageDate->format("Y-m-d H:i:s");
 		$parameters = array("messageSenderId" => $this->messageSenderId, "messageReceiverId" => $this->messageReceiverId,
-			"messageContent" => $this->messageContent, "messageDateTime" => $formattedDate);
+			                 "messageContent" => $this->messageContent, "messageDateTime" => $formattedDate);
 
 		$statement->execute($parameters);
 

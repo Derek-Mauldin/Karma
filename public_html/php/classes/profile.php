@@ -461,8 +461,8 @@
 
 		 // bind profile variables to placeholder in the template
 		 $parameters = array("memberId" => $this->memberId, "profileBlurb" => $this->profileBlurb, "profileHandle" => $this->profileHandle,
-				 "profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
-				 "profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType);
+				               "profileFirstName" => $this->profileFirstName, "profileLastName" => $this->profileLastName,
+				               "profilePhoto" => $this->profilePhoto, "profilePhotoType" => $this->profilePhoteType);
 		 $statement->execute($parameters);
 
 		 // add mysql created id to this profile

@@ -211,7 +211,7 @@ class Need {
 		}
 
 		// verify the Need Fulfilled is positive
-		if($newNeedFulfilled <= 0) {
+		if($newNeedFulfilled < 0) {
 			throw(new RangeException("needFulfilled is not positive"));
 		}
 
