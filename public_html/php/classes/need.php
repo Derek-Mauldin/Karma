@@ -25,15 +25,15 @@ class Need {
 	 **/
 	private $needDescription;
 	/**
-	 * actual textual title of this Need
-	 * @var string needTitle
-	 * **/
-	private $needTitle;
-	/**
 	 * actual fulfilment of the need
 	 * @var  int  $needFulfilled
 	 **/
 	private $needFulfilled;
+	/**
+	 * actual textual title of this Need
+	 * @var string needTitle
+	 * **/
+	private $needTitle;
 
 
 	/**
@@ -41,19 +41,21 @@ class Need {
 	 *
 	 * @param mixed $newNeedId id of this Need or null if a new Need
 	 * @param int $newProfileId id of the Profile that sent this Need
-	 * @param string $newNeed string containing actual need data
+	 * @param string $newNeedDescription string containing actual need data
+	 * @param string $newNeedTitle string for the title of the need
+	 * @param int $newNeedFulfilled int for counting how many people have attempted to fulfill the need
 	 * @throws InvalidArgumentException if data types are not valid
 	 * @throws RangeException if data values are out of bounds (e.g., strings too long, negative integers)
 	 * @throws Exception if some other exception is thrown
 	 **/
-	public function __construct($newNeedId, $newProfileId, $newNeedDescription, $newNeedTitle, $newNeedFulFilled) {
+	public function __construct($newNeedId, $newProfileId, $newNeedDescription, $newNeedFulfilled, $newNeedTitle) {
 
 		try {
 			$this->setNeedId($newNeedId);
 			$this->setProfileId($newProfileId);
-			$this->setNeedTitle($newNeedTitle);
 			$this->setNeedDescription($newNeedDescription);
-			$this->setNeedFulfilled($newNeedFulFilled);
+			$this->setNeedFulfilled($newNeedFulfilled);
+			$this->setNeedTitle($newNeedTitle);
 		} catch(InvalidArgumentException $invalidArgument) {
 			// rethrow the exception to the caller
 			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
@@ -65,7 +67,7 @@ class Need {
 			throw(new Exception($exception->getMessage(), 0, $exception));
 		}
 
-	}  // __construct
+	}
 
 	/**
 	 * accessor method for need id
@@ -74,7 +76,7 @@ class Need {
 	 **/
 	public function getNeedId() {
 		return ($this->needId);
-	} // getNeedId
+	}
 
 
 	/**
@@ -184,12 +186,12 @@ class Need {
 
 
 	/**
-		 * accessor method for need fulfilled
-		 *
-		 * @return string value of need fulfilled
-		 **/
-		public function getNeedFulfilled() {
-			return ($this->needFulfilled);
+	 * accessor method for need fulfilled
+	 *
+	 * @return string value of need fulfilled
+	 **/
+	public function getNeedFulfilled() {
+		return ($this->needFulfilled);
 	}	// getNeedFulfilled
 
 
@@ -234,7 +236,7 @@ class Need {
 	 *
 	 * @param string $newNeedTitle new value of need
 	 * @throws InvalidArgumentException if $newNeedTitle is not a string or insecure
-	 * @throws RangeException if $newNeedTitle is > 5000 characters
+	 * @throws RangeException if $newNeedTitle is > 64 characters
 	 **/
 	public function setNeedTitle($newNeedTitle) {
 
@@ -271,12 +273,13 @@ class Need {
 		}
 
 		// create query template
-		$query = "INSERT INTO need(needId, profileId, needDescription) VALUES(:needId, :profileId, :needDescription)";
+		$query = "INSERT INTO need(needId, profileId, needDescription, needFulfilled, needTitle) VALUES(:needId, :profileId, :needDescription, :needFulfilled, :needTitle)";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
-		$formattedDate = $this->needDate->format("Y-m-d H:i:s");
-		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "need" => $this->needDescription);
+		//FIXME NEED DATE DOES NOT EXIST
+		//$formattedDate = $this->needDate->format("Y-m-d H:i:s");
+		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "needDescription" => $this->needDescription, "needFulfilled" => $this->needFulfilled, "needTitle" => $this->needTitle);
 		$statement->execute($parameters);
 
 		// update the null needId with what mySQL just gave us
@@ -362,20 +365,21 @@ class Need {
 		$statement->execute($parameters);
 
 		// build an array of need ids
-		$statement->setFetchMode(PDO::FETCH_ASSOC);
-		$row = $statement->fetch();
-
-			try {
-				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
-						           $row["needTitle"]);
-
+		try {
+				$need = null;
+				$statement->setFetchMode(PDO::FETCH_ASSOC);
+				$row = $statement->fetch();
+				if($row !== false) {
+					$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
+						$row["needTitle"]);
+				}
 			} catch(Exception $exception) {
 				// if the row couldn't be converted, rethrow it
 				throw(new PDOException($exception->getMessage(), 0, $exception));
 			}
 
 
-		return ($need);
+			return ($need);
 
 	}  // getNeedByNeedId
 
@@ -383,15 +387,15 @@ class Need {
 	 * gets the Need by profileId
 	 *
 	 * @param PDO $pdo PDO connection object
-	 * @param string $needId to search for profile id
+	 * @param string $profileId to search for profile id
 	 * @return SplFixedArray all ProfileIds found for this need
 	 * @throws PDOException when mySQL related errors occur
 	 **/
-	public static function getNeedByProfileId(PDO $pdo, $needId) {
+	public static function getNeedByProfileId(PDO $pdo, $profileId) {
 
 		// sanitize $needId
-		$profileId = filter_var($needId, FILTER_VALIDATE_INT);
-		if(empty($profileId) === true) {
+		$profileId = filter_var($profileId, FILTER_VALIDATE_INT);
+		if($profileId === false) {
 			throw(new PDOException("profile id not an integer"));
 		}
 		if($profileId <= 0) {
@@ -407,17 +411,19 @@ class Need {
 		$statement->execute($parameters);
 
 		// build an array of needs
-		$statement->setFetchMode(PDO::FETCH_ASSOC);
-		$row = $statement->fetch();
 
-			try {
+		try {
+			$need = null;
+			$statement->setFetchMode(PDO::FETCH_ASSOC);
+			$row = $statement->fetch();
+			if($row !== false) {
 				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
-						$row["needTitle"]);
+					$row["needTitle"]);
 			}
-				catch(Exception $exception) {
-				// if the row couldn't be converted, rethrow it
-				throw(new PDOException($exception->getMessage(), 0, $exception));
-			}
+		} catch(Exception $exception) {
+			// if the row couldn't be converted, rethrow it
+			throw(new PDOException($exception->getMessage(), 0, $exception));
+		}
 
 
 		return ($need);
@@ -429,14 +435,14 @@ class Need {
 	 * gets the Need by needTitle
 	 *
 	 * @param PDO $pdo PDO connection object
-	 * @param string $need to search for
+	 * @param string $needTitle to search for
 	 * @return SplFixedArray all Need ids found for this need
 	 * @throws PDOException when mySQL related errors occur
 	 **/
 	public static function getNeedByNeedTitle(PDO $pdo, $needTitle) {
 
 		// sanitize $needTitle
-		$needId = trim($needTitle);
+		$needTitle = trim($needTitle);
 		$needTitle = filter_var($needTitle, FILTER_SANITIZE_STRING);
 		if(empty($needTitle) === true) {
 			throw(new PDOException("need title is invalid"));
@@ -447,15 +453,15 @@ class Need {
 		$statement = $pdo->prepare($query);
 
 		// bind to the place holder in the template
-		$needId = "%need%";
+		$needTitle = "%" . $needTitle . "%";
 		$parameters = array("needTitle" => $needTitle);
 		$statement->execute($parameters);
 
 		// build an array of need
-		$needs = new SplFixedArray($statement->rowCount());
+		$needs = null;
 		$statement->setFetchMode(PDO::FETCH_ASSOC);
-
 		while(($row = $statement->fetch()) !== false) {
+			$needs = new SplFixedArray($statement->rowCount());
 			try {
 				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
 						           $row["needTitle"]);

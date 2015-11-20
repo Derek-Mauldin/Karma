@@ -393,8 +393,8 @@ class Member{
 		$parameters = array("memberId" => $memberId);
 		$statement->execute($parameters);
 		//gets the member from mySQL
-		$member = null;
 		try {
+			$member = null;
 			$statement->setFetchMode(PDO::FETCH_ASSOC);
 			$row = $statement->fetch();
 			if($row !== false) {
