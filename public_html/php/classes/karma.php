@@ -193,19 +193,19 @@ class karma {
 
 		// check for null in profileId and needId before insertion
 		if($this->needId === null) {
-			throw(new InvalidArgumentException("needId is not null"));
+			throw(new InvalidArgumentException("needId is null"));
 		} elseif ($this->profileId === null){
-			throw(new InvalidArgumentException("profileId is not null"));
+			throw(new InvalidArgumentException("profileId is null"));
 		}
 
 		// create query template
-		$query = "INSERT INTO karma(needId, profileId, karmaActionDate, karmaAccepted)
-                VALUES(:needId, :profileId, :karmaActionDate, :karmaAccepted)";
+		$query = "INSERT INTO karma (profileId, needId, karmaActionDate, karmaAccepted)
+                VALUES (:profileId, :needId, :karmaActionDate, :karmaAccepted)";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
 		$formattedDate = $this->karmaActionDate->format("Y-m-d H:i:s");
-		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId,
+		$parameters = array("profileId" => $this->profileId, "needId" => $this->needId,
 				              "karmaActionDate" => $formattedDate, "karmaAccepted" => $this->karmaAccepted);
 		$statement->execute($parameters);
 
