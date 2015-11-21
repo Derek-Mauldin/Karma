@@ -61,7 +61,17 @@
 	<!-- Collect the nav links, forms, and other content for toggling -->
 	<div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav">
-			<li><a href="#">Link</a></li>
+			<div class="col-sm-6 col-md-6 pull-right">
+				<form class="navbar-form " role="search">
+					<div class="input-group">
+						<input type="text" class="form-control" placeholder="Search" name="q">
+						<div class="input-group-btn">
+							<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+						</div>
+					</div>
+				</form>
+			</div>
+			<li><a href="#">Signed in as</a></li>
 			<li class="dropdown">
 				<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 				<ul class="dropdown-menu">
@@ -75,16 +85,7 @@
 				</ul>
 			</li>
 		</ul>
-		<div class="col-sm-3 col-md-3 pull-right">
-			<form class="navbar-form " role="search">
-				<div class="input-group">
-					<input type="text" class="form-control" placeholder="Search" name="q">
-					<div class="input-group-btn">
-						<button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
-					</div>
-				</div>
-			</form>
-		</div>
+
 	</div><!-- /.navbar-collapse -->
 </nav>
 </body>
