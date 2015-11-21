@@ -113,11 +113,15 @@
 	padding: 15px 18px;
 }
 .side-menu .brand-name-wrapper {
-	min-height: 50px;
+	min-height: 80px;
 }
-.side-menu .brand-name-wrapper .navbar-brand {
+.side-menu .brand-name-wrapper .navbar-brand #logo{
 	display: block;
+	height:50px;
+	padding-bottom:15px;
+	margin-bottom:15px;
 }
+
 .side-menu #search {
 	position: relative;
 	z-index: 1000;

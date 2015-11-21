@@ -42,10 +42,10 @@
 		<!--javascript-->
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 
-		<title>Login to Kismet</title>
+		<title>Login to Kissmet</title>
 		<div class="container">
 			<div class="login">
-				<h4>Login to Kismet</h4>
+				<h4>Login to Kissmet</h4>
 				<hr>
 				<form class="login-inner">
 					<input type="email" class="form-control email" id="email-input" placeholder="Enter email">
