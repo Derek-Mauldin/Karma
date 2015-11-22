@@ -6,22 +6,13 @@
 *
 ******************************************/
 body{
-	background: #8999A8;
+	background: deeppink;
+		/*#8999A8;*/
 }
 .navbar, .dropdown-menu{
 	background:rgba(255,255,255,0.25);
 	border: none;
 }
-
-.navbar-brand {
-	margin-left:15px;
-	margin-right:15px;
-	padding-right:15px;
-	padding-left:15px;
-	font-size: 1.25em;
-
-}
-
 
 .nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
 	border-bottom: 3px solid transparent;
