@@ -201,8 +201,10 @@ class karma {
 		// check to see if a karma with this needId andProfile Id has been inserted
 		$query = "SELECT profileId, needId, karmaAccepted, karmaActionDate FROM karma WHERE profileId = :profileId AND needId = :needId";
 		$statement = $pdo->prepare($query);
+
 		$parameters = array("profileId" => $this->profileId, "needId" => $this->needId);
 		$statement->execute($parameters);
+
 		if($statement->rowCount() >= 1) {
 			throw(new PDOException("cannot insert a karma that already exists"));
 		}
