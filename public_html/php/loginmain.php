@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-
+<head>
 
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="IE=edge"/>
@@ -47,9 +46,6 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
 		  integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
 		  crossorigin="anonymous"></script>
-
-
-
 </head>
 <body>
 
@@ -66,7 +62,7 @@
 				<a class="navbar-brand" href="#">Kismet</a>
 			</div>
 
-			<!-- Collect the nav links, forms, and other content for toggling
+			<-- Collect the nav links, forms, and other content for toggling-->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Messages</a></li>
@@ -134,10 +130,8 @@
 </li>
 </ul>
 </div><!-- /.navbar-collapse -->
-</div><!-- /.container-fluid -->
 </nav>
 
 
 </body>
-	</head>
 </html>

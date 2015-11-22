@@ -176,6 +176,7 @@ body{
 	}
 	.side-menu .brand-name-wrapper .navbar-brand {
 		display: inline-block;
+
 	}
 	/* Slide in animation */
 	@-moz-keyframes slidein {
