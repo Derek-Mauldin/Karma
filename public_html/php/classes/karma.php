@@ -210,6 +210,7 @@ class karma {
 		// create query template for insertion
 		$query = "INSERT INTO karma(profileId, needId, karmaAccepted, karmaActionDate)
                 VALUES(:profileId, :needId, :karmaAccepted, :karmaActionDate)";
+		$statement = $pdo->prepare($query);
 
 		$formattedDate = $this->karmaActionDate->format("Y-m-d H:i:s");
 		$parameters = array("profileId"         => $this->profileId,
@@ -218,7 +219,6 @@ class karma {
 				              "karmaActionDate"   => $formattedDate);
 
 		// insert
-		$statement = $pdo->prepare($query);
 		$statement->execute($parameters);
 
 	}
