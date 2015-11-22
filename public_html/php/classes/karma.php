@@ -212,10 +212,12 @@ class karma {
                 VALUES(:profileId, :needId, :karmaAccepted, :karmaActionDate)";
 
 		$formattedDate = $this->karmaActionDate->format("Y-m-d H:i:s");
-		$parameters = array("profileId"       => $this->profileId,
-				              "needId"          => $this->needId,
-			                 "karmaAccepted"   => $this->karmaAccepted,
+		$parameters = array("profileId"         => $this->profileId,
+				              "needId"            => $this->needId,
+			                 "karmaAccepted"     => $this->karmaAccepted,
 				              "karmaActionDate"   => $formattedDate);
+
+		// insert
 		$statement = $pdo->prepare($query);
 		$statement->execute($parameters);
 
