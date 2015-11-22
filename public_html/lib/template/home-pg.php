@@ -118,25 +118,21 @@
 
 							<!-- Dropdown-->
 							<li class="panel panel-default" id="dropdown">
-								<a data-toggle="collapse" href="#dropdown-lvl1">
-									<span class="glyphicon glyphicon-user"></span> Signed in as <span class="caret"></span>
-								</a>
+								<a data-toggle="collapse" href="#dropdown-lvl1">$member <span class="caret"></span></a>
 
 								<!-- Dropdown level 1 -->
 								<div id="dropdown-lvl1" class="panel-collapse collapse">
 									<div class="panel-body">
 										<ul class="nav navbar-nav">
 											<li><a href="#">Change Password</a></li>
-											<li><a href="#">My Profile</a></li>
+											<li><a href="#">Edit Profile</a></li>
+											<li><a href="#">Logout</a></li>
 										</ul>
 							</li>
-							<li><a href="#"><span class="glyphicon glyphicon-envelope"></span> Messages</a></li>
-							<li><a href="#"><span class="glyphicon glyphicon-flag"></span>Member Feed</a></li>
-							<li class=""><a href="#">Logout</a></li>
+							<li><a href="#">Daily Feed</a></li>
 						</ul>
 					</div><!-- /.navbar-collapse -->
 				</nav>
-
 			</div>
 
 			<!-- Main Content -->
@@ -158,33 +154,16 @@
 						<li class="navbar-text"><a href="#">Contact Us</a></li>
 						<li class="navbar-text"><a href="#">Terms of Use & Privacy Policy</a></li>
 						<li class="navbar-text"><a href="#">Support</a></li>
-
 					</ul>
-					<p class="navbar-text">Company 2015. All Rights Reserved.</p>
 				</div>
 			</div>
-
 		</footer>
 
-		</div>
-		</div>
-		</div>
-
 		<!-- Bootstrap core JavaScript
-		================================================== -->
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="./../js/side-panel.js"></script>
-
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="../../dist/js/bootstrap.min.js"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 	</body>
 </html>
-
-
-
-
-
-
-
