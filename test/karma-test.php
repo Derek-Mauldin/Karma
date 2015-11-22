@@ -105,6 +105,7 @@ class KarmaTest extends KarmaDataDesign {
 		$karma = new Karma($this->need->getNeedId(), $this->profile->getProfileId(), $this->VALID_KARMAACCEPTED);
 		$karma->insert($this->getPDO());
 
+
 		$karma->insert($this->getPDO());
 	}
 
@@ -159,7 +160,7 @@ class KarmaTest extends KarmaDataDesign {
 	public function testGetKarmasByProfileId() {
 
 		// count the number of rows and save it for later
-		$numRows = $this->getConnection()->getRowCount("need");
+		$numRows = $this->getConnection()->getRowCount("karma");
 
 		// create a new Need and insert into mySQL
 		$karma = new Karma($this->need->getNeedId(), $this->profile->getProfileId(), $this->VALID_KARMAACCEPTED);
@@ -170,7 +171,7 @@ class KarmaTest extends KarmaDataDesign {
 		foreach($pdoKarmas as $pdoKarma) {
 			if($pdoKarma->getProfileId() === $karma->getProfileId()) {
 				// grab the data from mySQL and enforce the fields match our expectations
-				$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("need"));
+				$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("karma"));
 				$this->assertSame($pdoKarma->getProfileId(), $karma->getProfileId());
 				$this->assertSame($pdoKarma->getNeedId(), $karma->getNeedId());
 				$this->assertSame($pdoKarma->getKarmaAccepted(), $karma->getKarmaAccepted());
@@ -198,7 +199,7 @@ class KarmaTest extends KarmaDataDesign {
 	public function testGetKarmasByNeedId() {
 
 		// count the number of rows and save it for later
-		$numRows = $this->getConnection()->getRowCount("need");
+		$numRows = $this->getConnection()->getRowCount("karma");
 
 		// create a new Need and insert into mySQL
 		$karma = new Karma($this->need->getNeedId(), $this->profile->getProfileId(), $this->VALID_KARMAACCEPTED);
@@ -210,7 +211,7 @@ class KarmaTest extends KarmaDataDesign {
 		foreach($pdoKarmas as $pdoKarma) {
 			if($pdoKarma->getNeedId() === $karma->getNeedId()) {
 				// grab the data from mySQL and enforce the fields match our expectations
-				$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("need"));
+				$this->assertSame($numRows + 1, $this->getConnection()->getRowCount("karma"));
 				$this->assertSame($pdoKarma->getProfileId(), $karma->getProfileId());
 				$this->assertSame($pdoKarma->getNeedId(), $karma->getNeedId());
 				$this->assertSame($pdoKarma->getKarmaAccepted(), $karma->getKarmaAccepted());
