@@ -277,8 +277,6 @@ class Need {
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
-		//FIXME NEED DATE DOES NOT EXIST
-		//$formattedDate = $this->needDate->format("Y-m-d H:i:s");
 		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "needDescription" => $this->needDescription, "needFulfilled" => $this->needFulfilled, "needTitle" => $this->needTitle);
 		$statement->execute($parameters);
 
@@ -427,7 +425,6 @@ class Need {
 				throw(new PDOException($exception->getMessage(), 0, $exception));
 			}
 		}
-
 
 		return ($needs);
 

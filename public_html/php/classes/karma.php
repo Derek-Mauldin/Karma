@@ -198,15 +198,25 @@ class karma {
 			throw(new InvalidArgumentException("profileId is null"));
 		}
 
-		// create query template
-		$query = "INSERT INTO karma (profileId, needId, karmaActionDate, karmaAccepted)
-                VALUES (:profileId, :needId, :karmaActionDate, :karmaAccepted)";
+		// check to see if a karma with this needId andProfile Id has been inserted
+		$query = "SELECT profileId, needId, karmaAccepted, karmaActionDate FROM karma WHERE profileId = :profileId AND needId = :needId";
 		$statement = $pdo->prepare($query);
+		$parameters = array("profileId" => $this->profileId, "needId" => $this->needId);
+		$statement->execute($parameters);
+		if($statement->rowCount() >= 1) {
+			throw(new PDOException("cannot insert a karma that already exists"));
+		}
 
-		// bind the member variables to the place holders in the template
+		// create query template for insertion
+		$query = "INSERT INTO karma(profileId, needId, karmaAccepted, karmaActionDate)
+                VALUES(:profileId, :needId, :karmaAccepted, :karmaActionDate)";
+
 		$formattedDate = $this->karmaActionDate->format("Y-m-d H:i:s");
-		$parameters = array("profileId" => $this->profileId, "needId" => $this->needId,
-				              "karmaActionDate" => $formattedDate, "karmaAccepted" => $this->karmaAccepted);
+		$parameters = array("profileId"       => $this->profileId,
+				              "needId"          => $this->needId,
+			                 "karmaAccepted"   => $this->karmaAccepted,
+				              "karmaActionDate"   => $formattedDate);
+		$statement = $pdo->prepare($query);
 		$statement->execute($parameters);
 
 	}
@@ -242,7 +252,7 @@ class karma {
 	 *
 	 * @param PDO $pdo PDO connection object
 	 * @throws PDOException when mySQL related errors occur
-	 **********************************************************************************************************************/
+	 **********************************************************************************************************************
 	public function update(PDO $pdo) {
 		// enforce the needId and profileId are not null (i.e., don't update a karma that hasn't been inserted)
 		if($this->needId === null && $this->profileId === null) {
@@ -251,7 +261,7 @@ class karma {
 
 		// create query template
 		$query = "UPDATE karma SET needId =:needId, profileId = :profileId, karmaAccepted = :karmaAccepted = karmaActionDate =:karmaActionDate WHERE needId = :needId &&
-	:profileId=profileId";
+	             :profileId=profileId";
 		$statement = $pdo->prepare($query);
 
 		// bind the member variables to the place holders in the template
@@ -259,6 +269,8 @@ class karma {
 		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "karmaActionDate" => $formattedDate, "karmaAceepted" => $this->karmaAccepted);
 		$statement->execute($parameters);
 	}
+	 */
+
 
 	/**********************************************************************************************************************
 	 * gets the karma by boolean
@@ -267,7 +279,7 @@ class karma {
 	 * @param boolean $karmaAccepted boolean to search for
 	 * @return SplFixedArray all Karmas found for this content
 	 * @throws PDOException when mySQL related errors occur
-	 **********************************************************************************************************************/
+	 **********************************************************************************************************************
 	public static function getKarmaByKarmaAccepted(PDO $pdo, $karmaAccepted) {
 		// sanitize the description before searching
 		$karmaAccepted = trim($karmaAccepted);
@@ -300,6 +312,7 @@ class karma {
 		}
 		return ($karmas);
 	}
+	 */
 
 	/**
 	 *
@@ -456,7 +469,7 @@ class karma {
 	 * @return SplFixedArray all Karmas found
 	 * @throws PDOException when mySQL related errors occur
 	 *
-	 **********************************************************************************************************************/
+	 **********************************************************************************************************************
 
 	public static function getAllKarmas(PDO $pdo) {
 		// create query template
@@ -479,4 +492,5 @@ class karma {
 		}
 		return ($karmas);
 	}
+	 */
 }
