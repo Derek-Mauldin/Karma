@@ -1,6 +1,6 @@
 /******************************************
 *
-*Template style for karma project
+*Template style for karma main content
 *
 *@author Jennifer Hung <jhung@cnm.edu>
 *
@@ -17,17 +17,9 @@ a:active {
 body {
 	margin-top: 0px;
 	margin-bottom: 70px;
+	background-color:blue;
 }
 
-header,
-footer {
-	background-color: #dddddd;
-}
-
-footer {
-	padding: 20px 0;
-	margin-top: 20px;
-}
 
 .panel {
 	padding: 20px;
@@ -40,14 +32,7 @@ ul li{
 }
 /********************************************
 * Fixed panel Layout Styles
-********************************************/
-/***
-* Flexbox Sticky Footer
-***/
 
-/*corrects IE min-height bug*/
-html { display: flex;}
-body { width: 100%;}
 
 
 /* main page layout*/
@@ -61,6 +46,7 @@ body { width: 100%;}
 }
 #container {
 	text-align: center;
+	background-color: #1e27ff;
 }
 a, figure {
 	display: inline-block;
@@ -78,6 +64,9 @@ figcaption {
 figure {
 	padding: 5px;
 }
+p {
+	color:black;
+}
 img:hover {
 	transform: scale(1.1);
 	-ms-transform: scale(1.1);
@@ -92,16 +81,9 @@ img {
 	-o-transition: -o-transform 0.2s;
 }
 
-p {
-	color:black;
-}
-
 .profileImage {
 	height:75px;
 }
-
-
-
 /********************************************
 *justify container columns
 **********************************************/
@@ -110,16 +92,10 @@ p {
 	flex-flow: row nowrap; /* Align on the same line */
 	justify-content: space-between; /* Equal margin between the child elements */
 }
-/*
 .container > div {
-  background: #5F85DB;
-  padding: 5px;
-  color: #fff;
-  font-weight: bold;
-  font-family: Tahoma;
+	background: #5F85DB;
+	padding: 5px;
+	color: #fff;
+	font-weight: bold;
+	font-family: Tahoma;
 }
-*/
-
-
-
-
