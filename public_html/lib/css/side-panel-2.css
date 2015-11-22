@@ -1,0 +1,17 @@
+body {
+	background-color:pink;
+}
+nav {
+	background-color:pink;
+}
+
+ul li {
+	list-style: none;
+}
+#side-panel {
+	margin:100px;
+}
+
+.nav-logo {
+	height:50px;
+}

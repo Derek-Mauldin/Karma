@@ -20,8 +20,8 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 
 	<!--Link to custom CSS files here-->
-	<link rel="stylesheet" href="../../lib/css/login-mobile.css">
-	<link rel="stylesheet" href="../../lib/css/navbar.css">
+	<link rel="stylesheet" href="../lib/css/login2.css">
+	<link rel="stylesheet" href="../lib/css/navbar.css">
 
 
 	<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
@@ -61,7 +61,7 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="#"><a class="navbar-brand animate" href="#"><img class="img-responsive" id="navbar-brand-mobile" src="../../img/octopus-icon.png"/></a>
+						<a class="navbar-brand" href="#"><a class="navbar-brand animate" href="#"><img class="img-responsive" id="navbar-brand-mobile" src="../img/octopus-icon.png"/></a>
 						</a>
 					</div>
 

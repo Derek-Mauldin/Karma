@@ -11,11 +11,11 @@
 				crossorigin="anonymous">
 
 		<!-- Optional theme -->
-		<link rel="stylesheet" href="../lib/css/login-mobile.css">
+		<link rel="stylesheet" href="../lib/css/login2.css">
 
 		<!--Link to custom CSS files here-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-		<link rel="stylesheet" href="../lib/css/login-mobile.css"
+		<link rel="stylesheet" href="../lib/css/login2.css"
 
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
