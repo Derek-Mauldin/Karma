@@ -477,32 +477,4 @@ class Need {
 
 	}  // getNeedByTitle
 
-
-	/*
-	public static function getAllNeeds(PDO $pdo) {
-		// create query template
-		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM needs";
-		$statement = $pdo->prepare($query);
-		$statement->execute();
-
-		// build an array of needs
-		$needs = new SplFixedArray($statement->rowCount());
-		$statement->setFetchMode(PDO::FETCH_ASSOC);
-		while(($row = $statement->fetch()) !== false) {
-			try {
-				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
-						$row["needTitle"]);
-				$needs[$needs->key()] = $need;
-				$need->next();
-			} catch(Exception $exception) {
-				// if the row couldn't be converted, rethrow it
-				throw(new PDOException($exception->getMessage(), 0, $exception));
-			}
-		}
-		return($need);
-	}
-	*/
-
-
-
 }
