@@ -5,68 +5,65 @@
 *@author Jennifer Hung <jhung@cnm.edu>
 *
 ******************************************/
-a:hover {
-	color: #29e62f;
+p {
+	color:black;
 }
-a:active {
-	color: greenyellow
-}
-
-a, figure {
-	display: inline-block;
+figcaption {
+	padding:0;
+	margin-left:15px;
+	border:0px;
 }
 .fa-times {
 	float:right;
 }
-
+.request {
+	font-size:1.10em;
+	font-weight:bold;
+}
 /*****************************************************************************
 *
 *main content flexbox
 *
 ******************************************************************************/
-.feed-wrapper {
-	background-color:grey;
-	width:100%;
-
+#page-content-wrapper {
+	background-color:white;
 }
 
-.panel-wrapper {
-	display: -webkit-flex;
-	display: flex;
-	flex-flow: row nowrap; /* Align on the same line */
-	justify-content: space-between; /* Equal margin between the child elements */
-	border: 5px solid lightcoral;
-	width:100%;
-}
+
+
 .panel-heading {
+	background-color:lightgrey;
 	width:100%;
+	border: 5px solid black;
+
 }
+
 .panel-info {
-	background-color:violet;
+	background-color:lightgrey;
 	text-align:justify;
-	line-height:50px;
 	display: -webkit-flex;
 	display: flex;
 	flex-flow: row nowrap; /* Align on the same line */
 	justify-content: space-between; /* Equal margin between the child elements */
-	border: 5px solid blueviolet;
+	border: 5px solid black !important;
+	margin-bottom:15px;
 }
 .left {
 	width:20%;
+	margin:15px;
 }
 .center {
 	width:60%;
+	margin:25px;
 	text-align: justify;
 }
+
 .right {
 	width:20%;
-	padding: 5px;
-	margin:5px;
-
+	margin:25px;
 }
 .container > div {
-	background: #5F85DB;
-	padding: 5px;
+	padding:5px;
 	margin:5px;
 	color: #fff;
 	font-weight: bold;
@@ -86,46 +83,21 @@ img {
 	-moz-transition: -moz-transform 0.2s;
 	-o-transition: -o-transform 0.2s;
 }
-
+figure {
+	padding:5px;
+	border:5px;
+	margin:5px;
+}
 .profileImage {
 	height:75px;
-}
+	padding:5px;
+	border:5px;
+	margin:5px;
 
+}
 
 ul li{
 	font-size:1.25em;
 	padding:5px;
 	margin:5px;
-}
-/********************************************
-*panel Layout Styles
-
-/* main page layout*/
-
-#request {
-	color:black;
-
-	text-align: justify;
-	margin:15px;
-	width:100px;
-}
-/*
-#container {
-	text-align: center;
-	background-color: #1e27ff;
-}
-*/
-
-figcaption {
-	margin: 10px 0 0 0;
-	font-variant: small-caps;
-	font-family: Arial;
-	font-weight: bold;
-	color: #1e27ff;
-}
-figure {
-	padding: 5px;
-}
-p {
-	color:black;
 }
