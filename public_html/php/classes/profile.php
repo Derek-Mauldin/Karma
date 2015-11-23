@@ -73,7 +73,7 @@
 	  * @throws Exception
 	  **/
 	 public function __construct($newProfileId, $newMemberId, $newProfileBlurb, $newProfileHandle,
-										  $newProfileFirstName, $newProfileLastName, $newInputTagName) {
+										  $newProfileFirstName, $newProfileLastName, $newInputTagName = null) {
 		 try {
 			 $this->setProfileId($newProfileId);
 			 $this->setMemberId($newMemberId);
@@ -81,9 +81,7 @@
 			 $this->setProfileHandle($newProfileHandle);
 			 $this->setProfileFirstName($newProfileFirstName);
 			 $this->setProfileLastName($newProfileLastName);
-			 if($newInputTagName !== null) {
-				 $this->uploadPhoto($newInputTagName);
-			 }
+
 		 } catch(InvalidArgumentException $invalidArgument) {
 			 throw(new InvalidArgumentException($invalidArgument->getmessage(), 0, $invalidArgument));
 		 } catch(RangeException $range) {
