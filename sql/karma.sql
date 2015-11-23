@@ -72,5 +72,6 @@ karmaActionDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 INDEX(profileId),
 INDEX(needId),
 FOREIGN KEY(profileId) REFERENCES profile(profileId),
-FOREIGN KEY(needId) REFERENCES need(needId)
+FOREIGN KEY(needId) REFERENCES need(needId),
+PRIMARY KEY(profileId, needId)
 );

@@ -198,17 +198,6 @@ class karma {
 			throw(new InvalidArgumentException("profileId is null"));
 		}
 
-		// check to see if a karma with this needId andProfile Id has been inserted
-		$query = "SELECT profileId, needId, karmaAccepted, karmaActionDate FROM karma WHERE profileId = :profileId AND needId = :needId";
-		$statement = $pdo->prepare($query);
-
-		$parameters = array("profileId" => $this->profileId, "needId" => $this->needId);
-		$statement->execute($parameters);
-
-		if($statement->rowCount() >= 1) {
-			throw(new PDOException("cannot insert a karma that already exists"));
-		}
-
 		// create query template for insertion
 		$query = "INSERT INTO karma(profileId, needId, karmaAccepted, karmaActionDate)
                 VALUES(:profileId, :needId, :karmaAccepted, :karmaActionDate)";
@@ -251,72 +240,7 @@ class karma {
 
 	}
 
-	/*********************************************************************************************************************
-	 * updates this Karma in mySQL
-	 *
-	 * @param PDO $pdo PDO connection object
-	 * @throws PDOException when mySQL related errors occur
-	 **********************************************************************************************************************
-	public function update(PDO $pdo) {
-		// enforce the needId and profileId are not null (i.e., don't update a karma that hasn't been inserted)
-		if($this->needId === null && $this->profileId === null) {
-			throw(new PDOException("unable to update a karma that does not exist"));
-		}
 
-		// create query template
-		$query = "UPDATE karma SET needId =:needId, profileId = :profileId, karmaAccepted = :karmaAccepted = karmaActionDate =:karmaActionDate WHERE needId = :needId &&
-	             :profileId=profileId";
-		$statement = $pdo->prepare($query);
-
-		// bind the member variables to the place holders in the template
-		$formattedDate = validateDate($this->karmaActionDate);
-		$parameters = array("needId" => $this->needId, "profileId" => $this->profileId, "karmaActionDate" => $formattedDate, "karmaAceepted" => $this->karmaAccepted);
-		$statement->execute($parameters);
-	}
-	 */
-
-
-	/**********************************************************************************************************************
-	 * gets the karma by boolean
-	 *
-	 * @param PDO $pdo PDO connection object
-	 * @param boolean $karmaAccepted boolean to search for
-	 * @return SplFixedArray all Karmas found for this content
-	 * @throws PDOException when mySQL related errors occur
-	 **********************************************************************************************************************
-	public static function getKarmaByKarmaAccepted(PDO $pdo, $karmaAccepted) {
-		// sanitize the description before searching
-		$karmaAccepted = trim($karmaAccepted);
-		$karmaAccepted = filter_var($karmaAccepted, FILTER_VALIDATE_BOOLEAN);
-		if(empty($karmaAccepted) === true) {
-			throw(new PDOException("karma accepted is invalid"));
-		}
-
-		// create query template
-		$query = "SELECT needId, profileId, karmaAccepted, karmaActionDate FROM karma WHERE karmaAccepted LIKE :karmaAccepted";
-		$statement = $pdo->prepare($query);
-
-		// bind the karma accepted to the place holder in the template
-		$karmaAccepted = "%$karmaAccepted%";
-		$parameters = array("karmaAccepted" => $karmaAccepted);
-		$statement->execute($parameters);
-
-		// build an array of karmas
-		$karmas = new SplFixedArray($statement->rowCount());
-		$statement->setFetchMode(PDO::FETCH_ASSOC);
-		while(($row = $statement->fetch()) !== false) {
-			try {
-				$karma = new Karma($row["needId"], $row["profileId"], $row["karmaActionDate"], $row["karmaAccepted"]);
-				$karmas[$karmas->key()] = $karma;
-				$karmas->next();
-			} catch(Exception $exception) {
-				// if the row couldn't be converted, rethrow it
-				throw(new PDOException($exception->getMessage(), 0, $exception));
-			}
-		}
-		return ($karmas);
-	}
-	 */
 
 	/**
 	 *
@@ -466,35 +390,5 @@ class karma {
 
 	}  // getKarmasByNeedId
 
-	/**********************************************************************************************************************
-	 *
-	 * gets all Karmas
-	 * @param PDO $pdo PDO connection object
-	 * @return SplFixedArray all Karmas found
-	 * @throws PDOException when mySQL related errors occur
-	 *
-	 **********************************************************************************************************************
 
-	public static function getAllKarmas(PDO $pdo) {
-		// create query template
-		$query = "SELECT needId, profileId, karmaAccepted, karmaActionDate FROM karma";
-		$statement = $pdo->prepare($query);
-		$statement->execute();
-
-		// build an array of karmas
-		$karmas = new SplFixedArray($statement->rowCount());
-		$statement->setFetchMode(PDO::FETCH_ASSOC);
-		while(($row = $statement->fetch()) !== false) {
-			try {
-				$karma = new Karma($row["needId"], $row["profileId"], $row["karmaAccepted"], $row["karmaActionDate"]);
-				$karma[$karmas->key()] = $karmas;
-				$karmas->next();
-			} catch(Exception $exception) {
-				// if the row couldn't be converted, rethrow it
-				throw(new PDOException($exception->getMessage(), 0, $exception));
-			}
-		}
-		return ($karmas);
-	}
-	 */
 }
