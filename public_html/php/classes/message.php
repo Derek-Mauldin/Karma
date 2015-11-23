@@ -334,43 +334,6 @@ class Message {
 	} // update
 
 
-	/*
-	public static function getMessageByMessageContent(PDO $pdo, $messageContent) {
-		// sanitize the description before searching
-		$messageContent = trim($messageContent);
-		$messageContent = filter_var($messageContent, FILTER_SANITIZE_STRING);
-		if(empty($messageContent) === true) {
-			throw(new PDOException("message content is invalid"));
-		}
-
-		// create query template
-		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDate
- 	             FROM message WHERE messageContent LIKE :messageContent";
-		$statement = $pdo->prepare($query);
-
-		// bind the message content to the place holder in the template
-		$messageContent = "%$messageContent%";
-		$parameters = array("messageContent" => $messageContent);
-		$statement->execute($parameters);
-
-		// build an array of messages
-		$messages = new SplFixedArray($statement->rowCount());
-		$statement->setFetchMode(PDO::FETCH_ASSOC);
-		while(($row = $statement->fetch()) !== false) {
-			try {
-				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-						                 $row["mesageContent"], $row["messageDate"]);
-				$messages[$messages->key()] = $message;
-				$messages->next();
-			} catch(Exception $exception) {
-				// if the row couldn't be converted, rethrow it
-				throw(new PDOException($exception->getMessage(), 0, $exception));
-			}
-		}
-		return ($messages);
-	}
-	*/
-
 
 	/**
 	 * funtion to retrieve message by message Id
@@ -423,38 +386,7 @@ class Message {
 		return ($message);
 	}
 
-	/**
-	 * gets all Messages
-	 *
-	 * @param PDO $pdo PDO connection object
-	 * @return SplFixedArray all Messages found
-	 * @throws PDOException when mySQL related errors occur
-	 **/
 
-	/**
-	 * public static function getAllMessages(PDO $pdo) {
-	 * // create query template
-	 * $query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messagetDate FROM message";
-	 * $statement = $pdo->prepare($query);
-	 * $statement->execute();
-	 *
-	 * // build an array of messages
-	 * $messages = new SplFixedArray($statement->rowCount());
-	 * $statement->setFetchMode(PDO::FETCH_ASSOC);
-	 * while(($row = $statement->fetch()) !== false) {
-	 * try {
-	 * $message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-	 * $row["messageContent"], $row["messageDate"]);
-	 * $messages[$messages->key()] = $message;
-	 * $messages->next();
-	 * } catch(Exception $exception) {
-	 * // if the row couldn't be converted, rethrow it
-	 * throw(new PDOException($exception->getMessage(), 0, $exception));
-	 * }
-	 * }
-	 * return ($messages);
-	 * }
-	 **/
 	/**
 	 * function to retrieve a messages by senderId
 	 *
