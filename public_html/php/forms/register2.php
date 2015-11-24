@@ -23,7 +23,6 @@
 		<!--font awesome-->
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-
 		<!--Link to custom CSS files here-->
 		<link type="text/css" href="../lib/css/register.css" rel="stylesheet">
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
@@ -41,15 +40,11 @@
 
 		<!-- jQuery form validation and additional methods (for capstone) -->
 		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-		<script type="text/javascript"
-				  src="//cdnjs.cloudfare/com/ajax/libs/jquery-validate/1.14.0/jquery.valiate.min.js"></script>
-		<script type="text/javascript"
-				  src="//cdnjs.cloudfare.com/ajax/libs/jquery-validate/1.14.0.additional-methods.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudfare/com/ajax/libs/jquery-validate/1.14.0/jquery.valiate.min.js"></script>
+		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/jquery-validate/1.14.0.additional-methods.min.js"></script>
 
 		<!-- Latest compiled and minified JavaScript -->
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
-				  integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
-				  crossorigin="anonymous"></script>
+		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 
 		<title>Simple Karma Template</title>
@@ -65,7 +60,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-									<a href="..php/forms/login.php" class="active" id="login-form-link">Login</a>
+									<a href="../../php/forms/login.php" class="active" id="login-form-link">Login</a>
 								</div>
 								<div class="col-xs-6">
 									<a href="#" id="register-form-link">Register</a>
