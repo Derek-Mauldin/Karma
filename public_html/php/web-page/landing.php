@@ -162,7 +162,7 @@
 
 				<div class="row">
 					<div class="col-lg-6">
-						<h2>Text</h2>
+						<h2><Text</h2>
 					</div>
 				</div>
 			</div>
@@ -185,7 +185,7 @@
 							</li>
 							<li class="footer-menu-divider">&sdot;</li>
 							<li>
-								<a href="#services">Contact</a>
+								<a href="#contact">Contact</a>
 							</li>
 							<li class="footer-menu-divider">&sdot;</li>
 						</ul>
@@ -196,10 +196,7 @@
 		</footer>
 
 		<!-- jQuery -->
-		<script src="js/jquery.js"></script>
 
-		<!-- Bootstrap Core JavaScript -->
-		<script src="js/bootstrap.min.js"></script>
 
 	</body>
 
