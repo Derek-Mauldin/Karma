@@ -1,0 +1,775 @@
+/******************************************
+* Custom CSS Styles for Karma Website
+*
+* @author jhung@cnm.edu
+*
+*******************************************/
+/*******************************************
+* Layout Styles
+*
+* These styles control the layout
+********************************************/
+/********************************************
+* Sticky footer styles
+*
+*********************************************/
+/*********************************************
+*Body Styles
+*
+**********************************************/
+p {
+	color:black;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
+}
+
+body {
+	/*Margin bottom by footer height */
+	margin-bottom: 60px;
+}
+
+
+figure {
+	padding:5px;
+	border:5px;
+	margin:5px;
+}
+
+ul li {
+	font-size:1.25em;
+	padding:5px;
+	margin:5px;
+	color:black;
+}
+
+
+/************************************
+image styles
+*************************************/
+
+
+img:hover {
+	transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+img {
+	transition: transform 0.2s;
+	-webkit-transition: -webkit-transform 0.2s;
+	-moz-transition: -moz-transform 0.2s;
+	-o-transition: -o-transform 0.2s;
+}
+
+.profileImage {
+	height: 75px;
+	padding: 5px;
+	border: 5px;
+	margin: 5px;
+}
+
+/*************************************
+Footer
+*************************************/
+
+.footer {
+position: absolute;
+bottom: 0;
+width: 100%;
+	/* Set the fixed height of the footer here */
+height: 60px;
+background-color: #f5f5f5;
+margin-bottom: 0;
+left:50px;
+z-index:1;
+}
+
+/**************************************
+*logo
+*****************************************/
+#logo{
+	z-index:10
+}
+
+/******************************************
+*Login Form styles
+*
+*****************************************/
+.login {
+	margin-top: 25px;
+	padding: 5px;
+	width: auto;
+	min-width: 320px;
+	max-width: 400px;
+	height: 400px;
+	background-color: #f3f3f3;
+	border-radius: 10px;
+	border: 1px solid #c5c5c5;
+	text-align: center;
+}
+.login-inner {
+	margin:0 auto;
+	max-width: 380px;
+	width: auto;
+}
+.login>h4 {
+	font-size: 20px;
+	margin-left: 5px;
+	font-weight: 600;
+}
+.email {
+	margin-bottom: 5px;
+}
+/******************************************
+*
+*Side-bar Content
+*
+**********************************************/
+
+/*********************************************
+*Main Content
+*
+***********************************************/
+
+/*********************************************
+*Request Feed
+*Uses flexbox
+*
+***********************************************/
+.container > div {
+	padding:5px;
+	margin:5px;
+	/*color: #fff;*/
+	font-weight: bold;
+	font-family: "Tahoma", sans-serif;
+}
+
+figcaption {
+	padding:0;
+	margin-left:15px;
+}
+.fa-times {
+	float:right;
+}
+
+.panel-heading {
+	background-color: #fffdca;
+	width:100%;
+	border: 5px solid black;
+}
+.panel-info {
+	background-color:lightgrey;
+	text-align:justify;
+	display: -webkit-flex;
+	display: flex;
+	flex-flow: row nowrap; /* Align on the same line */
+	justify-content: space-between; /* Equal margin between the child elements */
+	border: 5px solid black !important;
+	margin-bottom:15px;
+}
+
+.request {
+	font-size:1.10em;
+	font-weight:bold;
+}
+
+.left {
+	width:20%;
+	margin:15px;
+}
+.center {
+	width:60%;
+	margin:25px;
+	text-align: justify;
+}
+.right {
+	width:20%;
+	margin:25px;
+}
+#page-content-wrapper {
+	background-color:white;
+}
+
+
+/******************************************************
+* Utility Styles
+*
+* These are intended to be re-used
+* for styling purposes
+*********************************************************
+/********************************************************
+*Search bar
+*
+*********************************************************/
+.glyphicon-search{
+	background-color:orange;
+}
+
+.search-form .form-group {
+	float: right !important;
+	transition: all 0.35s, border-radius 0s;
+	width: 32px;
+	height: 32px;
+	background-color: #fff;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+	border-radius: 25px;
+	border: 1px solid #ccc;
+}
+.search-form .form-group input.form-control {
+	padding-right: 20px;
+	border: 0 none;
+	background: transparent;
+	box-shadow: none;
+	display:block;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+	display: none;
+}
+.search-form .form-group input.form-control:-moz-placeholder {
+	/* Firefox 18- */
+	display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+	/* Firefox 19+ */
+	display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+	display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+	width: 100%;
+	border-radius: 4px 25px 25px 4px;
+}
+.search-form .form-group span.form-control-feedback {
+	position: absolute;
+	top: -1px;
+	right: -2px;
+	z-index: 2;
+	display: block;
+	width: 34px;
+	height: 34px;
+	line-height: 34px;
+	text-align: center;
+	color: #3596e0;
+	left: initial;
+	font-size: 14px;
+}
+
+/************************************************************
+*navigation bar
+
+************************************************************/
+
+.navbar, .dropdown-menu{
+	background:rgba(255,255,255,0.25);
+	border: none;
+}
+.nav>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover, .dropdown-menu>li>a, .dropdown-menu>li{
+	border-bottom: 3px solid transparent;
+}
+.nav>li>a:focus, .nav>li>a:hover,.nav .open>a, .nav .open>a:focus, .nav .open>a:hover, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+	border-bottom: 3px solid transparent;
+	background: none;
+}
+.navbar a, .dropdown-menu>li>a, .dropdown-menu>li>a:focus, .dropdown-menu>li>a:hover{
+	color: #fff;
+}
+.dropdown-menu{
+	-webkit-box-shadow: none;
+	box-shadow:none;
+}
+.nav li:hover:nth-child(8n+1), .nav li.active:nth-child(8n+1){
+	border-bottom: #C4E17F 3px solid;
+}
+.nav li:hover:nth-child(8n+2), .nav li.active:nth-child(8n+2){
+	border-bottom: #F7FDCA 3px solid;
+}
+.nav li:hover:nth-child(8n+3), .nav li.active:nth-child(8n+3){
+	border-bottom: #FECF71 3px solid;
+}
+.nav li:hover:nth-child(8n+4), .nav li.active:nth-child(8n+4){
+	border-bottom: #F0776C 3px solid;
+}
+.nav li:hover:nth-child(8n+5), .nav li.active:nth-child(8n+5){
+	border-bottom: #DB9DBE 3px solid;
+}
+.nav li:hover:nth-child(8n+6), .nav li.active:nth-child(8n+6){
+	border-bottom: #C49CDE 3px solid;
+}
+.nav li:hover:nth-child(8n+7), .nav li.active:nth-child(8n+7){
+	border-bottom: #669AE1 3px solid;
+}
+.nav li:hover:nth-child(8n+8), .nav li.active:nth-child(8n+8){
+	border-bottom: #62C2E4 3px solid;
+}
+
+/*************************************************************
+*registration form styles
+*
+***********************************************************/
+
+.container {
+	margin-top:25px;
+}
+.panel-login {
+	border-color: #ccc;
+	-webkit-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	-moz-box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.2);
+}
+.panel-login>.panel-heading {
+	color: #00415d;
+	background-color: #fff;
+	border-color: #fff;
+	text-align:center;
+}
+.panel-login>.panel-heading a{
+	text-decoration: none;
+	color: #666;
+	font-weight: bold;
+	font-size: 15px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a.active{
+	color: #029f5b;
+	font-size: 18px;
+}
+.panel-login>.panel-heading hr{
+	margin-top: 10px;
+	margin-bottom: 0px;
+	clear: both;
+	border: 0;
+	height: 1px;
+	background-image: -webkit-linear-gradient(left,rgba(0, 0, 0, 0),rgba(0, 0, 0, 0.15),rgba(0, 0, 0, 0));
+	background-image: -moz-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -ms-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+	background-image: -o-linear-gradient(left,rgba(0,0,0,0),rgba(0,0,0,0.15),rgba(0,0,0,0));
+}
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+	height: 45px;
+	border: 1px solid #ddd;
+	font-size: 16px;
+	-webkit-transition: all 0.1s linear;
+	-moz-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+	outline:none;
+	-webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+	border-color: #ccc;
+}
+.btn-login {
+	background-color: #59B2E0;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #59B2E6;
+}
+.btn-login:hover,
+.btn-login:focus {
+	color: #fff;
+	background-color: #53A3CD;
+	border-color: #53A3CD;
+}
+.forgot-password {
+	text-decoration: underline;
+	color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+	text-decoration: underline;
+	color: #666;
+}
+
+.btn-register {
+	background-color: #1CB94E;
+	outline: none;
+	color: #fff;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #1CB94A;
+}
+.btn-register:hover,
+.btn-register:focus {
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
+}
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+	color: black;
+}
+.navbar-inverse .navbar-nav>li>a {
+	color: black;
+}
+/******************************************
+*Side-bar Styles
+/*****************************************
+
+/******************************************
+ Toggle Styles
+ ***************************************/
+.btn #menu-toggle{
+	background-color:orangered;
+}
+
+
+#wrapper {
+	padding-left: 0;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+	padding-left: 250px;
+}
+
+#sidebar-wrapper {
+	z-index: 1000;
+	position: fixed;
+	left: 250px;
+	width: 0;
+	height: 100%;
+	margin-left: -250px;
+	overflow-y: auto;
+	top:0px;
+	background-color:lightpink;
+	opacity: 0.8;	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+	width: 250px;
+}
+
+#page-content-wrapper {
+	width: 100%;
+	position: absolute;
+	padding: 15px;
+}
+
+#wrapper.toggled #page-content-wrapper {
+	position: absolute;
+	margin-right: -250px;
+}
+
+/****************************************
+* Sidebar Styles
+*
+***************************************/
+
+.sidebar-nav {
+	position: absolute;
+	top: 0;
+	width: 400px;
+	margin: 0;
+	padding: 25px;
+	padding-top:35px;
+	list-style: none;
+	z-index:2;
+
+}
+
+.sidebar-nav li {
+	text-indent: 20px;
+	line-height: 40px;
+	color:black;
+}
+
+.sidebar-nav li a {
+	display: block;
+	text-decoration: none;
+	color: black;
+	font-size:1.25em;
+	padding:10px;
+
+}
+
+.sidebar-nav li a:hover {
+	text-decoration: none;
+	color: #fff;
+	background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+	text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+	height: 65px;
+	font-size: 18px;
+	line-height: 60px;
+}
+
+.sidebar-nav > .sidebar-brand a {
+	color: black;
+}
+
+.sidebar-nav > .sidebar-brand a:hover {
+	color: #fff;
+	background: none;
+}
+
+@media(min-width:768px) {
+	#wrapper {
+		padding-left: 250px;
+	}
+
+	#wrapper.toggled {
+		padding-left: 0;
+	}
+
+	#sidebar-wrapper {
+		width: 250px;
+	}
+
+	#wrapper.toggled #sidebar-wrapper {
+		width: 0;
+	}
+
+	#page-content-wrapper {
+		padding: 20px;
+		position: relative;
+	}
+
+	#wrapper.toggled #page-content-wrapper {
+		position: relative;
+		margin-right: 0;
+	}
+}
+
+/****************************************
+*Landing Page Styles
+********************************************/
+/*!
+ * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
+ * Code licensed under the Apache License v2.0.
+ * For details, see http://www.apache.org/licenses/LICENSE-2.0.
+ */
+
+body,
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight: 700;
+}
+
+.topnav {
+	font-size: 14px;
+}
+
+.lead {
+	font-size: 18px;
+	font-weight: 400;
+}
+
+.intro-header {
+	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
+	padding-bottom: 50px;
+	text-align: center;
+	color: #f8f8f8;
+	background: url(../img/intro-bg.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+.intro-message {
+	position: relative;
+	padding-top: 20%;
+	padding-bottom: 20%;
+}
+
+.intro-message > h1 {
+	margin: 0;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+	font-size: 5em;
+}
+
+.intro-divider {
+	width: 400px;
+	border-top: 1px solid #f8f8f8;
+	border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+
+.intro-message > h3 {
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+}
+
+@media(max-width:767px) {
+	.intro-message {
+		padding-bottom: 15%;
+	}
+
+	.intro-message > h1 {
+		font-size: 3em;
+	}
+
+	ul.intro-social-buttons > li {
+		display: block;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	ul.intro-social-buttons > li:last-child {
+		margin-bottom: 0;
+	}
+
+	.intro-divider {
+		width: 100%;
+	}
+}
+
+.network-name {
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 2px;
+}
+
+.content-section-a {
+	padding: 50px 0;
+	background-color: #f8f8f8;
+}
+
+.content-section-b {
+	padding: 50px 0;
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.section-heading {
+	margin-bottom: 30px;
+}
+
+.section-heading-spacer {
+	float: left;
+	width: 200px;
+	border-top: 3px solid #e7e7e7;
+}
+
+.banner {
+	padding: 100px 0;
+	color: #f8f8f8;
+	background: url(../img/banner-bg.jpg) no-repeat center center;
+	background-size: cover;
+}
+
+.banner h2 {
+	margin: 0;
+	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+	font-size: 3em;
+}
+
+.banner ul {
+	margin-bottom: 0;
+}
+
+.banner-social-buttons {
+	float: right;
+	margin-top: 0;
+}
+
+@media(max-width:1199px) {
+	ul.banner-social-buttons {
+		float: left;
+		margin-top: 15px;
+	}
+}
+
+@media(max-width:767px) {
+	.banner h2 {
+		margin: 0;
+		text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
+		font-size: 3em;
+	}
+
+	ul.banner-social-buttons > li {
+		display: block;
+		margin-bottom: 20px;
+		padding: 0;
+	}
+
+	ul.banner-social-buttons > li:last-child {
+		margin-bottom: 0;
+	}
+}
+
+footer {
+	padding: 50px 0;
+	background-color: #f8f8f8;
+}
+
+p.copyright {
+	margin: 15px 0 0;
+}
+
+
+/******************************************
+* Bootstrap Overrides
+*
+* These styles override the Bootstrap
+* defaults
+********************************************/
+
+/*This media query targets all screens larger than 768px*/
+@media only screen and (max-width: 768px) {
+
+	/*this rule fixes the jumbortron padding on XS screens only*/
+	.jumbotron {
+		padding: 20px;
+	}
+}
+
+/*this rule fixes the icon color in the mobile toggle button*/
+.navbar-header button span.glyphicon {
+	color: #ffffff;
+}
+
+/***
+* Flexbox Sticky Footer
+* http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
+***/
+
+/*corrects IE min-height bug*/
+html { display: flex;}
+body { width: 100%;}
+
+.sfooter {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+.sfooter-content {
+	flex: 1 0 auto;
+}

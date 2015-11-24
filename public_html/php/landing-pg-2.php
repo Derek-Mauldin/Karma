@@ -22,7 +22,6 @@
 		<!--font awesome-->
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
-
 		<!--Link to custom CSS files here-->
 		<link type="text/css" href="../lib/css/landing-pg-2.css" rel="stylesheet">
 
