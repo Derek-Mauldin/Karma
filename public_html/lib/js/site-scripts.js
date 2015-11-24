@@ -8,7 +8,7 @@
  *
  ******************************************************************************************************/
 
-$(function () {
+/*$(function () {
 	$('.navbar-toggle').click(function () {
 		$('.navbar-nav').toggleClass('slide-in');
 		$('.side-body').toggleClass('body-slide-in');
@@ -35,7 +35,7 @@ $(function () {
   * Offer form validation
   *
  ************************************************************************************************/
-$("#contactForm").validator().on("submit", function (event) {
+/*$("#contactForm").validator().on("submit", function (event) {
 	if (event.preventDefault()) {
 		// handle the invalid form...
 		formError();
@@ -52,7 +52,7 @@ $("#contactForm").validator().on("submit", function (event) {
  *
  ******************************************************************************/
 
-function submitForm(){
+/*function submitForm(){
 	// Initiate Variables With Form Content
 	var message = $("#message").val();
 
@@ -76,7 +76,7 @@ function submitForm(){
  * form submission success message
  *
  ******************************************************************************************************************/
-function formSuccess(){
+/*function formSuccess(){
 	$("#contactForm")[0].reset();
 	submitMSG(true, "Message Submitted!")
 }
@@ -86,7 +86,7 @@ function formSuccess(){
  * error message
  *
  ***************************************************************************************************************/
-function formError(){
+/*function formError(){
 	$("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 		$(this).removeClass();
 	});
@@ -98,7 +98,7 @@ function formError(){
  *
  * ****************************************************************************************************/
 
-function submitMSG(valid, msg){
+/*function submitMSG(valid, msg){
 	if(valid){
 		var msgClasses = "h3 text-center tada animated text-success";
 	} else {
@@ -107,17 +107,6 @@ function submitMSG(valid, msg){
 	$("#msgSubmit").removeClass().addClass(msgClasses).text(msg);
 }
 
-/********************************************************************************************************
- * Panel Request
- *
- * Hide each panel request by clicking the x button
- *
- ********************************************************************************************************/
-$(document).ready(function(){
-	$("input-group-btn").click(function(){
-		$(this).hide();
-	});
-});
 
 /****************************************************************************************************
 *
@@ -127,15 +116,18 @@ $(document).ready(function(){
 *
  *******************************************************************************************************/
 function HideAllShowOne(d) {
+	console.log(d);
 
 	var menuItem = ["home-page", "profile-page", "message-page", "feed-page"];
 
 	for(i = 0; i < menuItem.length; i++) {
+		console.log("hi there derek");
 		document.getElementById(menuItem[i]).style.display = "none";
 	}
-
+   console.log("helo there i got here")
 	if(d === 'hp') {
 		document.getElementById(menuItem[0]).style.display = "inline block";
+		console.log("inside hp after display set")
 	} else if(d === 'pp') {
 		document.getElementById(menuItem[1]).style.display = "inline block";
 	} else if(d === 'mp') {
@@ -149,7 +141,7 @@ function HideAllShowOne(d) {
 /************************************************************************************************************
 * login form
  ************************************************************************************************************/
-$(function() {
+/*$(function() {
 
 	$('#login-form-link').click(function(e) {
 		$("#login-form").delay(100).fadeIn(100);
