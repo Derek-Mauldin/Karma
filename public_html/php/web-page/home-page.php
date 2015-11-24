@@ -19,7 +19,6 @@
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 		<!--Link to custom CSS files here-->
-
 		<link type="text/css" href="../../lib/css/styles.css" rel="stylesheet">
 
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
@@ -77,40 +76,31 @@
 					<div id="sidebar-wrapper">
 						<ul class="sidebar-nav">
 							<li class="sidebar-brand">
-								<a href="#"><img id="logo" src="../../img/orange-robot-logo-sm.png"/>
+								<a href="#"><img id="logo" src="../img/orange-robot-logo-sm.png"/>
 								</a>
 							</li>
 							<!-- Search body -->
 
 
 							<li>
-								<div id="hp" onclick="HideAllShowOne('hp')">
-									<a href="javascript:ReverseDisplay('home-page')">
-										Home
-									</a>
-								</div>
+								<a href="javascript:ReverseDisplay('home-page')">
+									Home
+								</a>
 							</li>
 							<li>
-								<div id="pp" onclick="HideAllShowOne('pp')">
-									<a href="javascript:ReverseDisplay('profile-page')">
-										Profile
-									</a>
-								</div>
+								<a href="javascript:ReverseDisplay('profile-page')">
+									Profile
+								</a>
 							</li>
 							<li>
-								<div id="mp" onclick="HideAllShowOne('mp')">
-									<a href="javascript:ReverseDisplay('message-page')">
-										Messages
-									</a>
-								</div>
+								<a href="javascript:ReverseDisplay('message-page')">
+									Messages
+								</a>
 							</li>
 							<li>
-								<div id="fp" onclick="HideAllShowOne('fp')">
-									<a href="javascript:ReverseDisplay('feed-page')">
-										Member Feed
-									</a>
-								</div>
-							</li>
+								<a href="javascript:ReverseDisplay('feed-page')">
+									Member Feed
+								</a></li>
 							<li class="sidebar-brand">
 								<a id="brand" href="#">Kismet</a>
 							</li>
@@ -149,7 +139,7 @@
 
 										<div class="feed-wrapper">
 
-											<div class="panel-wrapper" id="soccer" onclick="closeNeed(this)">
+											<div class="panel-wrapper">
 												<div class="panel-heading">
 													<i class="fa fa-times"></i><span class="request">REQUEST</span>&nbsp;Soccer Coach
 												</div>
@@ -384,7 +374,7 @@
 				</ul>
 			</div>
 		</footer>
-		<script src="../../lib/js/home-pg-side-toggle-testing.js"></script>
+
 
 
 	</body>
