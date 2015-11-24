@@ -19,13 +19,8 @@
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 		<!--Link to custom CSS files here-->
-		<!--<link type="text/css" href="../lib/css/navbar.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/simple-sidebar.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/footer.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/search.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/main.css" rel="stylesheet">-->
-		<link type="text/css" href="../lib/css/styles.css" rel="stylesheet">
 
+		<link type="text/css" href="../lib/css/styles.css" rel="stylesheet">
 
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -90,7 +85,7 @@
 
 							<li>
 								<div id="hp" onclick="HideAllShowOne('hp')">
-									<a id="hp" href="javascript:ReverseDisplay('home-page')">
+									<a href="javascript:ReverseDisplay('home-page')">
 										Home
 									</a>
 								</div>
@@ -154,7 +149,7 @@
 
 										<div class="feed-wrapper">
 
-											<div class="panel-wrapper">
+											<div class="panel-wrapper" id="soccer" onclick="closeNeed(this)">
 												<div class="panel-heading">
 													<i class="fa fa-times"></i><span class="request">REQUEST</span>&nbsp;Soccer Coach
 												</div>
@@ -389,7 +384,7 @@
 				</ul>
 			</div>
 		</footer>
-		<script src="./../lib/js/site-scripts.js"></script>
+		<script src="../lib/js/home-pg-side-toggle-testing.js"></script>
 
 
 	</body>

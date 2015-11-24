@@ -4,15 +4,8 @@
 * @author jhung@cnm.edu
 *
 *******************************************/
-/*******************************************
-* Layout Styles
-*
-* These styles control the layout
-********************************************/
-/********************************************
-* Sticky footer styles
-*
-*********************************************/
+
+
 /*********************************************
 *Body Styles
 *
@@ -21,21 +14,21 @@ p {
 	color:black;
 }
 
-html {
-	position: relative;
-	min-height: 100%;
-}
 
 body {
 	/*Margin bottom by footer height */
 	margin-bottom: 60px;
 }
 
-
 figure {
 	padding:5px;
 	border:5px;
 	margin:5px;
+}
+
+html {
+	position: relative;
+	min-height: 100%;
 }
 
 ul li {
@@ -50,7 +43,6 @@ ul li {
 image styles
 *************************************/
 
-
 img:hover {
 	transform: scale(1.1);
 	-ms-transform: scale(1.1);
@@ -58,6 +50,7 @@ img:hover {
 	-moz-transform: scale(1.1);
 	-o-transform: scale(1.1);
 }
+
 img {
 	transition: transform 0.2s;
 	-webkit-transition: -webkit-transform 0.2s;
@@ -205,9 +198,7 @@ figcaption {
 *Search bar
 *
 *********************************************************/
-.glyphicon-search{
-	background-color:orange;
-}
+
 
 .search-form .form-group {
 	float: right !important;
@@ -426,20 +417,7 @@ figcaption {
  Toggle Styles
  ***************************************/
 .btn #menu-toggle{
-	background-color:orangered;
-}
-
-
-#wrapper {
-	padding-left: 0;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-	padding-left: 250px;
+	background-color: #fffdca;
 }
 
 #sidebar-wrapper {
@@ -451,8 +429,20 @@ figcaption {
 	margin-left: -250px;
 	overflow-y: auto;
 	top:0px;
-	background-color:lightpink;
+	background-color: white;
 	opacity: 0.8;	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
+}
+
+#wrapper.toggled {
+	padding-left: 250px;
+}
+
+#wrapper {
+	padding-left: 0;
+	-webkit-transition: all 0.5s ease;
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
@@ -506,14 +496,24 @@ figcaption {
 }
 
 .sidebar-nav li a:hover {
-	text-decoration: none;
-	color: #fff;
-	background: rgba(255,255,255,0.2);
+	color: #4f9fff;
+	background: lightgray;
+	text-decoration:underline;
+	outline: none;
+	font-size: 14px;
+	height: auto;
+	font-weight: normal;
+	padding: 14px 0;
+	text-transform: uppercase;
+	border-color: #1CB94A;
 }
 
 .sidebar-nav li a:active,
 .sidebar-nav li a:focus {
 	text-decoration: none;
+	color: #fff;
+	background-color: #1CA347;
+	border-color: #1CA347;
 }
 
 .sidebar-nav > .sidebar-brand {
@@ -559,217 +559,3 @@ figcaption {
 	}
 }
 
-/****************************************
-*Landing Page Styles
-********************************************/
-/*!
- * Start Bootstrap - Landing Page Bootstrap Theme (http://startbootstrap.com)
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-
-body,
-html {
-	width: 100%;
-	height: 100%;
-}
-
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-weight: 700;
-}
-
-.topnav {
-	font-size: 14px;
-}
-
-.lead {
-	font-size: 18px;
-	font-weight: 400;
-}
-
-.intro-header {
-	padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
-	padding-bottom: 50px;
-	text-align: center;
-	color: #f8f8f8;
-	background: url(../img/intro-bg.jpg) no-repeat center center;
-	background-size: cover;
-}
-
-.intro-message {
-	position: relative;
-	padding-top: 20%;
-	padding-bottom: 20%;
-}
-
-.intro-message > h1 {
-	margin: 0;
-	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-	font-size: 5em;
-}
-
-.intro-divider {
-	width: 400px;
-	border-top: 1px solid #f8f8f8;
-	border-bottom: 1px solid rgba(0,0,0,0.2);
-}
-
-.intro-message > h3 {
-	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-}
-
-@media(max-width:767px) {
-	.intro-message {
-		padding-bottom: 15%;
-	}
-
-	.intro-message > h1 {
-		font-size: 3em;
-	}
-
-	ul.intro-social-buttons > li {
-		display: block;
-		margin-bottom: 20px;
-		padding: 0;
-	}
-
-	ul.intro-social-buttons > li:last-child {
-		margin-bottom: 0;
-	}
-
-	.intro-divider {
-		width: 100%;
-	}
-}
-
-.network-name {
-	text-transform: uppercase;
-	font-size: 14px;
-	font-weight: 400;
-	letter-spacing: 2px;
-}
-
-.content-section-a {
-	padding: 50px 0;
-	background-color: #f8f8f8;
-}
-
-.content-section-b {
-	padding: 50px 0;
-	border-top: 1px solid #e7e7e7;
-	border-bottom: 1px solid #e7e7e7;
-}
-
-.section-heading {
-	margin-bottom: 30px;
-}
-
-.section-heading-spacer {
-	float: left;
-	width: 200px;
-	border-top: 3px solid #e7e7e7;
-}
-
-.banner {
-	padding: 100px 0;
-	color: #f8f8f8;
-	background: url(../img/banner-bg.jpg) no-repeat center center;
-	background-size: cover;
-}
-
-.banner h2 {
-	margin: 0;
-	text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-	font-size: 3em;
-}
-
-.banner ul {
-	margin-bottom: 0;
-}
-
-.banner-social-buttons {
-	float: right;
-	margin-top: 0;
-}
-
-@media(max-width:1199px) {
-	ul.banner-social-buttons {
-		float: left;
-		margin-top: 15px;
-	}
-}
-
-@media(max-width:767px) {
-	.banner h2 {
-		margin: 0;
-		text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-		font-size: 3em;
-	}
-
-	ul.banner-social-buttons > li {
-		display: block;
-		margin-bottom: 20px;
-		padding: 0;
-	}
-
-	ul.banner-social-buttons > li:last-child {
-		margin-bottom: 0;
-	}
-}
-
-footer {
-	padding: 50px 0;
-	background-color: #f8f8f8;
-}
-
-p.copyright {
-	margin: 15px 0 0;
-}
-
-
-/******************************************
-* Bootstrap Overrides
-*
-* These styles override the Bootstrap
-* defaults
-********************************************/
-
-/*This media query targets all screens larger than 768px*/
-@media only screen and (max-width: 768px) {
-
-	/*this rule fixes the jumbortron padding on XS screens only*/
-	.jumbotron {
-		padding: 20px;
-	}
-}
-
-/*this rule fixes the icon color in the mobile toggle button*/
-.navbar-header button span.glyphicon {
-	color: #ffffff;
-}
-
-/***
-* Flexbox Sticky Footer
-* http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-***/
-
-/*corrects IE min-height bug*/
-html { display: flex;}
-body { width: 100%;}
-
-.sfooter {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-.sfooter-content {
-	flex: 1 0 auto;
-}
