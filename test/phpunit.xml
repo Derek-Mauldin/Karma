@@ -1,7 +1,8 @@
 <phpunit>
 	<testsuites>
 		<testsuite name="Karma Test">
-			<directory suffix="-test.php">.</directory>
+			<file>need-test0.php</file>
+			<!--<directory suffix="-test.php">.</directory>-->
 		</testsuite>
 	</testsuites>
 	<filter>
