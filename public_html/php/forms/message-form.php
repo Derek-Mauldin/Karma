@@ -24,7 +24,7 @@
 
 	<body>
 		<div class="container">
-			<h2>Offer</h2>
+			<h2>Message</h2>
 			<h3>--From:  Profile Handle--</h3>
 			<h3>***To:  Profile Handle***</h3>
 			<form role="form">
