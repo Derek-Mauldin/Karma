@@ -22,5 +22,6 @@
 				</div>
 			</div>
 		<script src="../../lib/js/site-scripts.js"></script>
-
+	</head>
 </body>
+</html>
