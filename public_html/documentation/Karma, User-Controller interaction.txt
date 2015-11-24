@@ -1,0 +1,47 @@
+
+  User Controller Interaction
+
+
+  LANDING PAGE
+ -Register form, click on the register button and it take you to register form,
+ -log in form, click on the log in button and it takes you to the home page, enter peronal information and submit,  
+ -Recovery form, click on the the recovery button and it take you the user name and password recovery form,
+ -Contact Form, click on the contact button and it take you the contact form,
+ -Click on the about us and it take you to the about us page. 
+ 
+
+  SIDE-BAR AND FOOTER PAGE
+   
+ -Click the home button and it will take you to the home page,
+ -Click the profile botton and it wll take you to the profile page,
+ -Click the messages button and it will take you to the mesages page,
+ -click the member feed button and it will take you to the member feed page
+ -Click the About us button and it take you to the about us page, 
+ -Click the FAQ button and it take you to the FAQ page,
+ -Click the contact us button and it take you to the contact us form,
+ -Click the Term and Privacy button and it will take you to term and privacy page,
+ -Click the support button and it take s you to the support form,
+ 
+
+ 
+ HOME PAGE
+ -NO clickable links on the home page(dash board Information)
+
+ PROFILE PAGE
+ -Click on add need and it will take you to the need form
+ -same page will be opened for editting,
+ -Edit button: On thesame page field open for editing and submit button come up,
+ -Submit button submits to the data-base
+
+ MESSAGES PAGE
+ -Click on send Message and it will access the message app that is being used,
+ 
+ MEMBER FEED
+ -Click on send Message and it will access the message app that is being used,
+ -Search bar will take you to any need searched.
+
+ 
+
+
+
+ 
