@@ -69,7 +69,7 @@
 
 				</ul>
 				<ul class="nav navbar-nav navbar-right shifted">
-					<li class=""><a href="../../php/forms/register2.php">Register</a></li>
+					<li class="#"><a href="../../php/forms/register2.php">Register</a></li>
 					<li class="active"><a href="#">Log In</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
@@ -88,9 +88,10 @@
 			<div class="container" id="register">
 				<div class="row">
 					<div class="col-md-8">
-						<?php require_once "../php/register2.php" ?>
+						<?php require_once "../../php/forms/register2.php" ?>
 					</div>
 				</div>
 			</div>
+		<script src="../../lib/js/site-scripts.js"></script>
 
 </body>

@@ -363,7 +363,7 @@
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					  aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
-						<?php include_once "../lib/html/form.html" ?>
+						<?php include_once "../../lib/html/form.html" ?>
 					</div>
 				</div>
 			</div>
