@@ -10,11 +10,9 @@
 *
 **********************************************/
 body {
-	padding-top: 50px;
 	font-family: "Roboto Slab", sans-serif;
 	font-weight: 300;
 	font-size: 2em;
-	position: relative;
 }
 
 h1,h2,h3,h4,h5,h6 {
