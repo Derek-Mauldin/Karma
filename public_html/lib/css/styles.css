@@ -10,12 +10,23 @@
 *Body Styles
 *
 **********************************************/
-p {
-	color:black;
+/*body {
+	padding-top: 50px;
+	font-family: "Roboto Slab", sans-serif;
+	font-weight: 300;
+	font-size: 2em;
+	position: relative;
 }
 
-
-body {
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 100;
+	margin: 0;
+}
+****/
+.navbar {
+	border-radius:0;
+	border:0;
 	/*Margin bottom by footer height */
 	margin-bottom: 60px;
 }

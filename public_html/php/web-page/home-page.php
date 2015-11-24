@@ -20,7 +20,7 @@
 
 		<!--Link to custom CSS files here-->
 
-		<link type="text/css" href="../lib/css/styles.css" rel="stylesheet">
+		<link type="text/css" href="../../lib/css/styles.css" rel="stylesheet">
 
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -77,7 +77,7 @@
 					<div id="sidebar-wrapper">
 						<ul class="sidebar-nav">
 							<li class="sidebar-brand">
-								<a href="#"><img id="logo" src="../img/orange-robot-logo-sm.png"/>
+								<a href="#"><img id="logo" src="../../img/orange-robot-logo-sm.png"/>
 								</a>
 							</li>
 							<!-- Search body -->
@@ -384,7 +384,7 @@
 				</ul>
 			</div>
 		</footer>
-		<script src="../lib/js/home-pg-side-toggle-testing.js"></script>
+		<script src="../../lib/js/home-pg-side-toggle-testing.js"></script>
 
 
 	</body>

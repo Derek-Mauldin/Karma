@@ -25,7 +25,7 @@
 
 		<!--Link to custom CSS files here-->
 		<link type="text/css" href="../lib/css/navbar.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/landing.css" rel="stylesheet">
+		<link type="text/css" href="../../lib/css/landing.css" rel="stylesheet">
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
 		<!--[if lt IE 9]>
@@ -86,7 +86,7 @@
 							<a href="#about">About</a>
 						</li>
 
-						<li><a href="register.php">Sign in</a></li>
+						<li><a href="../forms/register.php">Sign in</a></li>
 					</ul>
 				<!-- /.navbar-collapse -->
 			</div>
@@ -141,7 +141,7 @@
 						<h2 class="section-heading" id="About">Description</h2>
 					</div>
 					<div class="col-lg-5 col-lg-offset-2 col-sm-6">
-						<img class="img-responsive" src="../img/robot-logo.png" alt="">
+						<img class="img-responsive" src="../../img/robot-logo.png" alt="">
 					</div>
 				</div>
 

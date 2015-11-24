@@ -65,7 +65,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><img src="../img/orange-robot-logo-sm.png">Kismet</a>
+				<a class="navbar-brand" href="#"><img src="../../img/orange-robot-logo-sm.png">Kismet</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
@@ -148,7 +148,7 @@
 											<div class="row">
 												<div class="col-lg-12">
 													<div class="text-center">
-														<a href="../php/recover.php" tabindex="5" class="forgot-password">Forgot Password?</a>
+														<a href="recover.php" tabindex="5" class="forgot-password">Forgot Password?</a>
 													</div>
 												</div>
 											</div>
