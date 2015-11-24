@@ -87,24 +87,33 @@
 
 
 							<li>
-								<a href="javascript:ReverseDisplay('home-page')">
-									Home
-								</a>
+								<div id="hp" onclick="HideAllShowOne('hp')">
+									 <a href="javascript:ReverseDisplay('home-page')">
+										Home
+									 </a>
+								</div>
 							</li>
 							<li>
-								<a href="javascript:ReverseDisplay('profile-page')">
-									Profile
-								</a>
+								<div id="pp" onclick="HideAllShowOne('pp')">
+									<a href="javascript:ReverseDisplay('profile-page')">
+										Profile
+									</a>
+								</div>
 							</li>
 							<li>
-								<a href="javascript:ReverseDisplay('message-page')">
-									Messages
-								</a>
+								<div id="mp" onclick="HideAllShowOne('mp')">
+									<a href="javascript:ReverseDisplay('message-page')">
+										Messages
+									</a>
+								</div>
 							</li>
 							<li>
-								<a href="javascript:ReverseDisplay('feed-page')">
-									Member Feed
-								</a></li>
+								<div id="fp" onclick="HideAllShowOne('fp')">
+									<a href="javascript:ReverseDisplay('feed-page')">
+										Member Feed
+									</a>
+								</div>
+							</li>
 							<li class="sidebar-brand">
 								<a id="brand" href="#">Kismet</a>
 							</li>
@@ -143,7 +152,7 @@
 
 										<div class="feed-wrapper">
 
-											<div class="panel-wrapper">
+											<div class="panel-wrapper" id="soccer" onclick="closeNeed(this)">
 												<div class="panel-heading">
 													<i class="fa fa-times"></i><span class="request">REQUEST</span>&nbsp;Soccer Coach
 												</div>
@@ -381,7 +390,7 @@
 		<script src="./../lib/js/side-menu-toggle.js"></script>
 		<script src="../lib/js/form-scripts.js"></script>
 		<script src="../lib/js/panel.js"></script>
-		<script src="../lib/js/side-toggle.js"></script>
+		<script src="../lib/js/home-pg-side-toggle-testing.js"></script>
 
 
 	</body>
