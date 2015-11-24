@@ -118,21 +118,11 @@
 				<div class="col-lg-3"></div>
 			</div>
 		</div>
-		<!-- Core Javascript -->
+
 		<script src="http://cdn.phpoll.com/js/main.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 		<script>
-			window.onload = function(){
-				if (typeof pieChartData !== 'undefined') {
-					var ctx = document.getElementById("chart-area").getContext("2d");
-					window.myPie = new Chart(ctx).Pie(pieChartData,{
-						animationEasing: "easeOutQuart",
-						responsive: true,
-						tooltipTemplate: "\"<%= label %>\" (<%= value %>%)"
-					});
-				}
-				$('.validate-input').inputValidator();
-			};
+
 			(function($) {
 				$(document).ready(function() {
 
@@ -157,6 +147,5 @@
 
 				});
 			})(jQuery);
+
 		</script>
-	</body>
-</html>
