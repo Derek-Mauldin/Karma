@@ -5,7 +5,6 @@
 *
 *******************************************/
 
-
 /*********************************************
 *Body Styles
 *
@@ -49,7 +48,6 @@ ul li {
 	color:black;
 }
 
-
 /************************************
 image styles
 *************************************/
@@ -91,7 +89,9 @@ margin-bottom: 0;
 left:50px;
 z-index:1;
 }
-
+footer .nav ul li{
+	font-size:1.25em;
+}
 
 /**************************************
 *logo
@@ -129,11 +129,7 @@ z-index:1;
 .email {
 	margin-bottom: 5px;
 }
-/******************************************
-*
-*Side-bar Content
-*
-**********************************************/
+
 
 /*********************************************
 *Main Content
@@ -206,10 +202,10 @@ figcaption {
 * These are intended to be re-used
 * for styling purposes
 *********************************************************
-/***
+/********************************************************
 * Flexbox Sticky Footer
 * http://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/
-***/
+********************************************************/
 
 /*corrects IE min-height bug*/
 html { display: flex;}
@@ -288,8 +284,7 @@ body { width: 100%;}
 *registration form styles
 *
 ***********************************************************/
-
-.container {
+.container #registration {
 	margin-top:25px;
 }
 .panel-login {

@@ -55,8 +55,8 @@
 					</label>
 					<input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login">
 				</form>
-				<a href="register.php" class="btn btn-sm btn-primary register">Register</a>
-				<a href="recover.php" class="btn btn-sm btn-default forgot">Forgot your password?</a>
+				<a href="register-form.php" class="btn btn-sm btn-primary register">Register</a>
+				<a href="recover-form.php" class="btn btn-sm btn-default forgot">Forgot your password?</a>
 			</div>
 		</div>
 
