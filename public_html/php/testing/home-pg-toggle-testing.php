@@ -151,10 +151,10 @@
 
 
 										<div class="feed-wrapper">
-
-											<div class="panel-wrapper" id="soccer" onclick="closeNeed(this)">
+										<div id="soccer">
+											<div class="panel-wrapper">
 												<div class="panel-heading">
-													<i class="fa fa-times"></i><span class="request">REQUEST</span>&nbsp;Soccer Coach
+													<i class="fa fa-times" onclick="closeNeed()"></i><span class="request">REQUEST</span>&nbsp;Soccer Coach
 												</div>
 											</div>
 
@@ -163,7 +163,7 @@
 													<div class="profile-image">
 														<a href="#">
 															<figure>
-																<img class="profileImage" src="http://placehold.it/250x250"
+																<img class="profileImage" src="http://placehold.it/250x250" />
 																	  alt="thumbnail image">
 																<figcaption>$handle</figcaption>
 															</figure>
@@ -183,7 +183,7 @@
 													</button>
 												</div>
 											</div>
-
+										</div>
 
 											<div class="panel-wrapper">
 												<div class="panel-heading">

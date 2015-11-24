@@ -39,12 +39,12 @@ function HideAllShowOne(d) {
 
 }
 
-function closeNeed(div) {
+function closeNeed() {
 
-	console.log(div);
+	console.log("in closeNeed");
 
 	if (document.getElementById("soccer").style.display === "none") {
-		document.getElementById("soccer").style.display = "inline block";
+		document.getElementById("soccer").style.display = "block";
 	}
 	else {
 		document.getElementById("soccer").style.display = "none";
