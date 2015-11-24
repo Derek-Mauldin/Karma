@@ -65,7 +65,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-									<a href="#" class="active" id="login-form-link">Login</a>
+									<a href="..php/forms/login.php" class="active" id="login-form-link">Login</a>
 								</div>
 								<div class="col-xs-6">
 									<a href="#" id="register-form-link">Register</a>
@@ -98,7 +98,7 @@
 											<div class="row">
 												<div class="col-lg-12">
 													<div class="text-center">
-														<a href="../php/recover.php" tabindex="5" class="forgot-password">Forgot Password?</a>
+														<a href="recover.php" tabindex="5" class="forgot-password">Forgot Password?</a>
 													</div>
 												</div>
 											</div>
@@ -133,7 +133,7 @@
 			</div>
 		</div>
 
-		<script src="../lib/js/register.js"></script>
+		<script src="../../lib/js/site-scripts.js"></script>
 
 
 

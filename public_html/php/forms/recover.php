@@ -54,7 +54,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand brand-shifted" href="#"><img class="brand-icon" src="../img/orange-robot-logo-sm.png" alt="Kismet Logo"></a>
+					<a class="navbar-brand brand-shifted" href="#"><img class="brand-icon" src="../../img/orange-robot-logo-sm.png" alt="Kismet Logo"></a>
 				</div>
 				<!-- Navbar collapse -->
 				<div class="navbar-collapse collapse">

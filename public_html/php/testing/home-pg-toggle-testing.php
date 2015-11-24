@@ -80,7 +80,7 @@
 					<div id="sidebar-wrapper">
 						<ul class="sidebar-nav">
 							<li class="sidebar-brand">
-								<a href="#"><img id="logo" src="../img/orange-robot-logo-sm.png"/>
+								<a href="#"><img id="logo" src="../../img/orange-robot-logo-sm.png"/>
 								</a>
 							</li>
 							<!-- Search body -->
@@ -387,10 +387,8 @@
 				</ul>
 			</div>
 		</footer>
-		<script src="./../lib/js/side-menu-toggle.js"></script>
-		<script src="../lib/js/form-scripts.js"></script>
-		<script src="../lib/js/panel.js"></script>
-		<script src="../lib/js/home-pg-side-toggle-testing.js"></script>
+
+		<script src="../../lib/js/home-pg-side-toggle-testing.js"></script>
 
 
 	</body>
