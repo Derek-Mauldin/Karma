@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -58,21 +59,21 @@
 				<script type="text/javascript" src="countryStateCity.js"></script>
 				<title>Simple Karma Template</title>
 
-		<!--[if lt IE 9]>
-		<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-		<![endif]-->
-		<link rel="stylesheet" href="/css/bootply.css">
-		<!--fb-->
-		<div id="fb-root"></div>
-		<script>(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=482723745132387";
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));</script>
-		<!--end-->
-	</head>
+				<!--[if lt IE 9]>
+				<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+				<![endif]-->
+				<link rel="stylesheet" href="/css/bootply.css">
+				<!--fb-->
+				<div id="fb-root"></div>
+				<script>(function(d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0];
+						if (d.getElementById(id)) return;
+						js = d.createElement(s); js.id = id;
+						js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=482723745132387";
+						fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));</script>
+				<!--end-->
+			</head>
 	<body>
 		<div class="container">
 			<h1>Edit Profile</h1>
@@ -172,7 +173,7 @@
 				</div>
 			</div>
 		</div>
-<!-----Edit Profile------>
+		<!-----Edit Profile------>
 		<div class="container">
 			<h1>Edit Profile</h1>
 			<hr>
@@ -199,18 +200,17 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-lg-3 control-label">Request:</label>
-							<div class="col-lg-8">
-								<input class="form-control" type="text" value="request">
+								<label class="col-lg-3 control-label">Request:</label>
+								<div class="col-lg-8">
+									<input class="form-control" type="text" value="request">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-lg-3 control-label">Date Desired:</label>
-							<div class="col-lg-8">
-								<input class="form-control" type="text" value="">
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Date Desired:</label>
+								<div class="col-lg-8">
+									<input class="form-control" type="text" value="">
+								</div>
 							</div>
-						</div>
-
 							<fieldset style="width: 230px;">
 								<legend><strong>Make your selection</strong></legend>
 								<p>
@@ -243,47 +243,47 @@
 									</table>
 								</form>
 							</fieldset>
-
 							<div class="form-group">
-							<label class="col-lg-3 control-label">Located</label>
-							<div class="col-lg-8">
-								<input class="form-control" type="text" value="myemail@gmail.com">
+								<label class="col-lg-3 control-label">Located</label>
+								<div class="col-lg-8">
+									<input class="form-control" type="text" value="myemail@gmail.com">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-lg-3 control-label">Availability</label>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label">Username:</label>
-							<div class="col-md-8">
-								<input class="form-control" type="text" value="username">
+							<div class="form-group">
+								<label class="col-lg-3 control-label">Availability</label>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label"></label>
-							<div class="col-md-8">
-								<input class="form-control" type="password" value="11111122333">
+							<div class="form-group">
+								<label class="col-md-3 control-label">Username:</label>
+								<div class="col-md-8">
+									<input class="form-control" type="text" value="username">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label"></label>
-							<div class="col-md-8">
-								<input class="form-control" type="password" value="11111122333">
+							<div class="form-group">
+								<label class="col-md-3 control-label"></label>
+								<div class="col-md-8">
+									<input class="form-control" type="password" value="11111122333">
+								</div>
 							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label"></label>
-							<div class="col-md-8">
-								<input type="button" class="btn btn-primary" value="Save Changes">
-								<span></span>
-								<input type="reset" class="btn btn-default" value="Cancel">
+							<div class="form-group">
+								<label class="col-md-3 control-label"></label>
+								<div class="col-md-8">
+									<input class="form-control" type="password" value="11111122333">
+								</div>
 							</div>
-						</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label"></label>
+								<div class="col-md-8">
+									<input type="button" class="btn btn-primary" value="Save Changes">
+									<span></span>
+									<input type="reset" class="btn btn-default" value="Cancel">
+								</div>
+							</div>
 					</form>
 				</div>
 			</div>
 		</div>
 		<script src="../../lib/js/countryStateCity.js"></script>
-		</body>
-	</html>
-
+	</body>
+</html>
+Status API Training Shop Blog About Pricing
+© 2015 GitHub, Inc. Terms Privacy Security Contact Help

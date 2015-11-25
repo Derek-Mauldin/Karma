@@ -48,6 +48,7 @@
 		<title>Simple Karma Template</title>
 
 	</head>
+
 	<!----Sticky Footer-------->
 
 	<body class="sfooter">
@@ -84,43 +85,11 @@
 								<a href="#"><img id="logo" src="../../img/orange-robot-logo-sm.png"/>
 								</a>
 							</li>
+
 							<!-- Search body -->
 
 
-							<li>
-								<div id="hp" onclick="HideAllShowOne('hp')">
-									<a href="javascript:ReverseDisplay('home-page')">
-										Home
-									</a>
-								</div>
-							</li>
-							<li>
-								<div id="pp" onclick="HideAllShowOne('pp')">
-									<a href="javascript:ReverseDisplay('profile-page')">
-										Profile
-									</a>
-								</div>
-							</li>
-							<li>
-								<div id="mp" onclick="HideAllShowOne('mp')">
-									<a href="javascript:ReverseDisplay('message-page')">
-										Messages
-									</a>
-								</div>
-							</li>
-							<li>
-								<div id="fp" onclick="HideAllShowOne('fp')">
-									<a href="javascript:ReverseDisplay('feed-page')">
-										Member Feed
-									</a>
-								</div>
-							</li>
-							<li class="sidebar-brand">
-								<a id="brand" href="#">Kismet</a>
-							</li>
-						</ul>
 
-					</div>
 					<!-- /#sidebar-wrapper -->
 
 					<!-- Page Content -->
