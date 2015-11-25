@@ -41,9 +41,6 @@
 	<!---Sticky Footer--->
 	<body class="sfooter">
 		<div class="sfooter-content">
-			<header>
-
-
 					<!-- side-panel here -->
 					<div class="col-md-4 hidden-xs hidden-sm">
 						<section id="menu" class="side-panel panel panel-default">
@@ -78,7 +75,7 @@
 
 					<!-- /#sidebar-wrapper -->
 
-					<!-- Page Content -->
+				<!-- Page Content -->
 				<div class="container">
 					<div class="row">
 
@@ -272,22 +269,22 @@
 							</div>
 						</div>
 
-						<!--.sfooter-content-->
+		<!--.sfooter-content-->
 
-						<footer class="footer navbar-fixed-bottom">
-							<div class="container">
-								<div class="row">
-									<div class="col-sm-hidden col-md-12"
-									<ul class="nav">
-										<li class="navbar-text"><a href="#">About Us</a></li>
-										<li class="navbar-text"><a href="#">FAQ</a></li>
-										<li class="navbar-text"><a href="#">Contact Us</a></li>
-										<li class="navbar-text"><a href="#">Terms of Use</a></li>
-										<li class="navbar-text"><a href="#">Support</a></li>
-									</ul>
-								</div>
-							</div>
-						</footer>
+		<footer class="footer navbar-fixed-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-hidden col-md-12"
+					<ul class="nav">
+						<li class="navbar-text"><a href="#">About Us</a></li>
+						<li class="navbar-text"><a href="#">FAQ</a></li>
+						<li class="navbar-text"><a href="#">Contact Us</a></li>
+						<li class="navbar-text"><a href="#">Terms of Use</a></li>
+						<li class="navbar-text"><a href="#">Support</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
 
 	</body>
 </html>
