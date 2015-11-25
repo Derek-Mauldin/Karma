@@ -4,7 +4,7 @@
 			<div class="col-sm-6 col-sm-offset-3">
 				<div class="well" >
 					<div class="modal-content">
-						<div class="modal-header"><h1><i class="fa fa-times pull-left"></i>
+						<div class="modal-header">
 
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 							<h3 class="modal-title">Give $user a hand</h3>
