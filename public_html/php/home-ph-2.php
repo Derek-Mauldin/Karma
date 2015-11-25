@@ -46,315 +46,96 @@
 		<title>Karma Template</title>
 	</head>
 
-	<!---Sticky Footer--->
 	<body class="sfooter">
 		<div class="sfooter-content">
-			<!-- side-panel here -->
+
 			<div class="container">
 				<div class="row">
+
+					<!-- side panel -->
 					<div class="col-md-4 hidden-xs hidden-sm">
 						<section id="menu" class="side-panel panel panel-default">
-							<a class="sidebar-brand" href="#"><img id="logo" src="../img/orange-robot-logo-sm.png"/>
-							</a>
+							<a class="sidebar-brand" href="#"><img id="logo" src="../img/orange-robot-logo-sm.png"/></a>
 
 							<!--side panel body links-->
 							<div id="hp" onclick="HideAllShowOne('hp')">
-								<a class="lead" href="javascript:ReverseDisplay('home-page')">
-									Home
-								</a>
-
+								<a class="lead" href="javascript:ReverseDisplay('home-page')">Home</a>
 								<p><br></p>
 							</div>
 
 							<div id="pp" onclick="HideAllShowOne('pp')">
-								<a class="lead" href="javascript:ReverseDisplay('profile-page')">
-									Profile
-								</a>
-
+								<a class="lead" href="javascript:ReverseDisplay('profile-page')">Profile</a>
 								<p><br></p>
 							</div>
 
 							<div id="mp" onclick="HideAllShowOne('mp')">
-								<a class="lead" href="javascript:ReverseDisplay('message-page')">
-									Messages
-								</a>
-
+								<a class="lead" href="javascript:ReverseDisplay('message-page')">Messages</a>
 								<p><br></p>
 							</div>
-
-
 						</section>
-					</div>
+					</div><!-- /#sidebar-wrapper -->
 
-					<!-- /#sidebar-wrapper -->
+					<!-- main page content -->
+					<div class="col-md-8 col-xs-12">
 
-					<!-- Page Content -->
-					<div class="container">
-						<div class="row">
-
-							<!---Profile Page------>
-							<div id="profile-page" style="display:none;">
-								<p>Profile Content<br></p>
-
-								<p>Edit Profile Settings</p>
-
-								<p>Edit Profile Content</p>
-							</div>
-
-
-							<!-- main content area -->
-
-							<div class="col-md-8 col-xs-12">
-
-								<main>
-									<!--Kismet Home Page--->
-									<div id="home-page" style="display:none;">
-										<h2>Kismet-Feed</h2>
-
-										<!-- load feed -->
-										<div class="feed-wrapper">
-
-											<div id="karma-feed" class="karma-feed">
-
-												<div class="listing clearfix panel panel-default">
-
-													<div class="panel-wrapper" id="soccer" onclick="closeNeed(this)">
-
-														<div class="listing clearfix panel panel-default">
-															<div class="panel-heading">
-																<h4 class="listing-title">
-																	<i class="fa fa-times pull-right"></i><span
-																		class="request">REQUEST</span>&nbsp;Soccer Coach
-																</h4>
-															</div>
-															<div class="panel-body">
-																<a href="#">
-																	<figure>
-																		<img src="http://placehold.it/60x60" alt="thumbnail image"
-																			  class="img-thumbnail pull-left">
-																		<figcaption>$handle</figcaption>
-																	</figure>
-																</a>
-
-																<p class="text-justify">One of a group of parents forming a club soccer
-																	team for kids
-																	ages 9-12.We would like a coach.The season begins in May and we would
-																	like to
-																	start practice ASAP. We will provide snacks for the team.
-																</p>
-																<button class="btn btn-primary btn-md pull-right" type="button"
-																		  data-toggle="modal" data-target="#myModal">Make Offer
-																</button>
-															</div>
-
-
-															<div class="listing clearfix panel panel-default">
-																<div class="panel-heading">
-																	<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span
-																			class="request">REQUEST</span>&nbsp;title text here</h4>
-																</div>
-															</div>
-
-															<div class="panel-body">
-																<a href="#">
-																	<figure>
-																		<img src="http://placehold.it/60x60" alt="thumbnail image"
-																			  class="img-thumbnail pull-left">
-																		<figcaption>$handle</figcaption>
-																	</figure>
-																</a>
-
-																<p class="center">description
-																	<button class="btn btn-primary btn-md btn pull-right" type="button"
-																			  data-toggle="modal" data-target="#myModal">Make Offer
-																	</button>
-																</p>
-															</div>
-														</div>
-
-														<div class="listing clearfix panel panel-default">
-															<div class="panel-heading">
-																<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span
-																		class="request">
-																	REQUEST</span>&nbsp;title text here
-																</h4>
-															</div>
-
-															<div class="panel-body">
-																<img src="http://placehold.it/60x60" alt="thumbnail image"
-																	  class="img-thumbnail pull-left">
-
-																<p class="listing-text">
-																	Listing text here.
-																</p>
-																<button class="btn btn-primary btn-md pull-right" type="button"
-																		  data-toggle="modal" data-target="#myModal">Make Offer
-																</button>
-															</div>
-														</div>
-
-														<div class="listing clearfix panel panel-default">
-															<div class="panel-heading">
-																<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span
-																		class="request">REQUEST</span>&nbsp;
-																	Listing title here.
-																</h4>
-															</div>
-															<div class="panel-body">
-																<img src="http://placehold.it/60x60" alt="thumbnail image"
-																	  class="img-thumbnail pull-left">
-
-																<p class="listing-text">
-																	Listing text here.
-																</p>
-															</div>
-														</div>
-
-														<div class="listing clearfix panel panel-default">
-															<div class="panel-heading">
-																<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span
-																		class="request">REQUEST</span>&nbsp;Soccer Coach
-																	Listing title here.
-																</h4>
-															</div>
-															<div class="panel-body">
-																<img src="http://placehold.it/60x60" alt="thumbnail image"
-																	  class="img-thumbnail pull-left">
-
-																<p class="listing-text">
-																	Listing text here.
-																</p>
-															</div>
-														</div>
-
-														<div class="listing clearfix panel panel-default">
-															<div class="panel-heading">
-																<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span
-																		class="request">REQUEST</span>&nbsp;Soccer Coach
-
-																	Listing title here.
-																</h4>
-															</div>
-															<div class="panel-body">
-																<img src="http://placehold.it/60x60" alt="thumbnail image"
-																	  class="img-thumbnail pull-left">
-
-																<p class="listing-text"><i class="fa fa-times pull-right"></i><span
-																		class="request">REQUEST</span>&nbsp;Soccer Coach
-
-																	Listing text here.
-																</p>
-															</div>
-														</div>
-
-														<div class="listing clearfix panel panel-default">
-															<div class="panel-heading">
-																<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span
-																		class="request">REQUEST</span>&nbsp;
-																	Listing title here.
-																</h4>
-															</div>
-															<div class="panel-body">
-																<img src="http://placehold.it/60x60" alt="thumbnail image"
-																	  class="img-thumbnail pull-left">
-
-																<p class="listing-text">
-																	Listing text here.
-																</p>
-															</div>
-														</div>
-
-														<div class="listing clearfix panel panel-default">
-															<div class="panel-heading">
-																<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span
-																		class="request">REQUEST</span>&nbsp;
-																	Listing title here.
-																</h4>
-															</div>
-															<div class="panel-body">
-																<img src="http://placehold.it/60x60" alt="thumbnail image"
-																	  class="img-thumbnail pull-left">
-
-																<p class="listing-text">
-																	Listing text here.
-																</p>
-															</div>
-														</div>
-
-														<div class="listing clearfix panel panel-default">
-															<div class="panel-heading">
-																<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span
-																		class="request">REQUEST</span>&nbsp;
-
-																	Listing title here.
-																</h4>
-															</div>
-															<div class="panel-body">
-																<img src="http://placehold.it/60x60" alt="thumbnail image"
-																	  class="img-thumbnail pull-left">
-
-																<p class="listing-text">
-																	Listing text here.
-																</p>
-															</div>
-														</div>
-													</div><!--#karma-feed-->
-												</div><!--.feed-wrapper-->
-											</div>
-
-								</main>
-							</div>
+						<!---Profile Page------>
+						<div id="profile-page" style="display:none;">
+							<p>Profile Content<br></p>
+							<p>Edit Profile Settings</p>
+							<p>Edit Profile Content</p>
 						</div>
 
-						<!---Modal  -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-							  aria-labelledby="myModalLabel" aria-hidden="true">
-							<div class="modal-dialog" role="document">
+						<!-- Start Feed -->
+						<div id="feed">
+							<h2>Karma Feed</h2>
+							<div class="feed-wrapper">
+								<div id="karma-feed" class="karma-feed">
 
-
-								<div class="row">
-									<div class="col-sm-6 col-sm-offset-3">
-										<div class="well">
-											<div class="modal-content">
-												<div class="modal-header">
-
-													<button type="button" class="close" data-dismiss="modal">&times;</button>
-													<h3 class="modal-title">Give $user a hand</h3>
-
-													<form role="form" id="contactForm" data-toggle="validator" class="shake">
-														<div class="row">
-															<div class="form-group">
-																<textarea id="message" class="form-control" rows="5"
-																			 placeholder="Hi! I can can give you a Skype algebra tutoring session this Friday or Saturday afternoon."
-																			 required></textarea>
-
-																<div class="help-block with-errors"></div>
-															</div>
-															<button type="submit" id="form-submit"
-																	  class="btn btn-success btn-lg pull-left ">
-																Offer
-															</button>
-															<div id="msgSubmit" class="h3 text-center hidden"></div>
-															<div class="modal-footer"><p id="btn" class="pull-right"
-																								  data-dismiss="modal" aria-hidden="true">
-																	Cancel</p>
-															</div>
-															<div class="clearfix"></div>
-														</div>
-													</form>
-												</div>
-											</div>
+									<!-- start listing here -->
+									<div class="listing clearfix panel panel-default">
+										<div class="panel-heading">
+											<h4 class="listing-title">
+												<i class="fa fa-times pull-right"></i><span class="request">REQUEST</span>&nbsp;Soccer Coach
+											</h4>
 										</div>
-									</div>
-								</div>
-							</div>
-						</div>
+										<div class="panel-body">
+											<a href="#"><img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left"></a>
+											<p class="text-justify">One of a group of parents forming a club soccer team for kids ages 9-12.We would like a coach.The season begins in May and we would like to start practice ASAP. We will provide snacks for the team.</p>
+											<button class="btn btn-primary btn-md pull-right" type="button" data-toggle="modal" data-target="#myModal">Make Offer</button>
+										</div>
+									</div><!-- end listing -->
+								</div><!-- #karma-feed -->
+							</div><!-- .feed-wrapper-->
+						</div><!--#feed-->
+					</div><!-- end main page content -->
+				</div><!-- .row -->
+			</div><!-- .container -->
+
+			<!-- Modal --> 
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"> 
+				<div class="modal-dialog" role="document"> 
+					<div class="modal-header">  
+						<button type="button" class="close" data-dismiss="modal">&times;</button> 
+						<h3 class="modal-title">Give $user a hand</h3>  
+					</div> 
+					<div class="modal-content"> 
+						<form role="form" id="contactForm" data-toggle="validator" class="shake"> 
+							<div class="form-group"> 
+								<textarea id="message" class="form-control" rows="5"  placeholder="Hi! I can can give you a Skype algebra tutoring session this Friday or Saturday afternoon."  required></textarea>  
+								<div class="help-block with-errors"></div> 
+							</div> 
+							<button type="submit" id="form-submit"  class="btn btn-success btn-lg pull-left "> Offer </button>
+							 <div id="msgSubmit" class="h3 text-center hidden"></div> 
+						</form> 
+					</div>
+					 <div class="modal-footer">
+						<p id="btn" class="pull-right"  data-dismiss="modal" aria-hidden="true"> Cancel</p> 
+						 <div class="clearfix"></div> 
 					</div>
 				</div>
-			</div>
-		</div>
+			 </div>
 
-		<!--.sfooter-content-->
+		</div><!--.sfooter-contenr-->
 
 		<footer class="footer navbar-fixed-bottom">
 			<div class="container">
