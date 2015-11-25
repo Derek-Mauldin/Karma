@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 	<head>
 
 		<meta charset="utf-8">
@@ -19,11 +19,8 @@
 		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 		<!--Link to custom CSS files here-->
-		<link type="text/css" href="../lib/css/navbar.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/simple-sidebar.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/footer.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/search.css" rel="stylesheet">
-		<link type="text/css" href="../lib/css/main.css" rel="stylesheet">
+
+		<link type="text/css" href="../../lib/css/styles.css" rel="stylesheet">
 
 		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
 		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -47,10 +44,12 @@
 
 		<!-- Latest compiled and minified JavaScript -->
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
-
+		<script src="../../lib/js/home-pg-side-toggle-testing.js"></script>
 		<title>Simple Karma Template</title>
 
 	</head>
+	<!----Sticky Footer-------->
+
 	<body class="sfooter">
 		<div class="sfooter-content">
 			<header>
@@ -59,13 +58,15 @@
 						<div class="col-md-6 col-md-offset-3">
 						</div>
 					</div>
+
+					<!-----------Search Form------------->
 					<div class="row">
 						<div class="col-md-4 col-md-offset-3">
 							<form action="" class="search-form">
 								<div class="form-group has-feedback">
 									<label for="search" class="sr-only"></label>
 									<input type="text" class="form-control" name="search" id="search" placeholder="search">
-									<span class="glyphicon glyphicon-search form-control-feedback"></span>
+									<span class="glyphicon  form-control-feedback"></span>
 								</div>
 							</form>
 						</div>
@@ -80,7 +81,7 @@
 					<div id="sidebar-wrapper">
 						<ul class="sidebar-nav">
 							<li class="sidebar-brand">
-								<a href="#"><img id="logo" src="../img/orange-robot-logo-sm.png"/>
+								<a href="#"><img id="logo" src="../../img/orange-robot-logo-sm.png"/>
 								</a>
 							</li>
 							<!-- Search body -->
@@ -171,24 +172,18 @@
 													</div>
 												</div>
 												<div class="center">One of a group of parents forming a club soccer team for kids
-													ages 9-12.
-													We would like a coach.
-													The season begins in May and we would like to start practice ASAP. We will
-													provide snacks
-													for the team.</p>
+ages 9-12.  We would like a coach.  The season begins in May and we would like to start practice ASAP. We will provide snacks
+for the team.
 												</div>
 												<div class="right">
-													<button class="btn btn-primary btn-md btn" type="button" data-toggle="modal"
-															  data-target="#myModal">Make Offer
+													<button class="btn btn-primary btn-md btn" type="button" data-toggle="modal" data-target="#myModal">Make Offer
 													</button>
 												</div>
 											</div>
 
-
 											<div class="panel-wrapper">
 												<div class="panel-heading">
-													<p><i class="fa fa-times"></i><span class="request">REQUEST</span>&nbsp;title
-														text here</p>
+													<p><i class="fa fa-times"></i><span class="request">REQUEST</span>&nbsp;title text here</p>
 												</div>
 											</div>
 
@@ -197,27 +192,23 @@
 													<div class="profile-image">
 														<a href="#">
 															<figure>
-																<img class="profileImage" src="http://placehold.it/250x250"
-																	  alt="thumbnail image">
+																<img class="profileImage" src="http://placehold.it/250x250" alt="thumbnail image">
 																<figcaption>$handle</figcaption>
 															</figure>
 														</a>
 													</div>
 												</div>
-												<div class="center">description
+
+												<div class="center">description</div>
+													<div class="right">
+														<button class="btn btn-primary btn-md btn" type="button" data-toggle="modal" data-target="#myModal">Make Offer</button>
+													</div>
 												</div>
-												<div class="right">
-													<button class="btn btn-primary btn-md btn" type="button" data-toggle="modal"
-															  data-target="#myModal">Make Offer
-													</button>
-												</div>
-											</div>
 
 
 											<div class="panel-wrapper">
 												<div class="panel-heading">
-													<p><i class="fa fa-times"></i><span class="request">REQUEST</span>&nbsp;title
-														text here</p>
+													<p><i class="fa fa-times"></i><span class="request">REQUEST</span>&nbsp;title text here</p>
 												</div>
 											</div>
 
@@ -226,8 +217,7 @@
 													<div class="profile-image">
 														<a href="#">
 															<figure>
-																<img class="profileImage" src="http://placehold.it/250x250"
-																	  alt="thumbnail image">
+																<img class="profileImage" src="http://placehold.it/250x250" alt="thumbnail image">
 																<figcaption>$handle</figcaption>
 															</figure>
 														</a>
@@ -366,7 +356,7 @@
 				<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 					  aria-labelledby="myModalLabel" aria-hidden="true">
 					<div class="modal-dialog" role="document">
-						<?php include_once "../../lib/php/forms/offer-form.php" ?>
+						<?php include_once "../../php/forms/offer-form.php" ?>
 					</div>
 				</div>
 			</div>
@@ -387,10 +377,8 @@
 				</ul>
 			</div>
 		</footer>
-		<script src="./../lib/js/side-menu-toggle.js"></script>
-		<script src="../lib/js/form-scripts.js"></script>
-		<script src="../lib/js/panel.js"></script>
-		<script src="../lib/js/home-pg-side-toggle-testing.js"></script>
+
+		<script src="../../lib/js/home-pg-side-toggle-testing.js"></script>
 
 
 	</body>
