@@ -82,11 +82,9 @@
 					<div class="row">
 
 
-									<!--Kismet Home Page--->
-									<div id="home-page" style="display:none;">
 
 
-									</div>
+
 									<!---Profile Page------>
 									<div id="profile-page" style="display:none;">
 										<p>Profile Content<br></p>
@@ -98,8 +96,12 @@
 
 
 									<!-- main content area -->
+
 									<div class="col-md-8 col-xs-12">
+
 										<main>
+											<!--Kismet Home Page--->
+											<div id="home-page" style="display:none;">
 											<h2>Kismet-Feed</h2>
 
 											<!-- load feed -->
@@ -255,7 +257,9 @@
 															</div>
 														</div><!--#karma-feed-->
 													</div><!--.feed-wrapper-->
-											</main>
+												</div>
+
+										</main>
 										</div>
 									</div>
 
