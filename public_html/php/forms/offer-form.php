@@ -20,16 +20,16 @@
 									Offer
 								</button>
 							<div id="msgSubmit" class="h3 text-center hidden"></div>
-						<div class="modal-footer"><p id="btn" class="pull-right" data-dismiss="modal" aria-hidden="true">Cancel</p>
-						</div>
+							<div class="modal-footer"><p id="btn" class="pull-right" data-dismiss="modal" aria-hidden="true">Cancel</p>
+								</div>
 							<div class="clearfix"></div>
-						</div>
-					</form>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
 
 
 
