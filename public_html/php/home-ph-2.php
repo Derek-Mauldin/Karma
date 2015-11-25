@@ -117,7 +117,6 @@
 																		<i class="fa fa-times pull-right"></i><span class="request">REQUEST</span>&nbsp;Soccer Coach
 																	</h4>
 																</div>
-																\
 																<div class="panel-body">
 																	<a href="#">
 																		<figure>
@@ -155,7 +154,7 @@
 															<div class="listing clearfix panel panel-default">
 																<div class="panel-heading">
 																	<h4 class="listing-title"><i class="fa fa-times pull-right"></i><span class="request">
-													REQUEST</span>&nbsp;title text here
+																	REQUEST</span>&nbsp;title text here
 																	</h4>
 																</div>
 
@@ -165,7 +164,6 @@
 																		Listing text here.
 																	</p>
 																	<button class="btn btn-primary btn-md pull-right" type="button" data-toggle="modal" data-target="#myModal">Make Offer</button>
-
 																</div>
 															</div>
 
@@ -257,9 +255,9 @@
 															</div>
 														</div><!--#karma-feed-->
 													</div><!--.feed-wrapper-->
-										</main>
+											</main>
+										</div>
 									</div>
-								</div>
 
 								<!---Modal  -->
 								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
