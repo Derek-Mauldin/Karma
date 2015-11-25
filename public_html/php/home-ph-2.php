@@ -124,13 +124,10 @@
 									<textarea id="message" class="form-control" rows="5"  placeholder="Hi! I can can give you a Skype algebra tutoring session this Friday or Saturday afternoon."  required></textarea>  
 									<div class="help-block with-errors"></div> 
 								</div> 
-								<button type="submit" id="form-submit"  class="btn btn-success btn-lg pull-left "> Offer </button>
+								<button type="submit" id="form-submit"  class="btn btn-success btn-lg"> Offer </button>
+								<button type="button" class="btn btn-default btn-lg"  data-dismiss="modal" aria-hidden="true"> Cancel</button>
 								 <div id="msgSubmit" class="h3 text-center hidden"></div> 
 							</form> 
-						</div>
-						 <div class="modal-footer">
-							<button type="button" class="btn btn-default pull-right"  data-dismiss="modal" aria-hidden="true"> Cancel</button> 
-							 <div class="clearfix"></div> 
 						</div>
 					</div>
 				</div>
