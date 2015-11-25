@@ -72,12 +72,6 @@
 								<p><br></p>
 							</div>
 
-							<div id="fp" onclick="HideAllShowOne('fp')">
-								<a class="lead" href="javascript:ReverseDisplay('feed-page')">
-									Member Feed
-								</a>
-								<p><br></p>
-							</div>
 
 						</section>
 					</div>
@@ -85,20 +79,14 @@
 					<!-- /#sidebar-wrapper -->
 
 					<!-- Page Content -->
-					<div id="page-content-wrapper">
-						<div class="container-fluid">
-							<div class="row">
-								<div class="col-lg-12">
+				<div class="container">
+					<div class="row">
 
-									<!--side-bar toggle-->
-									<a href="#menu-toggle" class="btn btn-default"
-										id="menu-toggle">Toggle side-menu</a>
 
 									<!--Kismet Home Page--->
 									<div id="home-page" style="display:none;">
 
-										<p>Home Page Content</p>
-										<p>What's new on Kismet</p>
+
 									</div>
 									<!---Profile Page------>
 									<div id="profile-page" style="display:none;">
@@ -107,12 +95,7 @@
 										<p>Edit Profile Content</p>
 									</div>
 
-									<!--Message Page-->
-									<div id="message-page" style="display:none;">
-										<p>Message Page Content</p>
-										<p>Offers Received Section</p>
-										<p>Offers Sent Section</p>
-									</div>
+
 
 
 									<!-- main content area -->
@@ -279,9 +262,6 @@
 									</div>
 								</div>
 
-
-
-
 								<!---Modal  -->
 								<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
 									  aria-labelledby="myModalLabel" aria-hidden="true">
@@ -290,8 +270,9 @@
 									</div>
 								</div>
 							</div>
-						</div><
-						!--.sfooter-content-->
+						</div>
+
+						<!--.sfooter-content-->
 
 						<footer class="footer navbar-fixed-bottom">
 							<div class="container">
@@ -301,11 +282,12 @@
 										<li class="navbar-text"><a href="#">About Us</a></li>
 										<li class="navbar-text"><a href="#">FAQ</a></li>
 										<li class="navbar-text"><a href="#">Contact Us</a></li>
-										<li class="navbar-text"><a href="#">Terms of Use & Privacy Policy</a></li>
+										<li class="navbar-text"><a href="#">Terms of Use</a></li>
 										<li class="navbar-text"><a href="#">Support</a></li>
 									</ul>
 								</div>
-							</div></footer>
+							</div>
+						</footer>
 
 	</body>
 </html>
