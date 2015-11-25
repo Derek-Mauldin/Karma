@@ -42,6 +42,8 @@
 	<body class="sfooter">
 		<div class="sfooter-content">
 					<!-- side-panel here -->
+			<div class="container">
+				<div class="row">
 					<div class="col-md-4 hidden-xs hidden-sm">
 						<section id="menu" class="side-panel panel panel-default">
 							<a class="sidebar-brand" href="#"><img id="logo" src="../img/orange-robot-logo-sm.png"/>
@@ -268,6 +270,8 @@
 								</div>
 							</div>
 						</div>
+				</div>
+			</div>
 
 		<!--.sfooter-content-->
 
