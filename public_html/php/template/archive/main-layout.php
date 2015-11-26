@@ -36,10 +36,10 @@
 		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 
 		<!-- jscroll plugin -->
-		<script src="../../lib/plugins/jscroll/jquery.jscroll.min.js" type="text/javascript"></script>
+		<script src="../../../lib/plugins/jscroll/jquery.jscroll.min.js" type="text/javascript"></script>
 
 		<!-- Custom JavaScript@author:Derek  @author:jhung@cnm.edu -->
-		<script src="../../lib/js/home-pg-side-toggle-testing.js" type="text/javascript"></script>
+		<script src="../../../lib/js/home-pg-side-toggle-testing.js" type="text/javascript"></script>
 
 		<!-- Page Title -->
 		<title>Karma Template</title>
@@ -54,7 +54,7 @@
 					<!-- side panel -->
 					<div class="col-md-4 hidden-xs hidden-sm">
 						<section id="menu" class="side-panel panel panel-default">
-							<a class="sidebar-brand" href="#"><img id="logo" src="../../img/orange-robot-logo-sm.png"/></a>
+							<a class="sidebar-brand" href="#"><img id="logo" src="../../../img/orange-robot-logo-sm.png"/></a>
 
 							<!--side panel body links-->
 							<div id="hp" onclick="HideAllShowOne('hp')">
