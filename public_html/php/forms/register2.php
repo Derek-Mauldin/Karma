@@ -97,7 +97,7 @@
 									</form>
 
 
-									<form id="register-form" action="#" method="post" role="form" style="display: none;">
+									<form id="register-form" action="<?php echo $PREFIX?>php/controllers/register-controller.php" method="post" role="form" style="display: none;">
 										<div class="form-group">
 											<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
 										</div>
