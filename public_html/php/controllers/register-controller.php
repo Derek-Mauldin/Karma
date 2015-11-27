@@ -22,10 +22,8 @@ try {
 	}
 	verifyXsrf();
 
-
 	// ensures that the form fields are filled out
-	if(@isset($_POST["username"]) === false ||
-		@isset($_POST["email"]) === false ||
+	if(@isset($_POST["email"]) === false ||
 		@isset($_POST["password"]) === false ||
 		@isset($_POST["confirm-password"]) === false
 	) {
@@ -33,9 +31,6 @@ try {
 	}
 
 	// sanitize user input
-	if(filter_var($_POST["username"], FILTER_SANITIZE_STRING) === false){
-		throw(new InvalidArgumentException("invalid username"));
-	}
 	if(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL) === false){
 		throw(new InvalidArgumentException("invalid email"));
 	}
@@ -46,7 +41,20 @@ try {
 		throw(new InvalidArgumentException("invalid password confirmation"));
 	}
 
+	// verify that the password and password confirmation fields contain the same value
+	if($_POST["password"] !== $_POST["confirm-password"]) {
+		throw(new InvalidArgumentException("password and confirmation do not match"));
+	}
 
+	// create a salt, hash, and email activation code for a new member
+	$salt = bin2hex(openssl_random_pseudo_bytes(164));
+	$hash = hash_pbkdf2("sha512", $_POST["password"], $SALT, 4096, 255);
+	$emailActivation = bin2hex(openssl_random_pseudo_bytes(16));
+
+	// create a new member and insert into mysql
+	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
+	$member = new member(null, "s", $_POST["email"], $emailActivation, $hash, $salt);
+	$member->insert($pdo);
 
 
 

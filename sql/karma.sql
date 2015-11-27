@@ -9,7 +9,7 @@ CREATE TABLE member (
 memberId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 memberAccessLevel CHAR(1) NOT NULL,
 memberEmail VARCHAR(255) NOT NULL,
-memberEmailActivation CHAR(32),
+memberEmailActivation CHAR(16),
 memberHash CHAR(255) NOT NULL,
 memberSalt CHAR(164) NOT NULL,
 UNIQUE(memberEmail),
