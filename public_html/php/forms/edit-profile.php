@@ -196,15 +196,15 @@
 						<div class="form-group">
 							<label class="col-lg-3 control-label"></label>
 							<div class="col-lg-8">
-								<input class="form-control" type="About Me" value="about-me>
-							</div>
-						</div>
+								<input class="form-control" type="About Me" value="about-me">
+							</div
+
 						<div class="form-group">
 								<label class="col-lg-3 control-label">Request:</label>
 								<div class="col-lg-8">
 									<input class="form-control" type="text" value="request">
 								</div>
-							</div>
+
 							<div class="form-group">
 								<label class="col-lg-3 control-label">Date Desired:</label>
 								<div class="col-lg-8">
