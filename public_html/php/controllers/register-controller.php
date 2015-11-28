@@ -36,7 +36,6 @@ try {
 	}
 
 
-
 	// trim  and sanitize input
 	$_POST["firstName"]         = Filter::filterString("firstName", $_POST["firstName"]);
 	$_POST["lastName"]          = Filter::filterString("lastName", $_POST["lastName"]);
