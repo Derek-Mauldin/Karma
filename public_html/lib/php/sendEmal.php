@@ -6,6 +6,11 @@
  **/
 require_once((dirname(dirname(__DIR__))) . "/vendor/autoload.php");
 
+/*
+ * function to send email
+ *
+ * @throws RuntimeExcpeption if unable to send email
+ */
 
 function sendEmail ($receiverEmail, $firstName, $lastName, $subject, $message) {
 
