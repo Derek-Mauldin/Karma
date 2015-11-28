@@ -7,7 +7,7 @@
  * @throws InvalidArgumentException if password and confirm-password do not match
  * @throws InvalidArgumentException if userName already exists in the database
  *
- */
+ **/
 
 require_once(dirname(__DIR__) . "/classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
