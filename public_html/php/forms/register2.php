@@ -67,7 +67,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<form id="login-form" action="#" method="post" role="form" style="display: block;">
+									<form id="login-form" action="../controllers/login-controller.php" method="post" role="form" style="display: block;">
 										<div class="form-group">
 											<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
 										</div>
