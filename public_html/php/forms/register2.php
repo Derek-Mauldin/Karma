@@ -69,10 +69,10 @@
 
 									<form id="login-form" action="#" method="post" role="form" style="display: block;">
 										<div class="form-group">
-											<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+											<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
 										</div>
 										<div class="form-group">
-											<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+											<input type="email" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
 										</div>
 										<div class="form-group text-center">
 											<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -102,24 +102,24 @@
 											<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
 										</div>
 										<div class="form-group">
-											<input type="text" name="lastName" id="lastName" tabindex="1" class="form-control" placeholder="Last Name" value="">
+											<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control" placeholder="Last Name" value="">
 										</div>
 										<div class="form-group">
-											<input type="text" name="userName" id="userName" tabindex="1" class="form-control" placeholder="Please Choose a User Name" value="">
+											<input type="text" name="userName" id="userName" tabindex="3" class="form-control" placeholder="Please Choose a User Name" value="">
 										</div>
 										<div class="form-group">
-											<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+											<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Email Address" value="">
 										</div>
 										<div class="form-group">
-											<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+											<input type="password" name="password" id="password" tabindex="5" class="form-control" placeholder="Password">
 										</div>
 										<div class="form-group">
-											<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+											<input type="password" name="confirm-password" id="confirm-password" tabindex="6" class="form-control" placeholder="Confirm Password">
 										</div>
 										<div class="form-group">
 											<div class="row">
 												<div class="col-sm-6 col-sm-offset-3">
-													<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+													<input type="submit" name="register-submit" id="register-submit" tabindex="7" class="form-control btn btn-register" value="Register Now">
 												</div>
 											</div>
 										</div>
