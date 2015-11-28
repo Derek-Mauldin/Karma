@@ -4,12 +4,6 @@
  * controller for Karma register-form
  *
  * @throws InvalidArgumentException if the form is incomplete
- * @throws InvalidArgumentException for invalid firstName
- * @throws InvalidArgumentException for invalid lastName
- * @throws InvalidArgumentException for invalid userName
- * @throws InvalidArgumentException for invalid email
- * @throws InvalidArgumentException for invalid password
- * @throws InvalidArgumentException for invalid confirm-password
  * @throws InvalidArgumentException if password and confirm-password do not match
  * @throws InvalidArgumentException if userName already exists in the database
  *
@@ -19,6 +13,7 @@ require_once(dirname(__DIR__) . "/classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/sendEmal.php");
+require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
 
 
 try {
@@ -40,39 +35,15 @@ try {
 		throw(new InvalidArgumentException("The form is not complete. Please verify and try again"));
 	}
 
-	// trim input
-	$_POST["firstName"]        = trim($_POST["firstName"]);
-	$_POST["lastName"]         = trim($_POST["lastName"]);
-	$_POST["userName"]         = trim($_POST["userName"]);
-	$_POST["email"]            = trim($_POST["email"]);
-	$_POST["password"]         = trim($_POST["password"]);
-	$_POST["confirm-password"] = trim($_POST["confirm-password"]);
 
-	// sanitize  input
-	$_POST["firstName"] = filter_var($_POST["firstName"], FILTER_SANITIZE_STRING);
-	if( $_POST["firstName"] === false){
-		throw(new InvalidArgumentException("invalid First Name"));
-	}
-	$_POST["lastName"] = filter_var($_POST["lastName"], FILTER_SANITIZE_STRING);
-	if( $_POST["lastName"] === false){
-		throw(new InvalidArgumentException("invalid Last Name"));
-	}
-	$_POST["userName"] = filter_var($_POST["userName"], FILTER_SANITIZE_STRING);
-	if( $_POST["userName"] === false){
-		throw(new InvalidArgumentException("invalid userName"));
-	}
-	$_POST["email"] = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
-	if( $_POST["email"] === false){
-		throw(new InvalidArgumentException("invalid email"));
-	}
-	$_POST["password"] = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
-	if($_POST["password"] === false){
-		throw(new InvalidArgumentException("invalid password"));
-	}
-	$_POST["confirm-password"] = filter_var($_POST["confirm-password"], FILTER_SANITIZE_STRING);
-	if($_POST["confirm-password"] === false){
-		throw(new InvalidArgumentException("invalid password confirmation"));
-	}
+
+	// trim  and sanitize input
+	$_POST["firstName"]         = Filter::filterString("firstName", $_POST["firstName"]);
+	$_POST["lastName"]          = Filter::filterString("lastName", $_POST["lastName"]);
+	$_POST["userName"]          = Filter::filterString("userName", $_POST["userName"]);
+	$_POST["password"]          = Filter::filterString("password", $_POST["password"]);
+	$_POST["confirm-password"]  = Filter::filterString("confirm-password", $_POST["confirm-password"]);
+	$_POST["email"]             = Filter::filterEmail("email", $_POST["email"]);
 
 
 	// verify that the password and password confirmation fields contain the same value
