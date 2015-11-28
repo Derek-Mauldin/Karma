@@ -30,23 +30,23 @@ try {
 	verifyXsrf();
 
 	// ensures that the form fields are filled out
-	if(@isset($_POST["firstName"]) === false ||
-		@isset($_POST["lastName"]) === false ||
-		@isset($_POST["userName"]) === false ||
-		@isset($_POST["email"]) === false ||
-		@isset($_POST["password"]) === false ||
+	if(@isset($_POST["firstName"])        === false ||
+		@isset($_POST["lastName"])         === false ||
+		@isset($_POST["userName"])         === false ||
+		@isset($_POST["email"])            === false ||
+		@isset($_POST["password"])         === false ||
 		@isset($_POST["confirm-password"]) === false
 	) {
 		throw(new InvalidArgumentException("The form is not complete. Please verify and try again"));
 	}
 
 	// trim input
-	trim($_POST["firstName"]);
-	trim($_POST["lastName"]);
-	trim($_POST["userName"]);
-	trim($_POST["email"]);
-	trim($_POST["password"]);
-	trim($_POST["confirm-password"]);
+	$_POST["firstName"]        = trim($_POST["firstName"]);
+	$_POST["lastName"]         = trim($_POST["lastName"]);
+	$_POST["userName"]         = trim($_POST["userName"]);
+	$_POST["email"]            = trim($_POST["email"]);
+	$_POST["password"]         = trim($_POST["password"]);
+	$_POST["confirm-password"] = trim($_POST["confirm-password"]);
 
 	// sanitize  input
 	$_POST["firstName"] = filter_var($_POST["firstName"], FILTER_SANITIZE_STRING);
