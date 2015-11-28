@@ -18,7 +18,7 @@
 require_once(dirname(__DIR__) . "/classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
-require_once(dirname(dirname(__DIR__)) . "/lib/php/mailer.php");
+require_once(dirname(dirname(__DIR__)) . "/lib/php/sendEmal.php");
 
 
 try {
@@ -107,7 +107,7 @@ EOF;
 
 
 	// send confirmation email to new member
-	sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,$message);
+	sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,"Karmafied Account Activation", $message);
 
 
 }catch (Exception $e) {
