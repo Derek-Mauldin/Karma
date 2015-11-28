@@ -4,10 +4,10 @@
  * while this is convenient, this may load too much if your composer configuration grows to many classes
  * if this is a concern, load "/vendor/swiftmailer/autoload.php" instead to load just SwiftMailer
  **/
-require_once(dirname(dirname(__DIR__))) . "/vendor/autoload.php");
+require_once((dirname(dirname(__DIR__))) . "/vendor/autoload.php");
 
 
-function sendEmail ($receiver, $message) {
+function sendEmail ($receiverEmail, $firstName, $lastName, $subject, $message) {
 
 	try {
 		// create Swift message
@@ -22,11 +22,11 @@ function sendEmail ($receiver, $message) {
 		 * notice this an array that can include or omit the the recipient's real name
 		 * use the recipients' real name where possible; this reduces the probability of the Email being marked as spam
 		 **/
-		$recipients = ["recipient1@cnm.edu", "recipient2@cnm.edu" => "Recipient 2"];
+		$recipients = [$receiverEmail => $firstName . " " . $lastName];
 		$swiftMessage->setTo($recipients);
 
 		// attach the subject line to the message
-		$swiftMessage->setSubject("Email from PHP");
+		$swiftMessage->setSubject($subject);
 
 		/**
 		 * attach the actual message to the message
@@ -48,14 +48,13 @@ function sendEmail ($receiver, $message) {
 		 **/
 		$smtp = Swift_SmtpTransport::newInstance("localhost", 25);
 		$mailer = Swift_Mailer::newInstance($smtp);
-		$numSent = $mailer->send($swiftMessage, $failedRecipients);
+		$numSent = $mailer->send($swiftMessage);
 
 		/**
 		 * the send method returns the number of recipients that accepted the Email
 		 * so, if the number attempted is not the number accepted, this is an Exception
 		 **/
 		if($numSent !== count($recipients)) {
-			// the $failedRecipients parameter passed in the send() method now contains contains an array of the Emails that failed
 			throw(new RuntimeException("unable to send email"));
 		}
 
