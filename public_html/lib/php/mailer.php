@@ -6,7 +6,9 @@
  **/
 require_once(dirname(dirname(__DIR__))) . "/vendor/autoload.php");
 
+
 function sendEmail ($receiver, $message) {
+
 	try {
 		// create Swift message
 		$swiftMessage = Swift_Message::newInstance();
@@ -34,11 +36,7 @@ function sendEmail ($receiver, $message) {
 		 * who aren't viewing HTML content in Emails still access your links
 		 **/
 		$confirmLink = "https://" . $_SERVER["SERVER_NAME"] . "/important-link/confirm.php?confirmationCode=abc123";
-		$message = <<< EOF
-<h1>This is an Important Message</h1>
-<p>This is a very important message. Please read it carefully.</p>
-<p>To certify you've read it carefully and understand its contents, please visit: <a href="$confirmLink">$confirmLink</a></p>
-EOF;
+
 		$swiftMessage->setBody($message, "text/html");
 		$swiftMessage->addPart(html_entity_decode(filter_var($message, FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES)), "text/plain");
 

@@ -454,7 +454,7 @@
 		 }
 		 // create and prepare query template
 		 $query = "INSERT INTO profile(memberId, profileBlurb, profileHandle, profileFirstName, profileLastName, profilePhoto, profilePhotoType)
-					 VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, :profilePhotoType)";
+					  VALUES (:memberId, :profileBlurb, :profileHandle, :profileFirstName, :profileLastName, :profilePhoto, :profilePhotoType)";
 		 $statement = $pdo->prepare($query);
 
 		 // bind profile variables to placeholder in the template
@@ -588,8 +588,8 @@
 
 		 // prepare query
 		 $query = "SELECT profileId, memberId, profileBlurb,
-                       profileHandle, profileFirstName, profileLastName,
-							  profilePhoto, profilePhotoType
+                        profileHandle, profileFirstName, profileLastName,
+							   profilePhoto, profilePhotoType
 					 FROM profile WHERE profileHandle = :profileHandle";
 
 		 $statement = $pdo->prepare($query);
@@ -605,8 +605,8 @@
 
 			 if($row !== false) {
 				 $profile = new Profile($row["profileId"], $row["memberId"], $row["profileBlurb"], $row["profileHandle"],
-						 $row["profileFirstName"], $row["profileLastName"], $row["profilePhoto"],
-						 $row["profilePhotoType"]);
+						                  $row["profileFirstName"], $row["profileLastName"], $row["profilePhoto"],
+						                  $row["profilePhotoType"]);
 			 }
 		 } catch(Exception $exception) {
 			 throw(new PDOException($exception->getMessage(), 0, $exception));

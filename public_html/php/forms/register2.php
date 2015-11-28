@@ -99,6 +99,15 @@
 
 									<form id="register-form" action="../controllers/register-controller.php" method="post" role="form" style="display: none;">
 										<div class="form-group">
+											<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
+										</div>
+										<div class="form-group">
+											<input type="text" name="lastName" id="lastName" tabindex="1" class="form-control" placeholder="Last Name" value="">
+										</div>
+										<div class="form-group">
+											<input type="text" name="userName" id="userName" tabindex="1" class="form-control" placeholder="Please Choose a User Name" value="">
+										</div>
+										<div class="form-group">
 											<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
 										</div>
 										<div class="form-group">
