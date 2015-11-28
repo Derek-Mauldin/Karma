@@ -49,22 +49,28 @@ try {
 	trim($_POST["confirm-password"]);
 
 	// sanitize  input
-	if(filter_var($_POST["firstName"], FILTER_SANITIZE_STRING) === false){
+	$_POST["firstName"] = filter_var($_POST["firstName"], FILTER_SANITIZE_STRING);
+	if( $_POST["firstName"] === false){
 		throw(new InvalidArgumentException("invalid First Name"));
 	}
-	if(filter_var($_POST["lastName"], FILTER_SANITIZE_STRING) === false){
+	$_POST["lastName"] = filter_var($_POST["lastName"], FILTER_SANITIZE_STRING);
+	if( $_POST["lastName"] === false){
 		throw(new InvalidArgumentException("invalid Last Name"));
 	}
-	if(filter_var($_POST["userName"], FILTER_SANITIZE_STRING) === false){
+	$_POST["userName"] = filter_var($_POST["userName"], FILTER_SANITIZE_STRING);
+	if( $_POST["userName"] === false){
 		throw(new InvalidArgumentException("invalid userName"));
 	}
-	if(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL) === false){
+	$_POST["email"] = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+	if( $_POST["email"] === false){
 		throw(new InvalidArgumentException("invalid email"));
 	}
-	if(filter_var($_POST["password"], FILTER_SANITIZE_STRING) === false){
+	$_POST["password"] = filter_var($_POST["password"], FILTER_SANITIZE_STRING);
+	if($_POST["password"] === false){
 		throw(new InvalidArgumentException("invalid password"));
 	}
-	if(filter_var($_POST["confirm-password"], FILTER_SANITIZE_STRING) === false){
+	$_POST["confirm-password"] = filter_var($_POST["confirm-password"], FILTER_SANITIZE_STRING);
+	if($_POST["confirm-password"] === false){
 		throw(new InvalidArgumentException("invalid password confirmation"));
 	}
 
@@ -100,6 +106,8 @@ try {
 
 
 	// create message for email activation
+	$messageSubject = "Karmafied Account Activation";
+
 	$message = <<< EOF
 <h1>This is an Important Message about your Account Activation</h1>
 <p>To certify this email address and activate your account, please visit: <a href="$confirmLink">Confirmation</a></p>
@@ -107,7 +115,7 @@ EOF;
 
 
 	// send confirmation email to new member
-	sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,"Karmafied Account Activation", $message);
+	sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,$messageSubject, $message);
 
 
 }catch (Exception $e) {
