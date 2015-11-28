@@ -1,13 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Evan
- * Date: 11/8/2015
- * Time: 5:29 PM
- */
-/**
- * this will create a member class
- */
+
+/** member class for Karma **/
+
 class Member{
 	/**
 	 * Member Id; this is the primary key

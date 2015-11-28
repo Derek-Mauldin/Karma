@@ -32,7 +32,7 @@ try {
 		@isset($_POST["password"])         === false ||
 		@isset($_POST["confirm-password"]) === false
 	) {
-		throw(new InvalidArgumentException("The form is not complete. Please verify and try again"));
+		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
 
 
@@ -61,7 +61,7 @@ try {
 
 	// create a salt, hash, and email activation code for a new member
 	$salt = bin2hex(openssl_random_pseudo_bytes(164));
-	$hash = hash_pbkdf2("sha512", $_POST["password"], $SALT, 4096, 255);
+	$hash = hash_pbkdf2("sha512", $_POST["password"], $salt, 4096, 255);
 	$emailActivation = bin2hex(openssl_random_pseudo_bytes(16));
 
 
