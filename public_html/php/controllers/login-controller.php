@@ -1,8 +1,13 @@
 <?php
-
-
-
-
+/**
+ *
+ * controller for Karma login-form
+ *
+ * @throws InvalidArgumentException if the form is incomplete
+ * @throws InvalidArgumentException if password is invalid
+ * @throws InvalidArgumentException if email is invalid
+ *
+ **/
 
 require_once(dirname(__DIR__) . "classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
@@ -42,8 +47,8 @@ try {
 	// get member profile
 	$profile = Profile::getProfileByMemberId($pdo, $member->getMemberId());
 
+	// add $profile to the session
 	$_SESSION["user"] = $profile;
-	$userName = $_SESSION["user"]->getProfileHandle();
 
 	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
 
