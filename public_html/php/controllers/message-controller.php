@@ -60,10 +60,7 @@ EOF;
 
 	// send email to receiver of message
 	$member = Member::getMemberByMemberId($pdo, $rProfile->getMemberId());
-	sendEmail($member->getEmail, $rProfile->getFirstName(), $rProfile->getLastName(), $messageSubject, $message);
-
-
-
+	sendEmail($member->getEmail, $rProfile->getProfileFirstName(), $rProfile->getProfileLastName(), $messageSubject, $message);
 
 
 	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
