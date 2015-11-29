@@ -37,10 +37,6 @@
 			if($profile === null) {
 				throw(new InvalidArgumentException("profile for this member id does not exist"));
 
-
-
-
-
 			}
 
 
