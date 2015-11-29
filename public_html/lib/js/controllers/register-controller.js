@@ -55,23 +55,23 @@ $(document).ready(
 
 		firstName: {
 		minlength: "enter at least two characters",
-		required: "must enter a valid first name"
+		required: "please enter a valid first name"
 		},
 
 		lastName: {
 			minlength: "enter at least two characters",
-			required: "must enter a valid last name"
+			required: "please enter a valid last name"
 		},
 
 		userName: {
 			minlength: "enter at least five characters",
-			required: "must enter a valid user name"
+			required: "please enter a valid user name"
 
 		},
 
 		email: {
 			required: "must enter email address",
-			email: "please enter valid email"
+			email: "please enter  a valid email address"
 		},
 
 		password: {
