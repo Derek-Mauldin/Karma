@@ -49,6 +49,7 @@ try {
 
 	// add $profile and user name to the session
 	$_SESSION["user"] = $profile;
+	$_SESSION["memberId"] = $member->getMemberId();
 
 	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
 
