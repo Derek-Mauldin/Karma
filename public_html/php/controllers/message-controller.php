@@ -26,30 +26,29 @@ try {
 
 	//ensures that the fields are filled out
 	if(@isset($_POST["messageSender"]) === false ||
-			@isset($_POST["messageReceiver"]) === false ||
-	      @isset($_POST["karmaMessage"]) === false) {
+		@isset($_POST["messageReceiver"]) === false ||
+		@isset($_POST["karmaMessage"]) === false) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
 
-	// connect to DB and find member by email
+	$messageSender = Filter::filterString($_POST["messageSender"], "messageSender");
+	$messageReceiver = Filter::filterString($_POST["messageReceiver"], "messageReceiver");
+	$karmaMessage = Filter::filterString($_POST["karmaMessage"], "karmaMessage");
+
+
+	// connect to DB and find Sender and receiver  by profile handle
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
+	$sProfile = Profile::getProfileByProfileHandle($pdo,$messageSender);
+	$rProfile = Profile::getProfileByProfileHandle($pdo,$messageReceiver);
 
-	$member = Member::getMemberByEmail($pdo, $_POST["email"]);
-	if($member === null) {
-		throw(new InvalidArgumentException("Email or Password is invalid"));
+	if(($sProfile || $rProfile) === null) {
+		throw(new InvalidArgumentException("sender or receiver does not exist"));
 	}
 
-	// get member hash and compare
-	$hash = hash_pbkdf2("sha512", $_POST["password"], $member->getSalt(), 4096, 255);
-	if($hash !== $member->getHash()) {
-		throw(new InvalidArgumentException("Email or Password is invalid"));
-	}
+	// create message and insert into the DB
+	$message = new Message(null, $sProfile->getProfileId(), $rProfile->getProfileId(),$karmaMessage);
+	$message->insert($pdo);
 
-	// get member profile
-	$profile = Profile::getProfileByMemberId($pdo, $member->getMemberId());
-
-	// add $profile and user name to the session
-	$_SESSION["user"] = $profile;
 
 	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
 
