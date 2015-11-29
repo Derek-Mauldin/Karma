@@ -32,9 +32,17 @@
 			$lastName 			= $_POST['lastName'];
 		}
 
-		if($profile === null){
-			$profile = new Profile(null, $memberId, $profileBlurb, $profileHandle, $firstName, $lastName);
-		}
+
+			$profile = Profile::getProfileByMemberId($pdo, $memberId);
+			if($profile === null) {
+				throw(new InvalidArgumentException("profile for this member id does not exist"));
+
+
+
+
+
+			}
+
 
 		//Verify that the handle has not been taken by another user
 		$checkProfileHandle = Profile::getProfileByProfileHandle($pdo, $profileHandle);
@@ -42,6 +50,7 @@
 			throw(new InvalidArgumentException('The handle you have chosen has already been taken by another user.'));
 		} else if($profile->getProfileId() === null) {
 			$profile->insertProfile($pdo);
+			throw(new InvalidArgumentException('The profile does not exist'));
 		} else {
 			//Set the profiles values to the form values
 			$profile->setProfileBlurb($profileBlurb);
@@ -49,6 +58,7 @@
 			$profile->setProfileFirstName($firstName);
 			$profile->setProfileLastName($lastName);
 			$profile->updateProfile($pdo);
+			$profile->insertProfile($pdo);
 		}
 
 	}catch (Exception $exception){
