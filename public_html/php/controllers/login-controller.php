@@ -30,6 +30,9 @@ try {
 	throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
 
+	$_POST["email"] = Filter::filterEmail($_POST["email"],"email");
+	$_POST["password"] = Filter::filterString($_POST['password'], "password");
+
 	// connect to DB and find member by email
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 
