@@ -50,6 +50,22 @@ try {
 	$message->insert($pdo);
 
 
+	// create email message to sender user
+	$messageSubject = "message alert from karma";
+	$message = <<< EOF
+<h1>This is a message alert from karma</h1>
+<p>A Karma user has sent you a message.  Please log in to your Karma account to see your message.</p>
+EOF;
+
+
+	// send email to receiver of message
+	$member = Member::getMemberByMemberId($pdo, $rProfile->getMemberId());
+	sendEmail($member->getEmail, $rProfile->getFirstName(), $rProfile->getLastName(), $messageSubject, $message);
+
+
+
+
+
 	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
 
 } catch(Exception $exception) {
