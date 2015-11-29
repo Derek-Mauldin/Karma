@@ -47,7 +47,7 @@ try {
 	// get member profile
 	$profile = Profile::getProfileByMemberId($pdo, $member->getMemberId());
 
-	// add $profile to the session
+	// add $profile and user name to the session
 	$_SESSION["user"] = $profile;
 
 	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
