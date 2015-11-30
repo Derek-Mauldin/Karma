@@ -20,7 +20,7 @@ require_once("../template/head-utils.php");
 									<a href="#login-form" class="active" id="login-form-link">Login</a>
 								</div>
 								<div class="col-xs-6">
-									<a href="#" id="register-form-link">Register</a>
+									<a href="#register-form" id="register-form-link">Register</a>
 								</div>
 							</div>
 							<hr>
