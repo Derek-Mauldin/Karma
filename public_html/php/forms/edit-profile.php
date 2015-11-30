@@ -80,7 +80,7 @@
 							<div class="row">
 								<div class="col-lg-12">
 
-									<form id="profile-form" name="profile-form" action="../controllers/login-controller.php"
+									<form id="profile-form" name="profile-form" action="../controllers/edit-profile-controller.php"
 											method="post" role="form" style="display: block;">
 										<div class="col-lg-12">
 											<div class="text-center">
@@ -136,7 +136,7 @@
 							<div class="edit-button-group">
 								<div class="row">
 									<div class="col-md-6 col-md-offset-2" id="edit-buttons">
-										<button type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
+										<button id="submit-profile" name="submit-profile" type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
 										<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
 									</div>
 								</div>
