@@ -27,7 +27,7 @@
 			@isset($_POST['firstName']) 		=== false ||
 			@isset($_POST['lastName'])			=== false ||
 			@isset($_POST["email"])				=== false ||
-			@isset($_POST["confirm-password"])=== false) {
+			@isset($_POST["confirmPassword"])=== false) {
 
 			throw(new InvalidArgumentException('The form is not complete or is missing inputs'));
 		}
@@ -40,7 +40,7 @@
 			$lastName 			= Filter::filterString($_POST['lastName'], 'lastName');
 			$email				= Filter::filterEmail($_POST['email'], 'email');
 			$password			= Filter::filterString($_POST['password'], 'password');
-			$confirmPassword = Filter::filterString($_POST['confirm-password'], 'confirm-password');
+			$confirmPassword = Filter::filterString($_POST['confirmPassword'], 'confirmPassword');
 
 
 		if(($profile === null) || ($member === null)) {
