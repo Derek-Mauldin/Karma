@@ -1,5 +1,5 @@
 <section id="menu" class="side-panel panel panel-default">
-	<a class="sidebar-brand" href="#"><img id="logo" src="../../img/orange-robot-logo-sm.png"/></a>
+	<a class="sidebar-brand" href="#"><img id="logo" src="../../img/octopus-logo.png"/></a>
 
 	<!--side panel body links-->
 	<div id="hp" onclick="HideAllShowOne('hp')">

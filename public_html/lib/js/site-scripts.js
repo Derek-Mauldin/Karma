@@ -80,11 +80,32 @@ $(function() {
 
 
 /***************************************************
- *toggle between edit and reset/submit
+ *recover form js
  * *************************************************/
 
 
-
+(function($) {
+	$(document).ready(function() {
+		var cookieHeader = $('<a/>').attr('href', '#').attr('title', 'Click To Close').css({
+			'padding': '8px',
+			'position': 'fixed',
+			'bottom': '0',
+			'left': '0',
+			'width': '100%',
+			'background-color': '#353535',
+			'color': '#FFF',
+			'text-align': 'center'
+		}).css('z-index', '9999').text('This site uses cookies to enhance user experience').addClass('close-cookie-banner');
+		if ($.cookie('allow-cookies') === undefined) {
+			$('body').append(cookieHeader);
+		}
+		$(document).on('click', '.close-cookie-banner', function(e) {
+			e.preventDefault();
+			$.cookie('allow-cookies', true, { expires: 1000, path: '/' });
+			$(this).remove();
+		});
+	});
+})(jQuery);
 
 
 
