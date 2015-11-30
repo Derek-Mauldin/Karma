@@ -42,7 +42,7 @@ $(document).ready(
 		required: true
 		},
 
-		verifyPassword: {
+		confirmPassword: {
 		equalTo: "#password",
 		required: true
 		}

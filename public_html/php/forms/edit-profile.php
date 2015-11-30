@@ -130,7 +130,7 @@
 										 placeholder="Change Password">
 							</div>
 							<div class="form-group">
-								<input type="password" name="confirm-password" id="confirm-password" tabindex="6"
+								<input type="password" name="confirmLPassword" id="confirmPassword" tabindex="6"
 										 class="form-control" placeholder="Confirm Password">
 							</div>
 							<div class="edit-button-group">
