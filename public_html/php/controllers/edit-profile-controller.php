@@ -31,7 +31,7 @@
 
 			throw(new InvalidArgumentException('The form is not complete or is missing inputs'));
 		}
-
+			$profileBlurb = null;
 			if(array_key_exists($_POST, "profileBlurb")) {
 				$profileBlurb =  Filter::filterString($_POST['profileBlurb'], 'profileBlurb');
 			}
