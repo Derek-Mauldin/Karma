@@ -50,7 +50,7 @@
 		//Verify that the handle has not been taken by another user
 		$checkProfileHandle = Profile::getProfileByProfileHandle($pdo, $profileHandle);
 		if($checkProfileHandle !== null){
-			throw(new InvalidArgumentException('The handle you have chosen has already been taken by another user.'));
+			throw(new InvalidArgumentException('The user name you have chosen has already been taken by another user.'));
 		}
 
 
