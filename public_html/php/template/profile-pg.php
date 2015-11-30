@@ -15,9 +15,7 @@ require_once("../../php/template/head-utils.php");
 		<div class="row">
 
 					<div class="col-md-5  toppad  pull-right col-md-offset-3 ">
-						<A href="edit.html" >Edit Profile</A>
-
-						<A href="edit.html" >Logout</A>
+						<A href="../.././php/controllers/logout-controller.php" >Logout</A>
 						<br>
 					</div>
 					<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
@@ -36,16 +34,7 @@ require_once("../../php/template/head-utils.php");
 											<tbody>
 												<tr>
 													<td>Blurb</td>
-													<td>Programming</td>
 												</tr>
-												<tr>
-													<td>Gender</td>
-													<td>Male</td>
-												</tr>
-												<tr>
-													<td>Location</td>
-												</tr>
-
 											</tbody>
 										</table>
 
@@ -54,12 +43,11 @@ require_once("../../php/template/head-utils.php");
 								</div>
 							</div>
 							<div class="panel-footer">
-								<a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
-                            <a href="edit.html" data-original-title="Edit profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="../../php/forms/edit-profile.php" data-original-title="Edit profile" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
                         </span>
+								</div>
 							</div>
-
 						</div>
 					</div>
 				</div>
