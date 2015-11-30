@@ -3,6 +3,7 @@
 		<h4>Login to Kissmet</h4>
 		<hr>
 		<form class="login-inner">
+
 			<input type="email" class="form-control email" id="email-input" placeholder="Enter email">
 			<input type="password" class="form-control password" id="password-input" placeholder="Password">
 			<label class="checkbox-inline">
