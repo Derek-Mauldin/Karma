@@ -64,13 +64,13 @@
 						<div class="input-group-addon">
 						</div>
 						<!-- text field input. pay attention to the id, placeholder text, type, and placeholder attributes -->
-						<input type="text" class="form-control" id="need-title" name="need-title"  placeholder="Need Title Here" maxlength="150" />
+						<input type="text" class="form-control" id="needTitle" name="needTitle"  placeholder="Need Title Here" maxlength="150" />
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label" for="txtareaComments">Need Description</label>
-					<textarea class="form-control" rows="5" id="need-description"  name="need-desciption" maxlength="500" placeholder="500 characters max."></textarea>
+					<textarea class="form-control" rows="5" id="needDescription"  name="needDescription" maxlength="500" placeholder="500 characters max."></textarea>
 				</div>
 
 				<div class="form-group">

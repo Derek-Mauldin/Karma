@@ -26,14 +26,14 @@ try {
 
 	//ensures that the fields are filled out
 	if(@isset($_POST["username"]) === false ||
-		@isset($_POST["need-title"]) === false ||
+		@isset($_POST["needTitle"]) === false ||
 		@isset($_POST["need-desciption"]) === false) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
 
 	$username = Filter::filterString($_POST["username"], "username");
-	$needTitle = Filter::filterString($_POST["need-title"], "need-title");
-	$needDescription = Filter::filterString($_POST["need-description"], "need-description");
+	$needTitle = Filter::filterString($_POST["needTitle"], "needTitle");
+	$needDescription = Filter::filterString($_POST["needDescription"], "needDescription");
 
 
 	// connect to DB and find profile by profile handle
