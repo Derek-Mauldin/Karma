@@ -36,16 +36,15 @@ try {
 	$needDescription = Filter::filterString($_POST["need-description"], "need-description");
 
 
-	// connect to DB and find profile by profile handle
+	// connect to DB and find need by profile handle
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
-	$profile = Profile::getProfileByProfileHandle($pdo,$username);
+	$needs = Need::getNeedsByProfileId($pdo, $username);
+	$need->setNeedDescription ($needDescription);
+	$need->setneedTitle($needTitle);
+	$need->update($pdo);
 
-	$need = new Need(null, $profile->getProfileId(), $needDescription, 0, $needTitle);
-	$need->insert($pdo);
 
-
-
-	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
+	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!</p>";
 
 } catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";

@@ -149,3 +149,28 @@ $(function() {
 	});
 
 });
+
+/**************************************************************
+ * edit profile/settings form
+ **************************************************************/
+$(function() {
+
+	$('#profile-form-link').click(function(e) {
+		$("#profile-form").delay(100).fadeIn(100);
+		$("#settings-form").fadeOut(100);
+		$('#settings-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+	$('#settings-form-link').click(function(e) {
+		$("#settings-form").delay(100).fadeIn(100);
+		$("#profile-form").fadeOut(100);
+		$('#profile-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+
+});
+
+
+

@@ -2,7 +2,7 @@
 	<div class="settings">
 		<h4>Settings</h4>
 		<hr>
-		<form class="login-inner">
+		<form class="settings-inner">
 
 
 
