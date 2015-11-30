@@ -65,4 +65,3 @@ require_once("php/template/head-utils.php");
 </footer>
 </body>
 </html>
-

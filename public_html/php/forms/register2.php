@@ -53,7 +53,6 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-
 									<a href="login-form.php" class="active" id="login-form-link">Login</a>
 								</div>
 								<div class="col-xs-6">
