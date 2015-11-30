@@ -57,111 +57,86 @@
 	<body>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
+				<div class="col-md-6 col-md-offset-3">
 					<div class="panel panel-login">
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-									<a href="#" class="active" id="profile-form-link">Profile</a>
+									<a href="login-form.php" class="active" id="login-form-link">Profile</a>
 								</div>
 								<div class="col-xs-6">
-									<a href="#" id="settings-form-link">Settings</a>
+									<a href="#" id="register-form-link">Settings</a>
 								</div>
 							</div>
 							<hr>
 						</div>
-								<!-- edit profile column -->
-					<form class="form-horizontal" id="profile-form" role="form">
+
 						<div class="panel-body">
 							<div class="row">
-								<div class="panel-body">
-									<div class="row">
+								<div class="col-lg-12">
+
+									<form id="login-form" name="login-form" action="../controllers/edit-login-controller.php" method="post" role="form" style="display: block;">
 										<div class="col-lg-12">
-											<div class="col-md-3">
-												<div class="text-center">
-													<img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-													<h6>Upload a different photo...</h6>
-													<input type="file" class="form-control">
+											<div class="text-center">
+												<img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+												<h6>Upload a different photo...</h6>
+												<input type="file" class="form-control">
+											</div>
+										</div>
+										<br>
+										<form id="login-form" name="login-form" action="../controllers/login-controller.php" method="post" role="form" style="display: block;">
+											<div class="form-group">
+												<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="About Me" value="">
+											</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-md-6 col-md-offset-2">
+														<button type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
+														<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+													</div>
+
+													</div>
 												</div>
 											</div>
-						<div class="form-group">
-							<label class="col-lg-3 control-label">First name:</label>
-							<div class="col-lg-8">
-								<input class="form-control" type="text" value="first-name">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-lg-3 control-label">Last name:</label>
-							<div class="col-lg-8">
-								<input class="form-control" type="text" value="last-name">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-lg-3 control-label">Email:</label>
-							<div class="col-lg-8">
-								<input class="form-control" type="text" value="myemail@gmail.com">
-							</div>
-						</div>
+										</form>
 
-						<div class="form-group">
-							<label class="col-md-3 control-label">Username:</label>
-							<div class="col-md-8">
-								<input class="form-control" type="text" value="user-namer">
+
+										<form id="register-form" name="register-form" action="../controllers/register-controller.php" method="post" role="form" style="display: none;">
+											<div class="form-group">
+												<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
+											</div>
+											<div class="form-group">
+												<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control" placeholder="Last Name" value="">
+											</div>
+											<div class="form-group">
+												<input type="text" name="userName" id="userName" tabindex="3" class="form-control" placeholder="Edit User Name" value="">
+											</div>
+											<div class="form-group">
+												<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Edit Email Address" value="">
+											</div>
+											<div class="form-group">
+												<input type="password" name="password" id="password" tabindex="5" class="form-control" placeholder="Change Password">
+											</div>
+											<div class="form-group">
+												<input type="password" name="confirm-password" id="confirm-password" tabindex="6" class="form-control" placeholder="Confirm Password">
+											</div>
+											<div class="form-group">
+												<div class="row">
+													<div class="col-md-6 col-md-offset-2">
+														<button type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
+														<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+													</div>
+
+												</div>
+											</div>
+										</form>
+
+								</div>
 							</div>
 						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label">Password:</label>
-							<div class="col-md-8">
-								<input class="form-control" type="password" value="11111122333">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label">Confirm password:</label>
-							<div class="col-md-8">
-								<input class="form-control" type="password" value="11111122333">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label"></label>
-							<div class="col-md-8">
-								<input type="button" class="btn btn-primary" value="Save Changes">
-								<span></span>
-								<input type="reset" class="btn btn-default" value="Cancel">
-							</div>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
-							<!-----Edit Settings------>
-
-								<form class="form-horizontal" id="settings-form" role="form">
-									<div class="form-group">
-										<label class="col-lg-3 control-label">handle</label>
-										<div class="col-lg-8">
-											<input class="form-control" type="text" value="handle">
-										</div>
-									</div>
-									<div class="form-group">
-										<label class="col-lg-3 control-label">email</label>
-										<div class="col-lg-8">
-											<input class="form-control" type="text" value="email">
-										</div>
-									</div>
-
-
-								<div class="form-group">
-									<label class="col-md-3 control-label"></label>
-									<div class="col-md-8">
-										<input type="button" class="btn btn-primary" value="Save Changes">
-										<span></span>
-										<input type="reset" class="btn btn-default" value="Cancel">
-									</div>
-
-					</form>
-				</div>
-
-
-
 	</body>
 </html>
