@@ -74,7 +74,6 @@
 								</div>
 							</div>
 							<hr>
-
 						</div>
 
 						<div class="panel-body">
@@ -105,9 +104,9 @@
 												</div>
 											</div>
 										</div>
+									</div>
 								</div>
 							</div>
-						</div>
 
 						<div id="edit-settings" style="display: none;">
 							<div class="form-group">

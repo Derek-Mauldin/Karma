@@ -55,7 +55,7 @@
 			<div class="container" id="register">
 				<div class="row">
 					<div class="col-md-8">
-						<?php require_once "../../php/forms/register-form.php" ?>
+						<?php require_once "../../../php/forms/register2.php"?>
 					</div>
 				</div>
 			</div>
