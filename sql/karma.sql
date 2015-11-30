@@ -20,7 +20,7 @@ PRIMARY KEY(memberId)
 CREATE TABLE profile (
 profileId INT UNSIGNED AUTO_INCREMENT NOT NULL,
 memberId INT UNSIGNED NOT NULL,
-profileBlurb VARCHAR(3000),
+profileBlurb VARCHAR(500),
 profileHandle VARCHAR(15) NOT NULL,
 profileFirstName VARCHAR(50) NOT NULL,
 profileLastName VARCHAR(50) NOT NULL,
