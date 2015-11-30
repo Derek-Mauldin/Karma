@@ -32,7 +32,7 @@ require_once("../../php/template/head-utils.php");
 									<div class=" col-md-9 col-lg-9 ">
 										<table class="table table-user-information">
 											<tbody>
-												<tr>
+												<tr>.
 													<td>Blurb</td>
 												</tr>
 											</tbody>
