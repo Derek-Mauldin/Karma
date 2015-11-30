@@ -232,6 +232,9 @@
 	  * @throws RangeException if $newProfileBlurb is too large
 	  **/
 	 public function setProfileBlurb($newProfileBlurb) {
+		 if($newProfileBlurb === null){
+			 $this->profileBlurb = $newProfileBlurb;
+		 }
 		 // make sure $newProfileBlurb is secure
 		 $newProfileBlurb = trim($newProfileBlurb);
 		 $newProfileBlurb = filter_var($newProfileBlurb, FILTER_SANITIZE_STRING);
