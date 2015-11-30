@@ -32,10 +32,11 @@ $PREFIX = str_repeat("../", $DEPTH_DIFFERENCE);
 		<!-- ////////////////////////////////////////////////
 		//// LINK TO YOUR CUSTOM CSS FILES HERE
 		///////////////////////////////////////////////////// -->
+		<link rel="styleshee" href="<?php echo $PREFIX;?>lib/css/styles.css" type="text/javascript"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-		<!--[if lt IE 9]>
+		<!--<[if lt IE 9]>
 		<script type="text/javascript" src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script type="text/javascript" src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
@@ -59,7 +60,7 @@ $PREFIX = str_repeat("../", $DEPTH_DIFFERENCE);
 
 		<!-- Custom JavaScript@author:Derek  @author:jhung@cnm.edu -->
 		<script src="<?php echo $PREFIX;?>lib/js/home-pg-side-toggle-testing.js" type="text/javascript"></script>
-
+		<script src="<?php echo $PREFIX;?>lib/js/site-scripts.js" type="text/javascript"></script>
 		<!-- Page Title -->
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>
