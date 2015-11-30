@@ -75,6 +75,7 @@
 								</div>
 							</div>
 							<hr>
+
 						</div>
 
 						<div class="panel-body">

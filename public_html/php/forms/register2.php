@@ -70,6 +70,7 @@
 										<div class="form-group">
 											<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email" value="">
 										</div>
+
 										<div class="form-group">
 											<input type="email" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
 										</div>
