@@ -4,16 +4,18 @@
 		<hr>
 		<form class="settings-inner">
 
-
-
-			<input type="email" class="form-control email" id="email-input" placeholder="Enter email">
+			<input type="email" class="form-control email" id="email-input" placeholder="email">
 			<input type="password" class="form-control password" id="password-input" placeholder="Password">
-			<label class="checkbox-inline">
-				<input type="checkbox" id="remember" value="Remember me"> Remember me
-			</label>
-			<input class="btn btn-block btn-lg btn-success submit" type="submit" value="Login">
+			<div class="toggle">
+				<div class="row">
+					<div class="hidden col-md-6 col-md-offset-2" id="edit-buttons">
+						<button type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
+						<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+					</div>
+
+				</div>
+			</div>
 		</form>
-		<a href="register-form.php" class="btn btn-sm btn-primary register">Register</a>
-		<a href="recover-form.php" class="btn btn-sm btn-default forgot">Forgot your password?</a>
+		<a href="profile-form.php" class="btn btn-sm btn-primary profile">Profile</a>
 	</div>
 </div>
