@@ -8,7 +8,7 @@ $(document).ready(
 			debug: true,
 			// setup the formatting for the errors
 			errorClass: "alert alert-danger",
-			errorLabelContainer: "#messageError",
+			errorLabelContainer: "#mError",
 			wrapper: "li",
 
 			// rules define what is good/bad input
@@ -24,9 +24,9 @@ $(document).ready(
 					required: true
 				},
 
-				karmaMessage: {
+				messageError: {
+					minlength: 10,
 					maxlength: 500,
-					minlenth: 10,
 					required: true
 				}
 			},
@@ -45,7 +45,7 @@ $(document).ready(
 					required: "must enter receiver name"
 				},
 
-				karmaMessage: {
+				messageError: {
 					maxlength: "message can not exceed five hundred character",
 					minlength: "message must be at least ten characters",
 					required: "must enter a message"
@@ -67,9 +67,9 @@ $(document).ready(
 					// success is an event that happens when the server replies
 					success: function(ajaxOutput) {
 						// clear the output area's formatting
-						$("#messageError").css("display", "");
+						$("#mError").css("display", "");
 						// write the server's reply to the output area
-						$("#messageError").html(ajaxOutput);
+						$("#mError").html(ajaxOutput);
 
 
 						// reset the form if it was successful
