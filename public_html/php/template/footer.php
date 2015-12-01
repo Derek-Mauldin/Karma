@@ -1,5 +1,6 @@
 <div class="container">
 	<div class="row">
+
 		<div class="col-sm-hidden col-md-12">
 			<ul class="nav">
 				<li class="navbar-text"><a href="#">About Us</a></li>
