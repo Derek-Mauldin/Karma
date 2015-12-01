@@ -12,5 +12,6 @@
 
 	<div id="mp" onclick="HideAllShowOne('mp')">
 		<a class="lead" href="javascript:ReverseDisplay('message-page')">Messages</a>
+
 	</div>
 </section>
