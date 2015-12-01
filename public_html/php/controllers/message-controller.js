@@ -7,8 +7,8 @@ $(document).ready(
 		$("#karmaMessage").validate({
 			debug: true,
 			// setup the formatting for the errors
-			errorClass: "label-danger",
-			errorLabelContainer: "#outputArea-login",
+			errorClass: "alert alert-danger",
+			errorLabelContainer: "#messageError",
 			wrapper: "li",
 
 			// rules define what is good/bad input
