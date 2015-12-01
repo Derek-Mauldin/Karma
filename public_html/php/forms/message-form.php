@@ -78,6 +78,7 @@
 					<a id="reset-form" class="btn" role="button">Reset Form</a>
 					<button type="submit" class="btn">Submit</button>
 				</div>
+				<div id="messageError" name="messageError"></div>
 			</form>
 		</div> <!-- CLOSE FORM WRAP -->
 	</body
