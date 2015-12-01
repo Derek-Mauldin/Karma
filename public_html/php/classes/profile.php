@@ -234,6 +234,7 @@
 	 public function setProfileBlurb($newProfileBlurb) {
 		 if($newProfileBlurb === null){
 			 $this->profileBlurb = $newProfileBlurb;
+			 return;
 		 }
 		 // make sure $newProfileBlurb is secure
 		 $newProfileBlurb = trim($newProfileBlurb);

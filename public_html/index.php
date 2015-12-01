@@ -7,6 +7,7 @@ $PAGE_TITLE = "Welcome to Karma";
 
 /*load head-utils.php*/
 require_once("php/template/head-utils.php");
+
 ?>
 
 <div class="sfooter-content">
