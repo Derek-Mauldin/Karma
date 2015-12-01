@@ -71,7 +71,6 @@ setXsrfCookie();
 		<script src="<?php echo $PREFIX;?>php/controllers/message-controller.js"></script>
 		<!-- Page Title -->
 		<title><?php echo $PAGE_TITLE; ?></title>
-
 	</head>
 
 	<body class="sfooter">
