@@ -67,9 +67,9 @@ $(document).ready(
 					// success is an event that happens when the server replies
 					success: function(ajaxOutput) {
 						// clear the output area's formatting
-						$("#outputArea-login").css("display", "");
+						$("#messageError").css("display", "");
 						// write the server's reply to the output area
-						$("#outputArea-login").html(ajaxOutput);
+						$("#messageError").html(ajaxOutput);
 
 
 						// reset the form if it was successful
@@ -84,7 +84,7 @@ $(document).ready(
 				});
 
 				$("#submitButton").click(function() {
-					// $("#login-controller").modal("hide");
+
 				});
 			}
 		});
