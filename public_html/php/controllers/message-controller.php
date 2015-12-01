@@ -9,10 +9,10 @@
  *
  **/
 
-require_once(dirname(__DIR__) . "classes/autoload.php");
+require_once(dirname(__DIR__) . "/classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
-require_once(dirname(dirname(__DIR__)) . "/lib/php/sendEmail.php");
+// require_once(dirname(dirname(__DIR__)) . "/lib/php/sendEmail.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
 
 try {
@@ -27,7 +27,7 @@ try {
 	//ensures that the fields are filled out
 	if(@isset($_POST["messageSender"]) === false ||
 		@isset($_POST["messageReceiver"]) === false ||
-		@isset($_POST["karmaMessage"]) === false) {
+		@isset($_POST["karmaMessage"]) === false ) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
 

@@ -55,7 +55,7 @@ require_once("php/template/head-utils.php");
 		</div><!-- .row -->
 	</div><!-- .container -->
 
-	<!-- comment -->
+	<!--Another comment-->
 
 	<!-- Offer Form Modal --> 
 	<?php require_once("php/template/offer-modal.php");?>
