@@ -22,7 +22,7 @@ try {
 	if(session_status() !== PHP_SESSION_ACTIVE) {
 		session_start();
 	}
-	// verifyXsrf();
+	 verifyXsrf();
 
 	// ensures that the form fields are filled out
 	if(@isset($_POST["firstName"])        === false ||

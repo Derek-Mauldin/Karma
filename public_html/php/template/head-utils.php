@@ -11,6 +11,12 @@ $CURRENT_DEPTH = substr_count($CURRENT_DIR, "/");
 $ROOT_DEPTH = substr_count($ROOT_PATH, "/");
 $DEPTH_DIFFERENCE = $CURRENT_DEPTH - $ROOT_DEPTH;
 $PREFIX = str_repeat("../", $DEPTH_DIFFERENCE);
+
+require_once($PREFIX . "lib/php/xsrf.php");
+if(session_status() !== PHP_SESSION_ACTIVE) {
+	session_start();
+}
+setXsrfCookie();
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +38,7 @@ $PREFIX = str_repeat("../", $DEPTH_DIFFERENCE);
 		<!-- ////////////////////////////////////////////////
 		//// LINK TO YOUR CUSTOM CSS FILES HERE
 		///////////////////////////////////////////////////// -->
-		<link rel="styleshee" href="<?php echo $PREFIX;?>lib/css/styles.css" type="text/javascript"></script>
+		<link rel="stylesheet" href="<?php echo $PREFIX;?>lib/css/styles.css" type="text/javascript"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -61,6 +67,7 @@ $PREFIX = str_repeat("../", $DEPTH_DIFFERENCE);
 		<!-- Custom JavaScript@author:Derek  @author:jhung@cnm.edu -->
 		<script src="<?php echo $PREFIX;?>lib/js/home-pg-side-toggle-testing.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>lib/js/site-scripts.js" type="text/javascript"></script>
+		<script src="<?php echo $PREFIX;?>php/controllers/register-controller.js"></script>
 		<!-- Page Title -->
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>
