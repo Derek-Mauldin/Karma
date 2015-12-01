@@ -117,7 +117,6 @@ $(document).ready(
 					}
 				});
 				$("#register-submit").click(function() {
-					// $("#sign-up-form").modal("hide");
 				});
 			}
 		});
