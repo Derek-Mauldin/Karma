@@ -25,11 +25,11 @@ try {
 	 verifyXsrf();
 
 	// ensures that the form fields are filled out
-	if(@isset($_POST["firstName"])        === false &&
-		@isset($_POST["lastName"])         === false &&
-		@isset($_POST["userName"])         === false &&
-		@isset($_POST["email"])            === false &&
-		@isset($_POST["password"])         === false &&
+	if(@isset($_POST["firstName"])        === false ||
+		@isset($_POST["lastName"])         === false ||
+		@isset($_POST["userName"])         === false ||
+		@isset($_POST["email"])            === false ||
+		@isset($_POST["password"])         === false ||
 		@isset($_POST["confirmPassword"])  === false
 	) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
