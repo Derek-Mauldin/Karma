@@ -12,7 +12,7 @@
 require_once(dirname(__DIR__) . "/classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
-require_once(dirname(dirname(__DIR__)) . "/lib/php/sendEmail.php");
+// require_once(dirname(dirname(__DIR__)) . "/lib/php/sendEmail.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
 
 
@@ -22,7 +22,7 @@ try {
 	if(session_status() !== PHP_SESSION_ACTIVE) {
 		session_start();
 	}
-	verifyXsrf();
+	// verifyXsrf();
 
 	// ensures that the form fields are filled out
 	if(@isset($_POST["firstName"])        === false ||
@@ -85,7 +85,7 @@ EOF;
 
 
 	// send confirmation email to new member
-	sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,$messageSubject, $message);
+	// sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,$messageSubject, $message);
 
 
 }catch (Exception $e) {

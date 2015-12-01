@@ -6,11 +6,11 @@ $(document).ready(
 	function() {
 
 		// tell the validator to validate this form
-		$("#sign-up-form").validate({
+		$("#register-form").validate({
 		debug: true,
 		// setup the formatting for the errors
 		errorClass: "has-error",
-		errorLabelContainer: "#outputArea",
+		errorLabelContainer: "#registerError",
 		wrapper: "li",
 
 		// rules define what is good/bad input
@@ -100,9 +100,9 @@ $(document).ready(
 		// success is an event that happens when the server replies
 		success: function(ajaxOutput) {
 		// clear the output area's formatting
-		$("#outputArea").css("display", "");
+		$("#registerError").css("display", "");
 		// write the server's reply to the output area
-		$("#outputArea").html(ajaxOutput);
+		$("#registerError").html(ajaxOutput);
 
 
 		// reset the form if it was successful

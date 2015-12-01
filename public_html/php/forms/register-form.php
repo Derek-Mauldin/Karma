@@ -3,7 +3,7 @@
 $CURRENT_DIR = __DIR__;
 
 /*set page title here*/
-$PAGE_TITLE = "Welcome to Karma";
+$PAGE_TITLE = "Register";
 
 /*load head-utils.php*/
 require_once("../template/head-utils.php");
@@ -51,7 +51,7 @@ require_once("../template/head-utils.php");
 										</div>
 										<div class="form-group">
 											<div class="row">
-												<div class="col-lg-12">
+												<div class="col-lg-12"> 
 													<div class="text-center">
 														<a href="recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
 													</div>
@@ -86,6 +86,9 @@ require_once("../template/head-utils.php");
 													<input type="submit" name="register-submit" id="register-submit" tabindex="7" class="form-control btn btn-register" value="Register Now">
 												</div>
 											</div>
+										</div>
+										<div id="registerError" name="registerError" class="has error">
+
 										</div>
 									</form>
 
