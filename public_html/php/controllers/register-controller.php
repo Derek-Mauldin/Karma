@@ -30,7 +30,7 @@ try {
 		@isset($_POST["userName"])         === false &&
 		@isset($_POST["email"])            === false &&
 		@isset($_POST["password"])         === false &&
-		@isset($_POST["confirmPassword"]) === false
+		@isset($_POST["confirmPassword"])  === false
 	) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
