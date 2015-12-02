@@ -75,4 +75,4 @@ setXsrfCookie();
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>
 
-	<body class="sfooter">
+	<body class="site">
