@@ -8,5 +8,3 @@
 				<li class="navbar-text"><a href="#">Support</a></li>
 			</ul>
 		</div>
-	</div>
-</div>

@@ -14,4 +14,9 @@
 		<a class="lead" href="javascript:ReverseDisplay('message-page')">Messages</a>
 
 	</div>
+
+	<div id="mp" onclick="HideAllShowOne('fp')">
+		<a class="lead" href="javascript:ReverseDisplay('feed-page')">Feed</a>
+
+	</div>
 </section>
