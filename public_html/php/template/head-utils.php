@@ -67,10 +67,11 @@ setXsrfCookie();
 		<!-- Custom JavaScript@author:Derek  @author:jhung@cnm.edu -->
 		<script src="<?php echo $PREFIX;?>lib/js/home-pg-side-toggle-testing.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>lib/js/site-scripts.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/register-controller.js"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/message-controller.js"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/need-controller.js"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js"></script>
+		<script src="<?php echo $PREFIX;?>php/controllers/register-controller.js" type="text/javascript"></script>
+		<script src="<?php echo $PREFIX;?>php/controllers/message-controller.js" type="text/javascript"></script>
+		<script src="<?php echo $PREFIX;?>php/controllers/need-controller.js" type="text/javascript"></script>
+		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>
+		<script src="<?php echo $PREFIX;?>php/controllers/log-in-controller.js" type="text/javascript"></script>
 		<!-- Page Title -->
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>

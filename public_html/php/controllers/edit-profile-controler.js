@@ -9,11 +9,11 @@ $(document).ready(
 	function() {
 
 		// tell the validator to validate this form
-		$("#sign-up-form").validate({
+		$("#editProfileForm").validate({
 			debug: true,
 			// setup the formatting for the errors
-			errorClass: "has-error",
-			errorLabelContainer: "#outputArea",
+			errorClass: "alert alert-danger",
+			errorLabelContainer: "#editProfileError",
 			wrapper: "li",
 
 			// rules define what is good/bad input
@@ -100,11 +100,11 @@ $(document).ready(
 
 			// setup an AJAX call to submit the form without reloading
 			submitHandler: function(form) {
-				$("#edit-profile").ajaxSubmit({
+				$("#editProfileForm").ajaxSubmit({
 					// GET or POST
 					type: "POST",
 					// where to submit data
-					url: $("#edit-profile").attr("action"),
+					url: $("#editProfileForm").attr("action"),
 					// this sends the XSRF token along with the form data
 					headers: {
 						"X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
@@ -112,9 +112,9 @@ $(document).ready(
 					// success is an event that happens when the server replies
 					success: function(ajaxOutput) {
 						// clear the output area's formatting
-						$("#outputArea").css("display", "");
+						$("#editProfileError").css("display", "");
 						// write the server's reply to the output area
-						$("#outputArea").html(ajaxOutput);
+						$("#editProfileError").html(ajaxOutput);
 
 
 						// reset the form if it was successful
@@ -128,7 +128,6 @@ $(document).ready(
 					}
 				});
 				$("#submit-profile").click(function() {
-					// $("#sign-up-form").modal("hide");
 				});
 			}
 		});

@@ -5,8 +5,13 @@
 	require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
 
 	try{
+		// verify the XSRF challenge
+		if(session_status() !== PHP_SESSION_ACTIVE) {
+			session_start();
+		}
 		//verify that the XSRF from the form is a valid token
 		verifyXsrf();
+
 		//start a connection to pdo
 		$pdo = connectToEnctyptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 
