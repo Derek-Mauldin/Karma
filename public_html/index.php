@@ -47,8 +47,7 @@ require_once("php/template/head-utils.php");
 										</h4>
 									</div>
 									<div class="panel-body">
-										<a href="#"><img src="http://placehold.it/60x60" alt="thumbnail image"
-															  class="img-thumbnail pull-left"></a>
+										<a href="#"><img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left"></a>
 
 										<p class="text-justify">One of a group of parents forming a club soccer team for kids ages
 											9-12.We would like a coach.The season begins in May and we would like to start practice
