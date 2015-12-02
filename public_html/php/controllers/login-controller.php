@@ -54,7 +54,7 @@ try {
 	$_SESSION["user"] = $profile;
 	$_SESSION["memberId"] = $member->getMemberId();
 
-	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
+	echo "<p class=\"alert alert-info\">Welcome Back, " . $userName . "!<p/>";
 
 	} catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";

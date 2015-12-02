@@ -63,7 +63,7 @@ EOF;
 	// sendEmail($member->getEmail, $sProfile->getProfileHandle(), $rProfile->getProfileHandle(), $messageSubject, $message);
 
 
-	echo "<p class=\"alert alert-info\">Succesful Insertion of new message</p>";
+	echo "<p class=\"alert alert-info\">Successful Insertion of new message</p>";
 
 } catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";
