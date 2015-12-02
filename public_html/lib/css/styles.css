@@ -34,7 +34,7 @@ body { padding-top:30px; }
 p {
 	color:black;
 }
-*/
+
 html {
 	position: relative;
 	min-height: 100%;
@@ -131,7 +131,7 @@ ul li{
 	margin-right: -250px;
 }
 
-/* Sidebar Styles */
+/* Sidebar Styles
 
 .sidebar-nav {
 	position: absolute;
@@ -232,7 +232,7 @@ ul li{
 
 .site-content {
 	flex: 1;
-}}
+}
 
 
 
