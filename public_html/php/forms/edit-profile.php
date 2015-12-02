@@ -83,11 +83,12 @@
 							<hr>
 						</div><!--/#panel-heading-->
 
-						<div class="edit-profile-wrapper">
+						<div class="overall-form-wrapper">
 							<div class="row" id="edit-profile-links">
 								<div class="col-lg-12" id="edit-profile">
 
-									<form id="profile-form" name="profile-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
+									<div id="profile-form">
+										 <form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
 										<div class="col-lg-12" id="avatar-input">
 
 											<!--center avatar-->
@@ -97,7 +98,7 @@
 												<input type="file" class="form-control">
 											</div><!--/#avatar-input-->
 
-										</div><!--/avater-input-->
+										</div><!--/avatar-input-->
 										<br>
 
 										<div class="form-group" id="blurb-input">
@@ -116,7 +117,10 @@
 
 										</div><!--/#edit-buttons-wrapper-->
 
-									</div><!--/#edit-profile-->
+									</form><!--/#edit-user-form-->
+
+								</div><!--/.overall-form-wrapper-->
+
 
 								</div><!--/#edit-profile-links-->
 
@@ -124,33 +128,27 @@
 
 						<div id="edit-settings" style="display: none;">
 							<div class="form-group">
-								<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control"
-										 placeholder="First Name" value="">
+								<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
 							</div>
 
 							<div class="form-group">
-								<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control"
-										 placeholder="Last Name" value="">
+								<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control" placeholder="Last Name" value="">
 							</div>
 
 							<div class="form-group">
-								<input type="text" name="userName" id="userName" tabindex="3" class="form-control"
-										 placeholder="Edit User Name" value="">
+								<input type="text" name="userName" id="userName" tabindex="3" class="form-control" placeholder="Edit User Name" value="">
 							</div>
 
 							<div class="form-group">
-								<input type="email" name="email" id="email" tabindex="4" class="form-control"
-										 placeholder="Edit Email Address" value="">
+								<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Edit Email Address" value="">
 							</div>
 
 							<div class="form-group">
-								<input type="password" name="password" id="password" tabindex="5" class="form-control"
-										 placeholder="Change Password">
+								<input type="password" name="password" id="password" tabindex="5" class="form-control" placeholder="Change Password">
 							</div>
 
 							<div class="form-group">
-								<input type="password" name="confirmLPassword" id="confirmPassword" tabindex="6"
-										 class="form-control" placeholder="Confirm Password">
+								<input type="password" name="confirmLPassword" id="confirmPassword" tabindex="6" class="form-control" placeholder="Confirm Password">
 							</div>
 
 							<div class="edit-buttons-wrapper">
@@ -158,11 +156,15 @@
 									<div class="col-md-6 col-md-offset-2" id="edit-buttons-inner">
 										<button id="submit-profile" name="submit-profile" type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
 										<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
-									</div><!--/#edit-buttons-inner-->
-								</div><!--/#edit-buttons-->
-							</div><!--/#edit-buttons-wrapper-->
+									</div><!--/.panel-edit-->
 
-						</div><!--#edit-settings-->
+									</div><!--/#edit-content-->
+
+								</div><!--/.edit-content-main-->
+
+							</div><!--/#edit-settings-->
+
+						</div><!--/overall-form-wrapper-->
 
 					</div><!--/.panel-edit-->
 
@@ -170,7 +172,7 @@
 
 			</div><!--/.edit-content-main-->
 
-		</div><!--/#edit-content-wrapper-->
+		</div><!--/edit-content-wrapper-->
 
 	</body>
 
