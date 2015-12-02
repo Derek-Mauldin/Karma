@@ -25,9 +25,9 @@ try {
 
 
 	//ensures that the fields are filled out
-	if(@isset($_POST["messageSender"]) === false ||
-		@isset($_POST["messageReceiver"]) === false ||
-		@isset($_POST["karmaMessage"]) === false ) {
+	if(empty($_POST["messageSender"]) === true ||
+		empty($_POST["messageReceiver"]) === true ||
+		empty($_POST["karmaMessage"]) === true ) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
 
@@ -63,7 +63,7 @@ EOF;
 	// sendEmail($member->getEmail, $sProfile->getProfileHandle(), $rProfile->getProfileHandle(), $messageSubject, $message);
 
 
-	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
+	echo "<p class=\"alert alert-info\">Succesful Insertion of new message</p>";
 
 } catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";
