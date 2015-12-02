@@ -9,7 +9,7 @@
  *
  **/
 
-require_once(dirname(__DIR__) . "classes/autoload.php");
+require_once(dirname(__DIR__) . "/classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
@@ -22,11 +22,10 @@ try {
 	}
 	verifyXsrf();
 
-
 	//ensures that the fields are filled out
-	if(@isset($_POST["username"]) === false ||
-		@isset($_POST["needTitle"]) === false ||
-		@isset($_POST["need-desciption"]) === false) {
+	if(empty($_POST["username"]) === true ||
+		empty($_POST["needTitle"]) === true  ||
+		empty($_POST["needDescription"]) === true) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
 
@@ -42,9 +41,7 @@ try {
 	$need = new Need(null, $profile->getProfileId(), $needDescription, 0, $needTitle);
 	$need->insert($pdo);
 
-
-
-	echo "<p class=\"alert alert-success\">Welcome Back, " . $userName . "!<p/>";
+   echo "<p class=\"alsert alert-info\">Succesful need insertion</p>";
 
 } catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";

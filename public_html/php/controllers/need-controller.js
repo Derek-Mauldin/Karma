@@ -4,11 +4,11 @@ $(document).ready(
 	function() {
 
 		// tell the validator to validate this form
-		$("#karmaMessage").validate({
+		$("#need-form").validate({
 			debug: true,
 			// setup the formatting for the errors
-			errorClass: "label-danger",
-			errorLabelContainer: "#outputArea-login",
+			errorClass: "alert alert-danger",
+			errorLabelContainer: "#needError",
 			wrapper: "li",
 
 			// rules define what is good/bad input
@@ -25,8 +25,8 @@ $(document).ready(
 				},
 
 				needDescription: {
+					minlength: 10,
 					maxlength: 500,
-					minlenth: 10,
 					required: true
 				}
 			},
@@ -37,17 +37,17 @@ $(document).ready(
 
 				username: {
 					minlength: "username must be at least five characters ",
-					required: "must enter sender username"
+					required: "must enter username"
 				},
 
 				needTitle: {
-					minlength: "username must be at least five characters",
-					required: "must enter receiver name"
+					minlength: "Need Title must be at least 5 characters",
+					required: "must enter a need title"
 				},
 
 				needDescription: {
-					maxlength: "message can not exceed five hundred character",
 					minlength: "message must be at least ten characters",
+					maxlength: "message can not exceed five hundred character",
 					required: "must enter a message"
 				}
 			},
@@ -67,9 +67,9 @@ $(document).ready(
 					// success is an event that happens when the server replies
 					success: function(ajaxOutput) {
 						// clear the output area's formatting
-						$("#outputArea-login").css("display", "");
+						$("#needError").css("display", "");
 						// write the server's reply to the output area
-						$("#outputArea-login").html(ajaxOutput);
+						$("#needError").html(ajaxOutput);
 
 
 						// reset the form if it was successful
@@ -83,8 +83,8 @@ $(document).ready(
 					}
 				});
 
-				$("#submitButton").click(function() {
-					// $("#login-controller").modal("hide");
+				$("#needSubmit").click(function() {
+
 				});
 			}
 		});
