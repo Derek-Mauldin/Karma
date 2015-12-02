@@ -78,7 +78,7 @@ require_once("php/template/head-utils.php");
 							</div>
 						</div>
 					</div>
-				</div><!--/#profile-page-
+				</div><!--/#profile-page-->
 
 
 				<!--Message Page-->
