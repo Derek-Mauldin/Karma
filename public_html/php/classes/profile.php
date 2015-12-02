@@ -26,7 +26,7 @@
 	  *
 	  * @var $profileBlurb
 	  **/
-	 private $profileBlurb;
+	 private $profileBlurb = "";
 	 /**
 	  * profileHandle aka userName of this profile
 	  *
