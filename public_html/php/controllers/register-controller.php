@@ -25,12 +25,12 @@ try {
 	 verifyXsrf();
 
 	// ensures that the form fields are filled out
-	if(@isset($_POST["firstName"])        === false ||
-		@isset($_POST["lastName"])         === false ||
-		@isset($_POST["userName"])         === false ||
-		@isset($_POST["email"])            === false ||
-		@isset($_POST["password"])         === false ||
-		@isset($_POST["confirmPassword"])  === false
+	if(empty($_POST["firstName"])        === true ||
+		empty($_POST["lastName"])         === true ||
+		empty($_POST["userName"])         === true ||
+		empty($_POST["email"])            === true ||
+		empty($_POST["password"])         === true ||
+		empty($_POST["confirmPassword"])  === true
 	) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
@@ -86,6 +86,8 @@ EOF;
 
 	// send confirmation email to new member
 	// sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,$messageSubject, $message);
+
+	echo "<p class=\"alert alert-info\">Successful Insertion of new member.</p>";
 
 
 }catch (Exception $e) {
