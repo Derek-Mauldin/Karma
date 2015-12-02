@@ -42,7 +42,7 @@ try {
 	$_POST["userName"]          = Filter::filterString($_POST["userName"], "userName");
 	$_POST["password"]          = Filter::filterString($_POST["password"], "password");
 	$_POST["confirmPassword"]   = Filter::filterString($_POST["confirmPassword"], "confirmPassword");
-	$_POST["email"]             = Filter::filterEmail($_POST["email"], "email");
+
 
 
 	// verify that the password and password confirmation fields contain the same value

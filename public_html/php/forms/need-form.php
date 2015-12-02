@@ -3,7 +3,7 @@
 $CURRENT_DIR = __DIR__;
 
 /*set page title here*/
-$PAGE_TITLE = "Register";
+$PAGE_TITLE = "Need Form";
 
 /*load head-utils.php*/
 require_once(dirname(__DIR__) . "/template/head-utils.php");
@@ -15,7 +15,7 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 		<!-- The div class="form-wrap" is the black box containing the form. It's set to a column width of 12 for small screens, and a column width of 6 for medium screens on up -->
 		<div class="col-xs-12 col-md-7 form-wrap">
 			<!-- Form is centered within it's container, and is set to 10 be columns wide RELATIVE TO IT'S CONTAINER, and offset to the right by one column. See classes: col-xs-offset-1 & col-xs-10 -->
-			<form method="get" action="../controllers/need-controller.php" id="need-form" name="need-form" class="form-horizontal col-xs-10 col-xs-offset-1">
+			<form method="post" action="../controllers/need-controller.php" id="need-form" name="need-form" class="form-horizontal col-xs-10 col-xs-offset-1">
 
 				<div class="form-group">
 					<!-- Labels for each field are places within a <label> tag. Use the "for" attribute. the class="control-label" is for styling. -->
@@ -27,7 +27,7 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 							<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
 						</div>
 						<!-- text field input. pay attention to the id, placeholder text, type, and placeholder attributes -->
-						<input type="text" class="form-control" id="username" name="username"  placeholder="User Name Here" maxlength="150" />
+						<input type="text" class="form-control" id="username" name="username"  placeholder="User Name Here"/>
 					</div>
 				</div>
 
@@ -40,20 +40,21 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 						<div class="input-group-addon">
 						</div>
 						<!-- text field input. pay attention to the id, placeholder text, type, and placeholder attributes -->
-						<input type="text" class="form-control" id="needTitle" name="needTitle"  placeholder="Need Title Here" maxlength="150" />
+						<input type="text" class="form-control" id="needTitle" name="needTitle"  placeholder="Need Title Here"/>
 					</div>
 				</div>
 
 				<div class="form-group">
 					<label class="control-label" for="txtareaComments">Need Description</label>
-					<textarea class="form-control" rows="5" id="needDescription"  name="needDescription" maxlength="500" placeholder="500 characters max."></textarea>
+					<textarea class="form-control" rows="5" id="needDescription"  name="needDescription" placeholder="500 characters max."></textarea>
 				</div>
 
 				<div class="form-group">
 					<!-- the following <a> tag has been styled as a button with class="btn" -->
-					<a id="reset-form" class="btn" role="button">Reset Form</a>
-					<button type="submit" class="btn">Submit</button>
+					<!--a id="reset-form" class="btn" role="button">Reset Form</a-->
+					<button type="submit" class="btn" id="needSubmit" name="needSubmit">Submit</button>
 				</div>
+				<div id="needError" name="needError"></div>
 			</form>
 		</div> <!-- CLOSE FORM WRAP -->
 	</body
