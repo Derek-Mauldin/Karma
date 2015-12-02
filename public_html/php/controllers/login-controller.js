@@ -7,19 +7,19 @@ $(document).ready(
 		$("#login-form").validate({
 			debug: true,
 			// setup the formatting for the errors
-			errorClass: "label-danger",
-			errorLabelContainer: "#outputArea-login",
+			errorClass: "alert alert-danger",
+			errorLabelContainer: "#loginError",
 			wrapper: "li",
 
 			// rules define what is good/bad input
 			rules: {
 				// each rule starts with the inputs name (NOT id)
-				email: {
+				logInEmail: {
 					required: true,
 					email: true
 				},
 
-				loginPassword: {
+				logInPassword: {
 					minlength: 7,
 					required: true
 				}
@@ -28,14 +28,13 @@ $(document).ready(
 
 			// error messages to display to the end user
 			messages: {
-
-				email: {
+				logInEmail: {
 					required: "must enter email address",
 					email: "please enter your valid email address"
 
 				},
 
-				password: {
+				logInPassword: {
 					minlength: "please enter 7 characters",
 					required: "please enter valid password"
 				}
@@ -56,9 +55,9 @@ $(document).ready(
 					// success is an event that happens when the server replies
 					success: function(ajaxOutput) {
 						// clear the output area's formatting
-						$("#outputArea-login").css("display", "");
+						$("#loginError").css("display", "");
 						// write the server's reply to the output area
-						$("#outputArea-login").html(ajaxOutput);
+						$("#loginError").html(ajaxOutput);
 
 
 						// reset the form if it was successful
@@ -72,8 +71,7 @@ $(document).ready(
 					}
 				});
 
-				$("#submitButton").click(function() {
-					// $("#login-controller").modal("hide");
+				$("#login-submit").click(function() {
 				});
 			}
 		});

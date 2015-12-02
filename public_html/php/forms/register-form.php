@@ -30,15 +30,14 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 						<div class="col-lg-12">
 
 							<form id="login-form" name="login-form"
-									action="<?php echo $PREFIX; ?>php/controllers/login-controller.php" method="post" role="form"
-									style="display: block;">
+									action="../controllers/login-controller.php" method="post" role="form" style="display: block;">
 								<div class="form-group">
-									<input type="text" name="email" id="email" tabindex="1" class="form-control"
+									<input type="email" name="logInEmail" id="logInEmail" tabindex="1" class="form-control"
 											 placeholder="Email" value="">
 								</div>
 
 								<div class="form-group">
-									<input type="email" name="email" id="email" tabindex="2" class="form-control"
+									<input type="password" name="logInPassword" id="logInPassword" tabindex="2" class="form-control"
 											 placeholder="Password">
 								</div>
 								<div class="form-group text-center">
@@ -62,6 +61,7 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 										</div>
 									</div>
 								</div>
+								<div id="loginError" name="loginError"></div>
 							</form>
 
 
