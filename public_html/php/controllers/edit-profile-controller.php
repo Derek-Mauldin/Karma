@@ -22,12 +22,12 @@
 		}
 
 		//Check if the user input values are valid
-		if(@isset($_POST['password']) 	=== false ||
-			@isset($_POST['profileHandle']) 	=== false ||
-			@isset($_POST['firstName']) 		=== false ||
-			@isset($_POST['lastName'])			=== false ||
-			@isset($_POST["email"])				=== false ||
-			@isset($_POST["confirmPassword"])=== false) {
+		if(empty($_POST['password'])      	=== true ||
+			empty($_POST['profileHandle']) 	=== true ||
+			empty($_POST['firstName']) 		=== true ||
+			empty($_POST['lastName'])			=== true ||
+			empty($_POST["email"])				=== true ||
+			empty($_POST["confirmPassword"]) === true) {
 
 			throw(new InvalidArgumentException('The form is not complete or is missing inputs'));
 		}
