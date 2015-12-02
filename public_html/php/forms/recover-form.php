@@ -20,7 +20,7 @@ require_once("../../php/template/head-utils.php");
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand brand-shifted" href="#"><img class="brand-icon" src="../../img/another-octopus.png" alt="Kismet Logo"></a>
+					<a class="navbar-brand brand-shifted" href="#"><img class="brand-icon" src="../../img/octopus-icon.png" alt="Kismet Logo"></a>
 				</div>
 				<!-- Navbar collapse -->
 				<div class="navbar-collapse collapse">

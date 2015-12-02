@@ -8,7 +8,7 @@ $PAGE_TITLE = "Welcome to Karma";
 /*load head-utils.php*/
 require_once("php/template/head-utils.php");
 ?>
-<div class="site">
+<div class="wrapper">
 
 	<div class="container">
 		<div class="row">
@@ -227,8 +227,14 @@ require_once("php/template/head-utils.php");
 				<!-- #karma-feed -->
 			</div>
 			<!-- .feed-wrapper-->
-		</div>
+
 		<!--#feed-->
+			<!--Logout Pagte-->
+			<div id="logout-page" style="display:none;">
+				<h2>You are now Logged Out</h2>
+
+			</div>
+
 	</div>
 	<!-- end main page content -->
 </div>
@@ -236,12 +242,14 @@ require_once("php/template/head-utils.php");
 </div>
 <!-- .container -->
 
+
+
 <!--Another comment-->
 
 <!-- Offer Form Modal --> 
 <?php require_once("php/template/offer-modal.php"); ?>
 
-</div><!--.sfooter-contenr-->
+</div><!--.sfooter-content-->
 </div>
 <footer>
 	<?php require_once("php/template/footer.php"); ?>
