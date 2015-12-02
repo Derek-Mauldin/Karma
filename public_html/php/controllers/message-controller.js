@@ -24,7 +24,7 @@ $(document).ready(
 					required: true
 				},
 
-				messageError: {
+				karmaMessage: {
 					minlength: 10,
 					maxlength: 500,
 					required: true
@@ -45,7 +45,7 @@ $(document).ready(
 					required: "must enter receiver name"
 				},
 
-				messageError: {
+				karmaMessage: {
 					maxlength: "message can not exceed five hundred character",
 					minlength: "message must be at least ten characters",
 					required: "must enter a message"
