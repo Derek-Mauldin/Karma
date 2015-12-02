@@ -60,8 +60,8 @@
 
 	</head>
 	<body>
-		<div class="edit-content wrapper">
-			<div class="row">
+		<div class="edit-content-wrapper">
+			<div class="row" id="edit-content-main">
 				<div class="col-md-6 col-md-offset-3" id="edit-content">
 
 					<!--user editing links-->
@@ -163,9 +163,15 @@
 							</div><!--/#edit-buttons-wrapper-->
 
 						</div><!--#edit-settings-->
-					</div>
-				</div>
-			</div>
-		</div>
+
+					</div><!--/.panel-edit-->
+
+				</div><!--/#edit-content-->
+
+			</div><!--/.edit-content-main-->
+
+		</div><!--/#edit-content-wrapper-->
+
 	</body>
+
 </html>
