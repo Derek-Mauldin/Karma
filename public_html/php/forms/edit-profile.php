@@ -1,65 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<?php
+/*grab current directory*/
+$CURRENT_DIR = __DIR__;
 
-		<!--javascript-->
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+/*set page title here*/
+$PAGE_TITLE = "Welcome to Karma";
 
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
-				integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
-				crossorigin="anonymous">
+/*load head-utils.php*/
+require_once("../../php/template/head-utils.php");
+?>
 
-		<!-- Optional theme -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css"
-				integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-		<!--Google Fonts-->
-		<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700,100|Open+Sans:400,800,300,700'
-				rel='stylesheet' type='text/css'>
-
-
-		<!--font awesome-->
-		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-		<!--Link to custom CSS files here-->
-
-		<link type="text/css" href="../../lib/css/styles.css" rel="stylesheet">
-
-		<!--HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries-->
-		<!--WARNING: Respond.js doesn't work if you view the page via file://-->
-		<!--[if lt IE 9]>
-		<script type="text/javascript" src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script type="text/javascript" src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-		<![endif]-->
-
-		<!--js-cookie (for capstone) -->
-		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/js-cookie/2.0.2/js.cookie.min.js"></script>
-
-		<!--jQuery (necessary for bootstrap's javaScript plugins)-->
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-
-		<!-- jQuery form validation and additional methods (for capstone) -->
-		<script type="text/javascript" src="//cdnjs.cloudfare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
-		<script type="text/javascript"
-				  src="//cdnjs.cloudfare/com/ajax/libs/jquery-validate/1.14.0/jquery.valiate.min.js"></script>
-		<script type="text/javascript"
-				  src="//cdnjs.cloudfare.com/ajax/libs/jquery-validate/1.14.0.additional-methods.min.js"></script>
-
-		<!-- Latest compiled and minified JavaScript -->
-		<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
-				  integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ=="
-				  crossorigin="anonymous"></script>
-		<script type="text/javascript" src="../../lib/js/site-scripts.js"></script>
-
-		<title>Simple Karma Template</title>
-
-
-	</head>
-	<body>
 		<div class="edit-content-wrapper">
 			<div class="row" id="edit-content-main">
 				<div class="col-md-6 col-md-offset-3" id="edit-content">
