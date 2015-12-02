@@ -21,7 +21,7 @@ require_once("../../php/template/head-utils.php");
 ?>
 
 <div class="edit-content-wrapper">
-	<div class="row" id="edit-content-main">
+	<div class="row">
 		<div class="col-md-6 col-md-offset-3" id="edit-content">
 
 			<!--user editing links-->
@@ -38,21 +38,16 @@ require_once("../../php/template/head-utils.php");
 						<div class="col-xs-6">
 							<a href="#edit-settings" id="edit-settings-link">Settings</a>
 						</div>
-
 					</div>
 					<hr>
 				</div><!--/#panel-heading-->
 
 				<div class="overall-form-wrapper">
+					<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
 
-					<div class="row" id="edit-profile-link">
-						<div class="col-lg-12" id="edit-profile">
+					<div class="row" id="profile-form">
+						<div class="col-lg-12" id="profile-form">
 
-							<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
-
-
-							<div id="profile-form">
-								<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
 									<div class="col-lg-12" id="avatar-input">
 
 										<!--center avatar-->
@@ -66,32 +61,30 @@ require_once("../../php/template/head-utils.php");
 									<br>
 
 									<div class="form-group" id="blurb-input">
-										<input type="text" name="blurb" id="blurb" tabindex="1" class="form-control"
-												 placeholder="About Me" value="">
+										<input type="text" name="blurb" id="blurb" tabindex="1" class="form-control" placeholder="About Me" value="">
 									</div><!--/.form-group #blurb-input-->
 
-									<div class="form-group">
-										<div class="row" id="edit-buttons-row" >
-											<div class="col-md-6 col-md-offset-2" id="edit-buttons">
+									<div class="edit-buttons">
+										<div class="row" >
+											<div class="col-md-6 col-md-offset-2">
 												<button type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
 												<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
-											</div><!--/#edit-buttons-->
 
-										</div><!--/#edit-buttons-row-->
+											</div>
 
-									</div><!--/#edit-buttons-wrapper-->
+										</div><!--/overall-form-wrapper-->
+
+									</div><!--/#edit-buttons-->
 
 								</form><!--/#edit-user-form-->
 
 							</div><!--/.overall-form-wrapper-->
-						</form>
 
-						</div><!--/#edit-profile-links-->
+						</div><!--/.panel-edit-->
 
-					</div><!--/.edit-profile-wrapper-->
+					</div><!--/.edit-content-->
 
 					<div id="edit-settings" style="display: none;">
-						<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
 
 						<div class="form-group">
 							<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
@@ -117,31 +110,23 @@ require_once("../../php/template/head-utils.php");
 							<input type="password" name="confirmLPassword" id="confirmPassword" tabindex="6" class="form-control" placeholder="Confirm Password">
 						</div>
 
-						<div class="edit-buttons-wrapper">
-							<div class="row" id="edit-buttons">
-								<div class="col-md-6 col-md-offset-2" id="edit-buttons-inner">
+						<div class="edit-buttons">
+							<div class="row">
+								<div class="col-md-6 col-md-offset-2">
 									<button id="submit-profile" name="submit-profile" type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
 									<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
-								</div><!--/.panel-edit-->
 
-							</div><!--/#edit-content-->
+								</div>
 
-						</div><!--/.edit-content-main-->
+							</div>
 
-					</form>
+						</div><!--/.edit-buttons-->
 
 					</div><!--/#edit-settings-->
 
+				</div>
 
-				</div><!--/overall-form-wrapper-->
-
-			</div><!--/.panel-edit-->
-
-		</div><!--/#edit-content-->
-
-	</div><!--/.edit-content-main-->
-
-</div><!--/edit-content-wrapper-->
+			</div>
 
 </body>
 
