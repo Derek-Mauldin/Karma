@@ -37,9 +37,23 @@ require_once("php/template/head-utils.php");
 							<div class="container">
 								<div class="row">
 
+									<div class="span2">
+										<div class="btn-group">
+											<a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+												Action
+												<span class="icon-cog icon-white"></span><span class="caret"></span>
+											</a>
+											<ul class="dropdown-menu">
+												<li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
+												<li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+											</ul>
+										</div>
+									</div>
+
+
 									<div class="col-md-6">
 										<h4 class="listing-title">
-											<i class="fa fa-pencil-square-o pull-right"></i>
+											<i class="fa fa-pencil-square-o fa-2x pull-right"></i>
 									</div>
 								</div>
 
