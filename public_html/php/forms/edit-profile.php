@@ -14,7 +14,7 @@ require_once("../../php/template/head-utils.php");
 $CURRENT_DIR = __DIR__;
 
 /*set page title here*/
-$PAGE_TITLE = "Welcome to Karma";
+$PAGE_TITLE = "Edit Profile";
 
 /*load head-utils.php*/
 require_once("../../php/template/head-utils.php");
@@ -73,7 +73,7 @@ require_once("../../php/template/head-utils.php");
 								<div class="form-group">
 									<div class="row" id="edit-buttons-row">
 										<div class="col-md-6 col-md-offset-2" id="edit-buttons">
-											<button type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
+											<button type="submit" id="submit-profile" name="submit-profile" class="btn btn-default btn-md col-md-5">Reset</button>
 											<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
 										</div>
 										<!--/#edit-buttons-->
@@ -132,6 +132,7 @@ require_once("../../php/template/head-utils.php");
 												  class="btn btn-default btn-md col-md-5">Reset
 										</button>
 										<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+
 										<div id="editUserError" name="editUserError"></div>
 
 									</div><!--/.panel-edit-->
