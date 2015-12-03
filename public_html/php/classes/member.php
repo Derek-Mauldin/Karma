@@ -1,8 +1,7 @@
 <?php
 
 /** member class for Karma **/
-
-class Member{
+class Member {
 	/**
 	 * Member Id; this is the primary key
 	 * @var int $memberId
@@ -52,8 +51,8 @@ class Member{
 	 * @throws InvalidArgumentException if data types are invalid or insecure
 	 */
 
-	public function __construct($newMemberId, $newAccessLevel, $newEmail, $newEmailActivation, $newPasswordHash, $newSalt){
-		try{
+	public function __construct($newMemberId, $newAccessLevel, $newEmail, $newEmailActivation, $newPasswordHash, $newSalt) {
+		try {
 			$this->setMemberId($newMemberId);
 			$this->setAccessLevel($newAccessLevel);
 			$this->setEmail($newEmail);
@@ -62,16 +61,16 @@ class Member{
 			$this->setSalt($newSalt);
 
 		} catch(InvalidArgumentException $invalidArgument) {
-				//rethrow the exception to the caller
+			//rethrow the exception to the caller
 			throw(new InvalidArgumentException($invalidArgument->getMessage(), 0, $invalidArgument));
 
-		} catch(RangeException $range){
-				//rethrow the exception to the caller
+		} catch(RangeException $range) {
+			//rethrow the exception to the caller
 			throw (new RangeException($range->getMessage(), 0, $range));
 
-		} catch(Exception $exception){
-				//rethrow the generic exception
-			throw (new Exception ($exception->getMessage(),0 , $exception));
+		} catch(Exception $exception) {
+			//rethrow the generic exception
+			throw (new Exception ($exception->getMessage(), 0, $exception));
 		}
 	}
 
@@ -81,8 +80,8 @@ class Member{
 	 * @return int for member id
 	 */
 
-	public function getMemberId(){
-		return($this->memberId);
+	public function getMemberId() {
+		return ($this->memberId);
 	}
 
 	/**
@@ -92,19 +91,19 @@ class Member{
 	 * @throws RangeException if $memberId is not positive
 	 */
 
-	public function setMemberId($newMemberId){
+	public function setMemberId($newMemberId) {
 		// if new member id is null SQL will assign a new id
-		if($newMemberId === null){
+		if($newMemberId === null) {
 			$this->memberId = null;
 			return;
 		}
 		// verify the member id is valid
 		$newMemberId = filter_var($newMemberId, FILTER_VALIDATE_INT);
-		if ($newMemberId === false){
+		if($newMemberId === false) {
 			throw(new InvalidArgumentException("Member Id is not a valid integer"));
 		}
 		// verify the member id is positive
-		if($newMemberId <= 0){
+		if($newMemberId <= 0) {
 			throw(new RangeException ("Member Id is Not Positive"));
 		}
 		//convert and store the member id
@@ -115,9 +114,10 @@ class Member{
 	 * accessor method for access level
 	 * @return int value of access level
 	 */
-	public function getAccessLevel(){
-		return($this->memberAccessLevel);
+	public function getAccessLevel() {
+		return ($this->memberAccessLevel);
 	}
+
 	/**
 	 * mutator method for access level
 	 *
@@ -141,7 +141,7 @@ class Member{
 
 		if($newAccessLevel === "S") {
 			$this->memberAccessLevel = $newAccessLevel;
-		} elseif ($newAccessLevel === "A"){
+		} elseif($newAccessLevel === "A") {
 			$this->memberAccessLevel = $newAccessLevel;
 		} elseif($newAccessLevel === "U") {
 			$this->memberAccessLevel = $newAccessLevel;
@@ -154,11 +154,11 @@ class Member{
 	/**
 	 * accessor method for member memberEmail
 	 *
-	 *@return string value of member memberEmail
+	 * @return string value of member memberEmail
 	 **/
 
-	public function getEmail(){
-		return($this->memberEmail);
+	public function getEmail() {
+		return ($this->memberEmail);
 	}
 
 	/**
@@ -169,13 +169,13 @@ class Member{
 	 * @throws RangeException if $newEmail is >255 characters
 	 */
 
-	public function setEmail($newEmail){
+	public function setEmail($newEmail) {
 
 		$newEmail = trim($newEmail);
 
 		//verify the memberEmail is secure
 
-		if($newEmail === null){
+		if($newEmail === null) {
 			throw(new InvalidArgumentException("memberEmail can't be null"));
 		}
 
@@ -201,16 +201,16 @@ class Member{
 	 * @return int for memberEmail activation
 	 */
 
-	public function getEmailActivation(){
-		return($this->memberEmailActivation);
+	public function getEmailActivation() {
+		return ($this->memberEmailActivation);
 	}
 
 	/**
 	 * mutator for memberEmail activation
 	 *
-	 *@param string $newEmailActivation
-	 *@throws InvalidArgumentException if activation is not secure or invalid
-	*/
+	 * @param string $newEmailActivation
+	 * @throws InvalidArgumentException if activation is not secure or invalid
+	 */
 
 	public function setEmailActivation($newEmailActivation) {
 		//verify the activation code is valid
@@ -235,20 +235,22 @@ class Member{
 
 		$this->memberEmailActivation = $newEmailActivation;
 	}
+
 	/**
 	 * accessor method for password hash
 	 * @return string value of password hash
-	*/
-	public function getPasswordHash(){
-		return($this->memberHash);
+	 */
+	public function getPasswordHash() {
+		return ($this->memberHash);
 	}
+
 	/**
 	 * mutator method for password hash
-	 *@return string value of hash
+	 * @return string value of hash
 	 * @param string $newPasswordHash with ctype xdigit with a string of 128
 	 * @throws InvalidArgumentException if the hash is empty or insecure
 	 * @throws RangeException if $newPasswordHash is not 128
-	*/
+	 */
 
 	public function setPasswordHash($newPasswordHash) {
 		//verify hash is a string of 128 characters
@@ -264,6 +266,7 @@ class Member{
 
 		$this->memberHash = $newPasswordHash;
 	}
+
 	/**
 	 * accessor method for memberSalt
 	 *
@@ -271,8 +274,9 @@ class Member{
 	 */
 
 	public function getSalt() {
-		return($this->memberSalt);
+		return ($this->memberSalt);
 	}
+
 	/**
 	 * mutator method for memberSalt
 	 *
@@ -294,6 +298,7 @@ class Member{
 		//Store memberSalt
 		$this->memberSalt = $newSalt;
 	}
+
 	/**
 	 * inserts the new member into mySQL
 	 * @param PDO $pdo connectection object
@@ -325,6 +330,7 @@ class Member{
 		//updates the null return with what the SQL has provided
 		$this->memberId = intval($pdo->lastInsertId());
 	}
+
 	/**
 	 * delets the member from mySQL
 	 * @param PDO $pdo connectection object
@@ -344,6 +350,7 @@ class Member{
 		$parameters = array("memberId" => $this->memberId);
 		$statement->execute($parameters);
 	}
+
 	/**
 	 * updates a member in mySQL
 	 *
@@ -356,12 +363,13 @@ class Member{
 			throw(new PDOException("unable to update a member that does not exist"));
 		}
 		//creates the query
-		$query = "UPDATE member SET memberAccessLevel = :memberAccessLevel, memberEmail = :memberEmail, memberEmailActivation = :memberEmailActivation, memberHash = :memberHash, memberSalt = :memberSalt";
+		$query = "UPDATE member SET memberAccessLevel = :memberAccessLevel, memberEmail = :memberEmail, memberEmailActivation = :memberEmailActivation, memberHash = :memberHash, memberSalt = :memberSalt WHERE memberId = :memberId";
 		$statement = $pdo->prepare($query);
 		//attaches attributes to the right place in the template
-		$parameters = array("memberAccessLevel" => $this->memberAccessLevel, "memberEmail" => $this->memberEmail, "memberEmailActivation" => $this->memberEmailActivation, "memberHash" => $this->memberHash, "memberSalt" => $this->memberSalt);
+		$parameters = array("memberAccessLevel" => $this->memberAccessLevel, "memberEmail" => $this->memberEmail, "memberEmailActivation" => $this->memberEmailActivation, "memberHash" => $this->memberHash, "memberSalt" => $this->memberSalt, "memberId" => $this->memberId);
 		$statement->execute($parameters);
 	}
+
 	/**
 	 *get member by member id
 	 *
@@ -392,7 +400,7 @@ class Member{
 			$statement->setFetchMode(PDO::FETCH_ASSOC);
 			$row = $statement->fetch();
 			if($row !== false) {
-				$member = new Member($row["memberId"], $row["memberAccessLevel"], $row["memberEmail"], $row["memberEmailActivation"], $row["memberHash"],$row["memberSalt"]);
+				$member = new Member($row["memberId"], $row["memberAccessLevel"], $row["memberEmail"], $row["memberEmailActivation"], $row["memberHash"], $row["memberSalt"]);
 			}
 		} catch(Exception $exception) {
 			//if the row cannot be created rethrow exception

@@ -50,8 +50,13 @@ $(document).ready(
 					required: false
 				},
 
+				newPassword: {
+					minlength: 7,
+					required: false
+				},
+
 				confirmPassword: {
-					equalTo: "#password",
+					equalTo: "#newPassword",
 					required: false
 				}
 			},
@@ -84,15 +89,15 @@ $(document).ready(
 				},
 
 				password: {
-					minlength: "please enter 7 characters",
+					minlength: "please enter 7 characters"
 				},
 
 				newPassword: {
-					minlength: "please enter 7 characters",
+					minlength: "please enter 7 characters"
 				},
 
 				confirmPassword: {
-					equalTo: "new passwords do not match",
+					equalTo: "new passwords do not match"
 				}
 
 			},
@@ -118,12 +123,12 @@ $(document).ready(
 
 						// reset the form if it was successful
 						// this makes it easier to reuse the form again
-						if($(".alert-success").length > 0) {
-							$("#edit-user-form")[0].reset();
+				 	//	if($(".alert-success").length > 0) {
+					//		$("#edit-user-form")[0].reset();
 
 							//refresh page on successful login
-							setTimeout(function() {location.reload(true);}, 1000);
-						}
+					//		setTimeout(function() {location.reload(true);}, 1000);
+					//	}
 					}
 				});
 				$("#submit-profile").click(function() {
