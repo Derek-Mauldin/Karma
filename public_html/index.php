@@ -26,7 +26,8 @@ require_once("php/template/head-utils.php");
 
 					<!--Home Page-->
 					<div id="home-page" style="display:none;">
-						<h1>home page content</h1>
+						<h2>dashboard</h2>
+						<h2>home page content</h2>
 
 						<p>recent info</p>
 					</div><!--/#home-page>
@@ -37,8 +38,23 @@ require_once("php/template/head-utils.php");
 							<div class="container">
 								<div class="row">
 
+									<div class="btn-group open">
+										<a class="btn btn-primary" href="#"><i class="fa fa-pencil-square-o fa-2x pull-right"></i>
+
+										<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+											<span class="fa fa-pencil-square-o fa-2x pull-right"></span></a>
+										<ul class="dropdown-menu">
+											<li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+											<li><a href="#"><i class="fa fa-trash-o fa-fw"></i> Delete</a></li>
+											<li><a href="#"><i class="fa fa-ban fa-fw"></i> Ban</a></li>
+											<li class="divider"></li>
+											<li><a href="#"><i class="i"></i> Make admin</a></li>
+										</ul>
+									</div>
+
+
 									<div class="span2">
-										<div class="btn-group">
+										<div class="a-link">
 											<a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
 												Action
 												<span class="icon-cog icon-white"></span><span class="caret"></span>
@@ -52,12 +68,17 @@ require_once("php/template/head-utils.php");
 
 
 									<div class="col-md-6">
-										<h4 class="listing-title">
-											<i class="fa fa-pencil-square-o fa-2x pull-right"></i>
+											<a class="dropdown-toggle" data-toggle="dropdown pull-right" href=" #">
+												<i class="fa fa-pencil-square-o fa-2x pull-right"></i>	</a>
+												<ul class="dropdown-menu">
+													<li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
+													<li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+												</ul>
+
 									</div>
 								</div>
 
-
+-->
 								<div class="row">
 									<div class="col-md-3 col-lg-3">
 										<img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="pull-left img-circle img-responsive ">

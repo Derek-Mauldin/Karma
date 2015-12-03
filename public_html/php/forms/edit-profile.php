@@ -22,7 +22,7 @@ require_once("../../php/template/head-utils.php");
 
 <div class="edit-content-wrapper">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3" id="edit-content">
+		<div class="col-md-6 col-md-offset-3">
 
 			<!--user editing links-->
 			<div class="panel panel-edit">
@@ -40,94 +40,118 @@ require_once("../../php/template/head-utils.php");
 						</div>
 					</div>
 					<hr>
-				</div><!--/#panel-heading-->
+				</div>
+				<!--/#panel-heading-->
 
 				<div class="overall-form-wrapper">
-					<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
+					<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form"
+							style="display: block;">
 
-					<div class="row" id="profile-form">
-						<div class="col-lg-12" id="profile-form">
+						<div class="row" id="profile-form">
+							<div class="col-lg-12" id="profile-form">
 
-									<div class="col-lg-12" id="avatar-input">
+								<div class="col-lg-12" id="avatar-input">
 
-										<!--center avatar-->
-										<div class="text-center" id="avatar-input">
-											<img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
-											<h6>Upload a different photo...</h6>
-											<input type="file" class="form-control">
-										</div><!--/#avatar-input-->
-
-									</div><!--/avatar-input-->
-									<br>
-
-									<div class="form-group" id="blurb-input">
-										<input type="text" name="blurb" id="blurb" tabindex="1" class="form-control" placeholder="About Me" value="">
-									</div><!--/.form-group #blurb-input-->
-
-									<div class="edit-buttons">
-										<div class="row" >
-											<div class="col-md-6 col-md-offset-2">
-												<button type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
-												<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
-
-											</div>
-
-										</div><!--/overall-form-wrapper-->
-
-									</div><!--/#edit-buttons-->
-
-								</form><!--/#edit-user-form-->
-
-							</div><!--/.overall-form-wrapper-->
-
-						</div><!--/.panel-edit-->
-
-					</div><!--/.edit-content-->
-
-					<div id="edit-settings" style="display: none;">
-
-						<div class="form-group">
-							<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
-						</div>
-
-						<div class="form-group">
-							<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control" placeholder="Last Name" value="">
-						</div>
-
-						<div class="form-group">
-							<input type="text" name="userName" id="userName" tabindex="3" class="form-control" placeholder="Edit User Name" value="">
-						</div>
-
-						<div class="form-group">
-							<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Edit Email Address" value="">
-						</div>
-
-						<div class="form-group">
-							<input type="password" name="password" id="password" tabindex="5" class="form-control" placeholder="Change Password">
-						</div>
-
-						<div class="form-group">
-							<input type="password" name="confirmLPassword" id="confirmPassword" tabindex="6" class="form-control" placeholder="Confirm Password">
-						</div>
-
-						<div class="edit-buttons">
-							<div class="row">
-								<div class="col-md-6 col-md-offset-2">
-									<button id="submit-profile" name="submit-profile" type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
-									<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+									<!--center avatar-->
+									<div class="text-center" id="avatar-input">
+										<img src="//placehold.it/100" class="avatar img-circle" alt="avatar">
+										<h6>Upload a different photo...</h6>
+										<input type="file" class="form-control">
+									</div>
+									<!--/#avatar-input-->
 
 								</div>
+								<!--/avatar-input-->
+								<br>
+
+								<div class="form-group" id="blurb-input">
+									<input type="text" name="blurb" id="blurb" tabindex="1" class="form-control"
+											 placeholder="About Me" value="">
+								</div>
+								<!--/.form-group #blurb-input-->
+
+								<div class="form-group">
+									<div class="row" id="edit-buttons-row">
+										<div class="col-md-6 col-md-offset-2" id="edit-buttons">
+											<button type="submit" class="btn btn-default btn-md col-md-5">Reset</button>
+											<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+										</div>
+										<!--/#edit-buttons-->
+
+									</div>
+									<!--/#edit-buttons-row-->
+
+								</div>
+								<!--/#edit-buttons-wrapper-->
+
 
 							</div>
+							<!--/#edit-profile-links-->
 
-						</div><!--/.edit-buttons-->
+						</div>
+						<!--/.edit-profile-wrapper-->
 
-					</div><!--/#edit-settings-->
 
-				</div>
+						<div id="edit-settings" style="display: none;">
+							<!--<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
+	-->
+							<div class="form-group">
+								<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control"
+										 placeholder="First Name" value="">
+							</div>
 
-			</div>
+							<div class="form-group">
+								<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control"
+										 placeholder="Last Name" value="">
+							</div>
 
-</body>
+							<div class="form-group">
+								<input type="text" name="userName" id="userName" tabindex="3" class="form-control"
+										 placeholder="Edit User Name" value="">
+							</div>
 
-</html>
+							<div class="form-group">
+								<input type="email" name="email" id="email" tabindex="4" class="form-control"
+										 placeholder="Edit Email Address" value="">
+							</div>
+
+							<div class="form-group">
+								<input type="password" name="password" id="password" tabindex="5" class="form-control"
+										 placeholder="Change Password">
+							</div>
+
+							<div class="form-group">
+								<input type="password" name="confirmLPassword" id="confirmPassword" tabindex="6"
+										 class="form-control" placeholder="Confirm Password">
+							</div>
+
+							<div class="edit-buttons-wrapper">
+								<div class="row" id="edit-buttons">
+									<div class="col-md-6 col-md-offset-2" id="edit-buttons-inner">
+										<button id="submit-profile" name="submit-profile" type="submit"
+												  class="btn btn-default btn-md col-md-5">Reset
+										</button>
+										<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+
+									</div><!--/.panel-edit-->
+
+								</div><!--/#edit-content-->
+
+							</div><!--/.edit-content-main-->
+
+
+						</div><!--/#edit-settings-->
+
+					</form>
+
+				</div><!--/overall-form-wrapper-->
+
+			</div><!--/.panel-edit-->
+
+		</div>
+
+	</div>
+
+</div><!--close content-wrapper-->
+
+
