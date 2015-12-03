@@ -6,7 +6,7 @@ $CURRENT_DIR = __DIR__;
 $PAGE_TITLE = "Welcome to Karma";
 
 /*load head-utils.php*/
-require_once("../../php/template/head-utils.php");
+require_once(dirname(dirname(__DIR__)) . "/php/template/head-utils.php");
 ?>
 
 
@@ -34,7 +34,8 @@ require_once("../../php/template/head-utils.php");
 				<!--/#panel-heading-->
 
 				<div class="overall-form-wrapper">
-					<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form"
+					<form id="edit-user-form" name="edit-user-form" action="../controllers/edit-profile-controller.php"
+							method="post" role="form"
 							style="display: block;">
 
 						<div class="row" id="profile-form">
@@ -63,8 +64,10 @@ require_once("../../php/template/head-utils.php");
 								<div class="form-group">
 									<div class="row" id="edit-buttons-row">
 										<div class="col-md-6 col-md-offset-2" id="edit-buttons">
-											<button type="submit" id="submit-profile" name="submit-profile" class="btn btn-default btn-md col-md-5">Reset</button>
-											<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+											<button type="submit" id="submit-profile" name="submit-profile"
+													  class="btn btn-default btn-md col-md-5">Reset
+											</button>
+											<button type="submit" class="btn btn-default btn-md col-md-5">Submit</button>
 										</div>
 										<!--/#edit-buttons-->
 
@@ -105,14 +108,21 @@ require_once("../../php/template/head-utils.php");
 										 placeholder="Edit Email Address" value="">
 							</div>
 
+							<hr>
+
 							<div class="form-group">
 								<input type="password" name="password" id="password" tabindex="5" class="form-control"
-										 placeholder="Change Password">
+										 placeholder="Enter Current Password", value="">
+							</div>
+
+							<div class="form-group">
+								<input type="password" name="newPassword" id="newPassword" tabindex="5" class="form-control"
+										 placeholder="New Password", value="">
 							</div>
 
 							<div class="form-group">
 								<input type="password" name="confirmPassword" id="confirmPassword" tabindex="6"
-										 class="form-control" placeholder="Confirm Password">
+										 class="form-control" placeholder="Confirm New Password" value="">
 							</div>
 
 							<div class="edit-buttons-wrapper">
@@ -121,11 +131,10 @@ require_once("../../php/template/head-utils.php");
 										<button id="submit-profile" name="submit-profile" type="submit"
 												  class="btn btn-default btn-md col-md-5">Reset
 										</button>
-										<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
-
-										<div id="editUserError" name="editUserError"></div>
+										<button type="submit" class="btn btn-default btn-md col-md-5">Submit</button>
 
 									</div><!--/.panel-edit-->
+
 
 								</div><!--/#edit-content-->
 
@@ -137,6 +146,8 @@ require_once("../../php/template/head-utils.php");
 					</form>
 
 				</div><!--/overall-form-wrapper-->
+
+				<div id="editUserError" name="editUserError"></div>
 
 			</div><!--/.panel-edit-->
 
