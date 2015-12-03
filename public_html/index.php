@@ -10,7 +10,7 @@ require_once("php/template/head-utils.php");
 ?>
 <div class="wrapper">
 
-	<div class="container">
+	<div class="containe nbr">
 		<div class="row">
 
 			<!-- side panel -->
