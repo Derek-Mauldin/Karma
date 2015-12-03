@@ -9,7 +9,7 @@ $(document).ready(
 	function() {
 
 		// tell the validator to validate this form
-		$("#edit-user-form").validate({
+		$("#edit-user-form ").validate({
 			debug: true,
 			// setup the formatting for the errors
 			errorClass: "alert alert-danger",
