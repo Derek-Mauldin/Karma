@@ -232,7 +232,7 @@
 	  * @throws RangeException if $newProfileBlurb is too large
 	  **/
 	 public function setProfileBlurb($newProfileBlurb) {
-		 if($newProfileBlurb === null){
+		 if($newProfileBlurb === "" || $newProfileBlurb === null){
 			 $this->profileBlurb = $newProfileBlurb;
 			 return;
 		 }
@@ -243,7 +243,7 @@
 			 throw(new InvalidArgumentException("Profile Blurb content is empty or insecure."));
 		 }
 		 // validate the length of $newProfileBlurb
-		 if(strlen($newProfileBlurb) > 3000) {
+		 if(strlen($newProfileBlurb) > 500) {
 			 throw(new RangeException("Blurb content is too large."));
 		 }
 		 // store the new blurb
