@@ -9,11 +9,11 @@ $(document).ready(
 	function() {
 
 		// tell the validator to validate this form
-		$("#edit-user-form ").validate({
+		$("#edit-user-form").validate({
 			debug: true,
 			// setup the formatting for the errors
 			errorClass: "alert alert-danger",
-			errorLabelContainer: "#editProfileError",
+			errorLabelContainer: "#editUserError",
 			wrapper: "li",
 
 			// rules define what is good/bad input
@@ -47,19 +47,21 @@ $(document).ready(
 
 				password: {
 					minlength: 7,
-					required: true
+					required: false
 				},
 
 				confirmPassword: {
 					equalTo: "#password",
-					required: true
+					required: false
 				}
-
-
 			},
 
 			// error messages to display to the end user
 			messages: {
+
+				profileBlurb: {
+					maxlength: "Blurb can not be more than 500 characters"
+				},
 
 				firstName: {
 					minlength: "enter at least two characters",
@@ -74,7 +76,6 @@ $(document).ready(
 				userName: {
 					minlength: "enter at least five characters",
 					required: "please enter a valid user name"
-
 				},
 
 				email: {
@@ -84,16 +85,14 @@ $(document).ready(
 
 				password: {
 					minlength: "please enter 7 characters",
-					required: "please enter valid password"
 				},
 
-				verifyPassword: {
-					equalTo: "passwords do not match",
-					required: "password do not match"
+				newPassword: {
+					minlength: "please enter 7 characters",
 				},
 
-				profileBlurb: {
-					maxlength: "Blurb can not be more than 500 characters"
+				confirmPassword: {
+					equalTo: "new passwords do not match",
 				}
 
 			},
