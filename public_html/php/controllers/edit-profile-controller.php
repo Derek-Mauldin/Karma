@@ -19,7 +19,7 @@
 		$memberId = $_SESSION['memberId'];
 
 		//Check if the profileId passed from the form is valid and then get the profile if okay.
-		if(@isset($memberId) !== false){
+		if(empty($memberId) === true){
 			$profile = Profile::getProfileByMemberId($pdo, $memberId);
 			$member = Member::getMemberByMemberId($pdo, $memberId);
 		} else {
@@ -37,7 +37,7 @@
 			throw(new InvalidArgumentException('The form is not complete or is missing inputs'));
 		}
 			$profileBlurb = null;
-			if(array_key_exists($_POST, "profileBlurb")) {
+			if($_POST["profileBlurb"] !== "") {
 				$profileBlurb =  Filter::filterString($_POST['profileBlurb'], 'profileBlurb');
 			}
 			$profileHandle 	= Filter::filterString($_POST['profileHandle'], 'profileHandle');
@@ -45,7 +45,7 @@
 			$lastName 			= Filter::filterString($_POST['lastName'], 'lastName');
 			$email				= Filter::filterEmail($_POST['email'], 'email');
 			$password			= Filter::filterString($_POST['password'], 'password');
-			$confirmPassword = Filter::filterString($_POST['confirmPassword'], 'confirmPassword');
+			$confirmPassword  = Filter::filterString($_POST['confirmPassword'], 'confirmPassword');
 
 
 		if(($profile === null) || ($member === null)) {
@@ -68,6 +68,7 @@
 		   $member->setEmail($email);
 		   $member->update($pdo);
 
+		echo "<p class=\"alert alert-info\">Profile Successfully Updated.</p>";
 
 	}catch (Exception $exception){
 		echo "<p class=\"alert alert-danger\">Exception: " . $e->getMessage() . "</p>";
