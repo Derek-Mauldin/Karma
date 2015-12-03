@@ -9,7 +9,7 @@ $(document).ready(
 	function() {
 
 		// tell the validator to validate this form
-		$("#editProfileForm").validate({
+		$("#edit-user-form").validate({
 			debug: true,
 			// setup the formatting for the errors
 			errorClass: "alert alert-danger",
@@ -20,6 +20,11 @@ $(document).ready(
 			rules: {
 
 				// each rule starts with the inputs name (NOT id)
+				blurb: {
+					maxlength: 500,
+					required: false
+				},
+
 				firstName: {
 					minlength: 2,
 					required: true
@@ -45,14 +50,9 @@ $(document).ready(
 					required: true
 				},
 
-				verifyPassword: {
+				confirmPassword: {
 					equalTo: "#password",
 					required: true
-				},
-
-				profileBlurb: {
-					maxlength: 500,
-					required: false
 				}
 
 
@@ -100,11 +100,11 @@ $(document).ready(
 
 			// setup an AJAX call to submit the form without reloading
 			submitHandler: function(form) {
-				$("#editProfileForm").ajaxSubmit({
+				$("#edit-user-form").ajaxSubmit({
 					// GET or POST
 					type: "POST",
 					// where to submit data
-					url: $("#editProfileForm").attr("action"),
+					url: $("#edit-user-form").attr("action"),
 					// this sends the XSRF token along with the form data
 					headers: {
 						"X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
@@ -112,15 +112,15 @@ $(document).ready(
 					// success is an event that happens when the server replies
 					success: function(ajaxOutput) {
 						// clear the output area's formatting
-						$("#editProfileError").css("display", "");
+						$("#editUserError").css("display", "");
 						// write the server's reply to the output area
-						$("#editProfileError").html(ajaxOutput);
+						$("#editUserError").html(ajaxOutput);
 
 
 						// reset the form if it was successful
 						// this makes it easier to reuse the form again
 						if($(".alert-success").length > 0) {
-							$("#edit-profile")[0].reset();
+							$("#edit-user-form")[0].reset();
 
 							//refresh page on successful login
 							setTimeout(function() {location.reload(true);}, 1000);

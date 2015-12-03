@@ -121,7 +121,7 @@ require_once("../../php/template/head-utils.php");
 							</div>
 
 							<div class="form-group">
-								<input type="password" name="confirmLPassword" id="confirmPassword" tabindex="6"
+								<input type="password" name="confirmPassword" id="confirmPassword" tabindex="6"
 										 class="form-control" placeholder="Confirm Password">
 							</div>
 
@@ -132,6 +132,7 @@ require_once("../../php/template/head-utils.php");
 												  class="btn btn-default btn-md col-md-5">Reset
 										</button>
 										<button type="reset" class="btn btn-default btn-md col-md-5">Submit</button>
+										<div id="editUserError" name="editUserError"></div>
 
 									</div><!--/.panel-edit-->
 
