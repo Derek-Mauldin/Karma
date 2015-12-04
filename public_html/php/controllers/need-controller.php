@@ -41,7 +41,7 @@ try {
 	$need = new Need(null, $profile->getProfileId(), $needDescription, 0, $needTitle);
 	$need->insert($pdo);
 
-   echo "<p class=\"alsert alert-info\">Succesful need insertion</p>";
+   echo "<p class=\"alert alert-info\">Succesful need insertion</p>";
 
 } catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";
