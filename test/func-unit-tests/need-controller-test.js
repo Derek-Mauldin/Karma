@@ -33,7 +33,7 @@ function testValidFields() {
 
 
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert alert-info"), "successful insert of a need");
+		ok(F(this).hasClass("alert alert-info"), "info alert");
 		ok(successRegex.test(F(this).html()), "funcUnit success");
 
 	});
