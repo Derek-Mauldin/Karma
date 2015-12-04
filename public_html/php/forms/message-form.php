@@ -53,7 +53,7 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 				<div class="form-group">
 					<!-- the following <a> tag has been styled as a button with class="btn" -->
 					<a id="reset-form" class="btn" role="button">Reset Form</a>
-					<button type="submit" class="btn">Submit</button>
+					<button type="submit" id="message-submit" class="btn">Submit</button>
 				</div>
 				<div id="mError" name="mError"></div>
 			</form>
