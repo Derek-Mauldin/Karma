@@ -1,14 +1,14 @@
 // open a new window with the form under scrutiny
 module("tabs", {
 	setup: function() {
-		F.open("../../javascript/jquery/");
+		F.open("../../public_html/php/forms/need-form.php");
 	}
 });
 
 // global variables for form values
-var INVALID_USERNAME    = "sad";
-var INVALID_NEEDTITLE = "cat!";
-var INVALID_NEEDDESCRIPTION = "dog";
+var INVALID_USERNAME    = "jennifer";
+var INVALID_NEEDTITLE = "new mac book";
+var INVALID_NEEDDESCRIPTION = "my macbook really sucks";
 var VALID_USERNAME     = "superman";
 var VALID_NEEDTITLE   = "Monkey needs banana!";
 var VALID_NEEDDESCRIPTION   = "Monkey needs banana NOWWW!!";
@@ -30,12 +30,12 @@ function testValidFields() {
 	F(".alert-info").visible(function() {
 		// create a regular expression that evaluates the successful text
 		var successRegex = /Successful need insertion/;
-		//var successMessage = "Successful need insertion";
+
 
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert-info"), "successful alert CSS");
-		ok(successRegex.test(F(this).html()), "successful message");
-		//ok("Successful need insertion", "success");
+		ok(F(this).hasClass("alert alert-info"), "successful insert of a need");
+		ok(successRegex.test(F(this).html()), "funcUnit success");
+
 	});
 }
 
@@ -55,7 +55,7 @@ function testInvalidFields() {
 	// here, we assert we got the success message from the AJAX call
 	F(".alert-danger").visible(function() {
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert-danger"), "danger alert");
+		ok(F(this).hasClass("alert alert-danger"), "danger alert");
 		ok(F(this).html().indexOf("Exception: ") === 0,"unsuccessful message");
 	});
 }
