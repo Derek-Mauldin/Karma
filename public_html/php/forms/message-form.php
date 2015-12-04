@@ -47,13 +47,13 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 
 				<div class="form-group">
 					<label class="control-label" for="txtareaComments">Whatcha Got!</label>
-					<textarea class="form-control" rows="5" id="karmaMessage"  name="karmaMessage" placeholder="500 characters max."></textarea>
+					<textarea class="form-control" rows="5" id="kMessage"  name="kMessage" placeholder="500 characters max."></textarea>
 				</div>
 
 				<div class="form-group">
 					<!-- the following <a> tag has been styled as a button with class="btn" -->
 					<a id="reset-form" class="btn" role="button">Reset Form</a>
-					<button type="submit" id="message-submit" class="btn">Submit</button>
+					<button type="submit" id="messageSubmit" name="messageSubmit" class="btn">Submit</button>
 				</div>
 				<div id="mError" name="mError"></div>
 			</form>

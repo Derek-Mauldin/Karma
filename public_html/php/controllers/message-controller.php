@@ -27,13 +27,13 @@ try {
 	//ensures that the fields are filled out
 	if(empty($_POST["messageSender"]) === true ||
 		empty($_POST["messageReceiver"]) === true ||
-		empty($_POST["karmaMessage"]) === true ) {
+		empty($_POST["kMessage"]) === true ) {
 		throw(new InvalidArgumentException("The entries on the form are not complete. Please verify and try again"));
 	}
 
 	$messageSender = Filter::filterString($_POST["messageSender"], "messageSender");
 	$messageReceiver = Filter::filterString($_POST["messageReceiver"], "messageReceiver");
-	$karmaMessage = Filter::filterString($_POST["karmaMessage"], "karmaMessage");
+	$karmaMessage = Filter::filterString($_POST["kMessage"], "karmaMessage");
 
 
 	// connect to DB and find Sender and receiver  by profile handle
@@ -41,7 +41,7 @@ try {
 	$sProfile = Profile::getProfileByProfileHandle($pdo,$messageSender);
 	$rProfile = Profile::getProfileByProfileHandle($pdo,$messageReceiver);
 
-	if(($sProfile || $rProfile) === null) {
+	if(($sProfile === null) || ($sProfile === null)) {
 		throw(new InvalidArgumentException("sender or receiver does not exist"));
 	}
 
