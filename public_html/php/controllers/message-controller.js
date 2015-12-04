@@ -25,7 +25,6 @@ $(document).ready(
 				},
 
 				karmaMessage: {
-					minlength: 10,
 					maxlength: 500,
 					required: true
 				}
