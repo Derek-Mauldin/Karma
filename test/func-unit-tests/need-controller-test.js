@@ -23,13 +23,13 @@ function testValidFields() {
 	F("#needDescription").type(VALID_NEEDDESCRIPTION);
 
 	// click the button once all the fields are filled in
-	F("#message-submit").click();
+	F("#needSubmit").click();
 
 	// in forms, we want to assert the form worked as expected
 	// here, we assert we got the success message from the AJAX call
 	F(".alert-info").visible(function() {
 		// create a regular expression that evaluates the successful text
-		var successRegex = /Successful need insertion/;
+		var successRegex = /Succesful need insertion/;
 
 
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
@@ -49,7 +49,7 @@ function testInvalidFields() {
 	F("#needDescription").type(INVALID_NEEDDESCRIPTION);
 
 	// click the button once all the fields are filled in
-	F("#message-submit").click();
+	F("#needSubmit").click();
 
 	// in forms, we want to assert the form worked as expected
 	// here, we assert we got the success message from the AJAX call
