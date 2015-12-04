@@ -32,6 +32,9 @@ function testValidFields() {
 		var successRegex = /Successful need insertion/;
 
 
+		//comment
+
+
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
 		ok(F(this).hasClass("alert alert-info"), "successful insert of a need");
 		ok(successRegex.test(F(this).html()), "funcUnit success");
