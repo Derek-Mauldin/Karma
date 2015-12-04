@@ -1,23 +1,23 @@
 // open a new window with the form under scrutiny
 module("tabs", {
 	setup: function() {
-		F.open("../../javascript/jquery/");
+		F.open("../../public_html/php/forms/register-form.php");
 	}
 });
 
 // global variables for form values
 
-var INVALID_FIRST_NAME        = "K";
-var INVALID_LAST_NAME         = "Z";
-var INVALID_USER_NAME         = "flash";
+var INVALID_FIRST_NAME        = "Betty";
+var INVALID_LAST_NAME         = "Boop";
+var INVALID_USER_NAME         = "supergirl";
 var INVALID_EMAIL             = "superman@jl.com";
-var INVALID_PASSWORD          = "5555555";
-var INVALID_CONFIRM_PASSWORD  ="6666666";
+var INVALID_PASSWORD          = "6666666";
+var INVALID_CONFIRM_PASSWORD  = "6666666";
 
-var VALID_FIRST_NAME        = "Kara";
-var VALID_LAST_NAME         = "Zor El";
-var VALID_USER_NAME         = "supergirl";
-var VALID_EMAIL             = "supergirl@jl.com";
+var VALID_FIRST_NAME        = "Barry";
+var VALID_LAST_NAME         = "Allan";
+var VALID_USER_NAME         = "flash";
+var VALID_EMAIL             = "flash@jl.com";
 var VALID_PASSWORD          = "7777777";
 var VALID_CONFIRM_PASSWORD  = "7777777";
 
@@ -41,12 +41,12 @@ function testValidFields() {
 
 	// in forms, we want to assert the form worked as expected
 	// here, we assert we got the success message from the AJAX call
-	F(".alert").visible(function() {
+	F(".alert-info").visible(function() {
 		// create a regular expression that evaluates the successful text
-		var successRegex = /Successful Insertion of new member/;
+		var successRegex = /Successful Insertion of new member\./gmi;
 
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert-info"), "successful alert for register form");
+		ok(F(this).hasClass("alert alert-info"), "successful alert for register form");
 		ok(successRegex.test(F(this).html()), "we have a successful insert of a new member");
 	});
 }
@@ -68,9 +68,9 @@ function testInvalidFields() {
 
 	// in forms, we want to assert the form worked as expected
 	// here, we assert we got the success message from the AJAX call
-	F(".alert").visible(function() {
+	F(".alert-danger").visible(function() {
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert-danger"), "something went wrong");
+		ok(F(this).hasClass("alert alert-danger"), "something went wrong");
 		ok(F(this).html().indexOf("Exception: ") === 0, "invalid test - not successful");
 	});
 }

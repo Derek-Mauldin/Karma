@@ -55,7 +55,7 @@ try {
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 	$profile = Profile::getProfileByProfileHandle($pdo, $_POST["userName"]);
 	if(is_object($profile) === true) {
-		throw(new InvalidArgumentException("Try a different User Name"));
+		throw(new InvalidArgumentException("User name already exists"));
 	}
 
 
