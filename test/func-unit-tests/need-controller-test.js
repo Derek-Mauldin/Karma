@@ -6,31 +6,36 @@ module("tabs", {
 });
 
 // global variables for form values
-var INVALID_PROFILEID    = "2";
-var INVALID_TWEETCONTENT = "FuncUnit tests fail!";
-var VALID_PROFILEID      = "1";
-var VALID_TWEETCONTENT   = "FuncUnit tests work!";
+var INVALID_USERNAME    = "sad";
+var INVALID_NEEDTITLE = "cat!";
+var INVALID_NEEDDESCRIPTION = "dog";
+var VALID_USERNAME     = "superman";
+var VALID_NEEDTITLE   = "Monkey needs banana!";
+var VALID_NEEDDESCRIPTION   = "Monkey needs banana NOWWW!!";
 
 /**
  * test filling in only valid form data
  **/
 function testValidFields() {
 	// fill in the form values
-	F("#profileId").type(VALID_PROFILEID);
-	F("#tweetContent").type(VALID_TWEETCONTENT);
+	F("#username").type(VALID_USERNAME);
+	F("#needTitle").type(VALID_NEEDTITLE);
+	F("#needDescription").type(VALID_NEEDDESCRIPTION);
 
 	// click the button once all the fields are filled in
-	F("#tweetSubmit").click();
+	F("#needSubmit").click();
 
 	// in forms, we want to assert the form worked as expected
 	// here, we assert we got the success message from the AJAX call
 	F(".alert").visible(function() {
 		// create a regular expression that evaluates the successful text
-		var successRegex = /Tweet \(id = \d+\) posted!/;
+		var successRegex = /Successful need insertion/;
+		//var successMessage = "Successful need insertion";
 
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert-success"), "successful alert CSS");
+		ok(F(this).hasClass("alert-info"), "successful alert CSS");
 		ok(successRegex.test(F(this).html()), "successful message");
+		//ok("Successful need insertion", "success");
 	});
 }
 
@@ -39,18 +44,19 @@ function testValidFields() {
  **/
 function testInvalidFields() {
 	// fill in the form values
-	F("#profileId").type(INVALID_PROFILEID);
-	F("#tweetContent").type(INVALID_TWEETCONTENT);
+	F("#username").type(INVALID_USERNAME);
+	F("#needTitle").type(INVALID_NEEDTITLE);
+	F("#needDescription").type(INVALID_NEEDDESCRIPTION);
 
 	// click the button once all the fields are filled in
-	F("#tweetSubmit").click();
+	F("#needSubmit").click();
 
 	// in forms, we want to assert the form worked as expected
 	// here, we assert we got the success message from the AJAX call
 	F(".alert").visible(function() {
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert-danger"), "danger alert CSS");
-		ok(F(this).html().indexOf("Exception: unable to execute mySQL statement") === 0, "unsuccessful message");
+		ok(F(this).hasClass("alert-danger"), "danger alert");
+		ok(F(this).html().indexOf("Exception: ") === 0,"unsuccessful message");
 	});
 }
 
