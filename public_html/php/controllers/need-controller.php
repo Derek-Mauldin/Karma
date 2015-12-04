@@ -37,6 +37,9 @@ try {
 	// connect to DB and find profile by profile handle
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 	$profile = Profile::getProfileByProfileHandle($pdo,$username);
+	if($profile === null) {
+		throw(new PDOException("unable to retrieve profile that does not exist"));
+	}
 
 	$need = new Need(null, $profile->getProfileId(), $needDescription, 0, $needTitle);
 	$need->insert($pdo);
