@@ -1,7 +1,7 @@
 // open a new window with the form under scrutiny
 module("tabs", {
 	setup: function() {
-		F.open("../../javascript/jquery/");
+		F.open("../../public_html/php/forms/message-form.php");
 	}
 });
 
