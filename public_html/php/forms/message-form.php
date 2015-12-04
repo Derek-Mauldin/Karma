@@ -47,7 +47,7 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 
 				<div class="form-group">
 					<label class="control-label" for="txtareaComments">Whatcha Got!</label>
-					<textarea class="form-control" rows="5" id="karmaMessage"  name="karmaMessage" maxlength="500" placeholder="500 characters max."></textarea>
+					<textarea class="form-control" rows="5" id="karmaMessage"  name="karmaMessage" placeholder="500 characters max."></textarea>
 				</div>
 
 				<div class="form-group">
