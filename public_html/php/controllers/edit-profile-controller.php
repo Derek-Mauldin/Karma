@@ -17,7 +17,7 @@ try {
 
 	//Get the member id from the session
 	//$memberId = $_SESSION['memberId'];
-	$memberId = 6;
+	$memberId = 1;
 
 	//Check if the profileId passed from the form is valid and then get the profile if okay.
 	if(empty($memberId) !== true) {
