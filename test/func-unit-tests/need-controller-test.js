@@ -7,20 +7,19 @@ module("tabs", {
 
 // global variables for form values
 var INVALID_USERNAME    = "jennifer";
-var INVALID_NEEDTITLE = "new mac book";
-var INVALID_NEEDDESCRIPTION = "my macbook really sucks";
 var VALID_USERNAME     = "superman";
-var VALID_NEEDTITLE   = "Monkey needs banana!";
-var VALID_NEEDDESCRIPTION   = "Monkey needs banana NOWWW!!";
+
+var TEST_NEEDTITLE   = "Monkey needs banana!";
+var TEST_NEEDDESCRIPTION   = "Monkey needs banana NOWWW!!";
 
 /**
- * test filling in only valid form data
+ * test submitting need with valid user name
  **/
-function testValidFields() {
+function testValidUserName() {
 	// fill in the form values
 	F("#username").type(VALID_USERNAME);
-	F("#needTitle").type(VALID_NEEDTITLE);
-	F("#needDescription").type(VALID_NEEDDESCRIPTION);
+	F("#needTitle").type(TEST_NEEDTITLE);
+	F("#needDescription").type(TEST_NEEDDESCRIPTION);
 
 	// click the button once all the fields are filled in
 	F("#needSubmit").click();
@@ -33,20 +32,20 @@ function testValidFields() {
 
 
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert alert-info"), "info alert");
-		ok(successRegex.test(F(this).html()), "funcUnit success");
+		ok(F(this).hasClass("alert alert-info"), "Info Alert");
+		ok(successRegex.test(F(this).html()), F(this).html().valueOf('#needError'));
 
 	});
 }
 
 /**
- * test filling in invalid form data
+ * test submitting need with invalid user name
  **/
-function testInvalidFields() {
+function testInvalidUserName() {
 	// fill in the form values
 	F("#username").type(INVALID_USERNAME);
-	F("#needTitle").type(INVALID_NEEDTITLE);
-	F("#needDescription").type(INVALID_NEEDDESCRIPTION);
+	F("#needTitle").type(TEST_NEEDTITLE);
+	F("#needDescription").type(TEST_NEEDDESCRIPTION);
 
 	// click the button once all the fields are filled in
 	F("#needSubmit").click();
@@ -55,13 +54,13 @@ function testInvalidFields() {
 	// here, we assert we got the success message from the AJAX call
 	F(".alert-danger").visible(function() {
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert alert-danger"), "danger alert");
-		ok(F(this).html().indexOf("Exception: ") === 0,"unsuccessful message");
+		ok(F(this).hasClass("alert alert-danger"), "Danger Alert");
+		ok(F(this).html().indexOf("Exception: ") === 0, F(this).html().valueOf('#needError'));
 	});
 }
 
 // the test function *MUST* be called in order for the test to execute
-test("test valid fields", testValidFields);
-test("test invalid fields", testInvalidFields);
+test("test inserting need with valid user name", testValidUserName);
+test("test invalid need with invalid user name", testInvalidUserName);
 
 //commenting again
