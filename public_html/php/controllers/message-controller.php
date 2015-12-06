@@ -33,7 +33,7 @@ try {
 
 	$messageSender = Filter::filterString($_POST["messageSender"], "messageSender");
 	$messageReceiver = Filter::filterString($_POST["messageReceiver"], "messageReceiver");
-	$karmaMessage = Filter::filterString($_POST["kMessage"], "karmaMessage");
+	$kMessage = Filter::filterString($_POST["kMessage"], "kMessage");
 
 
 	// connect to DB and find Sender and receiver  by profile handle
@@ -46,7 +46,7 @@ try {
 	}
 
 	// create message and insert into the DB
-	$message = new Message(null, $sProfile->getProfileId(), $rProfile->getProfileId(),$karmaMessage);
+	$message = new Message(null, $sProfile->getProfileId(), $rProfile->getProfileId(),$kMessage);
 	$message->insert($pdo);
 
 
@@ -62,9 +62,10 @@ EOF;
 	$member = Member::getMemberByMemberId($pdo, $rProfile->getMemberId());
 	sendEmail($member->getEmail(), $rProfile->getProfileFirstName(), $rProfile->getProfileLastName(), $messageSubject, $message);
 
-
+	// successful insert alert
 	echo "<p class=\"alert alert-info\">Successful Insertion of new message</p>";
 
+	// unsuccessful insert alert
 } catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";
 
