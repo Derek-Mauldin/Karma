@@ -36,17 +36,17 @@ function testValidFields() {
 
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
 		ok(F(this).hasClass("alert alert-info"), "Alert Info");
-		ok(successRegex.test(F(this).html()), "we have a successful login of a member");
+		ok(successRegex.test(F(this).html()), F(this).html().valueOf('#loginError'));
 	});
 }
 
 /**
- * test filling in invalid form data
+ * test login with invalid password
  **/
-function testInvalidFields() {
+function testInvalidPassword() {
 	// fill in the form values
 
-	F("#logInEmail").type(INVALID_EMAIL);
+	F("#logInEmail").type(VALID_EMAIL);
 	F("#logInPassword").type(INVALID_PASSWORD);
 
 
@@ -58,10 +58,34 @@ function testInvalidFields() {
 	F(".alert-danger").visible(function() {
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
 		ok(F(this).hasClass("alert alert-danger"), "Alert Danger");
-		ok(F(this).html().indexOf("Exception: ") === 0, "did not insert invalid data");
+		ok(F(this).html().indexOf("Exception: ") === 0, F(this).html().valueOf('#loginError'));
+	});
+}
+
+
+/**
+ * test login with invalid email
+ **/
+function testInvalidEmail() {
+	// fill in the form values
+
+	F("#logInEmail").type(INVALID_EMAIL);
+	F("#logInPassword").type(VALID_PASSWORD);
+
+
+	// click the button once all the fields are filled in
+	F("#login-submit").click();
+
+	// in forms, we want to assert the form worked as expected
+	// here, we assert we got the success message from the AJAX call
+	F(".alert-danger").visible(function() {
+		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
+		ok(F(this).hasClass("alert alert-danger"), "Alert Danger");
+		ok(F(this).html().indexOf("Exception: ") === 0, F(this).html().valueOf('#loginError'));
 	});
 }
 
 // the test function *MUST* be called in order for the test to execute
 test("test valid fields", testValidFields);
-test("test invalid fields", testInvalidFields);
+test("test login with invalid password", testInvalidPassword);
+test("test login with invalid email", testInvalidEmail);
