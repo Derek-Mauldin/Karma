@@ -19,12 +19,17 @@ try {
 	//$memberId = $_SESSION['memberId'];
 	$memberId = 1;
 
-	//Check if the profileId passed from the form is valid and then get the profile if okay.
+	//Check if the memberId passed from the form is valid and then get the profile if okay.
 	if(empty($memberId) !== true) {
 		$profile = Profile::getProfileByMemberId($pdo, $memberId);
 		$member = Member::getMemberByMemberId($pdo, $memberId);
 	} else {
-		throw(new InvalidArgumentException('Member id not found or is invalid.'));
+		throw(new InvalidArgumentException("member id is not available"));
+	}
+
+	// check that profile and member exists for this member id
+	if(($profile === null) || ($member === null)) {
+		throw(new InvalidArgumentException("profile or member does not exist for the member id"));
 	}
 
 	//Check if the user input values are valid
@@ -47,9 +52,17 @@ try {
 	$email         = Filter::filterEmail($_POST['email'], 'email');
 
 
+// Verify that the email address has not been taken by another user
+	$checkMemberEmail = Member::getMemberByEmail($pdo, $email);
+	if( ($checkMemberEmail !== null) && ($checkMemberEmail->getMemberId() !== $memberId) ) {
+		throw(new InvalidArgumentException('The email address you have entered is already being used.'));
+	}
 
-	if(($profile === null) || ($member === null)) {
-		throw(new InvalidArgumentException("profile or member does not exist for the member id"));
+
+	// Verify that the handle has not been taken by another user
+	$checkProfileHandle = Profile::getProfileByProfileHandle($pdo, $profileHandle);
+	if( ($checkProfileHandle !== null) && ($checkProfileHandle->getMemberId() !== $memberId) ) {
+		throw(new InvalidArgumentException('The user name you have chosen has already been taken by another user.'));
 	}
 
 	// password change if requested
@@ -71,13 +84,6 @@ try {
 		   $member->setSalt($salt);
 			$member->update($pdo);
 
-		echo "<p class=\"alert alert-info\">Password Successfully Updated.</p>";
-	}
-
-	// Verify that the handle has not been taken by another user
-	$checkProfileHandle = Profile::getProfileByProfileHandle($pdo, $profileHandle);
-	if( ($checkProfileHandle !== null) && ($checkProfileHandle->getMemberId() !== $memberId) ) {
-		throw(new InvalidArgumentException('The user name you have chosen has already been taken by another user.'));
 	}
 
 
