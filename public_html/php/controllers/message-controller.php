@@ -41,7 +41,7 @@ try {
 	$sProfile = Profile::getProfileByProfileHandle($pdo,$messageSender);
 	$rProfile = Profile::getProfileByProfileHandle($pdo,$messageReceiver);
 
-	if(($sProfile === null) || ($sProfile === null)) {
+	if(($sProfile === null) || ($rProfile === null)) {
 		throw(new InvalidArgumentException("sender or receiver does not exist"));
 	}
 

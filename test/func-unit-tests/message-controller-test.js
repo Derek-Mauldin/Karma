@@ -8,10 +8,11 @@ module("tabs", {
 // global variables for form values
 var INVALID_SENDER    = "sombody";
 var INVALID_RECEIVER = "nobody";
-var INVALID_MESSAGE= "message from somebody to nobody";
+
 var VALID_SENDER     = "superman";
 var VALID_RECEIVER   = "batman";
-var VALID_MESSAGE   = "message from batman to superman";
+
+var TEST_MESSAGE   = "message test";
 
 /**
  * test filling in only valid form data
@@ -20,7 +21,7 @@ function testValidFields() {
 	// fill in the form values
 	F("#messageSender").type(VALID_SENDER);
 	F("#messageReceiver").type(VALID_RECEIVER);
-	F("#kMessage").type(VALID_MESSAGE);
+	F("#kMessage").type(TEST_MESSAGE);
 
 	// click the button once all the fields are filled in
 	F("#messageSubmit").click();
@@ -36,20 +37,20 @@ function testValidFields() {
 
 
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert alert-info"), "successful insert of a message");
-		ok(successRegex.test(F(this).html()), "funcUnit success");
+		ok(F(this).hasClass("alert alert-info"), "Alert Info");
+		ok(successRegex.test(F(this).html()), F(this).html().valueOf('#mError'));
 
 	});
 }
 
 /**
- * test filling in invalid form data
+ * test sending a message with an invalid sender
  **/
-function testInvalidFields() {
+function testInvalidSender() {
 	// fill in the form values
 	F("#messageSender").type(INVALID_SENDER);
-	F("#messageReceiver").type(INVALID_RECEIVER);
-	F("#kMessage").type(INVALID_MESSAGE);
+	F("#messageReceiver").type(VALID_RECEIVER);
+	F("#kMessage").type(TEST_MESSAGE);
 
 	// click the button once all the fields are filled in
 	F("#messageSubmit").click();
@@ -58,11 +59,34 @@ function testInvalidFields() {
 	// here, we assert we got the success message from the AJAX call
 	F(".alert-danger").visible(function() {
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-		ok(F(this).hasClass("alert alert-danger"), "unsuccessful message insert");
-		ok(F(this).html().indexOf("Exception: ") === 0,"unsuccessful message");
+		ok(F(this).hasClass("alert alert-danger"), "Alert Danger");
+		ok(F(this).html().indexOf("Exception: ") === 0, F(this).html().valueOf('#mError'));
+	});
+}
+
+
+/**
+ * test sending a message with an invalid receiver
+ **/
+function testInvalidReceiver() {
+	// fill in the form values
+	F("#messageSender").type(VALID_SENDER);
+	F("#messageReceiver").type(INVALID_RECEIVER);
+	F("#kMessage").type(TEST_MESSAGE);
+
+	// click the button once all the fields are filled in
+	F("#messageSubmit").click();
+
+	// in forms, we want to assert the form worked as expected
+	// here, we assert we got the success message from the AJAX call
+	F(".alert-danger").visible(function() {
+		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
+		ok(F(this).hasClass("alert alert-danger"), "Alert Danger");
+		ok(F(this).html().indexOf("Exception: ") === 0, F(this).html().valueOf('#mError'));
 	});
 }
 
 // the test function *MUST* be called in order for the test to execute
 test("test valid fields", testValidFields);
-test("test invalid fields", testInvalidFields);
+test("test sending message with invalid sender", testInvalidSender);
+test("test sending message with invalid receiver", testInvalidReceiver);

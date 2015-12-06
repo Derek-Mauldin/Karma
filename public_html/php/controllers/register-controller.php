@@ -51,11 +51,17 @@ try {
 	}
 
 
-	// check to see if user handle is already being used by a profile
+	// check to see if user handle is already being used by another profile
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 	$profile = Profile::getProfileByProfileHandle($pdo, $_POST["userName"]);
 	if(is_object($profile) === true) {
-		throw(new InvalidArgumentException("User name already exists"));
+		throw(new InvalidArgumentException("This User name already exists, please choose another user name."));
+	}
+
+	// check to see if email is already being used by another member
+	$member = Member::getMemberByEmail($pdo, $_POST["email"]);
+	if(is_object($member) === true) {
+		throw(new InvalidArgumentException("This email already exists for another member."));
 	}
 
 
