@@ -12,7 +12,8 @@ var INVALID_RECEIVER = "nobody";
 var VALID_SENDER     = "superman";
 var VALID_RECEIVER   = "batman";
 
-var TEST_MESSAGE   = "message test";
+var TEST_MESSAGE   = "this is a message that superman sent batman";
+var TEST_MESSAGE2  = "second test message"
 
 /**
  * test filling in only valid form data
@@ -33,9 +34,6 @@ function testValidFields() {
 		var successRegex = /Successful Insertion of new message/;
 
 
-		//comment
-
-
 		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
 		ok(F(this).hasClass("alert alert-info"), "Alert Info");
 		ok(successRegex.test(F(this).html()), F(this).html().valueOf('#mError'));
@@ -50,7 +48,7 @@ function testInvalidSender() {
 	// fill in the form values
 	F("#messageSender").type(INVALID_SENDER);
 	F("#messageReceiver").type(VALID_RECEIVER);
-	F("#kMessage").type(TEST_MESSAGE);
+	F("#kMessage").type(TEST_MESSAGE2);
 
 	// click the button once all the fields are filled in
 	F("#messageSubmit").click();
@@ -72,7 +70,7 @@ function testInvalidReceiver() {
 	// fill in the form values
 	F("#messageSender").type(VALID_SENDER);
 	F("#messageReceiver").type(INVALID_RECEIVER);
-	F("#kMessage").type(TEST_MESSAGE);
+	F("#kMessage").type(TEST_MESSAGE2);
 
 	// click the button once all the fields are filled in
 	F("#messageSubmit").click();
