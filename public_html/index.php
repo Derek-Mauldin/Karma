@@ -9,23 +9,24 @@ $PAGE_TITLE = "Welcome to Karma";
 require_once("php/template/head-utils.php");
 ?>
 
-<!---------------------------------------body-------------------------------------------------------->
 
-			<div class="container">
-				<div class="row">
-		<!------------------------------------ side panel --------------------------------------------------->
+  <!---------------------------------------body-------------------------------------------------------->
+
+	<body class="site">
+		<div class="site-content">
+	<!------------------------------------ side panel --------------------------------------------------->
 
 		<div class="col-md-4 hidden-xs hidden-sm">
 			<?php require_once("php/template/side-panel.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
 
-		<!--------------------------------------- main------------------------------------------------->
+	<!--------------------------------------- main------------------------------------------------------->
 
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-xs-12">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8 col-xs-12">
 
-					<!-----------------------------------------home page---------------------------------------------------->
+	<!-----------------------------------------home page-------------------------------------------------->
 
 					<div class="container" id="home-page" style="display:none;">
 						<h2>dashboard</h2>
@@ -33,13 +34,13 @@ require_once("php/template/head-utils.php");
 						<p>recent info</p>
 					</div><!--/#home-page-->
 
-					<!----------------------------------------profile page--------------------------------------------------->
+	<!----------------------------------------profile page------------------------------------------------->
 
 					<div class="container" id="profile-page" style="display:none;">
 						<div class="row" >
 							<div class="col-md-8" id=" panel-default">
 
-								<!--------------------------------------profile edit links------------------------------------------------>
+	<!--------------------------------------profile edit links---------------------------------------------->
 
 								<div class="container" id="panel-header">
 									<div class="row" id="editing-links">
@@ -60,7 +61,8 @@ require_once("php/template/head-utils.php");
 									<p class="text-center" id="image-footer">$username</p>
 									<p class="text-center" id="image-footer">$location</p>
 
-									<!--in settings, can set skype to be revealed upon aacceptance of offer-->
+			<!------------in settings, can set skype to be revealed upon aacceptance of offer------------------>
+
 									<p class="text-center" id="image-footer"><i class="fa fa-skype fa-2x"></i></p>
 
 								</div><!--/#panel-image-section-->
@@ -71,7 +73,7 @@ require_once("php/template/head-utils.php");
 									<h3>Request Title</h3>
 									<p>Details<br></p>
 
-									<!------------- message option is hidden when it is the user looking at their own profile-------------->
+		<!------------- message option is hidden when it is the user looking at their own profile-------------->
 
 									<div class="panel-group" id="message-wrapper">
 
@@ -80,7 +82,7 @@ require_once("php/template/head-utils.php");
 												<h4 class="panel-title">Message $user</h4>
 											</div><!--/.panel-heading-->
 
-											<!---------------------------------------------message user ---------------------------------------------------->
+		<!---------------------------------------------message user ---------------------------------------------------->
 
 											<form accept-charset="UTF-8" action="" method="POST">
 
@@ -181,14 +183,14 @@ require_once("php/template/head-utils.php");
 					</div><!--/.panel-default-->
 				</div><!--/.container-->
 			</div><!--/#message-page-->
-		</div><!--/.site-content-->
+		</div><!--/.container-->
 
-		<!-------------------------------------------- feed page------------------------------------------------->
+	<!-------------------------------------------- feed page------------------------------------------------->
 
 		<div id="feed-page" style="display:none;">
 			<h2>Karma Feed</h2>
 
-		<!-------------------------------------------feed panel------------------------------------------->
+	<!-------------------------------------------feed panel------------------------------------------->
 
 					<div class="listing clearfix panel panel-default">
 						<div class="panel-heading">
@@ -212,16 +214,20 @@ require_once("php/template/head-utils.php");
 				<h2>You are now Logged Out</h2>
 			</div><!--/#logout-page-->
 
-		<!------------------------------------------offer form modal------------------------------------------------->
+	<!------------------------------------------offer form modal------------------------------------------------->
 
 			<?php require_once("php/template/offer-modal.php"); ?>
 
+			</div><!--/.row-->
+		</div><!--/.site-content-->
+			</div><!--/.row-->
+		</div><!--/.container-->
 
 	<!----------------------------------------------footer-------------------------------------------------------->
 
 			<footer>
 				<?php require_once("php/template/footer.php"); ?>
 			</footer>
+		</body>
+		</html>
 
-		</div><!--/.row-->
-	</div><!--/.site-->

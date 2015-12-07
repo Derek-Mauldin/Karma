@@ -73,7 +73,6 @@ setXsrfCookie();
 		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/login-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>lib/js/site-scripts" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>lib/js/scripts.js" type="text/javascript"></script>
 
 
 		<!-- Page Title -->
