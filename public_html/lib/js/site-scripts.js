@@ -1,21 +1,15 @@
-
- /******************************************************************************************************
- *
- *offer form
- * submission success message
- *
- * ****************************************************************************************************/
 /**********************************************************************************************
  *
  * toggle
  * click to  show side panel navigation menu items in main content area and
  * hide previous elements
+ * @author  dmauldin
  *
  *******************************************************************************************************/
 function HideAllShowOne(d) {
 	console.log(d);
 
-	var menuItem = ["home-page", "profile-page", "message-page", "feed-page"];
+	var menuItem = ["home-page", "profile-page", "message-page", "feed-page", "logout-page"];
 
 	for(i = 0; i < menuItem.length; i++) {
 		document.getElementById(menuItem[i]).style.display = "none";
@@ -31,11 +25,14 @@ function HideAllShowOne(d) {
 	} else if(d === 'fp') {
 		document.getElementById(menuItem[3]).style.display = "inline block";
 	}
-
+		else if(d === 'lp') {
+		 document.getElementById(menuItem[4]).style.display = "inline block";
+ }
 }
 
 /************************************************************************************************************
- * login form
+ * login/registration  form
+ * @author jhung@cnm.edu
  ************************************************************************************************************/
 $(function() {
 
@@ -58,6 +55,7 @@ $(function() {
 
 /**************************************************************
  * edit profile/settings form
+ * @author jhung@cnm.edu
  **************************************************************/
 $(function() {
 
@@ -75,9 +73,17 @@ $(function() {
 		$(this).addClass('active');
 		e.preventDefault();
 	});
-
 });
 
-/***************************************************
- *recover form js
- * *************************************************/
+ /**********************************************
+  *
+  * registration complete announcement div on main page,
+  * click x to hide
+  * @author jhung@cnnm.edu
+
+  * ****************************************************/
+ $(document).ready(function(){
+ 	$("#hide").click(function(){
+	$("#registration-complete").hide();
+ 	})
+ });
