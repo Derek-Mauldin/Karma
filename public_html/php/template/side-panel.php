@@ -12,15 +12,14 @@
 
 	<div id="mp" onclick="HideAllShowOne('mp')">
 		<a class="lead" href="javascript:ReverseDisplay('message-page')">Messages</a>
-
 	</div>
 
 	<div id="fp" onclick="HideAllShowOne('fp')">
 		<a class="lead" href="javascript:ReverseDisplay('feed-page')">Feed</a>
-
 	</div>
 
 	<div id="lp" onclick="HideAllShowOne('lp')">
-		<a class="lead" id="lead" name="logout" href="javascript:ReverseDisplay('logout-page')">Logout</a>
+		<a class="lead" id="logout" name="logout" href="javascript:ReverseDisplay('logout-page')">Logout</a>
 	</div>
+
 </section>
