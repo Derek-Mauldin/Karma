@@ -51,7 +51,7 @@ require_once("php/template/head-utils.php");
 											<ul class="dropdown-menu">
 												<li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
 												<li><a href="#"><i class="fa fa-trash-o fa-fw"> </i> Delete</a></li>
-											</ul>
+											</ul><!--/.dropdown-menu-->
 										</div><!--/#edit-button-->
 									</div><!--/#editing-links-->
 								</div><!--/#panel-header-->
@@ -61,10 +61,9 @@ require_once("php/template/head-utils.php");
 									<p class="text-center" id="image-footer">$username</p>
 									<p class="text-center" id="image-footer">$location</p>
 
-			<!------------in settings, can set skype to be revealed upon aacceptance of offer------------------>
+			<!------------in settings, can set skype to be revealed upon acceptance of offer------------------>
 
 									<p class="text-center" id="image-footer"><i class="fa fa-skype fa-2x"></i></p>
-
 								</div><!--/#panel-image-section-->
 
 								<div class=" col-md-9 col-lg-9" id="about-user">
@@ -179,7 +178,7 @@ require_once("php/template/head-utils.php");
 									</div><!--/.row-->
 								</li><!--/.list-group-item-->
 							</ul><!--/.list-group-->
-						</div><!--/.pamel-body-->
+						</div><!--/.panel-body-->
 					</div><!--/.panel-default-->
 				</div><!--/.container-->
 			</div><!--/#message-page-->
@@ -209,7 +208,7 @@ require_once("php/template/head-utils.php");
 					</div><!--/.panel-default-->
 				</div><!--/.feed-page-->
 
-	<!------------------------------------------logout page---------------------------------------------------->
+		<!------------------------------------------logout page---------------------------------------------------->
 			<div id="logout-page" style="display:none;">
 				<h2>You are now Logged Out</h2>
 			</div><!--/#logout-page-->
@@ -218,10 +217,10 @@ require_once("php/template/head-utils.php");
 
 			<?php require_once("php/template/offer-modal.php"); ?>
 
-			</div><!--/.row-->
-		</div><!--/.site-content-->
-			</div><!--/.row-->
-		</div><!--/.container-->
+			</div>
+		</div>
+	</div>
+</div>
 
 	<!----------------------------------------------footer-------------------------------------------------------->
 
@@ -229,5 +228,5 @@ require_once("php/template/head-utils.php");
 				<?php require_once("php/template/footer.php"); ?>
 			</footer>
 		</body>
-		</html>
+	</html>
 

@@ -28,6 +28,7 @@ function HideAllShowOne(d) {
 		else if(d === 'lp') {
 		 document.getElementById(menuItem[4]).style.display = "inline block";
  }
+
 }
 
 /************************************************************************************************************
