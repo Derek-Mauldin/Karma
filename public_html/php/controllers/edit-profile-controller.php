@@ -97,7 +97,7 @@ try {
 	$member->update($pdo);
 
 
-	echo "<p class=\"alert alert-info\">Profile Successfully Updated.</p>";
+	echo "<p class=\"alert alert-info\">Profile Successfully Updated</p>";
 
 } catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";
