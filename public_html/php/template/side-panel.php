@@ -21,6 +21,6 @@
 	</div>
 
 	<div id="lp" onclick="HideAllShowOne('lp)">
-		<a class="lead" href="javascript:ReverseDisplay('logout-page')">Logout</a>
+		<a class="lead" id="lead" name="logout" href="javascript:ReverseDisplay('logout-page')">Logout</a>
 	</div>
 </section>
