@@ -51,3 +51,14 @@ function closeNeed() {
 		document.getElementById("soccer").style.display = "none";
 	}
 }
+
+/**********************************************
+ *
+ * registration complete announcment div on main page,
+ * click x to hide
+ *
+ * ****************************************************/
+
+$("#hide").click(function(){
+	$("#resistration-complete").hide();
+});

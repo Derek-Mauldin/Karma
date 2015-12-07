@@ -37,14 +37,14 @@ try {
 	// connect to DB and find profile by profile handle
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 	$profile = Profile::getProfileByProfileHandle($pdo,$username);
-	if($profile === null) {
-		throw(new PDOException("unable to retrieve profile with user name that does not exist"));
+	if($profile === null){
+		throw(new PDOException("cannot retrieve a profile where user name does not exist"));
 	}
 
 	$need = new Need(null, $profile->getProfileId(), $needDescription, 0, $needTitle);
 	$need->insert($pdo);
 
-   echo "<p class=\"alert alert-info\">Succesful need insertion</p>";
+   echo "<p class=\"alert alert-info\">Successful need insertion</p>";
 
 } catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";
