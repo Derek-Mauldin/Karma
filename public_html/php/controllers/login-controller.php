@@ -54,6 +54,9 @@ try {
 	$_SESSION["memberId"] = $member->getMemberId();
 
 	echo "<p class=\"alert alert-info\">Welcome Back<p/>";
+   echo "<a href=\"/~dmauldin2/karma/public_html/index.php\" name=\"clickHome\" id=\"clickHome\">Click to go to Home Page</a>";
+
+
 
 	} catch(Exception $exception) {
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";

@@ -62,8 +62,9 @@ $(document).ready(
 
 						// reset the form if it was successful
 						// this makes it easier to reuse the form again
-						if($(".alert-success").length > 0) {
-							$("#login-form")[0].reset();
+						if($(".alert-info").length > 0) {
+						//	$("#login-form")[0].reset();
+							window.location("https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php");
 
 							//refresh page on successful login
 							setTimeout(function() {location.reload(true);}, 1000);

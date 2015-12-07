@@ -7,17 +7,17 @@ module("tabs", {
 
 // global variables for form values
 
-var TEST_FIRST_NAME        = "Barry";
-var TEST_LAST_NAME         = "Allan";
-var TEST_PASSWORD          = "7777777"
-var TEST_PASSWORD_CONFIRM  = "7777777"
+var TEST_FIRST_NAME        = "Derek";
+var TEST_LAST_NAME         = "Mauldin";
+var TEST_PASSWORD          = "7777777";
+var TEST_PASSWORD_CONFIRM  = "7777777";
 
-var INVALID_USER_NAME      = "supergirl";
+var INVALID_USER_NAME      = "batman";
 var INVALID_EMAIL          = "superman@jl.com";
 
-var VALID_USER_NAME         = "flash";
-var VALID_USER_NAME2        = "the flash"
-var VALID_EMAIL             = "flash@jl.com";
+var VALID_USER_NAME         = "SuperDirk";
+var VALID_USER_NAME2        = "dirk";
+var VALID_EMAIL             = "derek.mauldin@gmail.com";
 
 
 
