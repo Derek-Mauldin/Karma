@@ -15,15 +15,15 @@ require_once("php/template/head-utils.php");
 		<div class="site-content">
 	<!------------------------------------ side panel --------------------------------------------------->
 
-		<div class="col-md-4 ">
+		<div class="col-md-4 " id="sidebar-wrapper">
 			<?php require_once("php/template/side-panel.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
 
 	<!--------------------------------------- main------------------------------------------------------->
 
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-xs-12">
+			<div class="container" id="main-content-wrapper">
+				<div class="row" id="main-content">
+					<div class="col-md-8 col-xs-12" id="main">
 
 	<!-----------------------------------------home page-------------------------------------------------->
 
@@ -246,30 +246,30 @@ require_once("php/template/head-utils.php");
 								ASAP. We will provide snacks for the team.</p>
 							<button class="btn btn-primary btn-md pull-right" type="button" data-toggle="modal" data-target="#offerModal">Make Offer</button>
 
-						</div><!--/.panel-body-->
-					</div><!--/.panel-default-->
-				</div><!--/.feed-page-->
+							</div><!--/.panel-body-->
+						</div><!--/.panel-default-->
+					</div><!--/.feed-page-->
 
 		<!------------------------------------------logout page---------------------------------------------------->
-			<div id="logout-page" style="display:none;">
-				<h2>You are now Logged Out</h2>
-			</div><!--/#logout-page-->
+					<div id="logout-page" style="display:none;">
+						<h2>You are now Logged Out</h2>
+					</div><!--/#logout-page-->
 
 	<!------------------------------------------offer form modal------------------------------------------------->
 
-			<?php require_once("php/template/offer-modal.php"); ?>
+					<?php require_once("php/template/offer-modal.php"); ?>
 
-			</div>
-		</div>
-		</div>
-		</div>
+					</div><!--col-md-8 col-xs-12 #main-->
+				</div><!--/.row #main-content-->
+			</div><!--/.container #main-content-wrapper-->
+		</div><!--/.site-content-->
 
 	<!----------------------------------------------footer-------------------------------------------------------->
 
-			<footer>
-				<?php require_once("php/template/footer.php"); ?>
-			</footer>
+		<footer>
+			<?php require_once("php/template/footer.php"); ?>
+		</footer>
 
-		</body>
-	</html>
+	</body><!--/.site-->
+</html>
 
