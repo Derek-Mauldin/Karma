@@ -9,7 +9,7 @@
 function HideAllShowOne(d) {
 	console.log(d);
 
-	var menuItem = ["home-page", "profile-page", "message-page", "feed-page", "logout-page"];
+	var menuItem = ["home-page", "profile-page", "message-page", "feed-page", "logout-page", "edit-profile-page"];
 
 	for(i = 0; i < menuItem.length; i++) {
 		document.getElementById(menuItem[i]).style.display = "none";
@@ -26,6 +26,9 @@ function HideAllShowOne(d) {
 		document.getElementById(menuItem[3]).style.display = "inline block";
 	} else if(d === 'lp') {
 		 document.getElementById(menuItem[4]).style.display = "inline block";
+	} else if(d === 'ep') {
+		document.getElementById(menuItem[4]).style.display = "inline block";
+
  }
 
 }

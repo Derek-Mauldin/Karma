@@ -153,6 +153,6 @@ require_once("../template/head-utils.php");
 
 	</div>
 
-</><!--close content-wrapper--->
+</div><!--close content-wrapper--->
 
 
