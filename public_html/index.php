@@ -27,53 +27,70 @@ require_once("php/template/head-utils.php");
 
 	<!-----------------------------------------home page-------------------------------------------------->
 
-					<div class="container" id="home-page" style="display:none;">
-						<h3><?php $date=new datetime("now");
-							echo ($date->format("l F jS Y"));?>
-						</h3>
+						<div class="container" id="home-page" style="display:none;">
+							<div class="row" >
+								<div class="col-md-8" id=" panel-default">
 
-						<div class="panel-group" id="deed-wrapper">
-							<div class="panel panel-primary" id="message header-wrapper">
-								<div class="panel-heading" id=message-header">
-									<h4 class="panel-title">Today's Daily Deed</h4>
-								</div><!--/.panel-heading-->
+									<div class="panel panel-primary" id="deed-wrapper">
+										<div class="panel-heading" id="date-header">
+											<h4 class="date"><?php $date=new datetime("now");
+												echo ($date->format("l F jS Y"));?>
+											</h4><!--/.date-->
 
-								<p>Pick a piece of trash up from the ground.</p>
-							</div><!--/.panel-primary-->
-							</div>
-						</div>
+										</div><!--/.panel-heading #date-header-->
+									</div><!--/.panel-primary #deed-wrapper-->
+
+								<div class="panel panel-default" id="deed-header-wrapper">
+									<div class="panel-heading deed-header">
+										<h4 class="panel-title">Today's Daily Deed</h4>
+									</div><!--/.panel-heading -->
+									<div class= "panel panel-default" id="panel-content">
+										<div class="panel-body-wrapper">
+											<h3 class="body-content">Today, pick a piece of trash up from the ground</h3>
+
+										</div><!--/panel-body-wrapper-->
+									</div><!--panel-default #body-content-->
+								</div><!--/panel-default #deed-header-wrapper-->
+							</div><!--/col-md-8 #panel-default-->
+						</div><!--/row-->
+					</div><!--/container #home-page-->
 
 	<!----------------------------------------profile page------------------------------------------------->
 
 					<div class="container" id="profile-page" style="display:none;">
 						<div class="row" >
-							<div class="col-md-8" id=" panel-default">
+							<div class="col-md-8" id=" profile-wrapper">
 
 	<!--------------------------------------profile edit links---------------------------------------------->
+								<div class="panel-group" id="profile">
 
-								<div class="container" id="panel-header">
-									<div class="row" id="editing-links">
-										<div class="btn-group open" id="edit-button">
-											<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
-												<span class="fa fa-pencil-square-o fa-2x pull-right"></span>
-											</a>
-											<ul class="dropdown-menu">
-												<li><a href="#"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
-												<li><a href="#"><i class="fa fa-trash-o fa-fw"> </i> Delete</a></li>
-											</ul><!--/.dropdown-menu-->
-										</div><!--/#edit-button-->
-									</div><!--/#editing-links-->
-								</div><!--/#panel-header-->
+									<div class="panel panel-default">
+										<div class="panel-heading" id="profile-heading-wrapper">
+											<div class="container" id="profile-heading">
+												<div class="row" id="profile-edit-wrapper">
+													<div class="btn-group" id="edit-links">
+														<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+															<span class="fa fa-pencil-square-o fa-2x pull-right"></span>
+														</a>
+														<ul class="dropdown-menu">
+															<li><a href="php/forms/edit-profile.php"><i class="fa fa-pencil fa-fw"></i> Edit</a></li>
+															<li><a href="#"><i class="fa fa-trash-o fa-fw"> </i> Delete</a></li>
+														</ul><!--/.dropdown-menu-->
+													</div><!--btn-group #edit-links-->
+												</div><!--/.row #profile-edit-->
+											</div><!--/panel-default #profile-heading-->
+										</div><!--/.panel-heading id=#profile-heading-wrapper-->
 
-								<div class="col-md-3 col-lg-3" id="panel-img-section">
-									<img id="profile-image" alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="pull-left img-circle img-responsive ">
-									<p class="text-center" id="image-footer">$username</p>
-									<p class="text-center" id="image-footer">$location</p>
+									<div class="panel-body">
+										<div class="col-md-3 col-lg-3" id="panel-img-section">
+											<img id="profile-image" alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="pull-left img-circle img-responsive ">
+												<p class="text-center" id="image-footer">$username</p>
+												<p class="text-center" id="image-footer">$location</p>
 
 			<!------------in settings, can set skype to be revealed upon acceptance of offer------------------>
 
-									<p class="text-center" id="image-footer"><i class="fa fa-skype fa-2x"></i></p>
-								</div><!--/#panel-image-section-->
+												<p class="text-center" id="image-footer"><i class="fa fa-skype fa-2x"></i></p>
+										</div><!--/#panel-image-section-->
 
 								<div class=" col-md-9 col-lg-9" id="about-user">
 									<h3>About Me</h3>
@@ -111,14 +128,14 @@ require_once("php/template/head-utils.php");
 														<button class="btn btn-info" type="submit">Send Message</button>
 
 											</form><!--/form-->
-										</div><!--/#message-header-->
-									</div><!--/#message-wrapper-->
-								</div><!--/#about-user-->
-							</div><!--/#panel-defaul-->
+										</div><!--/.panel-primary #message-header-wrapper-->
+									</div><!--/.panel-group #message-wrapper-->
+								</div><!--/.col-md-9 #about-user-->
+								</div><!--/#panel-group #profile-->
+							</div><!--/.col-md-8 #profile-wrapper-->
 						</div><!--/.row-->
-					</div><!--/.container#profile-page-->
-				</div><!--/.col-md-8 col-xs-12-->
-			</div><!--/.row--->
+					</div><!--/.container #profile-page-->
+
 
 	<!---------------------------------------------------message-page-------------------------------------------------->
 
@@ -222,7 +239,7 @@ require_once("php/template/head-utils.php");
 				</div><!--/.feed-page-->
 
 		<!------------------------------------------logout page---------------------------------------------------->
-			<div id="logout-page" style="display:none;">
+		<!--	<div id="logout-page" style="display:none;">
 				<h2>You are now Logged Out</h2>
 			</div><!--/#logout-page -->
 
