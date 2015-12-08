@@ -236,6 +236,7 @@ require_once("php/template/head-utils.php");
 							<button class="btn btn-primary btn-md pull-right" type="button" data-toggle="modal" data-target="#offerModal">Make Offer</button>
 						</div><!--/.panel-body-->
 					</div><!--/.panel-default-->
+
 				</div><!--/.feed-page-->
 
 		<!------------------------------------------logout page---------------------------------------------------->
