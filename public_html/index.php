@@ -242,7 +242,8 @@ require_once("php/template/head-utils.php");
 		<!------------------------------------------logout page---------------------------------------------------->
 		<!--	<div id="logout-page" style="display:none;">
 				<h2>You are now Logged Out</h2>
-			</div><!--/#logout-page -->
+			</div><!--/#logout-page
+			 not using -->
 
 	<!------------------------------------------offer form modal------------------------------------------------->
 
