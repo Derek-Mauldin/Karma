@@ -155,10 +155,10 @@ require_once("php/template/head-utils.php");
 
 				<div class="panel-group" id="mailbox-wrapper">
 
-					<div class="panel panel-primary" id="message-header-wrapper">
-						<div class="panel-heading" id="message-header">
+					<div class="panel panel-primary" id=mailbox-header-wrapper">
+						<div class="panel-heading" id="mailbox-header">
 							<h4 class="panel-title">Mailbox</h4>
-						</div><!--/.panel-heading #message-header-->
+						</div><!--/.panel-heading #mailbox-header-->
 
 						<div class=" panel panel-default" id="mailbox">
 							<div class="panel-heading" id="edit-buttons">
@@ -167,9 +167,9 @@ require_once("php/template/head-utils.php");
 								<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-send" style="padding-right:4px;"></span>Send</a>
 							</div><!--/.panel-heading #edit-buttons-->
 
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<ul class="list-group">
+						<div class="panel panel-default" id="mailbox-body">
+							<div class="panel-body" id="mailbox-panel">
+								<ul class="list-group" id="messages">
 									<li class="list-group-item" id="message-wrapper">
 										<div class="row" id="message">
 
@@ -178,15 +178,16 @@ require_once("php/template/head-utils.php");
 											</div><!--/.col-xs-2 col-md-2 #profile-image-->
 
 										<div class="col-xs-10 col-md-10" id="message-body">
+
 											<div class="message-header"><a href="#">Offer</a>
 												<div class="mic-info">
 													By: <a href="#">$user</a> on 12 Dec 2015
 												</div><!--/.mic-info-->
-											</div><!--/.message-type-->
+											</div><!--/.message-header-->
 
-											<div class="message-text">
+											<div class="message-body">
 												I am taking algebra too and can tutor you this Friday or Saturday afternoon
-											</div><!--/.message-text-->
+											</div><!--/.message-body-->
 
 											<a href="#" class="btn btn-sm btn-hover btn-primary"><span class="glyphicon glyphicon-share-alt" style="padding-right:3px;"></span>Reply</a>
 											<a href="#" class="btn btn-sm btn-hover btn-default"><span class="glyphicon glyphicon-remove" style="padding-right:3px;"></span>Delete</a>
@@ -195,18 +196,20 @@ require_once("php/template/head-utils.php");
 									</div><!--/.row #message-->
 								</li><!--/.list-group-item #message-wrapper-->
 
-								<li class="list-group-item">
-									<div class="row">
-										<div class="col-xs-2 col-md-2">
-											<img src="http://placehold.it/80" class="img-circle img-responsive" alt=""/>
-										</div><!--/.col-xs-2 col-md-2-->
+								<li class="list-group-item" id="message-wrapper">
+									<div class="row" id="messsage">
 
-										<div class="col-xs-10 col-md-10">
+										<div class="col-xs-2 col-md-2" id="profile-image">
+											<img src="http://placehold.it/80" class="img-circle img-responsive" alt=""/>
+										</div><!--/.col-xs-2 col-md-2 #profile-image-->
+
+										<div class="col-xs-10 col-md-10" id="message-body">
+
 											<div class="message-sender-details"><a href="#">Offer</a>
 												<div class="mic-info">
 													By: <a href="#">$user</a> on 11 Dec 2015
 												</div><!--/#mic-info-->
-											</div><!--/.message-sender-details-->
+											</div><!--/.message-header-->
 
 											<div class="message-body">
 												Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
@@ -216,16 +219,18 @@ require_once("php/template/head-utils.php");
 											<a href="#" class="btn btn-sm btn-hover btn-primary"><span class="glyphicon glyphicon-share-alt" style="padding-right:3px;"></span>Reply</a>
 											<a href="#" class="btn btn-sm btn-hover btn-default"><span class="glyphicon glyphicon-remove" style="padding-right:3px;"></span>Delete</a>
 
-										</div><!--/.col-xs-10 col-md-1m-->
-									</div><!--/.row-->
-								</li><!--/.list-group-item-->
-							</ul><!--/.list-group-->
-						</div><!--/.panel-body-->
-					</div><!--/.panel-default-->
+										</div><!--/.col-xs-10 col-md-2 #message-body-->
+									</div><!--/.row #message-->
+								</li><!--/.list-group-item #message-wrapper-->
+							</ul><!--/.list-group #messages-->
+						</div><!--/.panel-body #mailbox-panel-->
+					</div><!--/.panel-default #mailbox-body-->
 				</div><!--/.mailbox-->
-			</div><!--/.panel-primary-->
+			</div><!--/.panel-primary #mailbox-header-wrapper-->
 		</div><!--/.panel-group #mailbox-wrapper-->
 	</div><!--/message-page-->
+
+	<!-------------------------------------------edit-profile-page------------------------------------------->
 
 	<!-------------------------------------------- feed page------------------------------------------------->
 
