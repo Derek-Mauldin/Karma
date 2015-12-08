@@ -1,5 +1,17 @@
-<section id="menu" class="side-panel panel panel-default">
-	<a class="sidebar-brand" href="#"><img id="logo" src="../../img/octopus-logo.png"/></a>
+<!--<section id="menu" class="side-panel panel panel-default">
+	<a class="sidebar-brand" href="#"><img id="logo" src="../../img/octopus-logo.png"/></a>-->
+<nav class="navbar navbar-default sidebar" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+		</div>
+		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
+			<div class="nav navbar-nav">
 
 	<!--side panel body links-->
 	<div id="hp" onclick="HideAllShowOne('hp')">
@@ -18,8 +30,14 @@
 		<a class="lead" href="javascript:ReverseDisplay('feed-page')">Feed</a>
 	</div>
 
+
+
 	<div id="lp">
 		<a class="lead" id="logout" name="logout"  href="<?php echo $PREFIX; ?>php/controllers/logout-controller.php">Logout</a>
 	</div>
+</div>
+</div>
+</div>
 
-</section><!--/.side-panel-->
+
+			</nav>

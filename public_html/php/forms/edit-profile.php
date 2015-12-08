@@ -1,6 +1,15 @@
-<div class="edit-content-wrapper" id="edit-page" style="display:none;">
+<?php
+/*grab current directory*/
+$CURRENT_DIR = __DIR__;
 
-	<div class="row">
+/*set page title here*/
+$PAGE_TITLE = "Welcome to Karma";
+
+/*load head-utils.php*/
+require_once("../template/head-utils.php");
+?>
+
+<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 
 			<!--user editing links-->
