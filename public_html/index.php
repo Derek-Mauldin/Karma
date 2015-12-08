@@ -9,7 +9,6 @@ $PAGE_TITLE = "Welcome to Karma";
 require_once("php/template/head-utils.php");
 ?>
 
-
   <!---------------------------------------body-------------------------------------------------------->
 
 	<body class="site">
@@ -111,27 +110,30 @@ require_once("php/template/head-utils.php");
 				</div><!--/.col-md-8 col-xs-12-->
 			</div><!--/.row--->
 
+	<!---------------------------------------------------message-page-------------------------------------------------->
+
 			<div id="message-page" style="display:none;">
-				<h1>Message Box</h1>
 
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8"
-						<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-pencil" style="padding-right:4px;"></span>Compose</a>
-						<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-inbox" style="padding-right:4px;"></span>Inbox</a>
-						<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-send" style="padding-right:4px;"></span>Send</a>
-					</div><!--/.row-->
+				<div class="panel-group" id="message-wrapper">
 
-					<div class="panel panel-default widget">
-						<div class="panel-heading"><span class="glyphicon glyphicon-comment"></span>
-							<h3 class="panel-title">Messages</h3>
+					<div class="panel panel-primary" id="message-header-wrapper">
+						<div class="panel-heading" id="message-header">
+							<h4 class="panel-title">Mailbox</h4>
 						</div><!--/.panel-heading-->
 
-						<div class="panel-body">
+						<div class=" panel panel-default">
+							<div class="panel-heading" id="edit-buttons">
+							<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-pencil" style="padding-right:4px;"></span>Compose</a>
+							<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-inbox" style="padding-right:4px;"></span>Inbox</a>
+							<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-send" style="padding-right:4px;"></span>Send</a>
+							</div>
+
+						<div class="panel panel-default">
+							<div class="panel-body">
 							<ul class="list-group">
 								<li class="list-group-item">
 									<div class="row">
-										<div class="col-xs-2 col-md-1">
+										<div class="col-xs-2 col-md-2">
 											<img src="http://placehold.it/80" class="img-circle img-responsive" alt="profile-image"/>
 										</div><!--/.col-xs-2 col-md-1-->
 
@@ -155,7 +157,7 @@ require_once("php/template/head-utils.php");
 
 								<li class="list-group-item">
 									<div class="row">
-										<div class="col-xs-2 col-md-1">
+										<div class="col-xs-2 col-md-2">
 											<img src="http://placehold.it/80" class="img-circle img-responsive" alt=""/>
 										</div><!--/.col-xs-2 col-md-1-->
 
@@ -181,8 +183,9 @@ require_once("php/template/head-utils.php");
 						</div><!--/.panel-body-->
 					</div><!--/.panel-default-->
 				</div><!--/.container-->
-			</div><!--/#message-page-->
-		</div><!--/.container-->
+			</div>
+					</div>
+				</div>
 
 	<!-------------------------------------------- feed page------------------------------------------------->
 
