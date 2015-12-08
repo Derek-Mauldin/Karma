@@ -16,7 +16,7 @@ var VALID_PASSWORD          = "7777777";
 /**
  * test filling in only valid form data
  **/
-function testValidFields() {
+function testLogOut() {
 	// fill in the form values
 	F("#logInEmail").type(VALID_EMAIL);
 	F("#logInPassword").type(VALID_PASSWORD);
@@ -30,17 +30,14 @@ function testValidFields() {
 		// create a regular expression that evaluates the successful text
 		F("#clickHome").click();
 
-	//	var successRegex = /Welcome Back/;
+		ok(F(this).hasClass("alert alert-info"), "Good Log In");
 
-		// the ok() function from qunit is equivalent to SimpleTest's assertTrue()
-	//	ok(F(this).hasClass("alert alert-info"), "Alert Info");
-	//	ok(successRegex.test(F(this).html()), F(this).html().valueOf('#loginError'));
 	})
 		.then(function() {
 			F("#logout").visible(function () {
 				F(this).click();
 		//		ok(F(this).hasClass("alert alert-info"), "Alert Info");
-				ok(F("p:contains('You are now Logged Out')"), "Logout Message Displayed");
+				ok(F("p:contains('You are now Logged Out')"), "Logout Message Displayed - Booyah!");
 			});
 		});
 }
@@ -48,4 +45,4 @@ function testValidFields() {
 
 
 // the test function *MUST* be called in order for the test to execute
-test("test valid fields", testValidFields);
+test("test valid fields", testLogOut);
