@@ -60,7 +60,6 @@ $(document).ready(
 						$("#loginError").html(ajaxOutput);
 
 
-
 						// reset the form if it was successful
 						// this makes it easier to reuse the form again
 						if($(".alert-info").length > 0) {

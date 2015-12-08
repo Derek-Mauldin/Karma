@@ -24,8 +24,7 @@ function HideAllShowOne(d) {
 		document.getElementById(menuItem[2]).style.display = "inline block";
 	} else if(d === 'fp') {
 		document.getElementById(menuItem[3]).style.display = "inline block";
-	}
-		else if(d === 'lp') {
+	} else if(d === 'lp') {
 		 document.getElementById(menuItem[4]).style.display = "inline block";
  }
 

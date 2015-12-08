@@ -6,5 +6,7 @@ unset($_SESSION["profile"]);
 
 session_destroy();
 
+echo "<p class=\"alert alert-info\">You are now Logged Out<p/>";
+
 // what should go here
-header("Location:index.php");
+//header("Location:index.php");

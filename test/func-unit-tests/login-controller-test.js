@@ -31,6 +31,7 @@ function testValidFields() {
 	// in forms, we want to assert the form worked as expected
 	// here, we assert we got the success message from the AJAX call
 	F(".alert-info").visible(function() {
+
 		// create a regular expression that evaluates the successful text
 		var successRegex = /Welcome Back/;
 

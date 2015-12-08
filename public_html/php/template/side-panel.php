@@ -18,8 +18,15 @@
 		<a class="lead" href="javascript:ReverseDisplay('feed-page')">Feed</a>
 	</div>
 
+	<!--
 	<div id="lp" onclick="HideAllShowOne('lp')">
-		<a class="lead" id="logout" name="logout" href="javascript:ReverseDisplay('logout-page')">Logout</a>
+		<a class="lead" id="logout" name="logout"  href="javascript:ReverseDisplay('logout-page')">Logout</a>
 	</div>
+	-->
+
+	<div id="lp">
+		<a class="lead" id="logout" name="logout"  href="<?php echo $PREFIX; ?>php/controllers/logout-controller.php">Logout</a>
+	</div>
+
 
 </section>
