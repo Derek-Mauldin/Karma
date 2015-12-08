@@ -15,7 +15,7 @@ require_once("php/template/head-utils.php");
 		<div class="site-content">
 	<!------------------------------------ side panel --------------------------------------------------->
 
-		<div class="col-md-4 hidden-xs hidden-sm">
+		<div class="col-md-4 ">
 			<?php require_once("php/template/side-panel.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
 
@@ -28,10 +28,20 @@ require_once("php/template/head-utils.php");
 	<!-----------------------------------------home page-------------------------------------------------->
 
 					<div class="container" id="home-page" style="display:none;">
-						<h2>dashboard</h2>
-						<h2>home page content</h2>
-						<p>recent info</p>
-					</div><!--/#home-page-->
+						<h3><?php $date=new datetime("now");
+							echo ($date->format("l F jS Y"));?>
+						</h3>
+
+						<div class="panel-group" id="deed-wrapper">
+							<div class="panel panel-primary" id="message header-wrapper">
+								<div class="panel-heading" id=message-header">
+									<h4 class="panel-title">Today's Daily Deed</h4>
+								</div><!--/.panel-heading-->
+
+								<p>Pick a piece of trash up from the ground.</p>
+							</div><!--/.panel-primary-->
+							</div>
+						</div>
 
 	<!----------------------------------------profile page------------------------------------------------->
 
@@ -123,19 +133,19 @@ require_once("php/template/head-utils.php");
 
 						<div class=" panel panel-default">
 							<div class="panel-heading" id="edit-buttons">
-							<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-pencil" style="padding-right:4px;"></span>Compose</a>
-							<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-inbox" style="padding-right:4px;"></span>Inbox</a>
-							<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-send" style="padding-right:4px;"></span>Send</a>
+								<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-pencil" style="padding-right:4px;"></span>Compose</a>
+								<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-inbox" style="padding-right:4px;"></span>Inbox</a>
+								<a href="#" class="btn btn-default" role="button"><span class="glyphicon glyphicon-send" style="padding-right:4px;"></span>Send</a>
 							</div>
 
 						<div class="panel panel-default">
 							<div class="panel-body">
-							<ul class="list-group">
-								<li class="list-group-item">
-									<div class="row">
-										<div class="col-xs-2 col-md-2">
-											<img src="http://placehold.it/80" class="img-circle img-responsive" alt="profile-image"/>
-										</div><!--/.col-xs-2 col-md-1-->
+								<ul class="list-group">
+									<li class="list-group-item">
+										<div class="row">
+											<div class="col-xs-2 col-md-2">
+												<img src="http://placehold.it/80" class="img-circle img-responsive" alt="profile-image"/>
+											</div><!--/.col-xs-2 col-md-1-->
 
 										<div class="col-xs-10 col-md-10">
 											<div class="message-sender-details"><a href="#">Offer</a>
@@ -159,7 +169,7 @@ require_once("php/template/head-utils.php");
 									<div class="row">
 										<div class="col-xs-2 col-md-2">
 											<img src="http://placehold.it/80" class="img-circle img-responsive" alt=""/>
-										</div><!--/.col-xs-2 col-md-1-->
+										</div><!--/.col-xs-2 col-md-2-->
 
 										<div class="col-xs-10 col-md-10">
 											<div class="message-sender-details"><a href="#">Offer</a>
@@ -184,7 +194,7 @@ require_once("php/template/head-utils.php");
 					</div><!--/.panel-default-->
 				</div><!--/.container-->
 			</div>
-					</div>
+				</div>
 				</div>
 
 	<!-------------------------------------------- feed page------------------------------------------------->
