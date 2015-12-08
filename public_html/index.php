@@ -58,13 +58,16 @@ require_once("php/template/head-utils.php");
 	<!----------------------------------------profile page------------------------------------------------->
 
 					<div class="container" id="profile-page" style="display:none;">
-						<div class="row" >
-							<div class="col-md-8" id=" profile-wrapper">
+						<div class="row" id="profile-wrapper">
+							<div class="col-md-8" id="profile">
+
+	<!--------------------------------------profile panel-------------------------------------------------->
+
+								<div class="panel-group" id="profile-panel">
+									<div class="panel panel-default">
 
 	<!--------------------------------------profile edit links---------------------------------------------->
-								<div class="panel-group" id="profile">
 
-									<div class="panel panel-default">
 										<div class="panel-heading" id="profile-heading-wrapper">
 											<div class="container" id="profile-heading">
 												<div class="row" id="profile-edit-wrapper">
@@ -81,6 +84,8 @@ require_once("php/template/head-utils.php");
 											</div><!--/panel-default #profile-heading-->
 										</div><!--/.panel-heading id=#profile-heading-wrapper-->
 
+	<!--------------------------------------profile image and footer------------------------------------------------>
+
 									<div class="panel-body">
 										<div class="col-md-3 col-lg-3" id="panel-img-section">
 											<img id="profile-image" alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="pull-left img-circle img-responsive ">
@@ -92,11 +97,13 @@ require_once("php/template/head-utils.php");
 												<p class="text-center" id="image-footer"><i class="fa fa-skype fa-2x"></i></p>
 										</div><!--/#panel-image-section-->
 
-								<div class=" col-md-9 col-lg-9" id="about-user">
-									<h3>About Me</h3>
-									<p>Blurb</p>
-									<h3>Request Title</h3>
-									<p>Details<br></p>
+	<!----------------------------------------------profile details------------------------------------------------>
+
+										<div class=" col-md-9 col-lg-9" id="about-user">
+											<h3>About Me</h3>
+											<p>Blurb</p>
+											<h3>Request Title</h3>
+											<p>Details<br></p>
 
 		<!------------- message option is hidden when it is the user looking at their own profile-------------->
 
@@ -131,10 +138,14 @@ require_once("php/template/head-utils.php");
 										</div><!--/.panel-primary #message-header-wrapper-->
 									</div><!--/.panel-group #message-wrapper-->
 								</div><!--/.col-md-9 #about-user-->
-								</div><!--/#panel-group #profile-->
-							</div><!--/.col-md-8 #profile-wrapper-->
-						</div><!--/.row-->
-					</div><!--/.container #profile-page-->
+							</div><!--/#panel-group #profile-->
+						</div><!--/.col-md-8 #profile-wrapper-->
+					</div><!--/.row #profile-panel-->
+				</div><!--/.col-md-8 #profile-->
+			</div><!--row r#profile-wrapper-->
+		</div><!--/.container #profile-page-->
+	</div><!--/.col-md-8 col-xs-12-->
+</div><!--/.row-->
 
 
 	<!---------------------------------------------------message-page-------------------------------------------------->
@@ -210,9 +221,9 @@ require_once("php/template/head-utils.php");
 						</div><!--/.panel-body-->
 					</div><!--/.panel-default-->
 				</div><!--/.container-->
-			</div>
-				</div>
-				</div>
+			</div><!--/.panel-primary-->
+		</div><!--/.panel-group #message-wrapper-->
+	</div><!--/message-page-->
 
 	<!-------------------------------------------- feed page------------------------------------------------->
 
@@ -234,16 +245,15 @@ require_once("php/template/head-utils.php");
 								9-12.We would like a coach.The season begins in May and we would like to start practice
 								ASAP. We will provide snacks for the team.</p>
 							<button class="btn btn-primary btn-md pull-right" type="button" data-toggle="modal" data-target="#offerModal">Make Offer</button>
+
 						</div><!--/.panel-body-->
 					</div><!--/.panel-default-->
-
 				</div><!--/.feed-page-->
 
 		<!------------------------------------------logout page---------------------------------------------------->
-		<!--	<div id="logout-page" style="display:none;">
+			<div id="logout-page" style="display:none;">
 				<h2>You are now Logged Out</h2>
-			</div><!--/#logout-page
-			 not using -->
+			</div><!--/#logout-page-->
 
 	<!------------------------------------------offer form modal------------------------------------------------->
 
@@ -251,14 +261,15 @@ require_once("php/template/head-utils.php");
 
 			</div>
 		</div>
-	</div>
-</div>
+		</div>
+		</div>
 
 	<!----------------------------------------------footer-------------------------------------------------------->
 
 			<footer>
 				<?php require_once("php/template/footer.php"); ?>
 			</footer>
+
 		</body>
 	</html>
 

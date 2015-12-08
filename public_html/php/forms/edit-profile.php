@@ -1,16 +1,5 @@
-<?php
-/*grab current directory*/
-$CURRENT_DIR = __DIR__;
+<div class="edit-content-wrapper" id="edit-page" style="display:none;">
 
-/*set page title here*/
-$PAGE_TITLE = "Welcome to Karma";
-
-/*load head-utils.php*/
-require_once(dirname(dirname(__DIR__)) . "/php/template/head-utils.php");
-?>
-
-
-<div class="edit-content-wrapper">
 	<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 
@@ -155,6 +144,6 @@ require_once(dirname(dirname(__DIR__)) . "/php/template/head-utils.php");
 
 	</div>
 
-</div><!--close content-wrapper--->
+</><!--close content-wrapper--->
 
 
