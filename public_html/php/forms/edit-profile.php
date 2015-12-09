@@ -6,12 +6,10 @@ $CURRENT_DIR = __DIR__;
 $PAGE_TITLE = "Welcome to Karma";
 
 /*load head-utils.php*/
-require_once(dirname(dirname(__DIR__)) . "/php/template/head-utils.php");
+require_once("../template/head-utils.php");
 ?>
 
-
-<div class="edit-content-wrapper">
-	<div class="row">
+<div class="row">
 		<div class="col-md-6 col-md-offset-3">
 
 			<!--user editing links-->

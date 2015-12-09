@@ -9,7 +9,7 @@
 function HideAllShowOne(d) {
 	console.log(d);
 
-	var menuItem = ["home-page", "profile-page", "message-page", "feed-page", "logout-page"];
+	var menuItem = ["home-page", "profile-page", "message-page", "feed-page", "logout-page", "edit-profile-page"];
 
 	for(i = 0; i < menuItem.length; i++) {
 		document.getElementById(menuItem[i]).style.display = "none";
@@ -24,10 +24,13 @@ function HideAllShowOne(d) {
 		document.getElementById(menuItem[2]).style.display = "inline block";
 	} else if(d === 'fp') {
 		document.getElementById(menuItem[3]).style.display = "inline block";
-	}
-		else if(d === 'lp') {
+	} else if(d === 'lp') {
 		 document.getElementById(menuItem[4]).style.display = "inline block";
+	} else if(d === 'ep') {
+		document.getElementById(menuItem[4]).style.display = "inline block";
+
  }
+
 }
 
 /************************************************************************************************************
@@ -87,3 +90,51 @@ $(function() {
 	$("#registration-complete").hide();
  	})
  });
+
+
+
+/************************************************************************************************************
+ * lmailbox
+ * @author jhung@cnm.edu
+ ************************************************************************************************************/
+$(function() {
+
+	$('#login-form-link').click(function(e) {
+		$("#login-form").delay(100).fadeIn(100);
+		$("#register-form").fadeOut(100);
+		$('#register-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+	$('#register-form-link').click(function(e) {
+		$("#register-form").delay(100).fadeIn(100);
+		$("#login-form").fadeOut(100);
+		$('#login-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+
+});
+
+/**************************************************************
+ * edit profile/settings form
+ * @author jhung@cnm.edu
+ **************************************************************/
+$(function() {
+
+	$('#profile-form-link').click(function(e) {
+		$("#profile-form").delay(100).fadeIn(100);
+		$("#edit-settings").fadeOut(100);
+		$('#edit-settings-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+	$('#edit-settings-link').click(function(e) {
+		$("#edit-settings").delay(100).fadeIn(100);
+		$("#profile-form").fadeOut(100);
+		$('#profile-form-link').removeClass('active');
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+});
+/***********************************************************
