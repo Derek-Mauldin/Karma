@@ -16,7 +16,9 @@ require_once($PREFIX . "lib/php/xsrf.php");
 if(session_status() !== PHP_SESSION_ACTIVE) {
 	session_start();
 }
+
 setXsrfCookie();
+
 ?>
 
 <!DOCTYPE html>

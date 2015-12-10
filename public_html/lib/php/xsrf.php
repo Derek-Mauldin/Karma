@@ -75,4 +75,5 @@ function verifyXsrf() {
 	if($angularHeader !== $correctHeader) {
 		throw(new InvalidArgumentException("invalid XSRF token", 401));
 	}
+
 }
