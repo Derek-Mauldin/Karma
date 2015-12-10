@@ -217,14 +217,16 @@ class Member {
 
 		$newEmailActivation = trim($newEmailActivation);
 
-		if($newEmailActivation === null) {
-			throw(new InvalidArgumentException("memberEmail can't be null"));
+		// activation will be set to null when member activates the account
+		if($newEmailActivation === null || $newEmailActivation === "") {
+			$this->memberEmailActivation = null;
+			return;
 		}
 
 		$newEmailActivation = filter_var($newEmailActivation, FILTER_SANITIZE_STRING);
 
 		if(empty($newEmailActivation) === true) {
-			throw(new InvalidArgumentException("memberEmail content is empty or insecure"));
+			throw(new InvalidArgumentException("Email Activation code content is empty or insecure"));
 		}
 		//verify the activation code is not too long
 

@@ -12,7 +12,7 @@
 require_once(dirname(__DIR__) . "/classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
- require_once(dirname(dirname(__DIR__)) . "/lib/php/sendEmail.php");
+require_once(dirname(dirname(__DIR__)) . "/lib/php/sendEmail.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
 
 
@@ -83,17 +83,19 @@ try {
 
 	// create message for email activation
 	$messageSubject = "Karmafied Account Activation";
+	$memberEmail = $member->getEmail();
 
 	$message = <<< EOF
 <h1>This is an Important Message about your Account Activation</h1>
-<p>To certify this email address and activate your account, please visit: <a href="">Confirmation</a></p>
+<p>To certify this email address and activate your account,
+   please visit:<a href="https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/php/controllers/activation-controller.php?emailActivation=$emailActivation&memberEmail=$memberEmail">
+   https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/php/controllers/activation-controller.php?emailActivation=$emailActivation&memberEmail=$memberEmail</a>
+<p>
 EOF;
-
 
 	// send confirmation email to new member
 	 sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,$messageSubject, $message);
 
-	echo "<p class=\"alert alert-info\">Successful Insertion of new member.</p>";
 
 
 }catch (Exception $e) {

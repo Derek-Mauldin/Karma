@@ -9,6 +9,7 @@
  *
  **/
 
+
 require_once(dirname(__DIR__) . "/classes/autoload.php");
 require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
@@ -16,11 +17,6 @@ require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
 
 try {
 
-		// verify the XSRF challenge
-		if(session_status() !== PHP_SESSION_ACTIVE) {
-			session_start();
-		}
-		verifyXsrf();
 
 
 	//ensures that the fields are filled out
@@ -37,7 +33,12 @@ try {
 
 	$member = Member::getMemberByEmail($pdo, $_POST["logInEmail"]);
 	if($member === null) {
-	throw(new InvalidArgumentException("Email or Password is invalid"));
+	 throw(new InvalidArgumentException("Email or Password is invalid"));
+	}
+
+	$accessLevel = $member->getAccessLevel();
+	if($accessLevel === 'S') {
+	 throw(new OutOfRangeException("Access Level set to Suspended Please Go to your eamil and check for the confirmation message"));
 	}
 
 	// get member hash and compare
@@ -50,11 +51,17 @@ try {
 	$profile = Profile::getProfileByMemberId($pdo, $member->getMemberId());
 
 	// add $profile and user name to the session
-	$_SESSION["user"] = $profile;
-	$_SESSION["memberId"] = $member->getMemberId();
 
 	echo "<p class=\"alert alert-info\">Welcome Back<p/>";
-   echo "<a href=\"/~dmauldin2/karma/public_html/index.php\" name=\"clickHome\" id=\"clickHome\">Click to go to Home Page</a>";
+
+	if(session_status() !== PHP_SESSION_ACTIVE) {
+		session_start();
+	}
+
+	$_SESSION["memberId"] = $member->getMemberId();
+
+	header("Location:https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php");
+
 
 
 
