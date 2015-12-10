@@ -248,9 +248,9 @@ require_once("php/template/head-utils.php");
 								<div class="row" id="forms-options">
 
 									<!--edit-profile-link-->
-									<div class="col-xs-6">
+									<div class="col-xs-6" id="profile-link">
 										<a href="#profile-form" class="active" id="profile-form-link">Profile</a>
-									</div>
+									</div><!--/col-md-6-->
 
 									<!--edit-settings-link-->
 									<div class="col-xs-6" id="settings-link-wrapper">
@@ -259,7 +259,6 @@ require_once("php/template/head-utils.php");
 								</div><!--/row #forms-options-->
 								<hr>
 							</div><!--/#panel-heading-->
-
 
 							<div class="overall-form-wrapper">
 								<form id="edit-user-form" name="edit-user-form"
@@ -355,8 +354,6 @@ require_once("php/template/head-utils.php");
 					</div>
 				</div><!--.edit-profile-wrapper-->
 			</div><!--/.edit-profile-page--->
-		</div>
-	</div>
 
 	<!-------------------------------------------- feed page------------------------------------------------->
 
@@ -388,14 +385,16 @@ require_once("php/template/head-utils.php");
 						<h2>You are now Logged Out</h2>
 					</div><!--/#logout-page-->
 
+
 	<!------------------------------------------offer form modal------------------------------------------------->
 
 					<?php require_once("php/template/offer-modal.php"); ?>
 
-					</div><!--col-md-8 col-xs-12 #main-->
+					</div><!--container ##main-content-wrapper-->
 				</div><!--/.row #main-content-->
-			</div><!--/.container #main-content-wrapper-->
-		</div><!--/.site-content-->
+			</div>
+		</div>
+		</div><!--/.site-->
 
 	<!----------------------------------------------footer-------------------------------------------------------->
 
