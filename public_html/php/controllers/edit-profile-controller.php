@@ -16,8 +16,7 @@ try {
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 
 	//Get the member id from the session
-	//$memberId = $_SESSION['memberId'];
-	$memberId = 1;
+	$memberId = $_SESSION['memberId'];
 
 	//Check if the memberId passed from the form is valid and then get the profile if okay.
 	if(empty($memberId) !== true) {

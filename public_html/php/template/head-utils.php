@@ -38,7 +38,7 @@ setXsrfCookie();
 		<!-- ////////////////////////////////////////////////
 		//// LINK TO YOUR CUSTOM CSS FILES HERE
 		///////////////////////////////////////////////////// -->
-		<link rel="stylesheet" href="<?php echo $PREFIX;?>lib/css/styles.css" type="text/javascript">
+		<link rel="stylesheet" href="<?php echo $PREFIX;?>lib/css/styles.css" type="text/javascript"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -71,10 +71,9 @@ setXsrfCookie();
 		<script src="<?php echo $PREFIX;?>php/controllers/message-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/need-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/login-controller.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>lib/js/site-scripts" type="text/javascript"></script>
-
-
+		<script src="<?php echo $PREFIX;?>php/controllers/log-in-controller.js" type="text/javascript"></script>
 		<!-- Page Title -->
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>
+
+	<body class="site">
