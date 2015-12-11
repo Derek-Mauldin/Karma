@@ -460,8 +460,9 @@ class Need {
 		// build an array of need
 		$needs = null;
 		$statement->setFetchMode(PDO::FETCH_ASSOC);
+		$needs = new SplFixedArray($statement->rowCount());
+
 		while(($row = $statement->fetch()) !== false) {
-			$needs = new SplFixedArray($statement->rowCount());
 			try {
 				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
 						           $row["needTitle"]);
@@ -478,17 +479,19 @@ class Need {
 	}  // getNeedByTitle
 
 
-	public static function getAllneeds($pdo) {
+	public static function getAllneeds(PDO $pdo) {
 
 		// create query template
 		$query = "SELECT needId, profileId, needDescription, needFulfilled, needTitle FROM need";
 		$statement = $pdo->prepare($query);
+		$statement->execute();
 
 		// build an array of need
 		$needs = null;
 		$statement->setFetchMode(PDO::FETCH_ASSOC);
+		$needs = new SplFixedArray($statement->rowCount());
+
 		while(($row = $statement->fetch()) !== false) {
-			$needs = new SplFixedArray($statement->rowCount());
 			try {
 				$need = new Need($row["needId"], $row["profileId"], $row["needDescription"], $row["needFulfilled"],
 						           $row["needTitle"]);
