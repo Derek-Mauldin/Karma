@@ -20,7 +20,7 @@ try {
 	if(session_status() !== PHP_SESSION_ACTIVE) {
 		session_start();
 	}
-	verifyXsrf();
+//	verifyXsrf();
 
 	//ensures that the fields are filled out
 	if(empty($_POST["username"]) === true ||
