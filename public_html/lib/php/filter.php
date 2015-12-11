@@ -14,7 +14,7 @@ class Filter {
 	 * @param int $int integer to use
 	 * @param string $name name of attribute to filter
 	 * @param boolean $nullable whether the int can be null or not
-	 * @return int|null new ID to use
+	 * return int|null new ID to use
 	 */
 	public static function filterInt($int, $name, $nullable = false) {
 		// Base case: If the ID is null, this is a new object without a MySQL assigned ID
