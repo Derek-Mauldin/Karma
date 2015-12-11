@@ -15,13 +15,15 @@ require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
 
 try {
 
+	// connect to database
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 
+	// get needs from database
 	$needs = Need::getAllneeds($pdo);
 	$needs->rewind();
 	$needCount = $needs->count();
 
-
+	// create each need panel and send to front
 	for($i=1; $i <= $needCount; $i++) {
 
 		$needTitle = $needs[$needs->key()]->getNeedTitle();
@@ -40,7 +42,6 @@ try {
 		echo "</div>";
 
 		$needs->next();
-
 
 	}
 
