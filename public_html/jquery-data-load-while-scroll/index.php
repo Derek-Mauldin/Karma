@@ -13,7 +13,7 @@ $query = mysql_query( $sql . " LIMIT {$start}, {$limit}");
 if (mysql_num_rows($query) < 1) {
 	header('HTTP/1.0 404 Not Found');
 	echo 'Page not found!';
-	exit();
+	exit ();
 }
 ?>
 
