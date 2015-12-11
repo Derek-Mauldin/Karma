@@ -24,7 +24,7 @@ try {
 
 		echo "<div class='listing clearfix panel panel-default'>";
 		echo "<div class='panel-heading'>";
-	   echo "<h4 class='listing-title'><i class='fa fa-times pull-right'></i><span class='request'>REQUEST</span>&nbsp;$needTitle</h4>";
+		echo "<h4 class='listing-title'><i class='fa fa-times pull-right'></i><span class='request'>REQUEST</span>&nbsp;$needTitle</h4>";
 		echo "</div>";
 
 		echo "<div class='panel-body''>";

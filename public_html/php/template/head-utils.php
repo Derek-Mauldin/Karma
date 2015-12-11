@@ -74,7 +74,7 @@ setXsrfCookie();
 		<script src="<?php echo $PREFIX;?>php/controllers/register-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/message-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/need-controller.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>ajax-->
+		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/log-in-controller.js" type="text/javascript"></script>
 
 		<!---jscroll with ajax-->
