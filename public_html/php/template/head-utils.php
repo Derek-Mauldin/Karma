@@ -37,12 +37,14 @@ setXsrfCookie();
 		<!--Font Awesome-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
+
 		<!-- ////////////////////////////////////////////////
 		//// LINK TO YOUR CUSTOM CSS FILES HERE
 		///////////////////////////////////////////////////// -->
+		<link rel="stylesheet" href="<?php echo $PREFIX;?>lib/css/style.css" type="text/javascript"></script>
 		<link rel="stylesheet" href="<?php echo $PREFIX;?>lib/css/styles.css" type="text/javascript"></script>
 
-		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+				<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!--<[if lt IE 9]>
 		<script type="text/javascript" src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -72,8 +74,13 @@ setXsrfCookie();
 		<script src="<?php echo $PREFIX;?>php/controllers/register-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/message-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/need-controller.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>
+		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>ajax-->
 		<script src="<?php echo $PREFIX;?>php/controllers/log-in-controller.js" type="text/javascript"></script>
+
+		<!---jscroll with ajax-->
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script type="text/javascript" src="../../lib/js/jquery-ias.min.js"></script>
+
 		<!-- Page Title -->
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>

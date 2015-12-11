@@ -183,3 +183,16 @@ $(function() {
           }
         });
       });
+
+/*************
+ * *jscroll
+ */
+	$(document).ready(function() {
+		// Infinite Ajax Scroll configuration
+		jQuery.ias({
+			container : '#feed-page', // main container where data goes to append
+			item: '.panel-default', // single items
+			loader: '<img src="../../img/ajax-loader.gif"/>', // loading gif
+			triggerPageThreshold: 10 // show load more if scroll more than this
+		});
+	});

@@ -24,17 +24,17 @@ if (mysql_num_rows($query) < 1) {
 	<title>jQuery Load While Scroll</title>
 	<link rel="stylesheet" href="css/style.css">
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ias.min.js"></script>
+	<script type="text/javascript" src="../lib/js/jquery-ias.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
         	// Infinite Ajax Scroll configuration
             jQuery.ias({
-                container : '.wrap', // main container where data goes to append
-                item: '.item', // single items
+                container : '.feed-page', // main container where data goes to append
+                item: '.panel-default', // single items
                 pagination: '.nav', // page navigation
                 next: '.nav a', // next page selector
-                loader: '<img src="css/ajax-loader.gif"/>', // loading gif
-                triggerPageThreshold: 3 // show load more if scroll more than this
+                loader: '<img src="../img/ajax-loader.gif"/>', // loading gif
+                triggerPageThreshold: 10 // show load more if scroll more than this
             });
         });
     </script>
