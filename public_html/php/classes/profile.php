@@ -414,6 +414,18 @@
 		 if($img === false) {
 			 throw(new ErrorException("Create Image Failed"));
 		 }
+
+		 // resize image
+		 $orgWidth = imagesx($img);
+		 $orgHeight = imagesy($img);
+		 if($orgWidth < $orgHeight) {
+			 $aspect = 256.0 / $orgWidth;
+			 $newHeight = ceil($orgHeight * $aspect);
+			 $img = imagescale($img, $newHeight);
+		 } else {
+			 $img = imagescale($img, 256);
+		 }
+
 		 // crop image
 		 $cropArray = [0, 0, 256, 256];
 		 $avatar = imagecrop($img, $cropArray);
