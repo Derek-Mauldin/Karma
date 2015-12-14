@@ -66,9 +66,7 @@ try {
 	$_SESSION["memberId"] = $member->getMemberId();
 
 
-
-
 	} catch(Exception $exception) {
-	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";
+	echo "<p class=\"alert alert-danger\"> Exception: " . $exception->getMessage() . "</p>";
 
 }
