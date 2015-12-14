@@ -76,10 +76,7 @@ setXsrfCookie();
 		<script src="<?php echo $PREFIX;?>php/controllers/login-controller.js" type="text/javascript"></script>
 
 		<!---jscroll with ajax-->
-		<script type="text/javascript" src="../../lib/js/jquery-ias.min.js"></script>
-
-		<!-- iCheck -->
-		<link rel="stylesheet" href="../../admin/plugins/iCheck/flat/blue.css">
+		<script src="//cdn.jsdelivr.net/jquery.infiniteajaxscroll/1.0.1/jquery-ias.min.js"></script>
 
 
 <?php echo "head utils loaded"; ?>
