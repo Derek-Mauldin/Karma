@@ -191,7 +191,10 @@ $('.infinite-scroll').jscroll({
 	contentSelector: '#panel-wrapper'
 });
 
-/*****
+/***********
+ *close feed panel-wrapper
+ * ***************************/
+
 window.onload = function(){
 	document.getElementById('close').onclick = function(){
 		this.parentNode.parentNode.parentNode
@@ -200,7 +203,6 @@ window.onload = function(){
 	};
 };
 
-*****/
 
 
 
