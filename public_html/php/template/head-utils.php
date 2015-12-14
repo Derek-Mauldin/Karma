@@ -78,8 +78,6 @@ setXsrfCookie();
 		<!---jscroll with ajax-->
 		<script src="//cdn.jsdelivr.net/jquery.infiniteajaxscroll/1.0.1/jquery-ias.min.js"></script>
 
-
-<?php echo "head utils loaded"; ?>
 		<!-- Page Title -->
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>
