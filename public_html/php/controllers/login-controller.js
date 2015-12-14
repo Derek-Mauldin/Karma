@@ -62,7 +62,6 @@ $(document).ready(
 						$("#loginError").css("display", "");
 						// write the server's reply to the output area
 						$("#loginError").html(ajaxOutput);
-
 					}
 				});
 
