@@ -96,6 +96,8 @@ EOF;
 	// send confirmation email to new member
 	 sendEmail($_POST["email"], $_POST["firstName"], $_POST["lastName"] ,$messageSubject, $message);
 
+	echo "<p class=\"alert alert-info\">.'Please See Your Email for Confirmation'</p>";
+
 
 
 }catch (Exception $e) {
