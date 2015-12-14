@@ -77,31 +77,8 @@ jQuery(document).ready(function() {
 		$('.tab_id'+i).addClass('bookmarks'+$bookmarks);
 	};
 
-	$('.tabs li, .payment-form .btn').click(function() {
-		setTimeout(function () {
-			for(var i = 1; i <= $tabs_on_page; i++){
-				$bookmarks = $('.tab_id'+i+' li').length;
-				for(var j = 1; j <= $bookmarks; j++){
-					$('.tab_id'+i).removeClass('active_bookmark'+j);
 
-					if($('.tab_id'+i+' li').eq(j-1).hasClass('active')){
-						$('.tab_id'+i).addClass('active_bookmark'+j);
-					}
-				}
-			}
-		}, 0)
-	});
 
-// Payment Form
-	$('.payment-form #billing .btn-next, .payment-form #payment .btn-prev').click(function() {
-		$('a[href="#shipping"]').tab('show');
-	});
-	$('.payment-form #shipping .btn-prev').click(function() {
-		$('a[href="#billing"]').tab('show');
-	});
-	$('.payment-form #shipping .btn-next').click(function() {
-		$('a[href="#payment"]').tab('show');
-	});
 
 // prettyPhoto lightbox, check if <a> has atrr data-rel and hide for Mobiles
 	if($('a').is('[data-rel]') && screenRes > 600) {

@@ -21,10 +21,10 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 						</div>
 						<div class="col-xs-6">
 							<a href="#register-form" id="register-form-link">Register</a>
-						</div>
-					</div>
+						</div><!--/.col-md-6-->
+					</div><!--/.row-->
 					<hr>
-				</div>
+				</div><!--/.panel-heading-->
 
 				<div class="panel-body">
 					<div class="row">
@@ -36,7 +36,7 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 								<div class="form-group">
 									<input type="email" name="logInEmail" id="logInEmail" tabindex="1" class="form-control"
 											 placeholder="Email" value="">
-								</div>
+								</div><!--/.form-group-->
 
 								<div class="form-group">
 									<input type="password" name="logInPassword" id="logInPassword" tabindex="2"

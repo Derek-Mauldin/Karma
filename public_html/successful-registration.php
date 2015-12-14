@@ -1,20 +1,16 @@
-<?php
-/*grab current directory*/
-$CURRENT_DIR = __DIR__;
 
-/*set page title here*/
-$PAGE_TITLE = "Activation Completion";
+<div class="panel panel-default" id="panel-wrapper">
+	<h4><span id='close'>x</span></h4>
+	<div class="panel-heading" id="success">
+		<h1 class="lead" id="success">Welcome $handle!<br> Successful Registration!</h1>
+	</div><!--/.panel-heading #success-->
+</div><!--/.panel-default #success-->
 
-/*load head-utils.php*/
-require_once("php/template/head-utils.php");
-?>
 
-<div class="col-md-12" id="registration-complete">
-	<h1 class="panel-title" ><i class="fa fa-times pull-right" id="hide"></i>
-		Karma Activation
-	</h1>
+	<!--
 	<a type="button" class="btn btn-primary" href="<?php echo $PREFIX; ?>php/controllers/activation-controller.php" >ACTIVATE ACCOUNT</a>
-</div>
+
+</div>-->
 
 
 

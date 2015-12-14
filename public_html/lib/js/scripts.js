@@ -82,8 +82,10 @@ $(function() {
  * @author jhung@cnnm.edu
 
  * ****************************************************/
-$(document).ready(function(){
-	$("#hide").click(function(){
-		$("#registration-complete").hide();
-	})
-});
+window.onload = function(){
+	document.getElementById('close').onclick = function(){
+		this.parentNode.parentNode.parentNode
+				.removeChild(this.parentNode.parentNode);
+		return false;
+	};
+};

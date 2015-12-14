@@ -22,9 +22,12 @@ try {
 		$needTitle = $needs[$needs->key()]->getNeedTitle();
 		$needDescription = $needs[$needs->key()]->getNeedDescription();
 
-		echo "<div class='listing clearfix panel panel-default'>";
+		echo "<div class='listing-clearfix panel panel-default' id='panel-wrapper'>";
+		  echo "<h4><span id='close'>x</span></h4>";
+
 		echo "<div class='panel-heading'>";
-	   echo "<h4 class='listing-title'><i class='fa fa-times pull-right'></i><span class='request'>REQUEST</span>&nbsp;$needTitle</h4>";
+
+	   echo "<h4 class='listing-title'><span class='request'>REQUEST</span>&nbsp;$needTitle</h4>";
 		echo "</div>";
 
 		echo "<div class='panel-body''>";
@@ -33,6 +36,7 @@ try {
 		echo "<button class='btn btn-primary btn-md pull-right' type='button' data-toggle='modal' data-target='#offerModal'>Make Offer</button>";
 		echo "</div>";
 		echo "</div>";
+
 
 		$needs->next();
 
