@@ -102,6 +102,7 @@ $(document).ready(
 						$("#registerError").css("display", "");
 						// write the server's reply to the output area
 						$("#registerError").html(ajaxOutput);
+						$("#loginError").html(ajaxOutput);
 
 
 					//	 reset the form if it was successful
