@@ -59,7 +59,6 @@ try {
 	echo "<a href='https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php'>Click to go to Karma Home Page</a>";
 	echo 	"</div></div>";
 
-
 } catch(Exception $exception){
 	echo "<p class=\"alert alert-danger\">Exception: " . $exception->getMessage() . "</p>";
 }
