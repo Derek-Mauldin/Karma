@@ -120,7 +120,10 @@ $(function() {
 });
 
 
-
+/******
+ * interfering with validation?
+ */
+/********
  $(function () {
         //Enable iCheck plugin for checkboxes
         //iCheck for checkbox and radio inputs
@@ -187,6 +190,8 @@ $('.infinite-scroll').jscroll({
 	nextSelector: 'a.jscroll-next:last',
 	contentSelector: '#panel-wrapper'
 });
+
+/****
 window.onload = function(){
 	document.getElementById('close').onclick = function(){
 		this.parentNode.parentNode.parentNode
@@ -195,34 +200,7 @@ window.onload = function(){
 	};
 };
 
-
-/*********************************************************
- *
- *notification for registration success
- *
-******************************************************/
-window.onload = function(){
-	document.getElementById('close').onclick = function(){
-		this.parentNode.parentNode.parentNode
-				.removeChild(this.parentNode.parentNode);
-		return false;
-	};
-};
+*****/
 
 
- /*
- *notification for registration success
- */
-window.onload = function(){
-	document.getElementById('close').onclick = function(){
-		this.parentNode.parentNode.parentNode
-				.removeChild(this.parentNode.parentNode);
-		return false;
-	};
-};
-/*feed panel close*/
-
-$(document).ready(function() {
-	$('#panel-wrapper i').on('click', function(e) { $(e.target).closest('div').remove(); });
-});
 
