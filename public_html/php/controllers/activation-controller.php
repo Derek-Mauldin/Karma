@@ -50,7 +50,7 @@ try {
 	$handle = $profile->getProfileHandle();
 
 	// set session varialbe
-	$_SESSION["memberId"] = $member->getMemberId();
+	$_SESSION["profile"] = $profile;
 
 	// send welcom message
 	echo 	"<div class='panel panel-default' id='panel-wrapper'>";

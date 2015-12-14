@@ -16,19 +16,18 @@ try {
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 
 	//Get the member id from the session
-	$memberId = $_SESSION['memberId'];
+	$profile = $_SESSION['profile'];
 
-	//Check if the memberId passed from the form is valid and then get the profile if okay.
-	if(empty($memberId) !== true) {
-		$profile = Profile::getProfileByMemberId($pdo, $memberId);
-		$member = Member::getMemberByMemberId($pdo, $memberId);
+	//get member from profile
+	if(empty($profile) !== true) {
+		$member = Member::getMemberByMemberId($pdo, $profile->getMemberId());
 	} else {
-		throw(new InvalidArgumentException("member id is not available"));
+		throw(new InvalidArgumentException("profile is not available"));
 	}
 
-	// check that profile and member exists for this member id
-	if(($profile === null) || ($member === null)) {
-		throw(new InvalidArgumentException("profile or member does not exist for the member id"));
+	// check that member has been created
+	if($member === null) {
+		throw(new InvalidArgumentException("member does not exist"));
 	}
 
 	//Check if the user input values are valid
