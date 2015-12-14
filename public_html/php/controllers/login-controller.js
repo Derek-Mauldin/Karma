@@ -57,21 +57,12 @@ $(document).ready(
 					},
 					// success is an event that happens when the server replies
 					success: function(ajaxOutput) {
-						window.location(https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php);
+						window.location = "https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php";
 						// clear the output area's formatting
 						$("#loginError").css("display", "");
 						// write the server's reply to the output area
 						$("#loginError").html(ajaxOutput);
 
-
-						// reset the form if it was successful
-						// this makes it easier to reuse the form again
-			//			if($(".alert-info").length > 0) {
-				//			$("#login-form")[0].reset();
-
-							//refresh page on successful login
-					//		setTimeout(function() {location.reload(true);}, 1000);
-				//		}
 					}
 				});
 
