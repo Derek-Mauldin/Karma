@@ -41,9 +41,19 @@ try {
 	$member->setAccessLevel("U");
 	$member->update($pdo);
 
-	echo "<p class=\"alert alert-info\">Registration Complete<p/>";
+	$profile = Profile::getProfileByMemberId($pdo, $member->getMemberId());
+	$handle = $profile->getProfileHandle();
+
 
 	$_SESSION["memberId"] = $member->getMemberId();
+
+
+	echo 	"<div class='panel panel-default' id='panel-wrapper'>";
+	echo 	"<div class='panel-heading' id='success'>";
+	echo	"<h1 class='lead' id='success'>Welcome $handle!<br> Successful Registration!</h1>";
+	echo "<a href='https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php'>Click to go to Karma Home Page</a>";
+	echo 	"</div></div>";
+
 
 	header("Location:https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php");
 

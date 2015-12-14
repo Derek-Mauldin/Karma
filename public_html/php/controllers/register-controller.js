@@ -103,17 +103,6 @@ $(document).ready(
 						// write the server's reply to the output area
 						$("#registerError").html(ajaxOutput);
 
-
-					//	 reset the form if it was successful
-					//	 this makes it easier to reuse the form again
-			//	   		if($(".alert-success").length > 0) {
-				//			$("#register-form")[0].reset();
-
-							//refresh page on successful login
-				//		setTimeout(function() {
-				//				location.reload(true);
-				//			}, 1000);
-				//		}
 					}
 				});
 				$("#register-submit").click(function() {
