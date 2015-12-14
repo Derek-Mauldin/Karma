@@ -19,8 +19,12 @@ require_once("php/template/head-utils.php");
 	<!------------------------------------ side panel --------------------------------------------------->
 
 		<div class="col-md-4 " id="sidebar-wrapper">
+			<section id="menu" class="side-panel panel panel-default">
+				<a class="sidebar-brand" href="#"><img id="logo" src="img/pink-octopus.png"/></a>
 			<?php require_once("php/template/side-panel.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
+
+
 
 	<!------------------------------------ main content --------------------------------------------------->
 
@@ -29,20 +33,15 @@ require_once("php/template/head-utils.php");
 					<div class="col-md-8 col-xs-12" id="main">
 
 
-	<!-----------------------------------registration success --------------------------------------->
-
-			<?php require_once "successful-registration.php"?>
-
 	<!-----------------------------------------home page-------------------------------------------------->
 
 						<div class="container" id="home-page" style="display:none;">
-
 
 	<!-------------------------------------------date------------------------------------------------------->
 
 							<div class="row" >
 								<div class="col-md-8" id=" panel-default">
-									<div class="panel panel-primary" id="deed-wrapper">
+									<div class="panel panel-info" id="deed-wrapper">
 										<div class="panel-heading" id="date-header">
 											<h4 class="date"><?php $date=new datetime("now");
 												echo ($date->format("l F jS Y"));?>
@@ -51,23 +50,22 @@ require_once("php/template/head-utils.php");
 										</div><!--/.panel-heading #date-header-->
 									</div><!--/.panel-primary #deed-wrapper-->
 
-
 		<!-----------------------------------------good deed----------------------------------------------------->
-									_
+								<!--	_
 								<div class="panel panel-default" id="deed-header-wrapper">
 									<div class="panel-heading deed-header">
 										<h4 class="panel-title">Today's Daily Deed</h4>
-									</div><!--/.panel-heading -->
+									</div><!--/.panel-heading
 									<div class= "panel panel-default" id="panel-content">
 										<div class="panel-body-wrapper">
 											<h3 class="body-content">Today, pick a piece of trash up from the ground</h3>
 
-										</div><!--/panel-body-wrapper-->
-									</div><!--panel-default #body-content-->
+										</div><!--/panel-body-wrappe
+									</div><!--panel-default #body-content
 								</div><!--/panel-default #deed-header-wrapper-->
-							</div><!--/col-md-8 #panel-default-->
-						</div><!--/row-->
-					</div><!--/container #home-page-->
+						</div><!--/panel-default-->
+					</div><!--/row-->
+				</div><!--/container #home-page-->
 
 	<!----------------------------------------profile page------------------------------------------------->
 
@@ -104,6 +102,7 @@ require_once("php/template/head-utils.php");
 											</div><!--/panel-default #profile-heading-->
 										</div><!--/.panel-heading id=#profile-heading-wrapper-->
 
+
 	<!--------------------------------------profile image and footer------------------------------------------------>
 
 									<div class="panel-body">
@@ -127,42 +126,21 @@ require_once("php/template/head-utils.php");
 		<!------------- message option is hidden when it the user looking at their own profile------------------------>
 
 									<div class="panel-group" id="message-wrapper">
-										<div class="panel panel-primary" id="message-header-wrapper">
+										<div class="panel panel-default" id="message-header-wrapper">
 											<div class="panel-heading" id="message-header">
-												<h4 class="panel-title">Message $user</h4>
+												<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>
 											</div><!--/.panel-heading-->
 
 		<!---------------------------------------------message user ---------------------------------------------------->
 
-											<form accept-charset="UTF-8" action="" method="POST">
 
-												<div class="panel panel-default" id="message-content-wrapper">
-													<div class="panel-heading" id="message-content">
-														<p class="panel-title">Does this message include an offer?
-															<label class="radio-inline"><input type="radio" name="optradio">yes</label>
-															<label class="radio-inline"><input type="radio" name="optradio">no</label>
-														</p><!--/.panel-title-->
-													</div><!--.panel-heading #message-content-->
-
-													<div class="panel panel-default">
-														<div class="panel-body">
-													<textarea class="col-md-12 formcontrol counted"  id="new_message" name="new_message" rows="5" placeholder=
-													"Hi $receiver!<?= "\n \n" ?> Change Text Here  <?= "\n \n" ?> From $sender" >
-													</textarea>
-														</div><!--/.panel-body -->
-														<button class="btn btn-info" type="submit">Send Message</button>
-
-											</form><!--/form-->
-										</div><!--/.panel-primary #message-header-wrapper-->
-									</div><!--/.panel-group #message-wrapper-->
-								</div><!--/.col-md-9 #about-user-->
-							</div><!--/#panel-group #profile-->
 						</div><!--/.col-md-8 #profile-wrapper-->
 					</div><!--/.row #profile-panel-->
 				</div><!--/.col-md-8 #profile-->
 			</div><!--row r#profile-wrapper-->
 		</div><!--/.container #profile-page-->
-
+	</div>
+</div>
 
 	<!---------------------------------------------------mailbox-page-------------------------------------------------->
 
@@ -460,7 +438,7 @@ require_once("php/template/head-utils.php");
 										<!--<form name="edit-user-form" action="../controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">-->
 										<div class="form-group">
 											<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
-										</div><!--/.form-gorup-->
+										</div><!--/.form-group-->
 
 										<div class="form-group">
 											<input type="text" name="lastName" id="lastName" tabindex="2" class="form-control" placeholder="Last Name" value="">
@@ -468,7 +446,7 @@ require_once("php/template/head-utils.php");
 
 										<div class="form-group">
 											<input type="text" name="userName" id="userName" tabindex="3" class="form-control" placeholder="Edit User Name" value="">
-										</div><!--/.form-gorup-->
+										</div><!--/.form-group-->
 
 										<div class="form-group">
 											<input type="email" name="email" id="email" tabindex="4" class="form-control" placeholder="Edit Email Address" value="">
@@ -510,10 +488,27 @@ require_once("php/template/head-utils.php");
 
 	<!-------------------------------------------- feed page------------------------------------------------->
 
-		<div class="infinite-scroll" id="feed-page" style="display:none;">
+		<div class="feed" id="feed-page" style="display:none;">
+
+			<div class="container">
+				<div class="row">
+
+					<div id="custom-search-input">
+						<div class="input-group col-md-8">
+							<input type="text" class="  search-query form-control" placeholder="Search" />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+													<span class=" glyphicon glyphicon-search"></span>
+												</button>
+                                </span>
+						</div>
+					</div>
+				</div>
+			</div>
 			<h2>Karma Feed</h2>
 
 	<!-------------------------------------------feed panel-------------------------------------------------->
+			<div class="infinite-scroll">
 
 			<?php require_once "php/controllers/need-scroller-controller.php" ?>
 
@@ -549,9 +544,17 @@ require_once("php/template/head-utils.php");
 
 					<?php require_once("php/template/offer-modal.php"); ?>
 
-	<!------------------------------------------/ offer form modal------------------------------------------------->
+	<!----------------------------------------message user profile modal----------------------------------------->
 
-					</div><!--container ##main-content-wrapper-->
+			<?php require_once ("php/template/message-user-modal.php");?>
+
+			<!----------------------------------/message-modal--------------------------------------------------->
+			</div>
+			</div>
+			</div>
+</div>
+	</div>
+		</div><!--container ##main-content-wrapper-->
 				</div><!--/.row #main-content-->
 			</div>
 		</div><!--/.site-content-->
