@@ -37,6 +37,7 @@ function HideAllShowOne(d) {
  * login/registration  form
  * @author jhung@cnm.edu
  ************************************************************************************************************/
+
 $(function() {
 
 	$('#login-form-link').click(function(e) {
@@ -78,68 +79,48 @@ $(function() {
 	});
 });
 
- /**********************************************
-  *
-  * registration complete announcement div on main page,
-  * click x to hide
-  * @author jhung@cnnm.edu
-
-  * ****************************************************/
- $(document).ready(function(){
- 	$("#hide").click(function(){
-	$("#registration-complete").hide();
- 	})
- });
-
-
-
 /************************************************************************************************************
- * lmailbox
+ * mailbox
  * @author jhung@cnm.edu
  ************************************************************************************************************/
 $(function() {
 
-	$('#login-form-link').click(function(e) {
-		$("#login-form").delay(100).fadeIn(100);
-		$("#register-form").fadeOut(100);
-		$('#register-form-link').removeClass('active');
+	$('#compose-wrapper-link').click(function(e) {
+		$("#compose-wrapper").delay(100).fadeIn(100);
+		$("#inbox-wrapper").fadeOut(100);
+		$('#inbox-wrapper-link').removeClass('active');
 		$(this).addClass('active');
 		e.preventDefault();
 	});
-	$('#register-form-link').click(function(e) {
-		$("#register-form").delay(100).fadeIn(100);
-		$("#login-form").fadeOut(100);
-		$('#login-form-link').removeClass('active');
+	$('#inbox-wrapper-link').click(function(e) {
+		$("#inbox-wrapper").delay(100).fadeIn(100);
+		$("#compose-wrapper").fadeOut(100);
+		$("#sent-wrapper").fadeOut(100);
+		$('#compose-wrapper-link').removeClass('active');
+
+		$('#sent-wrapper-link').removeClass('active');
 		$(this).addClass('active');
 		e.preventDefault();
 	});
+
+	$('#sent-wrapper-link').click(function(e) {
+		$("#sent-wrapper").delay(100).fadeIn(100);
+		$("#compose-wrapper").fadeOut(100);
+		$("#inbox-wrapper").fadeOut(100);
+		$('#compose-wrapper-link').removeClass('active');
+		$('#inbox-wrapper-link').removeClass('active');
+
+		$(this).addClass('active');
+		e.preventDefault();
+	});
+
+
+
 
 });
 
-/**************************************************************
- * edit profile/settings form
- * @author jhung@cnm.edu
- **************************************************************/
-$(function() {
 
-	$('#profile-form-link').click(function(e) {
-		$("#profile-form").delay(100).fadeIn(100);
-		$("#edit-settings").fadeOut(100);
-		$('#edit-settings-link').removeClass('active');
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-	$('#edit-settings-link').click(function(e) {
-		$("#edit-settings").delay(100).fadeIn(100);
-		$("#profile-form").fadeOut(100);
-		$('#profile-form-link').removeClass('active');
-		$(this).addClass('active');
-		e.preventDefault();
-	});
-});
-/***********************************************************
- * mailbox
- *************************************************************/
+
  $(function () {
         //Enable iCheck plugin for checkboxes
         //iCheck for checkbox and radio inputs
@@ -168,7 +149,7 @@ $(function() {
           e.preventDefault();
           //detect type
           var $this = $(this).find("a > i");
-          var glyph = $this.hasClass("glyphicon");
+          var glyph = $this.hasClass("glyphicon" );
           var fa = $this.hasClass("fa");
 
           //Switch states
@@ -184,9 +165,11 @@ $(function() {
         });
       });
 
-/*************
- * *jscroll
- */
+/*******************************************************************************
+ *
+ *jscroll
+ *
+ ********************************************************************************/
 	$(document).ready(function() {
 		// Infinite Ajax Scroll configuration
 		jQuery.ias({
@@ -196,3 +179,50 @@ $(function() {
 			triggerPageThreshold: 10 // show load more if scroll more than this
 		});
 	});
+
+$('.infinite-scroll').jscroll({
+	loadingHtml:  '<span class="glyphicon glyphicon-refresh glyphicon-spin"></span>',
+
+		padding: 20,
+	nextSelector: 'a.jscroll-next:last',
+	contentSelector: '#panel-wrapper'
+});
+window.onload = function(){
+	document.getElementById('close').onclick = function(){
+		this.parentNode.parentNode.parentNode
+				.removeChild(this.parentNode.parentNode);
+		return false;
+	};
+};
+
+
+/*********************************************************
+ *
+ *notification for registration success
+ *
+******************************************************/
+window.onload = function(){
+	document.getElementById('close').onclick = function(){
+		this.parentNode.parentNode.parentNode
+				.removeChild(this.parentNode.parentNode);
+		return false;
+	};
+};
+
+
+ /*
+ *notification for registration success
+ */
+window.onload = function(){
+	document.getElementById('close').onclick = function(){
+		this.parentNode.parentNode.parentNode
+				.removeChild(this.parentNode.parentNode);
+		return false;
+	};
+};
+/*feed panel close*/
+
+$(document).ready(function() {
+	$('#panel-wrapper i').on('click', function(e) { $(e.target).closest('div').remove(); });
+});
+
