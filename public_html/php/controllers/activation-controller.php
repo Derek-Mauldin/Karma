@@ -55,7 +55,7 @@ try {
 	echo 	"</div></div>";
 
 
-	header("Location:https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php");
+//	header("Location:https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php");
 
 	echo "<p class=\"alert alert-info\">Registration Complete -- WELCOME TO KARMA!!!<p/>";
 
