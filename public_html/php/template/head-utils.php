@@ -79,6 +79,11 @@ setXsrfCookie();
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 		<script type="text/javascript" src="../../lib/js/jquery-ias.min.js"></script>
 
+		<!-- iCheck -->
+		<link rel="stylesheet" href="../../admin/plugins/iCheck/flat/blue.css">
+
+
+<?php echo "head utils loaded"; ?>
 		<!-- Page Title -->
 		<title><?php echo $PAGE_TITLE; ?></title>
 	</head>
