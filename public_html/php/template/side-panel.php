@@ -10,6 +10,8 @@
 				<span class="icon-bar"></span>
 			</button>
 		</div>
+
+
 		<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 			<div class="nav navbar-nav">
 

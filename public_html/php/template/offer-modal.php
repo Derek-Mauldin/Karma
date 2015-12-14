@@ -1,5 +1,11 @@
+
+  <!---------------------------------- Modal -------------------------------------------------->
+
 <div class="modal fade" id="offerModal" tabindex="-1" role="dialog"> 
 	<div class="modal-dialog"> 
+
+		<!--------------------------------- Modal content------------------------------------------>
+
 		<div class="modal-content">
 			<div class="modal-header">  
 

@@ -20,10 +20,10 @@ require_once("php/template/head-utils.php");
 
 		<div class="col-md-4 " id="sidebar-wrapper">
 			<section id="menu" class="side-panel panel panel-default">
-				<a class="sidebar-brand" href="#"><img id="logo" src="img/pink-octopus.png"/></a>
+				<a class="sidebar-brand" href="#"><img id="logo" src="img/robot.png"/></a>
+\
 			<?php require_once("php/template/side-panel.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
-
 
 
 	<!------------------------------------ main content --------------------------------------------------->
@@ -39,33 +39,19 @@ require_once("php/template/head-utils.php");
 
 	<!-------------------------------------------date------------------------------------------------------->
 
-							<div class="row" >
+							<div class="row" id= "date">
 								<div class="col-md-8" id=" panel-default">
-									<div class="panel panel-info" id="deed-wrapper">
+									<div class="panel panel-info" id="date-wrapper">
 										<div class="panel-heading" id="date-header">
 											<h4 class="date"><?php $date=new datetime("now");
 												echo ($date->format("l F jS Y"));?>
-											</h4><!--/.date-->
+											</h4><!--/.row #date-->
 
 										</div><!--/.panel-heading #date-header-->
-									</div><!--/.panel-primary #deed-wrapper-->
-
-		<!-----------------------------------------good deed----------------------------------------------------->
-								<!--	_
-								<div class="panel panel-default" id="deed-header-wrapper">
-									<div class="panel-heading deed-header">
-										<h4 class="panel-title">Today's Daily Deed</h4>
-									</div><!--/.panel-heading
-									<div class= "panel panel-default" id="panel-content">
-										<div class="panel-body-wrapper">
-											<h3 class="body-content">Today, pick a piece of trash up from the ground</h3>
-
-										</div><!--/panel-body-wrappe
-									</div><!--panel-default #body-content
-								</div><!--/panel-default #deed-header-wrapper-->
-						</div><!--/panel-default-->
-					</div><!--/row-->
-				</div><!--/container #home-page-->
+									</div><!--/panel-info #date-wrapper -->
+								</div><!--/col-md-8 #panel-default-->
+							</div><!--/row #date-->
+						</div><!--/container #home-page-->
 
 	<!----------------------------------------profile page------------------------------------------------->
 
@@ -123,24 +109,29 @@ require_once("php/template/head-utils.php");
 										</div><!--/#about-user-->
 									</div>
 
-		<!------------- message option is hidden when it the user looking at their own profile------------------------>
+	<!---------------------------------------------message user ---------------------------------------------------->
 
 									<div class="panel-group" id="message-wrapper">
 										<div class="panel panel-default" id="message-header-wrapper">
 											<div class="panel-heading" id="message-header">
-												<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>
-											</div><!--/.panel-heading-->
-
-		<!---------------------------------------------message user ---------------------------------------------------->
+												<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>											</div><!--/.panel-heading-->
 
 
-						</div><!--/.col-md-8 #profile-wrapper-->
-					</div><!--/.row #profile-panel-->
-				</div><!--/.col-md-8 #profile-->
-			</div><!--row r#profile-wrapper-->
-		</div><!--/.container #profile-page-->
-	</div>
-</div>
+	<!----------------------------------------message user profile modal----------------------------------------->
+
+											<?php require_once ("php/template/message-user-modal.php");?>
+
+
+		<!---------------------------------------------/message user ---------------------------------------------------->
+
+
+						</div><!--/.panel-default #message-header-wrapper-->
+					</div><!--/.panel-group #message-wrapper-->
+				</div><!--/.panel-default-->
+			</div><!--panel-group #profile-panel-->
+		</div><!--col-md-8 #profile-->
+	</div><!--row #profile-wrapper-->
+</div><!--/container #profile-page-->
 
 	<!---------------------------------------------------mailbox-page-------------------------------------------------->
 
@@ -240,7 +231,7 @@ require_once("php/template/head-utils.php");
 											<input class="form-control" placeholder="Subject:">
 										</div>
 										<div class="form-group">
-                    					<textarea id="compose-textarea" class="form-control" style="height: 300px"></textarea>
+                    					<textarea id="compose-textarea" class="form-control" style="height: 150px"></textarea>
 										</div>
 										<div class="form-group">
 											<div class="btn btn-default btn-file">
@@ -495,12 +486,12 @@ require_once("php/template/head-utils.php");
 
 					<div id="custom-search-input">
 						<div class="input-group col-md-8">
-							<input type="text" class="  search-query form-control" placeholder="Search" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-													<span class=" glyphicon glyphicon-search"></span>
-												</button>
-                                </span>
+							<input type="text" class="  search-query form-control" placeholder="Search"/>
+							<span class="input-group-btn">
+								<button class="btn btn-danger" type="button">
+									<span class=" glyphicon glyphicon-search"></span>
+								</button>
+                      </span>
 						</div>
 					</div>
 				</div>
@@ -510,7 +501,7 @@ require_once("php/template/head-utils.php");
 	<!-------------------------------------------feed panel-------------------------------------------------->
 			<div class="infinite-scroll">
 
-			<?php require_once "php/controllers/need-scroller-controller.php" ?>
+				<?php require_once "php/controllers/need-scroller-controller.php" ?>
 
 					<div class="listing-clearfix panel panel-default" id="panel-wrapper">
 							<h4><span id='close'>x</span></h4>
@@ -530,8 +521,8 @@ require_once("php/template/head-utils.php");
 							<button class="btn btn-primary btn-md pull-right" type="button" data-toggle="modal" data-target="#offerModal">Make Offer</button>
 
 						</div><!--/panel-body-->
-						</div><!--/.panel-wrapper-->
-					</div><!--/.feed-page-->
+					</div><!--/.panel-wrapper-->
+				</div><!--/.feed-page-->
 
 		<!------------------------------------------logout page------------------------------------------------------>
 
@@ -542,23 +533,17 @@ require_once("php/template/head-utils.php");
 
 	<!------------------------------------------offer form modal--------------------------------------------------->
 
-					<?php require_once("php/template/offer-modal.php"); ?>
+						<?php require_once("php/template/offer-modal.php"); ?>
 
-	<!----------------------------------------message user profile modal----------------------------------------->
 
-			<?php require_once ("php/template/message-user-modal.php");?>
+			<!----------------------------------/main-content--------------------------------------------------->
 
-			<!----------------------------------/message-modal--------------------------------------------------->
-			</div>
-			</div>
-			</div>
-</div>
-	</div>
-		</div><!--container ##main-content-wrapper-->
+
+					</div><!--container ##main-content-wrapper-->
 				</div><!--/.row #main-content-->
 			</div>
-		</div><!--/.site-content-->
-		</div><!--/.site-->
+		</div><!--/.main-content-wrapper-->
+	</div><!--/.site-content-->
 
 	<!----------------------------------------------footer-------------------------------------------------------->
 

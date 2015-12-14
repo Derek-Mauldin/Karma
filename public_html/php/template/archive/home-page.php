@@ -82,7 +82,7 @@
 					<div id="sidebar-wrapper">
 						<ul class="sidebar-nav">
 							<li class="sidebar-brand">
-								<a href="#"><img id="logo" src="../../../img/octopus-logo.png"/>
+								<a href="#"><img id="logo" src="../../../img/robot.png"/>
 								</a>
 							</li>
 
