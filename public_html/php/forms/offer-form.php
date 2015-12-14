@@ -14,6 +14,15 @@
 
 								<div class="help-block with-errors"></div>
 							</div>
+							<section>
+								<h2>Multiple dates</h2>
+								<article>
+									<div class="multiple"></div>
+								</article>
+							</section>
+
+
+
 							<button type="submit" id="form-submit" class="btn btn-success btn-lg pull-left ">
 								Offer
 							</button>
