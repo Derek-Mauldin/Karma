@@ -65,8 +65,8 @@ try {
 
 	$_SESSION["memberId"] = $member->getMemberId();
 
-	header("Location:https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php");
 
+	header("Location:https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php");
 
 
 

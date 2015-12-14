@@ -57,6 +57,7 @@ $(document).ready(
 					},
 					// success is an event that happens when the server replies
 					success: function(ajaxOutput) {
+						window.location(https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php);
 						// clear the output area's formatting
 						$("#loginError").css("display", "");
 						// write the server's reply to the output area
