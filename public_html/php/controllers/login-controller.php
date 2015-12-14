@@ -15,9 +15,14 @@ require_once("/etc/apache2/capstone-mysql/encrypted-config.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
 require_once(dirname(dirname(__DIR__)) . "/lib/php/filter.php");
 
+
+
+
 try {
-
-
+	if(session_status() !== PHP_SESSION_ACTIVE) {
+		session_start();
+	}
+	verifyXsrf();
 
 	//ensures that the fields are filled out
 	if(empty($_POST["logInEmail"]) === true ||

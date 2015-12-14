@@ -36,7 +36,7 @@ if(function_exists("apache_request_headers") === false) {
  * @param string $cookiePath path the cookie is relevant to, blank by default
  * @throws RuntimeException if the session is not active
  **/
-function setXsrfCookie($cookiePath = "") {
+function setXsrfCookie($cookiePath = "/") {
 	// enforce that the session is active
 	if(session_status() !== PHP_SESSION_ACTIVE) {
 		throw(new RuntimeException("session not active"));

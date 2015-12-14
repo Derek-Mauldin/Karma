@@ -1,5 +1,6 @@
 // document ready event
 $(document).ready(
+
 	// inner function for the ready() event
 	function() {
 
@@ -13,6 +14,7 @@ $(document).ready(
 
 			// rules define what is good/bad input
 			rules: {
+
 				// each rule starts with the inputs name (NOT id)
 				logInEmail: {
 					required: true,
@@ -25,9 +27,9 @@ $(document).ready(
 				}
 			},
 
-
 			// error messages to display to the end user
 			messages: {
+
 				logInEmail: {
 					required: "must enter email address",
 					email: "please enter your valid email address"
@@ -43,6 +45,7 @@ $(document).ready(
 
 			// setup an AJAX call to submit the form without reloading
 			submitHandler: function(form) {
+
 				$("#login-form").ajaxSubmit({
 					// GET or POST
 					type: "POST",
@@ -62,13 +65,12 @@ $(document).ready(
 
 						// reset the form if it was successful
 						// this makes it easier to reuse the form again
-						if($(".alert-info").length > 0) {
-						//	$("#login-form")[0].reset();
-							window.location("https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php");
+			//			if($(".alert-info").length > 0) {
+				//			$("#login-form")[0].reset();
 
 							//refresh page on successful login
-							setTimeout(function() {location.reload(true);}, 1000);
-						}
+					//		setTimeout(function() {location.reload(true);}, 1000);
+				//		}
 					}
 				});
 
