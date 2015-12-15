@@ -7,7 +7,7 @@ function autofill() {
 
 	$.ajax({
 		type: "POST",
-		url: 'https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/php/controllers/autofill-edit-profile.php',
+		url: 'php/controllers/autofill-edit-profile.php',
 		dataType: "json",
 		headers: {"X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN")},
 		success: function(msg) {
@@ -20,7 +20,15 @@ function autofill() {
 			$("#profile-blurb").html(availableTags["blurb"]);
 			$("#image-footer-username").html(availableTags["userName"]);
 		}
-	})
+	});
+
+	$.ajax({
+		type: "GET",
+		url: "php/controllers/message-recieved-retrieval.php",
+		success: function(messages) {
+			$("#message").html(messages);
+		}
+	});
 }
 
 

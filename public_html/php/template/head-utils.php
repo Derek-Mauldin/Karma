@@ -19,7 +19,7 @@ require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
 if(session_status() !== PHP_SESSION_ACTIVE) {
 	session_start();
 }
-setXsrfCookie();
+setXsrfCookie("/");
 ?>
 
 <!DOCTYPE html>

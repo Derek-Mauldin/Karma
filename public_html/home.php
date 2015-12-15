@@ -164,54 +164,12 @@ require_once("php/template/head-utils.php");
 												<li class="list-group-item" id="message-wrapper">
 													<div class="row" id="message" >
 
-														<div class="col-xs-2 col-md-2" id="profile-image">
-															<img src="http://placehold.it/80" class="img-circle img-responsive" alt="profile-image"/>
-														</div><!--/.col-xs-2 col-md-2 #profile-image-->
 
-														<div class="col-xs-10 col-md-10" id="message-body">
-
-															<div class="message-header"><a href="#">Offer</a>
-																<div class="mic-info">
-																	By: <a href="#">$user</a> on 12 Dec 2015
-																</div><!--/.mic-info-->
-															</div><!--/.message-header-->
-
-															<div class="message-body">
-																I am taking algebra too and can tutor you this Friday or Saturday afternoon
-															</div><!--/.message-body-->
-
-															<a href="#" class="btn btn-sm btn-hover btn-primary"><span class="glyphicon glyphicon-share-alt" style="padding-right:3px;"></span>Reply</a>
-															<a href="#" class="btn btn-sm btn-hover btn-default"><span class="glyphicon glyphicon-remove" style="padding-right:3px;"></span>Delete</a>
-
-														</div><!--/.col-xs-10 col-md-10 #message-body-->
-													</div><!--/.row #message-->
 												</li><!--/.list-group-item #message-wrapper-->
 
 												<li class="list-group-item" id="message-wrapper">
-													<div class="row" id="messsage">
+													<div class="row" id="messsage"></div>
 
-														<div class="col-xs-2 col-md-2" id="profile-image">
-															<img src="http://placehold.it/80" class="img-circle img-responsive" alt=""/>
-														</div><!--/.col-xs-2 col-md-2 #profile-image-->
-
-														<div class="col-xs-10 col-md-10" id="message-body">
-
-															<div class="message-sender-details"><a href="#">Offer</a>
-																<div class="mic-info">
-																	By: <a href="#">$user</a> on 11 Dec 2015
-																</div><!--/#mic-info-->
-															</div><!--/.message-header-->
-
-															<div class="message-body">
-																Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-																euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim
-															</div><!--/.message-body-->
-
-															<a href="#" class="btn btn-sm btn-hover btn-primary"><span class="glyphicon glyphicon-share-alt" style="padding-right:3px;"></span>Reply</a>
-															<a href="#" class="btn btn-sm btn-hover btn-default"><span class="glyphicon glyphicon-remove" style="padding-right:3px;"></span>Delete</a>
-
-														</div><!--/.col-xs-10 col-md-2 #message-body-->
-													</div><!--/.row #message-->
 												</li><!--/.list-group-item #message-wrapper-->
 											</ul><!--/.list-group #messages-->
 
@@ -511,25 +469,6 @@ require_once("php/template/head-utils.php");
 
 						<?php require_once "php/controllers/need-scroller-controller.php" ?>
 
-						<div class="listing-clearfix panel panel-default" id="panel-wrapper">
-							<h4><span id='close'>x</span></h4>
-
-							<div class="panel-heading">
-
-								<h4 class="listing-title">
-									<span class="request">REQUEST</span>&nbsp;Soccer Coach
-								</h4><!--/.listing-title-->
-							</div><!--/.panel-heading-->
-
-							<div class="panel-body">
-								<a href="#"><img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left"></a>
-								<p class="text-justify">One of a group of parents forming a club soccer team for kids ages
-									9-12.We would like a coach.The season begins in May and we would like to start practice
-									ASAP. We will provide snacks for the team.</p>
-								<button class="btn btn-primary btn-md pull-right" type="button" data-toggle="modal" data-target="#offerModal">Make Offer</button>
-
-							</div><!--/panel-body-->
-						</div><!--/.panel-wrapper-->
 					</div><!--/.feed-page-->
 
 					<!------------------------------------------logout page------------------------------------------------------>
