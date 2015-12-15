@@ -46,11 +46,11 @@ $(document).ready(
 			// setup an AJAX call to submit the form without reloading
 			submitHandler: function(form) {
 
-				$(form).ajaxSubmit({
+				$("#login-form").ajaxSubmit({
 					// GET or POST
 					type: "POST",
 					// where to submit data
-					url: $(form).attr("action"),
+					url: $("#login-form").attr("action"),
 					// this sends the XSRF token along with the form data
 					headers: {
 						"X-XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
@@ -64,7 +64,7 @@ $(document).ready(
 							// write the server's reply to the output area
 							$("#loginError").html(ajaxOutput);
 						} else {
-							window.location = "https://bootcamp-coders.cnm.edu/~dmauldin2/karma/public_html/index.php";
+							window.location = "home.php";
 						}
 
 					}

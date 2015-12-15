@@ -1,6 +1,5 @@
 <?php
 
-
 /*grab current directory*/
 $CURRENT_DIR = __DIR__;
 
