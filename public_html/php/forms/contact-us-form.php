@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 	<!DOCTYPE html>
 	<html lang="en">
 		<head>
@@ -33,8 +32,38 @@
 			<title>Contact Us</title>
 		</head>
 
-		<body>
+		<div class="sfooter-content">
 
+			<!-------------------------------------- Fixed navbar ------------------------------------------------->
+
+			<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+
+					<!-------------------------------------- Navbar collapse ------------------------------------------------------>
+
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class=""><a href="#">Karmify</a></li>
+							<li class="" ><a href="contact-us-form.php"">Contact</li>
+						</ul><!--/navbar-nav-->
+
+
+						<ul class="nav navbar-nav navbar-right shifted">
+							<li class=""><a href="register-form.php">Register</a></li>
+							<li class=""><a href="register-form.php">Log In</a></li>
+						</ul><!--/navbar-nav-->
+					</div><!--/.nav-collapse -->
+				</div><!--/container-fluid-->
+			</div><!-- /.Fixed navbar -->
+<div class="contact-form-wrapper">
 			<h1>Contact Us</h1>
 
 			<!-- The div class="form-wrap" is the black box containing the form. It's set to a column width of 12 for small screens, and a column width of 6 for medium screens on up -->
@@ -77,7 +106,8 @@
 						<button type="submit" class="btn">Submit</button>
 					</div>
 				</form>
+			</div>
 			</div> <!-- CLOSE FORM WRAP -->
-		</body
+		</div>
 
 	</html>

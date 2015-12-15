@@ -22,21 +22,20 @@ require_once("../../php/template/head-utils.php");
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand brand-shifted" href="#"><img class="brand-icon" src="../../img/octopus-icon.png" alt="Kismet Logo"></a>
 				</div>
 
 	<!-------------------------------------- Navbar collapse ------------------------------------------------------>
 
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class=""><a href="#">Kismet</a></li>
-						<li class=""><a href="#">Contact</a></li>
+						<li class="landing"><a href="landing.php">Karmify</a></li>
+						<li class="contact" ><a href="contact-us-form.php">Contact</a></li>
 
 					</ul><!--/navbar-nav-->
 
 					<ul class="nav navbar-nav navbar-right shifted">
-						<li class=""><a href="#">Register</a></li>
-						<li class=""><a href="#">Log In</a></li>
+						<li class="register"><a href="register-form.php">Register</a></li>
+						<li class="login"><a href="register-form.php">Log In</a></li>
 					</ul><!--/navbar-nav-->
 				</div><!--/.nav-collapse -->
 			</div><!--/container-fluid-->
@@ -89,6 +88,7 @@ require_once("../../php/template/head-utils.php");
 				<div class="col-lg-3"></div>
 			</div>
 		</div>
+<?php require_once("../../php/template/contact-us-modal.php"); ?>
 
 		<script src="http://cdn.phpoll.com/js/main.min.js"></script>
 

@@ -88,11 +88,9 @@
 							<a href="#about">About</a>
 						</li>
 						<li>
-							<a href="#login">Login</a>
+							<a href="#login">Login or Signup</a>
 						</li>
-						<li>
-							<a href="#login">Signup</a>
-						</li>
+
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -102,7 +100,7 @@
 
 
 		<!-- Header -->
-		<a name="about"></a>
+		<a name="home"></a>
 		<div class="intro-header">
 			<div class="container">
 
@@ -189,7 +187,7 @@
 															<div class="row">
 																<div class="col-lg-12">
 																	<div class="text-center">
-																		<a href="/../../php/forms/recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
+																		<a href="php/forms/recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
 																	</div><!--/text-center-->
 																</div><!--/col-md-12-->
 															</div><!--/row-->
@@ -245,10 +243,9 @@
 						</div><!--/container-->
 
 
-		</div>
 		<!-- Page Content -->
 
-		<a  name="services"></a>
+		<a  name="about"></a>
 		<div class="content-section-a">
 
 			<div class="container">
@@ -256,7 +253,7 @@
 					<div class="col-lg-5 col-sm-6">
 						<hr class="section-heading-spacer">
 						<div class="clearfix"></div>
-						<h2 class="section-heading">About</h2>
+						<h2 class="section-heading">About lorem ipsum</h2>
 					</div>
 					<div class="col-lg-5 col-lg-offset-2 col-sm-6">
 					</div>
@@ -296,7 +293,10 @@
 		</div>
 		<!-- /.banner -->
 
-		<!-- Footer -->
+			<?php require_once("php/template/contact-us-modal.php"); ?>
+
+
+			<!-- Footer -->
 		<footer>
 			<div class="container">
 				<div class="row">
@@ -310,9 +310,7 @@
 								<a href="#about">About</a>
 							</li>
 							<li class="footer-menu-divider">&sdot;</li>
-							<li>
-								<a href="#services">Services</a>
-							</li>
+
 							<li class="footer-menu-divider">&sdot;</li>
 							<li>
 								<a href="#contact">Contact</a>
