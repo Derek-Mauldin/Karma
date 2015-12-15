@@ -493,9 +493,9 @@ require_once("php/template/head-utils.php");
 
 	<!----------------------------------------------footer-------------------------------------------------------->
 
-	<footer>
+
 		<?php require_once("php/template/footer.php"); ?>
-	</footer>
+
 
 </body><!--/.site-->
 </html>
