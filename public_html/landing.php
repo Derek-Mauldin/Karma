@@ -91,7 +91,7 @@
 							<a href="#login">Login</a>
 						</li>
 						<li>
-							<a href="#contact">Signup</a>
+							<a href="#login">Signup</a>
 						</li>
 					</ul>
 				</div>
@@ -130,6 +130,8 @@
 		</div><!-- /.intro-header -->
 
 		<!---------------------------------------------------- Page Content ---------------------------------------->
+
+
 
 		<a  name="login"></a>
 
@@ -187,7 +189,7 @@
 															<div class="row">
 																<div class="col-lg-12">
 																	<div class="text-center">
-																		<a href="recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
+																		<a href="/../../php/forms/recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
 																	</div><!--/text-center-->
 																</div><!--/col-md-12-->
 															</div><!--/row-->
@@ -241,23 +243,28 @@
 								</div><!--/col-md-6-->
 							</div><!--/row-->
 						</div><!--/container-->
-					</div><!--site-content-->
-				</div><!--/site-->
 
+
+		</div>
+		<!-- Page Content -->
+
+		<a  name="services"></a>
+		<div class="content-section-a">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-sm-6">
+						<hr class="section-heading-spacer">
+						<div class="clearfix"></div>
+						<h2 class="section-heading">About</h2>
 					</div>
-
+					<div class="col-lg-5 col-lg-offset-2 col-sm-6">
+					</div>
 				</div>
 
 			</div>
 			<!-- /.container -->
 
-		</div>
-		<!-- /.content-section-a -->
-
-
-		<!-- /.content-section-b -->
-
-		<!-- /.content-section-a -->
 
 		<a  name="contact"></a>
 		<div class="banner">

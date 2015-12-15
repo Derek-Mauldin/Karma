@@ -1,7 +1,6 @@
-<!--<section id="menu" class="side-panel panel panel-default">
-	<a class="sidebar-brand" href="#"><img id="logo" src="../../img/octopus-logo.png"/></a>-->
+
 <nav class="navbar navbar-default sidebar" role="navigation">
-	<div class="container-fluid">
+	<div class="container-fluid" id="side">
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
 				<span class="sr-only">Toggle navigation</span>
