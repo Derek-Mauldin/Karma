@@ -1,9 +1,26 @@
-<div class="container">
-	<div class="row">
-		<ul class="nav">
-			<li class="navbar-text"><a href="#">About Us</a></li>
-			<li class="navbar-text"><a href="#">FAQ</a></li>
-			<li class="navbar-text"><a href="#">Contact Us</a></li>
-		</ul>
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<ul class="list-inline">
+					<li>
+						<a href="#">Home</a>
+					</li>
+					<li class="footer-menu-divider">&sdot;</li>
+					<li>
+						<a href="#about">About</a>
+					</li>
+					<li class="footer-menu-divider">&sdot;</li>
+					<li>
+						<a href="#services">Services</a>
+					</li>
+					<li class="footer-menu-divider">&sdot;</li>
+					<li>
+						<a href="#contact">Contact</a>
+					</li>
+				</ul>
+				<p class="copyright text-muted small">Copyright &copy; Kammify 2015. All Rights Reserved</p>
+			</div>
+		</div>
 	</div>
-</div>
+</footer>
