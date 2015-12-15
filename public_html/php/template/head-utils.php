@@ -12,14 +12,14 @@ $ROOT_DEPTH = substr_count($ROOT_PATH, "/");
 $DEPTH_DIFFERENCE = $CURRENT_DEPTH - $ROOT_DEPTH;
 $PREFIX = str_repeat("../", $DEPTH_DIFFERENCE);
 
-require_once($PREFIX . "lib/php/xsrf.php");
-
+/**
+ * open a session and set XSRF protection
+ **/
+require_once(dirname(dirname(__DIR__)) . "/lib/php/xsrf.php");
 if(session_status() !== PHP_SESSION_ACTIVE) {
 	session_start();
 }
-
 setXsrfCookie();
-
 ?>
 
 <!DOCTYPE html>

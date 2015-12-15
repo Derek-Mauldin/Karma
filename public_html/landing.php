@@ -48,7 +48,8 @@
 		<!-- jscroll plugin test -->
 		<script src="<?php echo $PREFIX;?>lib/plugins/jscroll/jquery.jscroll.min.js" type="text/javascript"></script>
 
-		<!-- Custom JavaScript@author:Derek  @author:jhung@cnm.edu -->
+		<!-- Custom JavaScrip
+		t@author:Derek  @author:jhung@cnm.edu -->
 		<script src="<?php echo $PREFIX;?>lib/js/home-pg-side-toggle-testing.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>lib/js/site-scripts.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/register-controller.js" type="text/javascript"></script>
