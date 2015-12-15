@@ -21,7 +21,7 @@ require_once("php/template/head-utils.php");
 		<div class="col-md-4 " id="sidebar-wrapper">
 			<section id="menu" class="side-panel panel panel-default">
 				<a class="sidebar-brand" href="#"><img id="logo" src="img/robot.png"/></a>
-\
+
 			<?php require_once("php/template/side-panel.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
 
@@ -123,7 +123,6 @@ require_once("php/template/head-utils.php");
 
 
 		<!---------------------------------------------/message user ---------------------------------------------------->
-
 
 						</div><!--/.panel-default #message-header-wrapper-->
 					</div><!--/.panel-group #message-wrapper-->
