@@ -22,12 +22,12 @@ try {
 		session_start();
 	}
 	//verify that the XSRF from the form is a valid token
-	verifyXsrf();
+//	verifyXsrf();
 
 	$pdo = connectToEncryptedMySQL("/etc/apache2/capstone-mysql/karma.ini");
 
 	$profile = $_SESSION['profile'];
-	$member = Member::getMemberByEmail($pdo, $profile->getMemberId());
+	$member = Member::getMemberByEmail($pdo, $_SESSION["email"]);
 
 	$values = array('blurb' => $profile->getProfileBlurb(), 'firstName' => $profile->getProfileFirstName(),
 	                'lastName' => $profile->getProfileLastName(), 'userName' => $profile->getProfileHandle(),
