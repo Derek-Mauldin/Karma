@@ -191,23 +191,9 @@ $('.infinite-scroll').jscroll({
 	contentSelector: '#panel-wrapper'
 });
 
-/***********
- *close feed panel-wrapper
- * ***************************/
 
-window.onload = function(){
-	document.getElementById('close').onclick = function(){
-		this.parentNode.parentNode.parentNode
-				.removeChild(this.parentNode.parentNode);
-		return false;
-	};
-};
 
-/*************************************************
- *
- * side-menu toggle
- *
- *********************************************/
+
 
 
 
