@@ -6,15 +6,7 @@
 */
 
 /**************************************************************
-*
-*body
-*
-****************************************************************/
 
-
-h2 {
-	color:white;
-}
 /******************************************************************
 *
 *image
@@ -36,29 +28,19 @@ img {
 }
 
 
-#sent-wrapper {
-	display:none;
-}
+/*******************************************************************
+*
+*set display to none for toggling between sidebar and main section
+*
+*********************************************************************/
 
 #home-page {
 	display:none;
 }
 #feed-page {
+	display:none;
 	color:black;
 }
-
-
-/*******************************************************************
-*
-*side-bar
-*
-*****************************************************************/
-a {
-	color:grey;
-}
-
-
-
 
 #logout-page {
 	display:block;
@@ -72,33 +54,14 @@ a {
 	display:block;
 }
 
-#logo	{
-	height:150px;
-	z-index:100;
-}
+/**************************************************************
+*
+*set display to none for toggling mailbox section
+*
+***************************************************************/
 
-#compose-wrapper {
+#sent-wrapper {
 	display:none;
-}
-
-#menu {
-	background-color:whitesmoke;
-	border:none;
-}
-
-#side {
-	background-color:whitesmoke;
-	border:none;
-}
-#sidebar-wrapper {
-	background-color:whitesmoke;
-	border:none;
-}
-
-#bs-sidebar-navbar-collapse-1 {
-	background-color:whitesmoke;
-	border:none;
-
 }
 
 /*****************************************************************
@@ -111,8 +74,6 @@ a {
 	float:right;
 	background:#ccc;
 }
-
-
 
 /*******************************************************************************
 
@@ -136,62 +97,6 @@ a {
 .site-content {
 	flex: 1;
 }
-
-/*
-*search
-*/
-.search-form .form-group {
-	float: right !important;
-	transition: all 0.35s, border-radius 0s;
-	width: 32px;
-	height: 32px;
-	background-color: #fff;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-	border-radius: 25px;
-	border: 1px solid #ccc;
-}
-.search-form .form-group input.form-control {
-	padding-right: 20px;
-	border: 0 none;
-	background: transparent;
-	box-shadow: none;
-	display:block;
-}
-.search-form .form-group input.form-control::-webkit-input-placeholder {
-	display: none;
-}
-.search-form .form-group input.form-control:-moz-placeholder {
-	/* Firefox 18- */
-	display: none;
-}
-.search-form .form-group input.form-control::-moz-placeholder {
-	/* Firefox 19+ */
-	display: none;
-}
-.search-form .form-group input.form-control:-ms-input-placeholder {
-	display: none;
-}
-.search-form .form-group:hover,
-.search-form .form-group.hover {
-	width: 100%;
-	border-radius: 4px 25px 25px 4px;
-}
-.search-form .form-group span.form-control-feedback {
-	position: absolute;
-	top: -1px;
-	right: -2px;
-	z-index: 2;
-	display: block;
-	width: 34px;
-	height: 34px;
-	line-height: 34px;
-	text-align: center;
-	color: #3596e0;
-	left: initial;
-	font-size: 14px;
-}
-
-
 
 /**************************************************************
 *
