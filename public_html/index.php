@@ -97,17 +97,17 @@ require_once("php/template/head-utils.php");
 										<div class="col-md-3 col-lg-3" id="panel-img-section">
 											<img id="profile-image" alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
 												  class="pull-left img-circle img-responsive "/>
-												<p class="text-center" id="image-footer">$username</p>
-												<p class="text-center" id="image-footer">$location</p>
+												<p class="text-center" id="image-footer-username" name="image-footer-username">$username</p>
+												<p class="text-center" id="image-footer-location" name="image-footer-location">$location</p>
 										</div><!--/#panel-image-section-->
 
 	<!----------------------------------------------profile details------------------------------------------------>
 
 										<div class=" col-md-9 col-lg-9" id="about-user">
-											<h3 class="profile-info-display" id="profile-about-me">About Me</h3>
-											<p class="profile-info-display" id="profile-blurb">Blurb</p>
-											<h3 class="profile-info-display" id="profile-request-title">Request Title</h3>
-											<p class="profile-info-display" id="profile-details">Details<br></p>
+											<h3 class="profile-info-display" id="profile-about-me" name=profile-about-me" >About Me</h3>
+											<p class="profile-info-display" id="profile-blurb" name="profile-blurb">Blurb</p>
+											<h3 class="profile-info-display" id="profile-request-title" name="profile-request-title">Request Title</h3>
+											<p class="profile-info-display" id="profile-details" name="profile-details">Details<br></p>
 										</div><!--/#about-user-->
 									</div><!--/panel-body-->
 

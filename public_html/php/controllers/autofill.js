@@ -16,6 +16,8 @@ function autofill() {
 			$("#lastName").val(availableTags["lastName"]);
 			$("#userName").val(availableTags["userName"]);
 			$("#email").val(availableTags["email"]);
+			$("#profile-blurb").val(availableTags["blurb"]);
+			$("#image-footer-username").val(availableTags["userName"]);
 		}
 	})
 
