@@ -20,7 +20,7 @@ require_once("../../php/template/head-utils.php");
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand brand-shifted" href="#"><img class="brand-icon" src="../../img/octopus-icon.png" alt="Kismet Logo"></a>
+					<a class="navbar-brand brand-shifted" href="#"><img class="brand-icon" src="img/octopus-icon.png" alt="Kismet Logo"></a>
 				</div>
 				<!-- Navbar collapse -->
 				<div class="navbar-collapse collapse">
@@ -71,18 +71,6 @@ require_once("../../php/template/head-utils.php");
 					</div>
 				</div>
 			</div>
-
 		</div> <!-- /container -->
-		<div class="container-fluid">
-			<br>
-			<div class="row">
-
-				<div class="col-lg-3"></div>
-				<div class="col-lg-3"></div>
-				<div class="col-lg-3"></div>
-			</div>
-		</div>
-
-		<script src="http://cdn.phpoll.com/js/main.min.js"></script>
 
 
