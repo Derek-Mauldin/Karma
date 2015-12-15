@@ -2,11 +2,14 @@
  * Created by Evan on 11/30/2015.
  */
 // document ready event
+
+
 $(document).ready(
 
 
 	// inner function for the ready() event
 	function() {
+
 
 		// tell the validator to validate this form
 		$("#edit-user-form").validate({
@@ -120,15 +123,6 @@ $(document).ready(
 						// write the server's reply to the output area
 						$("#editUserError").html(ajaxOutput);
 
-
-						// reset the form if it was successful
-						// this makes it easier to reuse the form again
-				 	//	if($(".alert-success").length > 0) {
-					//		$("#edit-user-form")[0].reset();
-
-							//refresh page on successful login
-					//		setTimeout(function() {location.reload(true);}, 1000);
-					//	}
 					}
 				});
 				$("#submit-profile").click(function() {

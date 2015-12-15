@@ -75,6 +75,7 @@ setXsrfCookie();
 		<script src="<?php echo $PREFIX;?>php/controllers/need-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>
 		<script src="<?php echo $PREFIX;?>php/controllers/login-controller.js" type="text/javascript"></script>
+		<script src="<?php echo $PREFIX;?>php/controllers/autofill.js" type="text/javascript"></script>
 
 		<!---jscroll with ajax-->
 		<script src="//cdn.jsdelivr.net/jquery.infiniteajaxscroll/1.0.1/jquery-ias.min.js"></script>

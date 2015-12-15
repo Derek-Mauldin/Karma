@@ -25,11 +25,11 @@ function HideAllShowOne(d) {
 	} else if(d === 'fp') {
 		document.getElementById(menuItem[3]).style.display = "inline block";
 	} else if(d === 'lp') {
-		 document.getElementById(menuItem[4]).style.display = "inline block";
+		document.getElementById(menuItem[4]).style.display = "inline block";
 	} else if(d === 'ep') {
 		document.getElementById(menuItem[4]).style.display = "inline block";
 
- }
+	}
 
 }
 
@@ -115,8 +115,6 @@ $(function() {
 	});
 
 
-
-
 });
 
 
@@ -168,32 +166,25 @@ $(function() {
         });
       });
 
-/*******************************************************************************
+ /*******************************************************************************
  *
  *jscroll
  *
  ********************************************************************************/
-	$(document).ready(function() {
-		// Infinite Ajax Scroll configuration
-		jQuery.ias({
-			container : '#feed-page', // main container where data goes to append
-			item: '.panel-default', // single items
-			loader: '<img src="../../img/ajax-loader.gif"/>', // loading gif
-			triggerPageThreshold: 10 // show load more if scroll more than this
-		});
+$(document).ready(function() {
+	// Infinite Ajax Scroll configuration
+	jQuery.ias({
+		container: '#feed-page', // main container where data goes to append
+		item: '.panel-default', // single items
+		loader: '<img src="../../img/ajax-loader.gif"/>', // loading gif
+		triggerPageThreshold: 10 // show load more if scroll more than this
 	});
+});
 
 $('.infinite-scroll').jscroll({
-	loadingHtml:  '<span class="glyphicon glyphicon-refresh glyphicon-spin"></span>',
+	loadingHtml: '<span class="glyphicon glyphicon-refresh glyphicon-spin"></span>',
 
-		padding: 20,
+	padding: 20,
 	nextSelector: 'a.jscroll-next:last',
 	contentSelector: '#panel-wrapper'
 });
-
-
-
-
-
-
-

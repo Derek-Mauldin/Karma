@@ -51,6 +51,7 @@ try {
 
 	// set session varialbe
 	$_SESSION["profile"] = $profile;
+	$_SESSION["email"] = $member->getEmail();
 
 	// send welcom message
 	echo 	"<div class='panel panel-default' id='panel-wrapper'>";

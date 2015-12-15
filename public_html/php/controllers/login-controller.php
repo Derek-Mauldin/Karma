@@ -55,15 +55,14 @@ try {
 	// get member profile
 	$profile = Profile::getProfileByMemberId($pdo, $member->getMemberId());
 
-	// add profile to the session
-
-	echo "<p class=\"alert alert-info\">Welcome Back<p/>";
 
 	if(session_status() !== PHP_SESSION_ACTIVE) {
 		session_start();
 	}
 
+	// add profile to the session
 	$_SESSION["profile"] = $profile;
+	$_SESSION["email"] = $member->getEmail();
 
 
 	} catch(Exception $exception) {
