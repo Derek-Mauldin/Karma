@@ -190,3 +190,19 @@ a {
 	left: initial;
 	font-size: 14px;
 }
+
+
+
+/**************************************************************
+*
+* Karma Styles
+* @rlewis37
+*
+****************************************************************/
+.intro-header {
+	padding-top: 60px;
+}
+
+#register-form {
+	display: none;
+}

@@ -38,10 +38,8 @@ require_once("php/template/head-utils.php");
 						<a href="#contact">Signup</a>
 					</li>
 				</ul>
-			</div>
-			<!-- /.navbar-collapse -->
-		</div>
-		<!-- /.container -->
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container -->
 	</nav>
 
 
@@ -49,7 +47,6 @@ require_once("php/template/head-utils.php");
 	<a name="about"></a>
 	<div class="intro-header">
 		<div class="container">
-
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="intro-message">
@@ -69,16 +66,19 @@ require_once("php/template/head-utils.php");
 						</ul>
 					</div>
 				</div>
-			</div>
+			</div><!--.row-->
 		</div><!-- /.container -->
 	</div><!-- /.intro-header -->
 
-	<a  name="login"></a>
-
+	<a name="login"></a>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
+
+				<!--begin login register panel-->
 				<div class="panel panel-login">
+
+					<!--login /regeister select panel -->
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
@@ -91,11 +91,12 @@ require_once("php/template/head-utils.php");
 						<hr>
 					</div><!--/.panel-heading-->
 
+					<!--begin login/register form container-->
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
 
-								<form id="login-form" name="login-form" action="../controllers/login-controller.php" method="post" role="form">
+								<form id="login-form" name="login-form" action="<?php echo $PREFIX;?>php/controllers/login-controller.php" method="post" role="form">
 									<div class="form-group">
 										<input type="email" name="logInEmail" id="logInEmail" tabindex="1" class="form-control" placeholder="Email" value="">
 									</div><!--/.form-group-->
@@ -112,8 +113,7 @@ require_once("php/template/head-utils.php");
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4"
-														 class="form-control btn btn-login" value="Log In">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
 											</div><!--/col-md-6-->
 										</div><!--row-->
 									</div><!---/form-group-->
@@ -122,16 +122,16 @@ require_once("php/template/head-utils.php");
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
+													<a href="php/forms/recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
 												</div><!--/text-center-->
 											</div><!--/col-md-12-->
 										</div><!--/row-->
 									</div><!--/form-group-->
 
 									<div id="loginError" name="loginError"></div>
-								</form>
+								</form><!-- #login-form -->
 
-								<form id="register-form" name="register-form" action="../controllers/register-controller.php" method="post" role="form">
+								<form id="register-form" name="register-form" action="<?php echo $PREFIX;?>php/controllers/register-controller.php" method="post" role="form">
 									<div class="form-group">
 										<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
 									</div><!--/form-group-->
@@ -163,64 +163,19 @@ require_once("php/template/head-utils.php");
 											</div><!--/col-md-6-->
 										</div><!--/row-->
 									</div><!--/form-group-->
-
 									<div id="registerError" name="registerError"></div>
-								</form>
+								</form><!--#register-form-->
 
 							</div><!--/col-1g-12-->
 						</div><!--/row-->
-					</div><!--/panel-login-->
+					</div><!--/panel-body-->
 				</div><!--/panel-login-->
+
 			</div><!--/col-md-6-->
 		</div><!--/row-->
 	</div><!--/container-->
-	</div><!--site-content-->
-	</div><!--/site-->
-
-	</div>
-
-	</div>
-
-	</div>
-	<!-- /.container -->
-
-	</div>
-	<!-- /.content-section-a -->
-
-
-	<!-- /.content-section-b -->
-
-	<!-- /.content-section-a -->
 
 	<a  name="contact"></a>
-	<div class="banner">
-
-		<div class="container">
-
-			<div class="row">
-				<div class="col-lg-6">
-					<h2>Connect to Get Karmified:</h2>
-				</div>
-				<div class="col-lg-6">
-					<ul class="list-inline banner-social-buttons">
-						<li>
-							<a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-						</li>
-						<li>
-							<a href="php/forms/register-form.php" class="btn btn-default btn-lg"><i class="fa fa-google-plus"></i> <span class="network-name">Google +</span></a>
-						</li>
-						<li>
-							<a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-		</div>
-		<!-- /.container -->
-
-	</div><!-- /.banner -->
-
 	<footer>
 		<div class="container">
 			<div class="row">
