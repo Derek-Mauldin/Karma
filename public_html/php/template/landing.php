@@ -19,7 +19,7 @@
 		///////////////////////////////////////////////////// -->
 
 		<!-- Custom CSS -->
-		<link href="lib/css/landing.css" rel="stylesheet">
+		<link href="../../lib/css/landing.css" rel="stylesheet">
 
 		<!-- Custom Fonts -->
 		<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -89,7 +89,7 @@
 							<a href="#login">Login</a>
 						</li>
 						<li>
-							<a href="#contact">Signup</a>
+							<a href="#login">Signup</a>
 						</li>
 					</ul>
 				</div>
@@ -239,23 +239,14 @@
 								</div><!--/col-md-6-->
 							</div><!--/row-->
 						</div><!--/container-->
-					</div><!--site-content-->
-				</div><!--/site-->
 
-					</div>
 
-				</div>
 
-			</div>
-			<!-- /.container -->
-
+	<!--about-->
+		<a name="about-us"></a>
+		<div class="about-us">
+			<h1>About</h1>
 		</div>
-		<!-- /.content-section-a -->
-
-
-		<!-- /.content-section-b -->
-
-		<!-- /.content-section-a -->
 
 		<a  name="contact"></a>
 		<div class="banner">
@@ -272,7 +263,7 @@
 								<a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
 							</li>
 							<li>
-								<a href="php/forms/register-form.php" class="btn btn-default btn-lg"><i class="fa fa-google-plus"></i> <span class="network-name">Google +</span></a>
+								<a href="../forms/register-form.php" class="btn btn-default btn-lg"><i class="fa fa-google-plus"></i> <span class="network-name">Google +</span></a>
 							</li>
 							<li>
 								<a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
@@ -301,9 +292,7 @@
 								<a href="#about">About</a>
 							</li>
 							<li class="footer-menu-divider">&sdot;</li>
-							<li>
-								<a href="#services">Services</a>
-							</li>
+
 							<li class="footer-menu-divider">&sdot;</li>
 							<li>
 								<a href="#contact">Contact</a>

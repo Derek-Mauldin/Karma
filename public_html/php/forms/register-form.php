@@ -13,6 +13,35 @@ require_once(dirname(__DIR__) . "/template/head-utils.php");
 <!---------------------------------------body-------------------------------------------------------->
 
 <body class="site">
+
+	<div class="site-content">
+		<!-- Fixed navbar -->
+		<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+				</div>
+				<!-- Navbar collapse -->
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav">
+						<li class="landing"><a href="../template/landing.php">Kismet</a></li>
+						<li class="contact"><a href="contact-us-form.php">Contact</a></li>
+
+					</ul>
+					<ul class="nav navbar-nav navbar-right shifted">
+						<li class="register-form.php"><a href="#">Register</a></li>
+						<li class="register-form.php"><a href="#">Log In</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</div><!-- /.Fixed navbar -->
+		<div class="clearfix"</div>
+
 	<div class="site-content">
 
 		<!--------------------------------------login/register links----------------------------------->

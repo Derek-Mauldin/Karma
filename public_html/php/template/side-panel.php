@@ -1,5 +1,4 @@
-<!--<section id="menu" class="side-panel panel panel-default">
-	<a class="sidebar-brand" href="#"><img id="logo" src="../../img/octopus-logo.png"/></a>-->
+
 <nav class="navbar navbar-default sidebar" role="navigation">
 	<div class="container-fluid">
 		<div class="navbar-header">

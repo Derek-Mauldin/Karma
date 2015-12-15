@@ -19,7 +19,7 @@ require_once("php/template/head-utils.php");
 		<!------------------------------------ side panel --------------------------------------------------->
 
 		<div class="col-md-4 " id="sidebar-wrapper">
-			<a class="sidebar-brand" href="#"><img id="logo" src="img/robot.png"/></a>
+			<h1><a class="sidebar-brand" href="home.php">Karmify</a></h1>
 
 			<section id="menu" class="side-panel panel panel-default">
 
