@@ -18,9 +18,10 @@ require_once("php/template/head-utils.php");
 
 	<!------------------------------------ side panel --------------------------------------------------->
 
-		<div class="col-md-4 " id="sidebar-wrapper">
-			<section id="menu" class="side-panel panel panel-default">
+			<div class="col-md-4 " id="sidebar-wrapper">
 				<a class="sidebar-brand" href="#"><img id="logo" src="img/robot.png"/></a>
+
+			<section id="menu" class="side-panel panel panel-default">
 
 			<?php require_once("php/template/side-panel.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
@@ -35,7 +36,7 @@ require_once("php/template/head-utils.php");
 
 	<!-----------------------------------------home page-------------------------------------------------->
 
-						<div class="container" id="home-page" style="display:none;">
+						<div class="container" id="home-page">
 
 	<!-------------------------------------------date------------------------------------------------------->
 
@@ -72,16 +73,17 @@ require_once("php/template/head-utils.php");
 													<div class="btn-group" id="edit-links">
 														<a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
 															<span class="fa fa-pencil-square-o fa-2x pull-right"></span>
-														</a>
+														</a><!--btn-primary-->
 														<ul class="dropdown-menu">
-															<li><div id="ep" onclick="HideAllShowOne('ep')">
+															<li>
+																<div id="ep" onclick="HideAllShowOne('ep')">
 																	<a class="lead" href="javascript:ReverseDisplay('edit-profile-page')">
 																		<i class="fa fa-pencil fa-fw"></i>Edit
-																	</a>
-																</div>
-															</li>
+																	</a><!--/.lead-->
+																</div><!--/#ep-->
+															</li><!---/li-->
 
-															<li><a href="#"><i class="fa fa-trash-o fa-fw"> </i> Delete</a></li>
+															<li><a class="lead" href="#"><i class="fa fa-trash-o fa-fw"> </i> Delete</a></li>
 														</ul><!--/.dropdown-menu-->
 													</div><!--btn-group #edit-links-->
 												</div><!--/.row #profile-edit-->
@@ -102,12 +104,12 @@ require_once("php/template/head-utils.php");
 	<!----------------------------------------------profile details------------------------------------------------>
 
 										<div class=" col-md-9 col-lg-9" id="about-user">
-											<h3>About Me</h3>
-											<p>Blurb</p>
-											<h3>Request Title</h3>
-											<p>Details<br></p>
+											<h3 class="profile-info-display" id="profile-about-me">About Me</h3>
+											<p class="profile-info-display" id="profile-blurb">Blurb</p>
+											<h3 class="profile-info-display" id="profile-request-title">Request Title</h3>
+											<p class="profile-info-display" id="profile-details">Details<br></p>
 										</div><!--/#about-user-->
-									</div>
+									</div><!--/panel-body-->
 
 	<!---------------------------------------------message user ---------------------------------------------------->
 
@@ -134,7 +136,7 @@ require_once("php/template/head-utils.php");
 
 	<!---------------------------------------------------mailbox-page-------------------------------------------------->
 
-			<div id="message-page" style="display:none;">
+			<div id="message-page" >
 				<div class="panel-group" id="mailbox-wrapper">
 
  <!--------------------------------------------------mailbox-header------------------------------------------------->
@@ -217,7 +219,7 @@ require_once("php/template/head-utils.php");
 
 		<!----------------------------------------compose form------------------------------------------------>
 
-								<div class="col-xs-10 col-md-10" id="compose-wrapper"  style="display:none;">
+								<div class="col-xs-10 col-md-10" id="compose-wrapper" ">
 									<div class="box box-primary">
 										<div class="box-header with-border">
 											<h3 class="box-title">Compose New Message</h3>
@@ -260,7 +262,7 @@ require_once("php/template/head-utils.php");
 
 	<!----------------------------------sent mail----------------------------------------------------------->
 
-				<div class="sent-wrapper" id="sent-wrapper" style="display:none";>
+				<div class="sent-wrapper" id="sent-wrapper">
 						<div class="sent">
 							<div class="col-md-10">
 
@@ -305,14 +307,14 @@ require_once("php/template/head-utils.php");
 														<tr>
 															<td><input type="checkbox"></td>
 															<td class="mailbox-name"><a href="read-mail.html">Evan Smith</a></td>
-															<td class="mailbox-subject"><b>Offer Accepted</b>Hi! Yes, let's arrange a skype</td>
+															<td class="mailbox-subject"><b>Offer Accepted</b> Hi! Yes, let's arrange a skype</td>
 															<td class="mailbox-attachment"></td>
 															<td class="mailbox-date">5 mins ago</td>
 														</tr>
 														<tr>
 															<td><input type="checkbox"></td>
 															<td class="mailbox-name"><a href="read-mail.html">Gerald Fongwe</a></td>
-															<td class="mailbox-subject"><b>Offer Accepted</b> - Definitely!...</td>
+															<td class="mailbox-subject"><b>Offer Accepted</b> Definitely!...</td>
 															<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
 															<td class="mailbox-date">28 mins ago</td>
 														</tr>
@@ -390,7 +392,7 @@ require_once("php/template/head-utils.php");
 	<!---------------------------------------------edit user form wrapper--------------------------------->
 
 							<div class="overall-form-wrapper">
-								<form id="edit-user-form" name="edit-user-form" action="php/controllers/edit-profile-controller.php" method="post" role="form" style="display: block;">
+								<form id="edit-user-form" name="edit-user-form" action="php/controllers/edit-profile-controller.php" method="post" role="form" ">
 
   <!-------------------------------------------------edit-profile-------------------------------------------->
 
@@ -484,9 +486,10 @@ require_once("php/template/head-utils.php");
 	<!-------------------------------------------- feed page------------------------------------------------->
 
 		<div class="feed" id="feed-page" style="display:none;">
-
 			<div class="container">
 				<div class="row">
+
+	<!--------------------------------------------search------------------------------------------------->
 
 					<div id="custom-search-input">
 						<div class="input-group col-md-8">
@@ -494,12 +497,15 @@ require_once("php/template/head-utils.php");
 							<span class="input-group-btn">
 								<button class="btn btn-danger" type="button">
 									<span class=" glyphicon glyphicon-search"></span>
-								</button>
-                      </span>
-						</div>
-					</div>
-				</div>
-			</div>
+								</button><!--/btn-danger-->
+                      </span><!--/input-group-btn-->
+						</div><!--/input-group-->
+					</div><!--/custom-search-input-->
+				</div><!--/row-->
+			</div><!--/container-->
+
+			<!---------------------------------------title------------------------------------------------->
+
 			<h2>Karma Feed</h2>
 
 	<!-------------------------------------------feed panel-------------------------------------------------->
@@ -508,7 +514,7 @@ require_once("php/template/head-utils.php");
 				<?php require_once "php/controllers/need-scroller-controller.php" ?>
 
 					<div class="listing-clearfix panel panel-default" id="panel-wrapper">
-							<h4><span id='close'>x</span></h4>
+						<h4><span id='close'>x</span></h4>
 
 						<div class="panel-heading">
 
@@ -531,14 +537,13 @@ require_once("php/template/head-utils.php");
 		<!------------------------------------------logout page------------------------------------------------------>
 
 
-					<div id="logout-page" style="display:none;">
+					<div id="logout-page">
 						<h2>You are now Logged Out</h2>
 					</div><!--/#logout-page-->
 
 	<!------------------------------------------offer form modal--------------------------------------------------->
 
 						<?php require_once("php/template/offer-modal.php"); ?>
-
 
 			<!----------------------------------/main-content--------------------------------------------------->
 

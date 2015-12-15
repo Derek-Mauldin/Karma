@@ -13,6 +13,11 @@
 
 body {
 	background-color:#F2766B;
+	padding:35px;
+}
+
+h2 {
+	color:white;
 }
 /******************************************************************
 *
@@ -35,6 +40,13 @@ img {
 }
 
 
+#sent-wrapper {
+	display:none;
+}
+
+#home-page {
+	display:none;
+}
 
 
 /*******************************************************************
@@ -42,21 +54,74 @@ img {
 *side-bar
 *
 *****************************************************************/
+a {
+	color:grey;
+}
+
+html p div {
+	color:white;
+}
+
 
 .navbar-default-nav {
 	position:relative;
+	background-color:transparent;
+	border:none;
 }
 .navbar {
 	height: 100%;
+	background-color: #F29E38;
+	border:none;
+}
+
+nav {
+	background-color:whitesmoke;
+	border:none;
+}
+.infinite-scroll {
+	color:white;
+}
+
+#logout-page {
+	display:block;
+}
+
+#message-page {
+	display:none;
+}
+
+#edit-user-form {
+	display:block;
 }
 
 #logo	{
 	height:150px;
-	z-index:1;
-
+	z-index:100;
 }
 
+#compose-wrapper {
+	display:none;
+}
 
+#menu {
+	background-color:whitesmoke;
+	border:none;
+}
+
+#side {
+	background-color:whitesmoke;
+	border:none;
+}
+#sidebar-wrapper {
+	background-color:whitesmoke;
+	border:none;
+}
+
+#bs-sidebar-navbar-collapse-1 {
+	background-color:whitesmoke;
+	border:none;
+
+}
 
 /*****************************************************************
 *
@@ -67,6 +132,33 @@ img {
 #close {
 	float:right;
 	background:#ccc;
+}
+
+/******************************************************************
+*
+*feed
+*
+**********************************************************************/
+.regularitem {
+	list-style: none outside none;
+	margin: 10px;
+	padding: 10px;
+	width: 960px;
+	background-image: linear-gradient(left top, rgb(245,37,172) 17%, rgb(152,71,222) 59%);
+	background-image: -o-linear-gradient(left top, rgb(245,37,172) 17%, rgb(152,71,222) 59%);
+	background-image: -moz-linear-gradient(left top, rgb(245,37,172) 17%, rgb(152,71,222) 59%);
+	background-image: -webkit-linear-gradient(left top, rgb(245,37,172) 17%, rgb(152,71,222) 59%);
+	background-image: -ms-linear-gradient(left top, rgb(245,37,172) 17%, rgb(152,71,222) 59%);
+	background-image: -webkit-gradient(
+			linear,
+			left top,
+			right bottom,
+			color-stop(0.17, rgb(245,37,172)),
+			color-stop(0.59, rgb(152,71,222))
+	);
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
 }
 
 /*******************************************************************************
