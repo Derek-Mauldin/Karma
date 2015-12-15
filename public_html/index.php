@@ -97,8 +97,7 @@ require_once("php/template/head-utils.php");
 										<div class="col-md-3 col-lg-3" id="panel-img-section">
 											<img id="profile-image" alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png"
 												  class="pull-left img-circle img-responsive "/>
-												<p class="text-center" id="image-footer-username" name="image-footer-username">$username</p>
-												<p class="text-center" id="image-footer-location" name="image-footer-location">$location</p>
+												<p class="text-center" id="image-footer-username" name="image-footer-username">username</p>
 										</div><!--/#panel-image-section-->
 
 	<!----------------------------------------------profile details------------------------------------------------>
