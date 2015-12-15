@@ -24,8 +24,6 @@
 		<!-- Custom Fonts -->
 		<link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
-
-
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 		<!-- <[if lt IE 9]>
@@ -129,12 +127,12 @@
 			</div><!-- /.container -->
 		</div><!-- /.intro-header -->
 
-		<!---------------------------------------------------- Page Content ---------------------------------------->
+		<!-- -------------------------------------------------- Page Content -------------------------------------- -->
 
 		<a  name="login"></a>
 
 
-						<!--------------------------------------login/register links----------------------------------->
+						<!-- ------------------------------------login/register links--------------------------------- -->
 
 						<div class="container">
 							<div class="row">
