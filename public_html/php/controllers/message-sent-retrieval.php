@@ -38,7 +38,7 @@ try {
 		echo <<< BLAME_ROCHELLE
 		<tr>
 		<td><input type="checkbox"></td>
-		<td class="mailbox-name"><a href="read-mail.html"> To $messageReceiverUserName</a></td>
+		<td class="mailbox-name"><a href="read-mail.html">  To  $messageReceiverUserName</a></td>
 		<td class="mailbox-subject">$messageContent</td>
 		<td class="mailbox-attachment"></td>
 		<td class="mailbox-date">$messageDate</td>

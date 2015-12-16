@@ -19,6 +19,7 @@ function autofill() {
 			$("#email").val(availableTags["email"]);
 			$("#profile-blurb").html(availableTags["blurb"]);
 			$("#image-footer-username").html(availableTags["userName"]);
+			$("#messageSender").val(availableTags["userName"]);
 		}
 	});
 
