@@ -300,8 +300,7 @@ require_once("php/template/head-utils.php");
 					</div><!--/.mailbox-->
 				</div><!--/.panel-primary #mailbox-header-wrapper-->
 
-
-					<!-------------------------------------------edit-profile-page------------------------------------------->
+				<!-------------------------------------------edit-profile-page------------------------------------------->
 
 				<div class=edit-profile-page" id="edit-profile-page" style="display:none;">
 					<div class="row" id="edit-profile-wrapper">

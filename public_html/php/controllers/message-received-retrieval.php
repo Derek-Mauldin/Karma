@@ -28,12 +28,8 @@ try {
 	for($i=1; $i <= $messagesReceivedCount; $i++) {
 
 		$message = $messagesReceived[$messagesReceived->key()];
-
-		$messageSenderId = $message->getMessageSenderId();
-		$messageSender = Profile::getProfileByProfileId($pdo, $messageSenderId);
-		$messageSenderUserName = $messageSender->getProfileHandle();
+		$profileHandle = $profile->getProfileHandle();
 		$messageContent = $message->getMessageContent();
-
 		$messageDate = $message->getMessageDate()->format("Y-m-d H:i:s");
 
 	echo <<< BLAME_ROCHELLE
@@ -43,7 +39,7 @@ try {
       <div class="col-xs-10 col-md-10" id="message-body">
 		<div class="message-header"><a href="#"></a>
 		<div class="mic-info">
-		By: <a href="#">$messageSenderUserName</a> on $messageDate;
+		By: <a href="#">$profileHandle</a> on $messageDate;
 		</div><!--/.mic-info-->
 		</div><!--/.message-header-->
 

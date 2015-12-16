@@ -337,7 +337,6 @@
 			</div>
 		</footer>
 
-		<?php require_once("../../php/template/contact-us-modal.php"); ?>
 
 	</body>
 

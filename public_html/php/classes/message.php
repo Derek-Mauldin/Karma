@@ -448,9 +448,9 @@ class Message {
 
 		$receiverId = filter_var($receiverId, FILTER_VALIDATE_INT);
 		if($receiverId === false)
-			throw(new InvalidArgumentException("Receiver ID is not an integer."));
+			throw(new InvalidArgumentException("Message ID is not an integer."));
 		if($receiverId <= 0) {
-			throw(new RangeException("Receiver Id is not positive."));
+			throw(new RangeException("Message Id is not positive."));
 		}
 		// prepare and execute query
 		$query = "SELECT messageId, messageSenderId, messageReceiverId, messageContent, messageDateTime
@@ -466,7 +466,7 @@ class Message {
 		while(($row = $statement->fetch()) !== false) {
 			try {
 				$message = new Message($row["messageId"], $row["messageSenderId"], $row["messageReceiverId"],
-					                    $row["messageContent"], $row["messageDateTime"]);
+					$row["messageContent"], $row["messageDateTime"]);
 				$messages[$messages->key()] = $message;
 				$messages->next();
 			} catch(Exception $exception) {
