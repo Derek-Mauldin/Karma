@@ -119,7 +119,7 @@ require_once("php/template/head-utils.php");
 
 												<!----------------------------------------message user profile modal----------------------------------------->
 
-												<?php require_once("php/template/message-user-modal.php");?>
+												<?php require_once ("message-user-modal.php");?>
 
 
 												<!---------------------------------------------/message user ---------------------------------------------------->
@@ -165,7 +165,7 @@ require_once("php/template/head-utils.php");
 													<div class="row" id="message" >
 
 
-												<li><!--/.list-group-item #message-wrapper-->
+												</li><!--/.list-group-item #message-wrapper-->
 
 												<li class="list-group-item" id="message-wrapper">
 													<div class="row" id="messsage"></div>
@@ -181,58 +181,37 @@ require_once("php/template/head-utils.php");
 													<h3 class="box-title">Compose New Message</h3>
 												</div><!-- /.box-header -->
 
+												<div class="box-body">
+													<div class="form-group">
+														<input class="form-control" placeholder="To:">
+													</div><!--/form-group-->
 
-													<!----------------------------------mailbox compose footer----------------------------------------------------------->
-													<form method="get" action="../public_html/php/controllers/message-controller.php" id="karmaMessage" name="karmaMessage" class="form-horizontal col-xs-10 col-xs-offset-1">
+													<div class="form-group">
+														<input class="form-control" placeholder="Subject:">
+													</div><!--/form-group-->
 
-														<div class="form-group">
-															<!-- Labels for each field are places within a <label> tag. Use the "for" attribute. the class="control-label" is for styling. -->
-															<label for="messageSender" class="control-label">Sender User Name</label>
-															<!-- the div class="input-group" contains both the text field and the icon to the left -->
-															<div class="input-group">
-																<!-- this div and span contains the glyphicon to the left. aria-hidden is so that screen readers don't read this element -->
-																<div class="input-group-addon">
-																	<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-																</div>
-																<!-- text field input. pay attention to the id, placeholder text, type, and placeholder attributes -->
-																<input type="text" class="form-control" id="messageSender" name="messageSender"  placeholder="User Name Here" maxlength="150" />
-															</div>
-														</div>
+													<div class="form-group">
+														<textarea id="compose-textarea" class="form-control" style="height: 150px"></textarea>
+													</div><!--/form-group-->
 
-														<div class="form-group">
-															<!-- Labels for each field are places within a <label> tag. Use the "for" attribute. the class="control-label" is for styling. -->
-															<label for="messageReceiver" class="control-label">Receiver User Name</label>
-															<!-- the div class="input-group" contains both the text field and the icon to the left -->
-															<div class="input-group">
-																<!-- this div and span contains the glyphicon to the left. aria-hidden is so that screen readers don't read this element -->
-																<div class="input-group-addon">
-																	<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-																</div>
-																<!-- text field input. pay attention to the id, placeholder text, type, and placeholder attributes -->
-																<input type="text" class="form-control" id="messageReceiver" name="messageReceiver"  placeholder="User Name Here" maxlength="150" />
-															</div>
-														</div>
+													<div class="form-group">
+														<div class="btn btn-default btn-file">
+															<i class="fa fa-paperclip"></i> Attachment
+															<input type="file" name="attachment">
+														</div><!--/btn-default-->
+														<p class="help-block">Max. 32MB</p>
+													</div><!--/form-group-->
+												</div><!-- /.box-body-->
 
-														<div class="form-group">
-															<label class="control-label" for="txtareaComments">Whatcha Got!</label>
-															<textarea class="form-control" rows="5" id="kMessage"  name="kMessage" placeholder="500 characters max."></textarea>
-														</div>
+												<!----------------------------------mailbox compose footer----------------------------------------------------------->
 
-														<div class="form-group">
-															<!-- the following <a> tag has been styled as a button with class="btn" -->
-															<a id="reset-form" class="btn" role="button">Reset Form</a>
-															<button type="submit" id="messageSubmit" name="messageSubmit" class="btn">Submit</button>
-														</div>
-														<div class="box-footer">
-															<div class="pull-right">
-																<button class="btn btn-default"><i class="fa fa-pencil"></i> Draft</button>
-															</div><!--/pull-right-->
+												<div class="box-footer">
+													<div class="pull-right">
+														<button class="btn btn-default"><i class="fa fa-pencil"></i> Draft</button>
+														<button type="submit" class="btn btn-primary"><i class="fa fa-envelope-o"></i> Send</button>
+													</div><!--/pull-right-->
 
-															<button class="btn btn-default"><i class="fa fa-times"></i> Discard</button>
-														<div id="mError" name="mError"></div>
-													</form>
-
-
+													<button class="btn btn-default"><i class="fa fa-times"></i> Discard</button>
 												</div><!-- /.box-footer -->
 											</div><!-- /. box -->
 										</div><!-- /.col -->
@@ -281,9 +260,27 @@ require_once("php/template/head-utils.php");
 														<div class="table-responsive mailbox-messages">
 															<table class="table table-hover table-striped">
 																<tbody>
-
-																	<div class="row" id="messageSent"></div>
-
+																	<tr>
+																		<td><input type="checkbox"></td>
+																		<td class="mailbox-name"><a href="read-mail.html">Evan Smith</a></td>
+																		<td class="mailbox-subject"><b>Offer Accepted</b> Hi! Yes, let's arrange a skype</td>
+																		<td class="mailbox-attachment"></td>
+																		<td class="mailbox-date">5 mins ago</td>
+																	</tr>
+																	<tr>
+																		<td><input type="checkbox"></td>
+																		<td class="mailbox-name"><a href="read-mail.html">Gerald Fongwe</a></td>
+																		<td class="mailbox-subject"><b>Offer Accepted</b> Definitely!...</td>
+																		<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+																		<td class="mailbox-date">28 mins ago</td>
+																	</tr>
+																	<tr>
+																		<td><input type="checkbox"></td>
+																		<td class="mailbox-name"><a href="read-mail.html">Derek Mauldin</a></td>
+																		<td class="mailbox-subject"><b>Offer Made</b> I would love to help out..</td>
+																		<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
+																		<td class="mailbox-date">11 hours ago</td>
+																	</tr>
 																</tbody>
 															</table><!-- /.table -->
 														</div><!-- /.mail-box-messages -->
@@ -504,7 +501,7 @@ require_once("php/template/head-utils.php");
 
 					<!------------------------------------------offer form modal--------------------------------------------------->
 
-					<?php require_once("php/template/offer-modal.php"); ?>
+					<?php require_once("../../php/template/offer-modal.php"); ?>
 
 					<!----------------------------------/main-content--------------------------------------------------->
 

@@ -95,7 +95,7 @@ require_once("php/template/head-utils.php");
 														<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>
 													</div><!--/.panel-heading-->
 
-													<?php require_once("php/template/message-user-modal.php");?>
+													<?php require_once ("php/template/message-user-modal.php");?>
 
 												</div><!--/.panel-default #message-header-wrapper-->
 											</div><!--/.panel-group #message-wrapper-->
