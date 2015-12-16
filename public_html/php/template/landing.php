@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -51,20 +54,20 @@
 		<script src="<?php echo $PREFIX;?>lib/plugins/jscroll/jquery.jscroll.min.js" type="text/javascript"></script>
 
 		<!-- Custom JavaScript@author:Derek  @author:jhung@cnm.edu -->
-		<script src="<?php echo $PREFIX;?>lib/js/home-pg-side-toggle-testing.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>lib/js/site-scripts.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/register-controller.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/message-controller.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/need-controller.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/edit-profile-controller.js" type="text/javascript"></script>
-		<script src="<?php echo $PREFIX;?>php/controllers/login-controller.js" type="text/javascript"></script>
+		<script src="/public_html/lib/js/home-pg-side-toggle-testing.js" type="text/javascript"></script>
+		<script src="/public_html/lib/js/site-scripts.js"></script>
+		<script src="/public_html/php/controllers/register-controller.js" type="text/javascript"></script>
+		<script src="/public_html/php/controllers/message-controller.php" type="text/javascript"></script>
+		<script src="/public_html/php/controllers/need-controller.js" type="text/javascript"></script>
+		<script src="/public_html/php/controllers/edit-profile-controller.js" type="text/javascript"></script>
+		<script src="/public_html/php/controllers/login-controller.js" type="text/javascript"></script>
 
 		<!---jscroll with ajax-->
 		<script src="//cdn.jsdelivr.net/jquery.infiniteajaxscroll/1.0.1/jquery-ias.min.js"></script>
 
 
 		<!-- Page Title -->
-		<title><?php echo $PAGE_TITLE; ?></title>
+		<title>Landing</title>
 	</head>
 	<body>
 
