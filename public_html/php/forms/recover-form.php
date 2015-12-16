@@ -22,7 +22,7 @@ require_once("../../php/template/head-utils.php");
 
 			<section id="menu" class="side-panel panel panel-default">
 
-				<?php require_once("../../php/template/side-panel.php"); ?>
+				<?php require_once("../../php/template/unregistered-side-menu.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
 
 

@@ -26,6 +26,9 @@ h6 {
 	font-size: 14px;
 }
 
+#learn-more {
+	display:none;
+}
 .lead {
 	font-size: 18px;
 	font-weight: 400;

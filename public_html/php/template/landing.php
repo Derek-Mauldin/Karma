@@ -270,7 +270,14 @@
 					<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
 						<hr class="section-heading-spacer">
 						<div class="clearfix"></div>
-						<h2 class="section-heading" id="show">KARMA'S ONLY A BITCH IF YOU ARE</h2>
+						<h2 class="section-heading" id="about-us">KARMA'S ONLY A BITCH IF YOU ARE</h2>
+
+					</div>
+					<div class="section-body" >
+						<p class="learn-more" id="learn-more">A site designed to bring back the heart to society.  With a-pass-it-on lifestyle, members
+						can offer help such as tutoring lessons and receive help as well.  Givers are encouraged.  No money.
+						Just old-school frienships and good samaritans.  Takes the questions out of what people need.  Brings
+						us closer to our neighbors. And, let's us stay at home while racking up some feel good karma.  </p>
 
 					</div>
 					<div class="col-lg-5 col-sm-pull-6  col-sm-6">
@@ -283,6 +290,9 @@
 
 		</div>
 		<!-- /.content-section-b -->
+
+
+
 
 
 		<div class="banner">
