@@ -88,8 +88,7 @@
 							<a href="#about-us">About</a>
 						</li>
 						<li>
-							<a href="#login">Login</a>
-						</li>
+						<li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
 						<li>
 							<a href="#login">Signup</a>
 						</li>
@@ -114,7 +113,7 @@
 							<hr class="intro-divider">
 							<ul class="list-inline intro-social-buttons">
 								<li>
-									<a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+									<a href="https://twitter.com/KarmaCanDo?lang=en" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
 								</li>
 								<li>
 									<a href="https://google.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-google-plus"></i> <span class="network-name">Google +</span></a>
@@ -145,11 +144,11 @@
 									<div class="panel panel-login">
 										<div class="panel-heading">
 											<div class="row">
-												<div class="col-xs-6">
+												<!--<div class="col-xs-6">
 													<a href="#login-form" class="active" id="login-form-link">Login</a>
-												</div>
-												<div class="col-xs-6">
-													<a href="#register-form" id="register-form-link">Register</a>
+												</div>-->
+												<div class="col-xs-6 text-center" >
+													<a href="#register-form" class="text-center" id="register-form-link">Sign Up</a>
 												</div><!--/.col-md-6-->
 											</div><!--/.row-->
 											<hr>
@@ -161,47 +160,46 @@
 
 													<!--------------------------------------login form---------------------------------------------------->
 
-													<form id="login-form" name="login-form"
+													<!--<form id="login-form" name="login-form"
 															action="../controllers/login-controller.php" method="post" role="form"
 															style="display: block;">
 														<div class="form-group">
 															<input type="email" name="logInEmail" id="logInEmail" tabindex="1" class="form-control" placeholder="Email" value="">
-														</div><!--/.form-group-->
+														</div><!--/.form-group-
 
 														<div class="form-group">
 															<input type="password" name="logInPassword" id="logInPassword" tabindex="2" class="form-control" placeholder="Password">
-														</div><!--/form-group-->
+														</div><!--/form-group-
 
 														<div class="form-group text-center">
 															<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
 															<label for="remember"> Remember Me</label>
-														</div><!--form-group-->
+														</div><!--form-group-
 
 														<div class="form-group">
 															<div class="row">
 																<div class="col-sm-6 col-sm-offset-3">
 																	<input type="submit" name="login-submit" id="login-submit" tabindex="4"
 																			 class="form-control btn btn-login" value="Log In">
-																</div><!--/col-md-6-->
-															</div><!--row-->
-														</div><!---/form-group-->
+																</div><!--/col-md-6-
+															</div><!--row-
+														</div><!---/form-group--
 
 														<div class="form-group">
 															<div class="row">
 																<div class="col-lg-12">
 																	<div class="text-center">
 																		<a href="recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
-																	</div><!--/text-center-->
-																</div><!--/col-md-12-->
-															</div><!--/row-->
-														</div><!--/form-group-->
+																	</div><!--/text-center-
+																</div><!--/col-md-12-
+															</div><!--/row-
+														</div><!--/form-group-
 
 														<div id="loginError" name="loginError"></div>
-													</form>
+													</form>-->
 
 
-													<form id="register-form" name="register-form" action="../controllers/register-controller.php"
-															method="post" role="form" style="display: none;">
+													<form id="register-form" name="register-form" action="../controllers/register-controller.php" method="post" role="form" >
 														<div class="form-group">
 															<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
 														</div><!--/form-group-->
@@ -270,7 +268,8 @@
 					<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
 						<hr class="section-heading-spacer">
 						<div class="clearfix"></div>
-						<h2 class="section-heading">KARMA'S ONLY A BITCH IF YOU ARE</h2>
+						<h2 class="section-heading" id="show">KARMA'S ONLY A BITCH IF YOU ARE</h2>
+
 					</div>
 					<div class="col-lg-5 col-sm-pull-6  col-sm-6">
 						<img class="img-responsive" src="../../img/girl-robot.png" alt="">
@@ -322,7 +321,7 @@
 							</li>
 							<li class="footer-menu-divider">&sdot;</li>
 							<li>
-								<a href="#about">About</a>
+								<a href="#about-us">About</a>
 							</li>
 							<li class="footer-menu-divider">&sdot;</li>
 
@@ -330,13 +329,16 @@
 							<li><a href="#contact-us-modal" data-toggle="modal" data-target="#contact-us-modal">Contact</a></li>
 
 						</ul>
-						<p class="copyright text-muted small">Copyright &copy; Kammify 2015. All Rights Reserved</p>
+						<p class="copyright text-muted small">Copyright &copy; Karmify 2015. All Rights Reserved</p>
 					</div>
 				</div>
 			</div>
 		</footer>
 
-		<?php require_once("../../php/modals/contact-us-modal.php"); ?>
+		<?php require_once("../../contact-us-modal.php"); ?>
+		<?php require_once("../../loginModal.php"); ?>
+
+
 
 	</body>
 

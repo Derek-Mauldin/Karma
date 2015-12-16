@@ -94,7 +94,7 @@ require_once("php/template/head-utils.php");
 										<div class="row">
 											<div class="col-lg-12">
 												<div class="text-center">
-													<a href="recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
+													<a href="php/forms/recover-form.php" tabindex="5" class="forgot-password">Forgot Password?</a>
 												</div><!--/text-center-->
 											</div><!--/col-md-12-->
 										</div><!--/row-->

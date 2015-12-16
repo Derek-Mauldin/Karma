@@ -1,10 +1,7 @@
-<div id="login-overlay" class="modal-dialog">
-	<div class="modal-content">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
-			<h4 class="modal-title" id="myModalLabel">Login to Karmify</h4>
-		</div>
-		<div class="modal-body">
+<div class="modal fade" id="login-modal">
+
+
+				<div class="modal-body">
 			<div class="row">
 				<div class="col-xs-6">
 					<div class="well">
@@ -24,7 +21,6 @@
 								<label>
 									<input type="checkbox" name="remember" id="remember"> Remember login
 								</label>
-								<p class="help-block">(if this is a private computer)</p>
 							</div>
 							<button type="submit" class="btn btn-success btn-block">Login</button>
 							<a href="/forgot/" class="btn btn-default btn-block">Register</a>

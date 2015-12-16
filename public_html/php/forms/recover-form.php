@@ -7,7 +7,7 @@ $CURRENT_DIR = __DIR__;
 $PAGE_TITLE = "Welcome to Karma";
 
 /*load head-utils.php*/
-require_once("php/template/head-utils.php");
+require_once("../../php/template/head-utils.php");
 ?>
 
 <!---------------------------------------body-------------------------------------------------------->
@@ -18,11 +18,11 @@ require_once("php/template/head-utils.php");
 		<!------------------------------------ side panel --------------------------------------------------->
 
 		<div class="col-md-4 " id="sidebar-wrapper">
-			<h1><a class="sidebar-brand" href="home.php">Karmify</a></h1>
+			<h1><a class="sidebar-brand" href="../../home.php">Karmify</a></h1>
 
 			<section id="menu" class="side-panel panel panel-default">
 
-				<?php require_once("php/template/side-panel.php"); ?>
+				<?php require_once("../../php/template/side-panel.php"); ?>
 		</div><!-- /#sidebar-wrapper -->
 
 
@@ -64,7 +64,7 @@ require_once("php/template/head-utils.php");
 
 
 
-<?php require_once("php/template/footer.php");?>
+<?php require_once("../../php/template/footer.php");?>
 	</body>
 </html>
 

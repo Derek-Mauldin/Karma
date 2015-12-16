@@ -140,3 +140,18 @@ $('.infinite-scroll').jscroll({
 	nextSelector: 'a.jscroll-next:last',
 	contentSelector: '#panel-wrapper'
 });
+
+/*******************************************************************************
+ *
+ *hide/show
+ *
+ *******************************************************************/
+
+$(document).ready(function(){
+	$("#hide").click(function(){
+		$("p").hide();
+	});
+	$("#show").click(function(){
+		$("p").show();
+	});
+});
