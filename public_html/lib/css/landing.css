@@ -21,12 +21,28 @@ h6 {
 	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: 700;
 }
+
+#more-about-us {
+	background-color:black;
+	color:white;
+}
 #about-us {
-	padding-top:75px;
+	padding-top:65px;
 	font-size:1.25em;
 }
+
+#one {
+	color:deepskyblue;
+}
+
+#be {
+	color:deepskyblue;
+}
+#join {
+	color: deepskyblue;
+}
 .people {
-	color: #668dff;
+	color: deepskyblue;
 }
 .about-text {
 	font-size:1.25em;

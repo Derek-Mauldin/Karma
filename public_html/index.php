@@ -218,11 +218,11 @@ require_once("php/template/head-utils.php");
 					<div class="about-text">
 					<h1 class="lead text-center" id="about-us"><b>Karmify</b><br></h1>
 						<div class="about-body">
-					<p class="about-text">The Karmafied philosophy is all about <span class="people text-center">people helping people.</span><br></p>
-					<p class="about-text">One small act of kindness can make someone's
+					<p class="about-text"><span class="people text-center">People helping people </span> is the karmified philosophy.<br></p>
+					<p class="about-text"><span id="one">One small act of kindness</span> can make someone's
 						day, resulting in a dominoe effect that can change the world.<br></p>
-					<p class="about-text"> BE the change that you want to see in the world!<br></p>
-					<p class="about-text text-center"><a href="#">Join us today!</a><br> </p>
+					<p class="about-text"> <span id="be">BE </span>the change that you want to see in the world!<br></p>
+					<p class="about-text text-center"><a href="#"><span id="join">Join us today!</span></a><br> </p>
 				</div>
 				</div>
 					</div>
