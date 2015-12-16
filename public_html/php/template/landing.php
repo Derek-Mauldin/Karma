@@ -327,9 +327,8 @@
 							<li class="footer-menu-divider">&sdot;</li>
 
 							<li class="footer-menu-divider">&sdot;</li>
-							<li>
-								<a href="#contact">Contact</a>
-							</li>
+							<li><a href="#contact-us-modal" data-toggle="modal" data-target="#contact-us-modal">Contact</a></li>
+
 						</ul>
 						<p class="copyright text-muted small">Copyright &copy; Kammify 2015. All Rights Reserved</p>
 					</div>
@@ -337,6 +336,7 @@
 			</div>
 		</footer>
 
+		<?php require_once("../../php/modals/contact-us-modal.php"); ?>
 
 	</body>
 
