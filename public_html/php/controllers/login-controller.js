@@ -65,6 +65,10 @@ $(document).ready(
 							$("#loginError").html(ajaxOutput);
 						} else {
 							window.location = "home.php";
+							$("#profile-page").hide();
+							$("#message-page").hide();
+							$("#feed-page").hide();
+							$("#home-page").show();
 						}
 
 					}
