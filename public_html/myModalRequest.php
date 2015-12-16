@@ -8,7 +8,7 @@
 			<div class="modal-header">
 
 				<!--modal-button-->
-				<button type="button" class="close" data-dismiss="modal" aria-label="close"><span hidden="true">&times;</span></button>
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 					<h1>Request</h1>
 			</div><!--/modal-header-->
 
