@@ -116,7 +116,7 @@
 									<a href="https://twitter.com/KarmaCanDo?lang=en" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
 								</li>
 								<li>
-									<a href="https://google.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-google-plus"></i> <span class="network-name">Google +</span></a>
+									<a href="https://business.google.com/b/112680447560323078537/dashboard/getstarted?hl=en&service=plus" class="btn btn-default btn-lg"><i class="fa fa-google-plus"></i> <span class="network-name">Google +</span></a>
 								</li>
 								<li>
 									<a href="https://www.facebook.com/Karmified-1648023685467561/" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
@@ -147,6 +147,8 @@
 												<!--<div class="col-xs-6">
 													<a href="#login-form" class="active" id="login-form-link">Login</a>
 												</div>-->
+												<form id="login-form" name="login-form" action="../controllers/login-controller.php" method="post" role="form">
+
 												<div class="col-xs-6 text-center" >
 													<a href="#register-form" class="text-center" id="register-form-link">Sign Up</a>
 												</div><!--/.col-md-6-->

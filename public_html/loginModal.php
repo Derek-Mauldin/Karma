@@ -25,3 +25,9 @@
 		</div>
 	</div>
 </div>
+
+<!--<div class="checkbox">
+	<label>
+		<input type="checkbox" name="remember" id="remember"> Remember login
+	</label>
+</div>-->
