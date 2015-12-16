@@ -282,63 +282,6 @@ require_once("php/template/head-utils.php");
 
 
 
-		  <div class="modal fade" id="contactUsModal">
-			  <div class="modal-dialog">
-				  <div class="modal-content">
-					  <div class="modal-header">
-						  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-						  <h4 class="modal-title">Contact Us</h4>
-					  </div>
-
-
-					  <div class="modal-body">
-						  <form method="get" action="php/controllers/message-controller.php" id="contact-us" name="contact-us" class="form-horizontal col-xs-10 col-xs-offset-1">
-							  <div class="form-group">
-								  <!-- Labels for each field are places within a <label> tag. Use the "for" attribute. the class="control-label" is for styling. -->
-								  <label for="contactUsName" class="control-label">Name</label>
-								  <!-- the div class="input-group" contains both the text field and the icon to the left -->
-								  <div class="input-group">
-									  <!-- this div and span contains the glyphicon to the left. aria-hidden is so that screen readers don't read this element -->
-									  <div class="input-group-addon">
-										  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-									  </div>
-									  <!-- text field input. pay attention to the id, placeholder text, type, and placeholder attributes -->
-									  <input type="text" class="form-control" id="contactUsName" name="contactUsName"  placeholder="Your name here." maxlength="150" />
-								  </div>
-							  </div>
-
-							  <div class="form-group">
-								  <label for="contactUsEmail" class="control-label">Email</label>
-								  <div class="input-group">
-									  <div class="input-group-addon">
-										  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
-									  </div>
-									  <input type="email" id="contactUsEmail" name="contactUsEmail" class="form-control" maxlength="150" placeholder="your.email@something.com"/>
-								  </div>
-							  </div>
-
-							  <div class="form-group">
-								  <label class="control-label" for="txtareaComments">What's your beef!</label>
-								  <textarea class="form-control" rows="5" id="txtareaComments" maxlength="500" placeholder="500 characters max."></textarea>
-							  </div>
-
-							  <div class="form-group">
-								  <!-- the following <a> tag has been styled as a button with class="btn" -->
-								  <a id="reset-form" class="btn" role="button">Reset Form</a>
-								  <button type="submit" class="btn">Submit</button>
-							  </div>
-						  </form>
-					  </div> <!-- CLOSE FORM WRAP -->
-
-
-					  </div><!--/row-->
-				  </div><!--/panel-body-->
-			  </div><!--/panel-login-->
-
-		  </div><!--/col-md-6-->
-	  </div><!--/row-->
-	</div><!--/container-->
-
 
 
 

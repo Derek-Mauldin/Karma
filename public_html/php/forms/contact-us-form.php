@@ -78,6 +78,4 @@
 					</div>
 				</form>
 			</div> <!-- CLOSE FORM WRAP -->
-		</body
 
-	</html>

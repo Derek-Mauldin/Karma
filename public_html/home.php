@@ -503,7 +503,7 @@ require_once("php/template/head-utils.php");
 
 					<!------------------------------------------offer form modal--------------------------------------------------->
 
-					<?php require_once("../../php/template/offer-modal.php"); ?>
+					<?php require_once("offer-modal.php"); ?>
 
 					<!--------------------------------------request modal------------------>
 
