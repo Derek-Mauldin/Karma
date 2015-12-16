@@ -28,14 +28,17 @@ try {
 	for($i=1; $i <= $messagesSentCount; $i++) {
 
 		$message = $messagesSent[$messagesSent->key()];
-		$profileHandle = $profile->getProfileHandle();
+
+		$messageReceiverId = $message->getMessageReceiverId();
+		$messageReceiver = Profile::getProfileByProfileId($pdo, $messageReceiverId);
+		$messageReceiverUserName = $messageReceiver->getProfileHandle();
 		$messageContent = $message->getMessageContent();
 		$messageDate = $message->getMessageDate()->format("Y-m-d H:i:s");
 
 		echo <<< BLAME_ROCHELLE
 		<tr>
 		<td><input type="checkbox"></td>
-		<td class="mailbox-name"><a href="read-mail.html">$profileHandle</a></td>
+		<td class="mailbox-name"><a href="read-mail.html"> To $messageReceiverUserName</a></td>
 		<td class="mailbox-subject">$messageContent</td>
 		<td class="mailbox-attachment"></td>
 		<td class="mailbox-date">$messageDate</td>
