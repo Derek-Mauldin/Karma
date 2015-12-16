@@ -9,6 +9,7 @@ $PAGE_TITLE = "Welcome to Karma";
 /*load head-utils.php*/
 require_once("php/template/head-utils.php");
 ?>
+<link rel="stylesheet" href="lib/css/landing.css">
 
 <body>
 
@@ -51,7 +52,7 @@ require_once("php/template/head-utils.php");
 					<h4 class="modal-title">Log-in</h4>
 				</div>
 				<div class="modal-body">
-									<form id="login-form" name="login-form" action="<?php echo $PREFIX;?>php/controllers/login-controller.php" method="post" role="form">
+						<form id="login-form" name="login-form" action="<?php echo $PREFIX;?>php/controllers/login-controller.php" method="post" role="form">
 										<div class="form-group">
 											<input type="email" name="logInEmail" id="logInEmail" tabindex="1" class="form-control" placeholder="Email" value="">
 										</div><!--/.form-group-->
@@ -154,7 +155,7 @@ require_once("php/template/head-utils.php");
 
 										<!---register form-->
 
-										<form id="register-form" name="register-form" action="../controllers/register-controller.php" method="post" role="form" >
+										<form id="register-form" name="register-form" action="php/controllers/register-controller.php" method="post" role="form" >
 											<div class="form-group">
 												<input type="text" name="firstName" id="firstName" tabindex="1" class="form-control" placeholder="First Name" value="">
 											</div><!--/form-group-->
@@ -208,38 +209,47 @@ require_once("php/template/head-utils.php");
 		<!-- /.content-section-a -->
 
 
-		<div class="content-section-b" id="more-about-us">
+	<div class="content-section-b" id="more-about-us">
 
-			<div class="container">
+		<div class="container">
 
-				<div class="row">
-					<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-						<hr class="section-heading-spacer">
-						<div class="clearfix"></div>
-						<h2 class="section-heading" id="about-us">KARMA'S ONLY A BITCH IF YOU ARE</h2>
-
-
-					</div>
-					<div class="section-body" >
-						<p class="learn-more" id="learn-more">A site designed to bring back the heart to society.  With a-pass-it-on lifestyle, members
-							can offer help such as tutoring lessons and receive help as well.  Givers are encouraged.  No money.
-							Just old-school frienships and good samaritans.  Takes the questions out of what people need.  Brings
-							us closer to our neighbors. And, let's us stay at home while racking up some feel good karma.  </p>
-
-					</div>
-					<div class="col-lg-5 col-sm-pull-6  col-sm-6">
-						<img class="img-responsive" src="img/girl-robot.png" alt="">
-					</div>
+			<div class="row">
+				<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h2 class="section-heading" id="about-us">KARMA'S ONLY A BITCH IF YOU ARE</h2>
 				</div>
-
+				<div class="col-lg-5 col-sm-pull-6  col-sm-6">
+					<img class="img-responsive" src="img/girl-robot.png" alt="">
+				</div>
 			</div>
-			<!-- /.container -->
 
 		</div>
-		<!-- /.content-section-b -->
+		<!-- /.container -->
 
+	</div>
+	<!-- /.content-section-b -->
 
+	<div class="hidden content-section-c">
 
+		<div class="container">
+
+			<div class="row">
+				<div class="col-lg-5 col-sm-6">
+					<hr class="section-heading-spacer">
+					<div class="clearfix"></div>
+					<h2 class="section-heading" id="about-us">KARMA'S ONLY A BITCH IF YOU ARE</h2>
+				</div>
+				<div class="col-lg-5 col-lg-offset-2 col-sm-6">
+					<img class="img-responsive" src="img/girl-robot.png" alt="">
+				</div>
+			</div>
+
+		</div>
+		<!-- /.container -->
+
+	</div>
+	<!-- /.content-section-a -->
 
 
 		<div class="banner">
@@ -269,6 +279,70 @@ require_once("php/template/head-utils.php");
 
 		</div><!-- /.banner -->
 
+
+
+
+		  <div class="modal fade" id="contactUsModal">
+			  <div class="modal-dialog">
+				  <div class="modal-content">
+					  <div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+						  <h4 class="modal-title">Contact Us</h4>
+					  </div>
+
+
+					  <div class="modal-body">
+						  <form method="get" action="php/controllers/message-controller.php" id="contact-us" name="contact-us" class="form-horizontal col-xs-10 col-xs-offset-1">
+							  <div class="form-group">
+								  <!-- Labels for each field are places within a <label> tag. Use the "for" attribute. the class="control-label" is for styling. -->
+								  <label for="contactUsName" class="control-label">Name</label>
+								  <!-- the div class="input-group" contains both the text field and the icon to the left -->
+								  <div class="input-group">
+									  <!-- this div and span contains the glyphicon to the left. aria-hidden is so that screen readers don't read this element -->
+									  <div class="input-group-addon">
+										  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									  </div>
+									  <!-- text field input. pay attention to the id, placeholder text, type, and placeholder attributes -->
+									  <input type="text" class="form-control" id="contactUsName" name="contactUsName"  placeholder="Your name here." maxlength="150" />
+								  </div>
+							  </div>
+
+							  <div class="form-group">
+								  <label for="contactUsEmail" class="control-label">Email</label>
+								  <div class="input-group">
+									  <div class="input-group-addon">
+										  <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+									  </div>
+									  <input type="email" id="contactUsEmail" name="contactUsEmail" class="form-control" maxlength="150" placeholder="your.email@something.com"/>
+								  </div>
+							  </div>
+
+							  <div class="form-group">
+								  <label class="control-label" for="txtareaComments">What's your beef!</label>
+								  <textarea class="form-control" rows="5" id="txtareaComments" maxlength="500" placeholder="500 characters max."></textarea>
+							  </div>
+
+							  <div class="form-group">
+								  <!-- the following <a> tag has been styled as a button with class="btn" -->
+								  <a id="reset-form" class="btn" role="button">Reset Form</a>
+								  <button type="submit" class="btn">Submit</button>
+							  </div>
+						  </form>
+					  </div> <!-- CLOSE FORM WRAP -->
+
+
+					  </div><!--/row-->
+				  </div><!--/panel-body-->
+			  </div><!--/panel-login-->
+
+		  </div><!--/col-md-6-->
+	  </div><!--/row-->
+	</div><!--/container-->
+
+
+
+
+
 		<!-- Footer -->
 		<footer>
 			<div class="container">
@@ -285,7 +359,7 @@ require_once("php/template/head-utils.php");
 							<li class="footer-menu-divider">&sdot;</li>
 
 							<li class="footer-menu-divider">&sdot;</li>
-							<li><a href="#contact-us-modal" data-toggle="modal" data-target="#contact-us-modal">Contact</a></li>
+							<li><a href="#contactUsModal" data-toggle="modal" data-target="#contactUsModal">Contact</a></li>
 
 						</ul>
 						<p class="copyright text-muted small">Copyright &copy; Karmify 2015. All Rights Reserved</p>
