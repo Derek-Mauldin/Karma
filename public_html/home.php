@@ -443,7 +443,7 @@ require_once("php/template/head-utils.php");
 
 				<!-------------------------------------------- feed page------------------------------------------------->
 
-				<div class="feed" id="feed-page" style="display:none;">
+				<div class="feed" id="feed-page" >
 					<div class="container">
 						<div class="row">
 
@@ -473,7 +473,7 @@ require_once("php/template/head-utils.php");
 							<?php require_once "php/controllers/need-scroller-controller.php" ?>
 
 							<div class="listing-clearfix panel panel-default" id="panel-wrapper">
-								<h4><span id='close'>x</span></h4>
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 
 								<div class="panel-heading">
 
