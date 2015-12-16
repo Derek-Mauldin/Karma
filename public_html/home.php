@@ -165,7 +165,7 @@ require_once("php/template/head-utils.php");
 													<div class="row" id="message" >
 
 
-												</li><!--/.list-group-item #message-wrapper-->
+												<li><!--/.list-group-item #message-wrapper-->
 
 												<li class="list-group-item" id="message-wrapper">
 													<div class="row" id="messsage"></div>
@@ -260,27 +260,9 @@ require_once("php/template/head-utils.php");
 														<div class="table-responsive mailbox-messages">
 															<table class="table table-hover table-striped">
 																<tbody>
-																	<tr>
-																		<td><input type="checkbox"></td>
-																		<td class="mailbox-name"><a href="read-mail.html">Evan Smith</a></td>
-																		<td class="mailbox-subject"><b>Offer Accepted</b> Hi! Yes, let's arrange a skype</td>
-																		<td class="mailbox-attachment"></td>
-																		<td class="mailbox-date">5 mins ago</td>
-																	</tr>
-																	<tr>
-																		<td><input type="checkbox"></td>
-																		<td class="mailbox-name"><a href="read-mail.html">Gerald Fongwe</a></td>
-																		<td class="mailbox-subject"><b>Offer Accepted</b> Definitely!...</td>
-																		<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-																		<td class="mailbox-date">28 mins ago</td>
-																	</tr>
-																	<tr>
-																		<td><input type="checkbox"></td>
-																		<td class="mailbox-name"><a href="read-mail.html">Derek Mauldin</a></td>
-																		<td class="mailbox-subject"><b>Offer Made</b> I would love to help out..</td>
-																		<td class="mailbox-attachment"><i class="fa fa-paperclip"></i></td>
-																		<td class="mailbox-date">11 hours ago</td>
-																	</tr>
+
+																	<div class="row" id="messageSent"></div>
+
 																</tbody>
 															</table><!-- /.table -->
 														</div><!-- /.mail-box-messages -->

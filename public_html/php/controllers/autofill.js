@@ -24,9 +24,17 @@ function autofill() {
 
 	$.ajax({
 		type: "GET",
-		url: "php/controllers/message-recieved-retrieval.php",
+		url: "php/controllers/message-received-retrieval.php",
 		success: function(messages) {
 			$("#message").html(messages);
+		}
+	});
+
+	$.ajax({
+		type: "GET",
+		url: "php/controllers/message-sent-retrieval.php",
+		success: function(messages) {
+			$("#messageSent").html(messages);
 		}
 	});
 }
