@@ -21,8 +21,12 @@ h6 {
 	font-family: "Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-weight: 700;
 }
-.section-heading {
-	padding:70px;
+#about-us {
+	padding-top:75px;
+}
+
+#robot {
+	margin-top:25px;
 }
 .topnav {
 	font-size: 14px;
@@ -41,7 +45,7 @@ h2 .section-heading {
 }
 
 .content-section-b {
-	margin: 150px;
+	margin-top: 100px;
 }
 #landing-logo {
 	height:150px;

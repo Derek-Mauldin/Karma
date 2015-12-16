@@ -15,8 +15,9 @@
 			<!--modal-body-->
 			<div class="modal-body">
 
-	<!--controller-->
-				<form method="get" action="php/controllers/message-controller.php" id="contact-us" name="contact-us" class="form-horizontal col-xs-10 col-xs-offset-1">
+	<!--form-->
+				<form role="form" id="contactUsModal" data-toggle="validator" class="shake"> 
+					<form method="get" action="php/controllers/message-controller.php" id="contact-us" name="contact-us" class="form-horizontal col-xs-10 col-xs-offset-1">
 
 
 	<!--fields-->

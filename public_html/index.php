@@ -220,7 +220,7 @@ require_once("php/template/head-utils.php");
 					<h2 class="section-heading" id="about-us">KARMA'S ONLY A BITCH IF YOU ARE</h2>
 				</div>
 				<div class="col-lg-5 col-sm-pull-6  col-sm-6">
-					<img class="img-responsive" src="img/girl-robot.png" alt="">
+					<img class="img-responsive" id="robot" src="img/girl-robot.png" alt="">
 				</div>
 			</div>
 
@@ -278,13 +278,6 @@ require_once("php/template/head-utils.php");
 			</div><!-- /.container -->
 
 		</div><!-- /.banner -->
-
-
-
-
-
-
-
 
 		<!-- Footer -->
 		<footer>
