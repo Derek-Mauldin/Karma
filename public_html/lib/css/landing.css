@@ -23,6 +23,16 @@ h6 {
 }
 #about-us {
 	padding-top:75px;
+	font-size:1.25em;
+}
+.people {
+	color: #668dff;
+}
+.about-text {
+	font-size:1.25em;
+}
+.about-body {
+	text-align: justify;
 }
 
 #robot {

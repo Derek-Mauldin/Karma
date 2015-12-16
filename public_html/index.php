@@ -210,14 +210,22 @@ require_once("php/template/head-utils.php");
 
 	<div class="content-section-b" id="more-about-us">
 
-		<div class="container">
-
+		<div class="container" >
 			<div class="row">
 				<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
 					<hr class="section-heading-spacer">
 					<div class="clearfix"></div>
-					<h2 class="section-heading" id="about-us">KARMA'S ONLY A BITCH IF YOU ARE</h2>
+					<div class="about-text">
+					<h1 class="lead text-center" id="about-us"><b>Karmify</b><br></h1>
+						<div class="about-body">
+					<p class="about-text">The Karmafied philosophy is all about <span class="people text-center">people helping people.</span><br></p>
+					<p class="about-text">One small act of kindness can make someone's
+						day, resulting in a dominoe effect that can change the world.<br></p>
+					<p class="about-text"> BE the change that you want to see in the world!<br></p>
+					<p class="about-text text-center"><a href="#">Join us today!</a><br> </p>
 				</div>
+				</div>
+					</div>
 				<div class="col-lg-5 col-sm-pull-6  col-sm-6">
 					<img class="img-responsive" id="robot" src="img/girl-robot.png" alt="">
 				</div>

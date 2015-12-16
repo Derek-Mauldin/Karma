@@ -167,13 +167,12 @@ require_once("php/template/head-utils.php");
 
 										<!---------------------------------------------message user ---------------------------------------------------->
 
-										<div class="panel-group" id="message-wrapper">
-											<div class="panel panel-default" id="message-header-wrapper">
-												<div class="panel-heading" id="message-header">
+										<div class="panel panel-default" id="message-footer-wrapper">
+											<!--<div class="panel panel-default" id="message-footer">
 													<button type="button" class="hidden btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>
-												</div><!--/.panel-heading-->
-													<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#requestModal">Update Request</button>
-											</div><!--/.panel-heading-->
+												-->	<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#requestModal">Update Request</button>
+											</div><!--/.panel-->
+											</div>
 
 
 												<!----------------------------------------message user profile modal----------------------------------------->
@@ -187,8 +186,6 @@ require_once("php/template/head-utils.php");
 										</div><!--/.panel-group #message-wrapper-->
 									</div><!--/.panel-default-->
 								</div><!--panel-group #profile-panel-->
-							</div><!--col-md-8 #profile-->
-						</div><!--row #profile-page-->
 
 					<!---------------------------------------------------mailbox-page-------------------------------------------------->
 
@@ -494,8 +491,7 @@ require_once("php/template/head-utils.php");
 								<div id="editUserError" name="editUserError"></div>
 							</div><!--/.panel-edit-->
 						</div><!--.edit-profile-->
-					</div><!--/.edit-profile-wrapper--->
-				</div><!--/edit-profile-page-->
+					</div><!--/.edit-profile-page--->
 
 				<!-------------------------------------------- feed page------------------------------------------------->
 
@@ -557,14 +553,12 @@ require_once("php/template/head-utils.php");
 						<h2>You are now Logged Out</h2>
 					</div><!--/#logout-page-->
 
-					<!------------------------------------------offer form modal--------------------------------------------------->
+					<!----------------------------------- modals--------------------------------------------------->
 
 					<?php require_once("offer-modal.php"); ?>
 
-					<!--------------------------------------request modal------------------>
-
 					<?php require_once("myModalRequest.php"); ?>
-
+					<?php require_once("contact-us-modal.php"); ?>
 
 					<!----------------------------------/main-content--------------------------------------------------->
 
@@ -572,13 +566,37 @@ require_once("php/template/head-utils.php");
 				</div><!--container ##main-content-wrapper-->
 			</div><!--/.row #main-content-->
 		</div>
-	</div><!--/.main-content-wrapper-->
-	</div><!--/.site-content-->
+	</div>
+	</div>
+
 
 	<!----------------------------------------------footer-------------------------------------------------------->
 
 
-		<?php require_once("php/template/footer.php"); ?>
+	<!-- Footer -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<ul class="list-inline">
+						<li>
+							<a href="#">Home</a>
+						</li>
+						<li class="footer-menu-divider">&sdot;</li>
+						<li>
+							<a href="#about-us">About</a>
+						</li>
+						<li class="footer-menu-divider">&sdot;</li>
+
+						<li class="footer-menu-divider">&sdot;</li>
+						<li><a href="#contactUsModal" data-toggle="modal" data-target="#contactUsModal">Contact</a></li>
+
+					</ul>
+					<p class="copyright text-muted small">Copyright &copy; Karmify 2015. All Rights Reserved</p>
+				</div>
+			</div>
+		</div>
+	</footer>
 
 
 </body><!--/.site-->

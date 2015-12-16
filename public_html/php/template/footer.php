@@ -7,20 +7,13 @@
 						<a href="#">Home</a>
 					</li>
 					<li class="footer-menu-divider">&sdot;</li>
-					<li>
-						<a href="#about">About</a>
-					</li>
+					<li><a href="#about">About</a></li>
 					<li class="footer-menu-divider">&sdot;</li>
-					<li>
-						<a href="#services">Services</a>
-					</li>
-					<li class="footer-menu-divider">&sdot;</li>
-					<li>
-						<a href="#contact">Contact</a>
-					</li>
+					<li><a href="#contactUsModal" data-toggle="modal" data-target="#contactUsModal">Contact</a></li>
 				</ul>
-				<p class="copyright text-muted small">Copyright &copy; Kammify 2015. All Rights Reserved</p>
+				<p class="copyright text-muted small">Copyright &copy; Karmify 2015. All Rights Reserved</p>
 			</div>
 		</div>
 	</div>
+
 </footer>
