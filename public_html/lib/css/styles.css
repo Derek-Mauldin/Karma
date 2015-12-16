@@ -9,9 +9,14 @@
 	font-family: 'Roboto', sans-serif;
 }
 
+ul li {
+	list-style-type: none;
+}
 
-
-
+#edit-profile-wrapper	{padding:35px;
+	margin:35px;
+	border:5px solid grey;
+}
 
 /******************************************************************
 *
@@ -31,6 +36,10 @@ img {
 	-webkit-transition: -webkit-transform 0.2s;
 	-moz-transition: -moz-transform 0.2s;
 	-o-transition: -o-transform 0.2s;
+}
+
+.time {
+	margin-left:65px;
 }
 
 #recover {

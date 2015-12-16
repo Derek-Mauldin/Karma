@@ -93,8 +93,7 @@ require_once("php/template/head-utils.php");
 					</div><!--/panel-login-->
 
 				</div><!--/col-md-6-->
-			</div><!--/row-->
-		</div><!--/container-->
+
 
 		<a name="about"></a>
 		<div class="intro-header">

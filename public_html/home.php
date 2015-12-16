@@ -9,6 +9,7 @@ $PAGE_TITLE = "Welcome to Karma";
 /*load head-utils.php*/
 require_once("php/template/head-utils.php");
 ?>
+<link rel="stylesheet" href="lib/css/styles.css">
 
 <!---------------------------------------body-------------------------------------------------------->
 
@@ -51,9 +52,72 @@ require_once("php/template/head-utils.php");
 								</div><!--/panel-info #date-wrapper -->
 							</div><!--/col-md-8 #panel-default-->
 						</div><!--/row #date-->
-					</div><!--/container #home-page-->
 
-					<!----------------------------------------profile page------------------------------------------------->
+
+					<!---------------------------------------home-page-content------------------------>
+						<div class="row" id= "deed">
+
+							<div class="col-md-8" id=" panel-default">
+
+								<div class="panel panel-default" id="deed-wrapper">
+									<div class="panel-heading" id="deed">
+										<p class="lead">Daily Deed</p>
+									</div><!--/.panel-heading #date-header-->
+
+									<div class="panel-body">
+										<h1 class="lead"><b>Learn someone's name.</b></h1><br>
+										<p>.Brighten someone's day by showing you value them enough to remember
+										their name.  +, It's an easy, great way to make a friend.</p>
+										<p><a id="deed-names" href="http://www.forbes.com/sites/work-in-progress/2013/08/21/the-best-five-tricks-to-remember-names/">
+											The 5 Best Tricks to Remember Names
+											</a><!--/#deed-names-->
+										</p>
+										</div><!--/panel-default-->
+									</div>
+								</div>
+							</div>
+
+
+						<!-----suggested events-->
+					<div class="row" id= "event">
+						<div class="col-md-8" id=" panel-default">
+
+							<div class="panel panel-default" id="local-event-wrapper">
+								<div class="panel-heading" id="local-events">
+									<p class="lead">Upcoming Event</p>
+									</div>
+									<div class="panel-body" id="local-events">
+										<a target="self" href="http://albuquerque.eventful.com/events/magical-winter-ball-/E0-001-089154594-0">
+											<img src="img/winterball.jpeg" alt="thumbnail image" class="img-thumbnail pull-right"></a>
+
+										<h1 class="lead"><b>Magical Winter Ball</b></h1>
+										<ul>
+											<li><p><b>Date:</b>  Saturday, February 6, 2016</p></li>
+											<li><p><b>Time:</b>  7:00 PM</p></li>
+											<li><p><b>Benefiting: </b>  UNM Children's Hospital and 200 Boys & Girls Club kids</p></li>
+											<li><p><b>Location: </b><a href="https://www.google.com/maps/place/330+Tijeras+Ave+NW,+Albuquerque,+NM+87102/@35.0862923,-106.6526038,17z/data=!3m1!4b1!4m2!3m1!1s0x87220cb8e491811b:0xcd114ef05251be5f">
+														Downtown Albuquerque</a><br>
+													330 Tijeras NW
+													Albuquerque, New Mexico 87102
+												</p></li>
+											<li><p class="text-center"><a href="https://www.eventbrite.com/e/magical-winter-ball-tickets-19689374449?aff=ebapi"
+														 class="btn btn-primary btn-lg active" role="button">Get Tickets</a></p></li>
+
+										</ul>
+
+
+
+								</div><!--/panel-info local-event-wrapper -->
+						</div><!--/col-md-8 #panel-default-->
+					</div><!--/row #date-->
+				</div><!--/container #home-page-->
+
+
+
+
+						</div>
+
+				<!----------------------------------------profile page------------------------------------------------->
 
 					<div class="container" id="profile-page" style="display:none;">
 						<div class="row" id="profile-wrapper">
@@ -162,18 +226,7 @@ require_once("php/template/head-utils.php");
 
 											<!------------------------------------------------inbox------------------------------------------------------>
 
-											<ul class="list-group" id="inbox-wrapper">
-												<li class="list-group-item" id="message-wrapper">
-													<div class="row" id="message" >
 
-
-												</li><!--/.list-group-item #message-wrapper-->
-
-												<li class="list-group-item" id="message-wrapper">
-													<div class="row" id="messsage"></div>
-
-												</li><!--/.list-group-item #message-wrapper-->
-											</ul><!--/.list-group #messages-->
 
 											<!----------------------------------------compose form------------------------------------------------>
 
@@ -324,7 +377,6 @@ require_once("php/template/head-utils.php");
 
 				<div class=edit-profile-page" id="edit-profile-page" style="display:none;">
 					<div class="row" id="edit-profile-wrapper">
-						<div class="col-md-6 col-md-offset-3">
 
 							<!-----------------------------------------edit profile/settings links----------------------------------->
 
@@ -437,8 +489,8 @@ require_once("php/template/head-utils.php");
 								</div><!--/overall-form-wrapper-->
 								<div id="editUserError" name="editUserError"></div>
 							</div><!--/.panel-edit-->
-						</div><!--.edit-profile-wrapper-->
-					</div><!--/.profile-form--->
+						</div><!--.edit-profile-->
+					</div><!--/.edit-profile-wrapper--->
 				</div><!--/edit-profile-page-->
 
 				<!-------------------------------------------- feed page------------------------------------------------->
