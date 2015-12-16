@@ -1,27 +1,25 @@
-/******************************************
+/***************************************************************
 *
 *Template style for karma
 *
 *@author Jennifer Hung <jhung@cnm.edu>
-*/
-
-/**************************************************************
 *
-*body
-*
-****************************************************************/
+*****************************************************************/
+.section-heading {
+	font-family: 'Roboto', sans-serif;
+}
 
 
-/*h2 {
-	color:white;
-}*/
+
+
+
 /******************************************************************
 *
 *image
 *
 ********************************************************************/
 
-/*img:hover {
+img:hover {
 	transform: scale(1.1);
 	-ms-transform: scale(1.1);
 	-webkit-transform: scale(1.1);
@@ -35,6 +33,9 @@ img {
 	-o-transition: -o-transform 0.2s;
 }
 
+#recover {
+	margin-top:45px;
+}
 
 #sent-wrapper {
 	display:none;
@@ -45,61 +46,13 @@ img {
 }
 #feed-page {
 	color:black;
-}*/
-
-
-/*******************************************************************
-*
-*side-bar
-*
-*****************************************************************/
-a {
-	color:grey;
 }
 
 
-
-
-/*#logout-page {
-	display:block;
+#profile-page {
+	display: none;
 }
 
-#message-page {
-	display:none;
-}
-
-#edit-user-form {
-	display:block;
-}
-
-#logo	{
-	height:150px;
-	z-index:100;
-}
-
-#compose-wrapper {
-	display:none;
-}*/
-
-/*#menu {
-	background-color:whitesmoke;
-	border:none;
-}*/
-
-/*#side {
-	background-color:whitesmoke;
-	border:none;
-}
-#sidebar-wrapper {
-	background-color:whitesmoke;
-	border:none;
-}
-
-#bs-sidebar-navbar-collapse-1 {
-	background-color:whitesmoke;
-	border:none;
-
-}*/
 
 /*****************************************************************
 *
@@ -137,59 +90,7 @@ a {
 	flex: 1;
 }
 
-/*
-*search
-*/
-/*.search-form .form-group {
-	float: right !important;
-	transition: all 0.35s, border-radius 0s;
-	width: 32px;
-	height: 32px;
-	background-color: #fff;
-	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
-	border-radius: 25px;
-	border: 1px solid #ccc;
-}
-.search-form .form-group input.form-control {
-	padding-right: 20px;
-	border: 0 none;
-	background: transparent;
-	box-shadow: none;
-	display:block;
-}
-.search-form .form-group input.form-control::-webkit-input-placeholder {
-	display: none;
-}
-.search-form .form-group input.form-control:-moz-placeholder {
-	!* Firefox 18- *!
-	display: none;
-}
-.search-form .form-group input.form-control::-moz-placeholder {
-	!* Firefox 19+ *!
-	display: none;
-}
-.search-form .form-group input.form-control:-ms-input-placeholder {
-	display: none;
-}
-.search-form .form-group:hover,
-.search-form .form-group.hover {
-	width: 100%;
-	border-radius: 4px 25px 25px 4px;
-}
-.search-form .form-group span.form-control-feedback {
-	position: absolute;
-	top: -1px;
-	right: -2px;
-	z-index: 2;
-	display: block;
-	width: 34px;
-	height: 34px;
-	line-height: 34px;
-	text-align: center;
-	color: #3596e0;
-	left: initial;
-	font-size: 14px;
-}*/
+
 
 /**************************************************************
 *
@@ -199,13 +100,5 @@ a {
 ****************************************************************/
 .intro-header {
 	padding-top: 60px;
-}
-
-#register-form {
-	display: none;
-}
-
-#profile-page {
-	display: none;
 }
 

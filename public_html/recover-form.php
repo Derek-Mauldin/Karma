@@ -1,4 +1,5 @@
 <?php
+
 /*grab current directory*/
 $CURRENT_DIR = __DIR__;
 
@@ -9,17 +10,27 @@ $PAGE_TITLE = "Welcome to Karma";
 require_once("php/template/head-utils.php");
 ?>
 
-<body class="recover-body">
+<!---------------------------------------body-------------------------------------------------------->
 
-		<!-- main navbar -->
-	<?php require_once "php/template/main-nav.php"?>
+<body class="site">
+	<div class="site-content">
 
-<h1>hello</h1>
+		<!------------------------------------ side panel --------------------------------------------------->
 
-		<!--recover-form-->
+		<div class="col-md-4 " id="sidebar-wrapper">
+			<h1><a class="sidebar-brand" href="home.php">Karmify</a></h1>
+
+			<section id="menu" class="side-panel panel panel-default">
+
+				<?php require_once("php/template/side-panel.php"); ?>
+		</div><!-- /#sidebar-wrapper -->
+
+
+		<!------------------------------------ main content --------------------------------------------------->
+
 		<div class="container" id="recover-wrapper">
 			<div class="row">
-				<div class="col-lg-6 col-lg-offset-3 col-md-6 col-md-offset-3">
+				<div class="col-md-8 col-xs-12" id="recover">
 
 					<div class="panel panel-success">
 						<div class="panel-body">
@@ -50,6 +61,7 @@ require_once("php/template/head-utils.php");
 				</div>
 			</div>
 		</div> <!-- /container -->
+
 
 
 <?php require_once("php/template/footer.php");?>

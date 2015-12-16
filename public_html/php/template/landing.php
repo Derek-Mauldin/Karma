@@ -5,12 +5,15 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
+		<link href='../../lib/css/landing.css' rel='stylesheet' type='text/css'>
+
+
 		<!-- Bootstrap Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous"/>
 
 		<!-- Optional Bootstrap theme -->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous"/>
-
+		<link href='https://fonts.googleapis.com/css?family=Roboto:400,700' rel='stylesheet' type='text/css'>
 		<!--Font Awesome-->
 		<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 
@@ -19,7 +22,6 @@
 		///////////////////////////////////////////////////// -->
 
 		<!-- Custom CSS -->
-		<link href="../../lib/css/landing.css" rel="stylesheet">
 
 		<!-- Custom Fonts -->
 		<link href="//fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -83,7 +85,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#about">About</a>
+							<a href="#about-us">About</a>
 						</li>
 						<li>
 							<a href="#login">Login</a>
@@ -127,16 +129,19 @@
 			</div><!-- /.container -->
 		</div><!-- /.intro-header -->
 
-		<!-- -------------------------------------------------- Page Content -------------------------------------- -->
-
-		<a  name="login"></a>
-
 
 						<!-- ------------------------------------login/register links--------------------------------- -->
+		<!-- Page Content -->
 
-						<div class="container">
-							<div class="row">
-								<div class="col-md-6 col-md-offset-3">
+		<a  name="login"></a>
+		<div class="content-section-a">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-sm-6">
+						<hr class="section-heading-spacer">
+						<div class="clearfix"></div>
+
 									<div class="panel panel-login">
 										<div class="panel-heading">
 											<div class="row">
@@ -237,18 +242,48 @@
 										</div><!--/panel-login-->
 									</div><!--/panel-login-->
 								</div><!--/col-md-6-->
-							</div><!--/row-->
-						</div><!--/container-->
 
-
-
-	<!--about-->
-		<a name="about-us"></a>
-		<div class="about-us">
-			<h1>About</h1>
+			<div class="col-lg-5 col-lg-offset-2 col-sm-6">
+				<img class="img-responsive" src="../../img/k.png" alt="">
+			</div>
 		</div>
 
+		</div>
+		<!-- /.container -->
+
+		</div>
+		<!-- /.content-section-a -->
+
+
+
+		<a  name="about-us"></a>
+
+		<!-- /.content-section-a -->
+
 		<a  name="contact"></a>
+
+		<div class="content-section-b">
+
+			<div class="container">
+
+				<div class="row">
+					<div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+						<hr class="section-heading-spacer">
+						<div class="clearfix"></div>
+						<h2 class="section-heading">KARMA'S ONLY A BITCH IF YOU ARE</h2>
+					</div>
+					<div class="col-lg-5 col-sm-pull-6  col-sm-6">
+						<img class="img-responsive" src="../../img/girl-robot.png" alt="">
+					</div>
+				</div>
+
+			</div>
+			<!-- /.container -->
+
+		</div>
+		<!-- /.content-section-b -->
+
+
 		<div class="banner">
 
 			<div class="container">
@@ -272,11 +307,9 @@
 					</div>
 				</div>
 
-			</div>
-			<!-- /.container -->
+			</div><!-- /.container -->
 
-		</div>
-		<!-- /.banner -->
+		</div><!-- /.banner -->
 
 		<!-- Footer -->
 		<footer>
@@ -304,6 +337,7 @@
 			</div>
 		</footer>
 
+		<?php require_once("../../php/template/contact-us-modal.php"); ?>
 
 	</body>
 

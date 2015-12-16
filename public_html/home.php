@@ -119,7 +119,7 @@ require_once("php/template/head-utils.php");
 
 												<!----------------------------------------message user profile modal----------------------------------------->
 
-												<?php require_once ("php/template/message-user-modal.php");?>
+												<?php require_once("php/template/message-user-modal.php");?>
 
 
 												<!---------------------------------------------/message user ---------------------------------------------------->
@@ -447,11 +447,32 @@ require_once("php/template/head-utils.php");
 					<h2>Karma Feed</h2>
 
 					<!-------------------------------------------feed panel-------------------------------------------------->
-					<div class="infinite-scroll">
 
-						<?php require_once "php/controllers/need-scroller-controller.php" ?>
+						<div class="infinite-scroll">
 
-					</div><!--/.feed-page-->
+							<?php require_once "php/controllers/need-scroller-controller.php" ?>
+
+							<div class="listing-clearfix panel panel-default" id="panel-wrapper">
+								<h4><span id='close'>x</span></h4>
+
+								<div class="panel-heading">
+
+									<h4 class="listing-title">
+										<span class="request">REQUEST</span>&nbsp;Soccer Coach
+									</h4><!--/.listing-title-->
+								</div><!--/.panel-heading-->
+
+								<div class="panel-body">
+									<a href="#"><img src="http://placehold.it/60x60" alt="thumbnail image" class="img-thumbnail pull-left"></a>
+									<p class="text-justify">One of a group of parents forming a club soccer team for kids ages
+										9-12.We would like a coach.The season begins in May and we would like to start practice
+										ASAP. We will provide snacks for the team.</p>
+									<button class="btn btn-primary btn-md pull-right" type="button" data-toggle="modal" data-target="#offerModal">Make Offer</button>
+
+								</div><!--/panel-body-->
+							</div><!--/.panel-wrapper-->
+						</div><!--/.feed-page-->
+
 
 					<!------------------------------------------logout page------------------------------------------------------>
 

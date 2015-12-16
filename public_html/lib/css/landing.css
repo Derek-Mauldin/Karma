@@ -31,6 +31,10 @@ h6 {
 	font-weight: 400;
 }
 
+h2 .section-heading {
+	font-family: 'Roboto', sans-serif;
+}
+
 #landing-logo {
 	height:150px;
 }
