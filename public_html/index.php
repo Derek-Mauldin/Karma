@@ -9,7 +9,6 @@ $PAGE_TITLE = "Welcome to Karma";
 /*load head-utils.php*/
 require_once("php/template/head-utils.php");
 ?>
-<link rel="stylesheet" href="lib/css/landing.css" >
 
 <body>
 
@@ -30,7 +29,7 @@ require_once("php/template/head-utils.php");
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li>
-							<a href="#about-us">About</a>
+							<a href="#more-about-us">About</a>
 						</li>
 						<li>
 						<li><a href="#myModal" data-toggle="modal" data-target="#myModal">Log-in</a></li>
@@ -209,14 +208,7 @@ require_once("php/template/head-utils.php");
 		<!-- /.content-section-a -->
 
 
-
-		<a  name="about-us"></a>
-
-		<!-- /.content-section-a -->
-
-		<a  name="contact"></a>
-
-		<div class="content-section-b">
+		<div class="content-section-b" id="more-about-us">
 
 			<div class="container">
 
@@ -225,6 +217,7 @@ require_once("php/template/head-utils.php");
 						<hr class="section-heading-spacer">
 						<div class="clearfix"></div>
 						<h2 class="section-heading" id="about-us">KARMA'S ONLY A BITCH IF YOU ARE</h2>
+
 
 					</div>
 					<div class="section-body" >
@@ -260,13 +253,13 @@ require_once("php/template/head-utils.php");
 					<div class="col-lg-6">
 						<ul class="list-inline banner-social-buttons">
 							<li>
-								<a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+								<a href="https://twitter.com/KarmaCanDo?lang=en" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
 							</li>
 							<li>
-								<a href="../forms/register-form.php" class="btn btn-default btn-lg"><i class="fa fa-google-plus"></i> <span class="network-name">Google +</span></a>
+								<a href="https://business.google.com/b/112680447560323078537/dashboard/getstarted?hl=en&service=plus" class="btn btn-default btn-lg"><i class="fa fa-google-plus"></i> <span class="network-name">Google +</span></a>
 							</li>
 							<li>
-								<a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+								<a href="https://www.facebook.com/Karmified-1648023685467561/" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
 							</li>
 						</ul>
 					</div>
@@ -301,7 +294,6 @@ require_once("php/template/head-utils.php");
 			</div>
 		</footer>
 
-		<?php require_once("ourlogin.php"); ?>
 		<?php require_once("contact-us-modal.php"); ?>
 
 

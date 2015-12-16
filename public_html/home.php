@@ -114,23 +114,25 @@ require_once("php/template/head-utils.php");
 										<div class="panel-group" id="message-wrapper">
 											<div class="panel panel-default" id="message-header-wrapper">
 												<div class="panel-heading" id="message-header">
-													<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>											</div><!--/.panel-heading-->
+													<button type="button" class="hidden btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>											</div><!--/.panel-heading-->
+													<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#requestModal">Update Request</button>											</div><!--/.panel-heading-->
 
 
 												<!----------------------------------------message user profile modal----------------------------------------->
 
 												<?php require_once ("message-user-modal.php");?>
+											<?php require_once ("myModalRequest.php");?>
 
 
-												<!---------------------------------------------/message user ---------------------------------------------------->
+
+											<!---------------------------------------------/message user ---------------------------------------------------->
 
 											</div><!--/.panel-default #message-header-wrapper-->
 										</div><!--/.panel-group #message-wrapper-->
 									</div><!--/.panel-default-->
 								</div><!--panel-group #profile-panel-->
 							</div><!--col-md-8 #profile-->
-						</div><!--row #profile-wrapper-->
-					</div><!--/container #profile-page-->
+						</div><!--row #profile-page-->
 
 					<!---------------------------------------------------mailbox-page-------------------------------------------------->
 
@@ -502,6 +504,11 @@ require_once("php/template/head-utils.php");
 					<!------------------------------------------offer form modal--------------------------------------------------->
 
 					<?php require_once("../../php/template/offer-modal.php"); ?>
+
+					<!--------------------------------------request modal------------------>
+
+					<?php require_once("myModalRequest.php"); ?>
+
 
 					<!----------------------------------/main-content--------------------------------------------------->
 
