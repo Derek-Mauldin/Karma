@@ -102,20 +102,12 @@ require_once("php/template/head-utils.php");
 												</p></li>
 											<li><p class="text-center"><a href="https://www.eventbrite.com/e/magical-winter-ball-tickets-19689374449?aff=ebapi"
 														 class="btn btn-primary btn-lg active" role="button">Get Tickets</a></p></li>
-
 										</ul>
-
-
-
 								</div><!--/panel-info local-event-wrapper -->
 						</div><!--/col-md-8 #panel-default-->
 					</div><!--/row #date-->
 				</div><!--/container #home-page-->
-
-
-
-
-						</div>
+			</div>
 
 				<!----------------------------------------profile page------------------------------------------------->
 
@@ -178,16 +170,16 @@ require_once("php/template/head-utils.php");
 										<div class="panel-group" id="message-wrapper">
 											<div class="panel panel-default" id="message-header-wrapper">
 												<div class="panel-heading" id="message-header">
-													<button type="button" class="hidden btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>											</div><!--/.panel-heading-->
-													<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#requestModal">Update Request</button>											</div><!--/.panel-heading-->
+													<button type="button" class="hidden btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Message $user</button>
+												</div><!--/.panel-heading-->
+													<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#requestModal">Update Request</button>
+											</div><!--/.panel-heading-->
 
 
 												<!----------------------------------------message user profile modal----------------------------------------->
 
 												<?php require_once ("message-user-modal.php");?>
 											<?php require_once ("myModalRequest.php");?>
-
-
 
 											<!---------------------------------------------/message user ---------------------------------------------------->
 
